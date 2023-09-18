@@ -75,7 +75,14 @@ public class LoginActivity extends AppCompatActivity {
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                objpostqueue.add(postRequest);
+                // no client-sever database now, disable the feature
+                //objpostqueue.add(postRequest);
+
+                Intent intent = new Intent();
+                final Bundle bundle = new Bundle();
+                intent.setClass(LoginActivity.this, Main2Activity.class);
+                startActivity(intent);
+                LoginActivity.this.finish();
             }
         });
 
