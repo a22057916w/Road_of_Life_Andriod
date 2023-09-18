@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.bilab.LunSenLu"
+    android:versionCode="10004"
+    android:versionName="1.0.0" >
+
+    <uses-sdk
+        android:minSdkVersion="23"
+        android:targetSdkVersion="30" />
+    <!--
+     網路權限
+    <uses-permission android:name="android.permission.INTERNET" />
+    -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="false"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+        android:debuggable="true"
+        android:extractNativeLibs="false"
+        android:icon="@drawable/logo_white"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:testOnly="true"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.bilab.lunsenluandroid.Main2Activity"
+            android:label="@string/title_activity_main2" >
+        </activity>
+        <activity android:name="com.bilab.lunsenluandroid.LoadingActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.bilab.lunsenluandroid.LoginActivity" >
+        </activity>
+        <activity android:name="com.bilab.lunsenluandroid.RegisterActivity" />
+        <activity android:name="com.bilab.lunsenluandroid.MainActivity" >
+        </activity>
+        <activity android:name="com.bilab.lunsenluandroid.AccountMainActivity" />
+        <activity android:name="com.bilab.lunsenluandroid.AccountPasswordActivity" />
+        <activity android:name="com.bilab.lunsenluandroid.DoctorAuthActivity" />
+        <activity android:name="com.bilab.lunsenluandroid.DoctorInsertActivity" />
+        <activity android:name="com.bilab.lunsenluandroid.HealthPassActivity" />
+        <activity android:name="com.bilab.lunsenluandroid.PrivacyPolicyActivity" />
+        <activity android:name="com.bilab.lunsenluandroid.PrivacyPolicy2Activity" />
+        <activity
+            android:name="com.nhi.mhbsdk.ˏ"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name="com.nhi.mhbsdk.ʻ"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name="com.nhi.mhbsdk.ᐝ"
+            android:theme="@style/Theme.Transparent" />
+        <activity
+            android:name="com.nhi.mhbsdk.PlanSelectActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name="com.nhi.mhbsdk.ˋ"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name="com.nhi.mhbsdk.ˊ"
+            android:theme="@style/Theme.Transparent" />
+        <activity
+            android:name="com.nhi.mhbsdk.ˎ"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name="com.nhi.mhbsdk.iF"
+            android:theme="@style/Theme.Transparent" />
+
+        <provider
+            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+            android:authorities="com.bilab.LunSenLu.lifecycle-process"
+            android:exported="false"
+            android:multiprocess="true" />
+    </application>
+
+</manifest>

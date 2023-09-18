@@ -1,0 +1,166 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.bilab.LunSenLu"
+4    android:versionCode="10004"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="23"
+8-->F:\Code\Road_of_Life_Andriod\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="30" />
+9-->F:\Code\Road_of_Life_Andriod\app\src\main\AndroidManifest.xml
+10    <!--
+11     網路權限
+12    <uses-permission android:name="android.permission.INTERNET" />
+13    -->
+14    <uses-permission android:name="android.permission.INTERNET" />
+14-->F:\Code\Road_of_Life_Andriod\app\src\main\AndroidManifest.xml:8:5-67
+14-->F:\Code\Road_of_Life_Andriod\app\src\main\AndroidManifest.xml:8:22-64
+15    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+15-->[:nhisdk_Beta1.07] F:\Code\Road_of_Life_Andriod\nhisdk_Beta1.07\build\.transforms\987a255d712a7c87abbf94a3dc9540fc\transformed\jetified-nhisdk_Beta1.07\AndroidManifest.xml:11:5-79
+15-->[:nhisdk_Beta1.07] F:\Code\Road_of_Life_Andriod\nhisdk_Beta1.07\build\.transforms\987a255d712a7c87abbf94a3dc9540fc\transformed\jetified-nhisdk_Beta1.07\AndroidManifest.xml:11:22-76
+16
+17    <application
+17-->F:\Code\Road_of_Life_Andriod\app\src\main\AndroidManifest.xml:10:5-42:19
+18        android:allowBackup="false"
+18-->F:\Code\Road_of_Life_Andriod\app\src\main\AndroidManifest.xml:11:9-36
+19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+19-->[androidx.core:core:1.1.0] C:\Users\Willy\.gradle\caches\transforms-3\f550a298487282cf8656bb37218ccfab\transformed\core-1.1.0\AndroidManifest.xml:24:18-86
+20        android:debuggable="true"
+21        android:extractNativeLibs="false"
+22        android:icon="@drawable/logo_white"
+22-->F:\Code\Road_of_Life_Andriod\app\src\main\AndroidManifest.xml:12:9-44
+23        android:label="@string/app_name"
+23-->F:\Code\Road_of_Life_Andriod\app\src\main\AndroidManifest.xml:13:9-41
+24        android:roundIcon="@mipmap/ic_launcher_round"
+24-->F:\Code\Road_of_Life_Andriod\app\src\main\AndroidManifest.xml:14:9-54
+25        android:supportsRtl="true"
+25-->F:\Code\Road_of_Life_Andriod\app\src\main\AndroidManifest.xml:15:9-35
+26        android:testOnly="true"
+27        android:theme="@style/AppTheme" >
+27-->F:\Code\Road_of_Life_Andriod\app\src\main\AndroidManifest.xml:16:9-40
+28        <activity
+28-->F:\Code\Road_of_Life_Andriod\app\src\main\AndroidManifest.xml:17:9-21:20
+29            android:name="com.bilab.lunsenluandroid.Main2Activity"
+29-->F:\Code\Road_of_Life_Andriod\app\src\main\AndroidManifest.xml:18:13-42
+30            android:label="@string/title_activity_main2" >
+30-->F:\Code\Road_of_Life_Andriod\app\src\main\AndroidManifest.xml:19:13-57
+31        </activity>
+32        <activity android:name="com.bilab.lunsenluandroid.LoadingActivity" >
+32-->F:\Code\Road_of_Life_Andriod\app\src\main\AndroidManifest.xml:22:9-27:20
+32-->F:\Code\Road_of_Life_Andriod\app\src\main\AndroidManifest.xml:22:19-50
+33            <intent-filter>
+33-->F:\Code\Road_of_Life_Andriod\app\src\main\AndroidManifest.xml:23:13-26:29
+34                <action android:name="android.intent.action.MAIN" />
+34-->F:\Code\Road_of_Life_Andriod\app\src\main\AndroidManifest.xml:24:17-69
+34-->F:\Code\Road_of_Life_Andriod\app\src\main\AndroidManifest.xml:24:25-66
+35
+36                <category android:name="android.intent.category.LAUNCHER" />
+36-->F:\Code\Road_of_Life_Andriod\app\src\main\AndroidManifest.xml:25:17-77
+36-->F:\Code\Road_of_Life_Andriod\app\src\main\AndroidManifest.xml:25:27-74
+37            </intent-filter>
+38        </activity>
+39        <activity android:name="com.bilab.lunsenluandroid.LoginActivity" >
+39-->F:\Code\Road_of_Life_Andriod\app\src\main\AndroidManifest.xml:28:9-30:20
+39-->F:\Code\Road_of_Life_Andriod\app\src\main\AndroidManifest.xml:28:19-48
+40        </activity>
+41        <activity android:name="com.bilab.lunsenluandroid.RegisterActivity" />
+41-->F:\Code\Road_of_Life_Andriod\app\src\main\AndroidManifest.xml:31:9-54
+41-->F:\Code\Road_of_Life_Andriod\app\src\main\AndroidManifest.xml:31:19-51
+42        <activity android:name="com.bilab.lunsenluandroid.MainActivity" >
+42-->F:\Code\Road_of_Life_Andriod\app\src\main\AndroidManifest.xml:32:9-34:20
+42-->F:\Code\Road_of_Life_Andriod\app\src\main\AndroidManifest.xml:32:19-47
+43        </activity>
+44        <activity android:name="com.bilab.lunsenluandroid.AccountMainActivity" />
+44-->F:\Code\Road_of_Life_Andriod\app\src\main\AndroidManifest.xml:35:9-57
+44-->F:\Code\Road_of_Life_Andriod\app\src\main\AndroidManifest.xml:35:19-54
+45        <activity android:name="com.bilab.lunsenluandroid.AccountPasswordActivity" />
+45-->F:\Code\Road_of_Life_Andriod\app\src\main\AndroidManifest.xml:36:9-61
+45-->F:\Code\Road_of_Life_Andriod\app\src\main\AndroidManifest.xml:36:19-58
+46        <activity android:name="com.bilab.lunsenluandroid.DoctorAuthActivity" />
+46-->F:\Code\Road_of_Life_Andriod\app\src\main\AndroidManifest.xml:37:9-56
+46-->F:\Code\Road_of_Life_Andriod\app\src\main\AndroidManifest.xml:37:19-53
+47        <activity android:name="com.bilab.lunsenluandroid.DoctorInsertActivity" />
+47-->F:\Code\Road_of_Life_Andriod\app\src\main\AndroidManifest.xml:38:9-58
+47-->F:\Code\Road_of_Life_Andriod\app\src\main\AndroidManifest.xml:38:19-55
+48        <activity android:name="com.bilab.lunsenluandroid.HealthPassActivity" />
+48-->F:\Code\Road_of_Life_Andriod\app\src\main\AndroidManifest.xml:39:9-56
+48-->F:\Code\Road_of_Life_Andriod\app\src\main\AndroidManifest.xml:39:19-53
+49        <activity android:name="com.bilab.lunsenluandroid.PrivacyPolicyActivity" />
+49-->F:\Code\Road_of_Life_Andriod\app\src\main\AndroidManifest.xml:40:9-59
+49-->F:\Code\Road_of_Life_Andriod\app\src\main\AndroidManifest.xml:40:19-56
+50        <activity android:name="com.bilab.lunsenluandroid.PrivacyPolicy2Activity" />
+50-->F:\Code\Road_of_Life_Andriod\app\src\main\AndroidManifest.xml:41:9-60
+50-->F:\Code\Road_of_Life_Andriod\app\src\main\AndroidManifest.xml:41:19-57
+51        <activity
+51-->[:nhisdk_Beta1.07] F:\Code\Road_of_Life_Andriod\nhisdk_Beta1.07\build\.transforms\987a255d712a7c87abbf94a3dc9540fc\transformed\jetified-nhisdk_Beta1.07\AndroidManifest.xml:16:9-19:72
+52            android:name="com.nhi.mhbsdk.ˏ"
+52-->[:nhisdk_Beta1.07] F:\Code\Road_of_Life_Andriod\nhisdk_Beta1.07\build\.transforms\987a255d712a7c87abbf94a3dc9540fc\transformed\jetified-nhisdk_Beta1.07\AndroidManifest.xml:17:13-44
+53            android:screenOrientation="portrait"
+53-->[:nhisdk_Beta1.07] F:\Code\Road_of_Life_Andriod\nhisdk_Beta1.07\build\.transforms\987a255d712a7c87abbf94a3dc9540fc\transformed\jetified-nhisdk_Beta1.07\AndroidManifest.xml:18:13-49
+54            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+54-->[:nhisdk_Beta1.07] F:\Code\Road_of_Life_Andriod\nhisdk_Beta1.07\build\.transforms\987a255d712a7c87abbf94a3dc9540fc\transformed\jetified-nhisdk_Beta1.07\AndroidManifest.xml:19:13-69
+55        <activity
+55-->[:nhisdk_Beta1.07] F:\Code\Road_of_Life_Andriod\nhisdk_Beta1.07\build\.transforms\987a255d712a7c87abbf94a3dc9540fc\transformed\jetified-nhisdk_Beta1.07\AndroidManifest.xml:20:9-23:72
+56            android:name="com.nhi.mhbsdk.ʻ"
+56-->[:nhisdk_Beta1.07] F:\Code\Road_of_Life_Andriod\nhisdk_Beta1.07\build\.transforms\987a255d712a7c87abbf94a3dc9540fc\transformed\jetified-nhisdk_Beta1.07\AndroidManifest.xml:21:13-44
+57            android:screenOrientation="portrait"
+57-->[:nhisdk_Beta1.07] F:\Code\Road_of_Life_Andriod\nhisdk_Beta1.07\build\.transforms\987a255d712a7c87abbf94a3dc9540fc\transformed\jetified-nhisdk_Beta1.07\AndroidManifest.xml:22:13-49
+58            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+58-->[:nhisdk_Beta1.07] F:\Code\Road_of_Life_Andriod\nhisdk_Beta1.07\build\.transforms\987a255d712a7c87abbf94a3dc9540fc\transformed\jetified-nhisdk_Beta1.07\AndroidManifest.xml:23:13-69
+59        <activity
+59-->[:nhisdk_Beta1.07] F:\Code\Road_of_Life_Andriod\nhisdk_Beta1.07\build\.transforms\987a255d712a7c87abbf94a3dc9540fc\transformed\jetified-nhisdk_Beta1.07\AndroidManifest.xml:24:9-26:56
+60            android:name="com.nhi.mhbsdk.ᐝ"
+60-->[:nhisdk_Beta1.07] F:\Code\Road_of_Life_Andriod\nhisdk_Beta1.07\build\.transforms\987a255d712a7c87abbf94a3dc9540fc\transformed\jetified-nhisdk_Beta1.07\AndroidManifest.xml:25:13-44
+61            android:theme="@style/Theme.Transparent" />
+61-->[:nhisdk_Beta1.07] F:\Code\Road_of_Life_Andriod\nhisdk_Beta1.07\build\.transforms\987a255d712a7c87abbf94a3dc9540fc\transformed\jetified-nhisdk_Beta1.07\AndroidManifest.xml:26:13-53
+62        <activity
+62-->[:nhisdk_Beta1.07] F:\Code\Road_of_Life_Andriod\nhisdk_Beta1.07\build\.transforms\987a255d712a7c87abbf94a3dc9540fc\transformed\jetified-nhisdk_Beta1.07\AndroidManifest.xml:27:9-30:72
+63            android:name="com.nhi.mhbsdk.PlanSelectActivity"
+63-->[:nhisdk_Beta1.07] F:\Code\Road_of_Life_Andriod\nhisdk_Beta1.07\build\.transforms\987a255d712a7c87abbf94a3dc9540fc\transformed\jetified-nhisdk_Beta1.07\AndroidManifest.xml:28:13-61
+64            android:screenOrientation="portrait"
+64-->[:nhisdk_Beta1.07] F:\Code\Road_of_Life_Andriod\nhisdk_Beta1.07\build\.transforms\987a255d712a7c87abbf94a3dc9540fc\transformed\jetified-nhisdk_Beta1.07\AndroidManifest.xml:29:13-49
+65            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+65-->[:nhisdk_Beta1.07] F:\Code\Road_of_Life_Andriod\nhisdk_Beta1.07\build\.transforms\987a255d712a7c87abbf94a3dc9540fc\transformed\jetified-nhisdk_Beta1.07\AndroidManifest.xml:30:13-69
+66        <activity
+66-->[:nhisdk_Beta1.07] F:\Code\Road_of_Life_Andriod\nhisdk_Beta1.07\build\.transforms\987a255d712a7c87abbf94a3dc9540fc\transformed\jetified-nhisdk_Beta1.07\AndroidManifest.xml:31:9-34:72
+67            android:name="com.nhi.mhbsdk.ˋ"
+67-->[:nhisdk_Beta1.07] F:\Code\Road_of_Life_Andriod\nhisdk_Beta1.07\build\.transforms\987a255d712a7c87abbf94a3dc9540fc\transformed\jetified-nhisdk_Beta1.07\AndroidManifest.xml:32:13-44
+68            android:screenOrientation="portrait"
+68-->[:nhisdk_Beta1.07] F:\Code\Road_of_Life_Andriod\nhisdk_Beta1.07\build\.transforms\987a255d712a7c87abbf94a3dc9540fc\transformed\jetified-nhisdk_Beta1.07\AndroidManifest.xml:33:13-49
+69            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+69-->[:nhisdk_Beta1.07] F:\Code\Road_of_Life_Andriod\nhisdk_Beta1.07\build\.transforms\987a255d712a7c87abbf94a3dc9540fc\transformed\jetified-nhisdk_Beta1.07\AndroidManifest.xml:34:13-69
+70        <activity
+70-->[:nhisdk_Beta1.07] F:\Code\Road_of_Life_Andriod\nhisdk_Beta1.07\build\.transforms\987a255d712a7c87abbf94a3dc9540fc\transformed\jetified-nhisdk_Beta1.07\AndroidManifest.xml:35:9-37:56
+71            android:name="com.nhi.mhbsdk.ˊ"
+71-->[:nhisdk_Beta1.07] F:\Code\Road_of_Life_Andriod\nhisdk_Beta1.07\build\.transforms\987a255d712a7c87abbf94a3dc9540fc\transformed\jetified-nhisdk_Beta1.07\AndroidManifest.xml:36:13-44
+72            android:theme="@style/Theme.Transparent" />
+72-->[:nhisdk_Beta1.07] F:\Code\Road_of_Life_Andriod\nhisdk_Beta1.07\build\.transforms\987a255d712a7c87abbf94a3dc9540fc\transformed\jetified-nhisdk_Beta1.07\AndroidManifest.xml:37:13-53
+73        <activity
+73-->[:nhisdk_Beta1.07] F:\Code\Road_of_Life_Andriod\nhisdk_Beta1.07\build\.transforms\987a255d712a7c87abbf94a3dc9540fc\transformed\jetified-nhisdk_Beta1.07\AndroidManifest.xml:38:9-41:72
+74            android:name="com.nhi.mhbsdk.ˎ"
+74-->[:nhisdk_Beta1.07] F:\Code\Road_of_Life_Andriod\nhisdk_Beta1.07\build\.transforms\987a255d712a7c87abbf94a3dc9540fc\transformed\jetified-nhisdk_Beta1.07\AndroidManifest.xml:39:13-44
+75            android:screenOrientation="portrait"
+75-->[:nhisdk_Beta1.07] F:\Code\Road_of_Life_Andriod\nhisdk_Beta1.07\build\.transforms\987a255d712a7c87abbf94a3dc9540fc\transformed\jetified-nhisdk_Beta1.07\AndroidManifest.xml:40:13-49
+76            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+76-->[:nhisdk_Beta1.07] F:\Code\Road_of_Life_Andriod\nhisdk_Beta1.07\build\.transforms\987a255d712a7c87abbf94a3dc9540fc\transformed\jetified-nhisdk_Beta1.07\AndroidManifest.xml:41:13-69
+77        <activity
+77-->[:nhisdk_Beta1.07] F:\Code\Road_of_Life_Andriod\nhisdk_Beta1.07\build\.transforms\987a255d712a7c87abbf94a3dc9540fc\transformed\jetified-nhisdk_Beta1.07\AndroidManifest.xml:42:9-44:56
+78            android:name="com.nhi.mhbsdk.iF"
+78-->[:nhisdk_Beta1.07] F:\Code\Road_of_Life_Andriod\nhisdk_Beta1.07\build\.transforms\987a255d712a7c87abbf94a3dc9540fc\transformed\jetified-nhisdk_Beta1.07\AndroidManifest.xml:43:13-45
+79            android:theme="@style/Theme.Transparent" />
+79-->[:nhisdk_Beta1.07] F:\Code\Road_of_Life_Andriod\nhisdk_Beta1.07\build\.transforms\987a255d712a7c87abbf94a3dc9540fc\transformed\jetified-nhisdk_Beta1.07\AndroidManifest.xml:44:13-53
+80
+81        <provider
+81-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\Willy\.gradle\caches\transforms-3\9eb4f3ed486f708cde679e430c68c677\transformed\jetified-lifecycle-process-2.0.0\AndroidManifest.xml:23:9-27:43
+82            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+82-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\Willy\.gradle\caches\transforms-3\9eb4f3ed486f708cde679e430c68c677\transformed\jetified-lifecycle-process-2.0.0\AndroidManifest.xml:24:13-79
+83            android:authorities="com.bilab.LunSenLu.lifecycle-process"
+83-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\Willy\.gradle\caches\transforms-3\9eb4f3ed486f708cde679e430c68c677\transformed\jetified-lifecycle-process-2.0.0\AndroidManifest.xml:25:13-69
+84            android:exported="false"
+84-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\Willy\.gradle\caches\transforms-3\9eb4f3ed486f708cde679e430c68c677\transformed\jetified-lifecycle-process-2.0.0\AndroidManifest.xml:26:13-37
+85            android:multiprocess="true" />
+85-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\Willy\.gradle\caches\transforms-3\9eb4f3ed486f708cde679e430c68c677\transformed\jetified-lifecycle-process-2.0.0\AndroidManifest.xml:27:13-40
+86    </application>
+87
+88</manifest>

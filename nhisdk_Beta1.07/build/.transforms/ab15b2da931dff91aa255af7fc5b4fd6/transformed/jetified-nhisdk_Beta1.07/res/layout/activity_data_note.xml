@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".LoginDescriptionActivity">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:background="@drawable/bg_login_desc_page">
+
+        <LinearLayout
+            android:id="@+id/nhisdk_data_note_bottom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/margin_middle"
+            android:layout_marginLeft="@dimen/margin_normal"
+            android:layout_marginRight="@dimen/margin_normal"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/nhisdk_data_note_close_btn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bottom_bar_btn_height"
+                android:layout_centerInParent="true"
+                android:background="@drawable/bg_bottom_btn_left"
+                android:gravity="center"
+                android:textSize="@dimen/common_btn_txt_size"
+                android:text="@string/nhisdk_login_desc_btn_close"
+                android:textColor="@color/color_bottom_blue" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/nhisdk_data_note_bottom_bar"
+            android:layout_marginLeft="@dimen/margin_normal"
+            android:layout_marginRight="@dimen/margin_normal"
+            android:layout_marginBottom="@dimen/margin_normal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/login_desc_top_tab_bar_height"
+                android:layout_marginTop="@dimen/margin_middle"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/nhisdk_data_note_tab_note_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="-1dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/top_tab_left_selected"
+                    android:gravity="center"
+                    android:textSize="@dimen/common_tab_txt_size"
+                    android:text="@string/nhisdk_data_note_title"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:id="@+id/nhisdk_data_note_tab_about_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/top_tab_right_unselected"
+                    android:gravity="center"
+                    android:text="@string/nhisdk_login_desc_about"
+                    android:textSize="@dimen/common_tab_txt_size"
+                    android:textColor="@color/color_bottom_blue" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/nhisdk_data_note_note_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_middle"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/nhisdk_data_note_txt_content01"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/common_content_txt_size"
+                    android:layout_marginLeft="7dp"
+                    android:text="@string/nhisdk_data_note_content1"
+                    android:textColor="@android:color/black" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/common_content_txt_size"
+                        android:text="*"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/nhisdk_data_note_content2"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/common_content_txt_size" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/nhisdk_data_note_about_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/margin_middle"
+                android:orientation="vertical">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/nhisdk_data_note_about_txt_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/common_content_txt_size"/>
+                </ScrollView>
+            </LinearLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>
