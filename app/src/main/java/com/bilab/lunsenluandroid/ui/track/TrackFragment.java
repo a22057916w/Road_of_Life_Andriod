@@ -98,7 +98,8 @@ public class TrackFragment extends Fragment {
         //webView.loadUrl("https://www.bbc.com");
         //webView.loadUrl("https://140.124.183.188:2222/LSLDoctor/login/")
         //webView.loadUrl("https://1qigvox2btm9q6ppyry9wq-on.drv.tw/MyWebsite/temp/");
-        webView.loadUrl("https://1qigvox2btm9q6ppyry9wq-on.drv.tw/MyWebsite/kidding/mobile.html");
+        //webView.loadUrl("https://1qigvox2btm9q6ppyry9wq-on.drv.tw/MyWebsite/kidding/mobile.html");
+        webView.loadUrl("https://www.google.com.tw/");
         webView.flingScroll(0,500);
         tablerow_error.setOnClickListener(new View.OnClickListener() {
             @Override
