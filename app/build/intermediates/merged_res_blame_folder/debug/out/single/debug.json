@@ -24,10 +24,6 @@
         "source": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-main-21:\\layout\\fragment_dashboard.xml"
     },
     {
-        "merged": "com.bilab.lunsenluandroid.app-merged_res-19:/layout_fragment_track.xml.flat",
-        "source": "com.bilab.lunsenluandroid.app-main-21:/layout/fragment_track.xml"
-    },
-    {
         "merged": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-merged_res-19:\\mipmap-hdpi_ic_launcher_round.png.flat",
         "source": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-main-21:\\mipmap-hdpi\\ic_launcher_round.png"
     },
@@ -38,6 +34,10 @@
     {
         "merged": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-merged_res-19:\\menu_bottom_nav_menu.xml.flat",
         "source": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-main-21:\\menu\\bottom_nav_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-merged_res-19:\\drawable_baseline_elderly_woman_24.xml.flat",
+        "source": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-main-21:\\drawable\\baseline_elderly_woman_24.xml"
     },
     {
         "merged": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-merged_res-19:\\drawable_dashboard.png.flat",
@@ -52,6 +52,10 @@
         "source": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-pngs-14:\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
     },
     {
+        "merged": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-merged_res-19:\\drawable_mouth.png.flat",
+        "source": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-main-21:\\drawable\\mouth.png"
+    },
+    {
         "merged": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-merged_res-19:\\drawable_circle_button.png.flat",
         "source": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-main-21:\\drawable\\circle_button.png"
     },
@@ -60,12 +64,12 @@
         "source": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-main-21:\\drawable\\a.xml"
     },
     {
-        "merged": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-merged_res-19:\\drawable_remove.png.flat",
-        "source": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-main-21:\\drawable\\remove.png"
-    },
-    {
         "merged": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-merged_res-19:\\drawable_lock.png.flat",
         "source": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-main-21:\\drawable\\lock.png"
+    },
+    {
+        "merged": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-merged_res-19:\\drawable_remove.png.flat",
+        "source": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-main-21:\\drawable\\remove.png"
     },
     {
         "merged": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-merged_res-19:\\drawable_arrow_white_24.png.flat",
@@ -126,6 +130,10 @@
     {
         "merged": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-merged_res-19:\\drawable_arrow_green_24.png.flat",
         "source": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-main-21:\\drawable\\arrow_green_24.png"
+    },
+    {
+        "merged": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-merged_res-19:\\drawable_bladder.png.flat",
+        "source": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-main-21:\\drawable\\bladder.png"
     },
     {
         "merged": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-merged_res-19:\\drawable_logo_white.png.flat",
@@ -236,6 +244,10 @@
         "source": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-main-21:\\drawable\\ic_path_black_24dp.xml"
     },
     {
+        "merged": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-merged_res-19:\\drawable_baseline_pregnant_woman_24.xml.flat",
+        "source": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-main-21:\\drawable\\baseline_pregnant_woman_24.xml"
+    },
+    {
         "merged": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-merged_res-19:\\drawable_arrow_white.png.flat",
         "source": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-main-21:\\drawable\\arrow_white.png"
     },
@@ -292,6 +304,10 @@
         "source": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-main-21:\\drawable\\left_arrow.png"
     },
     {
+        "merged": "com.bilab.lunsenluandroid.app-merged_res-19:/drawable_pregnant.png.flat",
+        "source": "com.bilab.lunsenluandroid.app-main-21:/drawable/pregnant.png"
+    },
+    {
         "merged": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-merged_res-19:\\layout_spinner_item.xml.flat",
         "source": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-main-21:\\layout\\spinner_item.xml"
     },
@@ -308,12 +324,12 @@
         "source": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-main-21:\\drawable\\user.png"
     },
     {
-        "merged": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-merged_res-19:\\layout_activity_web_viewer.xml.flat",
-        "source": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-main-21:\\layout\\activity_web_viewer.xml"
-    },
-    {
         "merged": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-merged_res-19:\\layout_card_layout.xml.flat",
         "source": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-main-21:\\layout\\card_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-merged_res-19:\\layout_activity_web_viewer.xml.flat",
+        "source": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-main-21:\\layout\\activity_web_viewer.xml"
     },
     {
         "merged": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-merged_res-19:\\drawable_call.png.flat",
@@ -326,6 +342,10 @@
     {
         "merged": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-merged_res-19:\\drawable_select_bg.xml.flat",
         "source": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-main-21:\\drawable\\select_bg.xml"
+    },
+    {
+        "merged": "com.bilab.lunsenluandroid.app-merged_res-19:/drawable_elder.png.flat",
+        "source": "com.bilab.lunsenluandroid.app-main-21:/drawable/elder.png"
     },
     {
         "merged": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-merged_res-19:\\drawable_dashboard_preview.png.flat",
@@ -342,5 +362,9 @@
     {
         "merged": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-merged_res-19:\\layout_loading.xml.flat",
         "source": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-main-21:\\layout\\loading.xml"
+    },
+    {
+        "merged": "com.bilab.lunsenluandroid.app-merged_res-19:/drawable_heart.png.flat",
+        "source": "com.bilab.lunsenluandroid.app-main-21:/drawable/heart.png"
     }
 ]

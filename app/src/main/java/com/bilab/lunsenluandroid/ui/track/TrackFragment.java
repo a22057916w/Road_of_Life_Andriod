@@ -81,13 +81,13 @@ public class TrackFragment extends Fragment {
 
         // Here, we have created new array list and added data to it
         ArrayList<CourseModel> courseModelArrayList = new ArrayList<CourseModel>();
-        courseModelArrayList.add(new CourseModel("DSA in Java", 4, R.drawable.baseline_star_24));
-        courseModelArrayList.add(new CourseModel("Java Course", 3, R.drawable.baseline_star_24));
-        courseModelArrayList.add(new CourseModel("C++ Course", 4, R.drawable.baseline_star_24));
-        courseModelArrayList.add(new CourseModel("DSA in C++", 4, R.drawable.baseline_star_24));
-        courseModelArrayList.add(new CourseModel("Kotlin for Android", 4, R.drawable.baseline_star_24));
-        courseModelArrayList.add(new CourseModel("Java for Android", 4, R.drawable.baseline_star_24));
-        courseModelArrayList.add(new CourseModel("HTML and CSS", 4, R.drawable.baseline_star_24));
+        courseModelArrayList.add(new CourseModel("心臟病", "冠狀動脈症候群、心臟衰竭、高血壓性、心臟病、心肌梗塞、風濕性心臟病 ...","40%", R.drawable.heart));
+        courseModelArrayList.add(new CourseModel("不孕症", "男性不孕症、女性不孕症、與無排卵有關之不孕症", "20%", R.drawable.pregnant));
+        courseModelArrayList.add(new CourseModel("老人癡呆症", "初老年期癡呆症、老年期癡呆症併憂鬱或妄想現象、老年期精神病態", "8%", R.drawable.elder));
+        courseModelArrayList.add(new CourseModel("膀胱癌", "膀胱癌是一種生長於膀胱的惡性腫瘤，好發於五十至七十歲之年齡層，百分之九十八膀胱癌屬上皮細胞來源", "5%", R.drawable.bladder));
+        courseModelArrayList.add(new CourseModel("口腔癌", "口腔癌為發生在口腔部位之惡性腫瘤的總稱，90%屬於鱗狀細胞癌", "20%", R.drawable.mouth));
+        courseModelArrayList.add(new CourseModel("口將癌", "口腔癌為發生在口腔部位之惡性腫瘤的總稱，90%屬於鱗狀細胞癌", "20%", R.drawable.mouth));
+        courseModelArrayList.add(new CourseModel("口腔癌", "口腔癌為發生在口腔部位之惡性腫瘤的總稱，90%屬於鱗狀細胞癌", "20%", R.drawable.mouth));
 
         // we are initializing our adapter class and passing our arraylist to it.
         CourseAdapter courseAdapter = new CourseAdapter(this.getActivity(), courseModelArrayList);

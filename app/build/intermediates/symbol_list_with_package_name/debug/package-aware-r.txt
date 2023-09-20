@@ -1091,7 +1091,9 @@ drawable arrow_white_24
 drawable avd_hide_password
 drawable avd_show_password
 drawable b
+drawable baseline_elderly_woman_24
 drawable baseline_heart_broken_24
+drawable baseline_pregnant_woman_24
 drawable baseline_star_24
 drawable bg_bottom_btn_left
 drawable bg_bottom_btn_right
@@ -1105,6 +1107,7 @@ drawable bg_download_statement_no_produce
 drawable bg_login_desc_page
 drawable bg_round_button
 drawable bg_round_button_2
+drawable bladder
 drawable book
 drawable book_download
 drawable btn_x
@@ -1122,9 +1125,11 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable doctor
 drawable down_padding
+drawable elder
 drawable envelope
 drawable envelope_1
 drawable envelope_2
+drawable heart
 drawable home_bg_bottom
 drawable home_bg_top
 drawable ic_dashboard_black_24dp
@@ -1150,6 +1155,7 @@ drawable logo_2
 drawable logo_waterfloat
 drawable logo_white
 drawable more
+drawable mouth
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
@@ -1177,6 +1183,7 @@ drawable notify_panel_notification_icon_bg
 drawable number_arrow_down_icon_size
 drawable number_arrow_up_icon_size
 drawable plan_selection_bg_bottom
+drawable pregnant
 drawable radio_button_bg
 drawable remove
 drawable right
@@ -1354,6 +1361,7 @@ id icon
 id icon_group
 id idIVCourseImage
 id idRVCourse
+id idRiskIndex
 id idTVCourseName
 id idTVCourseRating
 id ifRoom

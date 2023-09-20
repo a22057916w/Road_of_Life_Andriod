@@ -40,13 +40,13 @@ public class DashboardFragment extends Fragment {
 
         // Here, we have created new array list and added data to it
         ArrayList<CourseModel> courseModelArrayList = new ArrayList<CourseModel>();
-        courseModelArrayList.add(new CourseModel("DSA in Java", 4, R.drawable.baseline_star_24));
-        courseModelArrayList.add(new CourseModel("Java Course", 3, R.drawable.baseline_star_24));
-        courseModelArrayList.add(new CourseModel("C++ Course", 4, R.drawable.baseline_star_24));
-        courseModelArrayList.add(new CourseModel("DSA in C++", 4, R.drawable.baseline_star_24));
-        courseModelArrayList.add(new CourseModel("Kotlin for Android", 4, R.drawable.baseline_star_24));
-        courseModelArrayList.add(new CourseModel("Java for Android", 4, R.drawable.baseline_star_24));
-        courseModelArrayList.add(new CourseModel("HTML and CSS", 4, R.drawable.baseline_star_24));
+        courseModelArrayList.add(new CourseModel("心臟病", "冠狀動脈症候群、心臟衰竭、高血壓性、心臟病、心肌梗塞、風濕性心臟病 ...","40%", R.drawable.baseline_heart_broken_24));
+        courseModelArrayList.add(new CourseModel("不孕症", "123", "20%", R.drawable.baseline_heart_broken_24));
+        courseModelArrayList.add(new CourseModel("老人癡呆症", "788", "8%", R.drawable.baseline_heart_broken_24));
+        courseModelArrayList.add(new CourseModel("膀胱癌", "456", "5%", R.drawable.baseline_heart_broken_24));
+        courseModelArrayList.add(new CourseModel("口腔癌", "456", "20%", R.drawable.baseline_heart_broken_24));
+        courseModelArrayList.add(new CourseModel("口將癌", "456", "20%", R.drawable.baseline_heart_broken_24));
+        courseModelArrayList.add(new CourseModel("口腔癌", "5456", "20%", R.drawable.baseline_heart_broken_24));
 
         // we are initializing our adapter class and passing our arraylist to it.
         CourseAdapter courseAdapter = new CourseAdapter(this.getActivity(), courseModelArrayList);

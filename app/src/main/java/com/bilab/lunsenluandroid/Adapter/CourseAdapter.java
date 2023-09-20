@@ -54,6 +54,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
         holder.courseNameTV.setText(model.getCourse_name());
         holder.courseRatingTV.setText("" + model.getCourse_rating());
         holder.courseIV.setImageResource(model.getCourse_image());
+        holder.risk_precentage.setText(model.getRisk_precentage());
     }
 
     @Override
@@ -67,12 +68,14 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
         private final ImageView courseIV;
         private final TextView courseNameTV;
         private final TextView courseRatingTV;
+        private final TextView risk_precentage;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             courseIV = itemView.findViewById(R.id.idIVCourseImage);
             courseNameTV = itemView.findViewById(R.id.idTVCourseName);
             courseRatingTV = itemView.findViewById(R.id.idTVCourseRating);
+            risk_precentage = itemView.findViewById((R.id.idRiskIndex));
         }
     }
 }
