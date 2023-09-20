@@ -50,7 +50,6 @@ public class DashboardFragment extends Fragment {
 
         // we are initializing our adapter class and passing our arraylist to it.
         CourseAdapter courseAdapter = new CourseAdapter(this.getActivity(), courseModelArrayList);
-
         // below line is for setting a layout manager for our recycler view.
         // here we are creating vertical list so we will provide orientation as vertical
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.getActivity(), LinearLayoutManager.VERTICAL, false);

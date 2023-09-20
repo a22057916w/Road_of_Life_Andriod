@@ -1593,6 +1593,7 @@ id up
 id useLogo
 id view_offset_helper
 id visible
+id webView
 id withText
 id wrap
 id wrap_content
@@ -1655,6 +1656,7 @@ layout activity_main
 layout activity_main2
 layout activity_plan_selection
 layout activity_service_description
+layout activity_web_view
 layout card_layout
 layout custom_dialog
 layout design_bottom_navigation_item

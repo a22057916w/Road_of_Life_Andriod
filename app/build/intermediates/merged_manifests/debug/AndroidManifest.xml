@@ -27,8 +27,7 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.bilab.lunsenluandroid.Main2Activity"
-            android:label="@string/title_activity_main2" >
-        </activity>
+            android:label="@string/title_activity_main2" />
         <activity android:name="com.bilab.lunsenluandroid.LoadingActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,11 +35,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.bilab.lunsenluandroid.LoginActivity" >
-        </activity>
+        <activity android:name="com.bilab.lunsenluandroid.WebViewActivity" />
+        <activity android:name="com.bilab.lunsenluandroid.LoginActivity" />
         <activity android:name="com.bilab.lunsenluandroid.RegisterActivity" />
-        <activity android:name="com.bilab.lunsenluandroid.MainActivity" >
-        </activity>
+        <activity android:name="com.bilab.lunsenluandroid.MainActivity" />
         <activity android:name="com.bilab.lunsenluandroid.AccountMainActivity" />
         <activity android:name="com.bilab.lunsenluandroid.AccountPasswordActivity" />
         <activity android:name="com.bilab.lunsenluandroid.DoctorAuthActivity" />

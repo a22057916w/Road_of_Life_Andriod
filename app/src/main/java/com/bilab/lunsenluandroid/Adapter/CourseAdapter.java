@@ -1,15 +1,18 @@
 package com.bilab.lunsenluandroid.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bilab.lunsenluandroid.R;
+import com.bilab.lunsenluandroid.WebViewActivity;
 import com.bilab.lunsenluandroid.model.CourseModel;
 
 import java.util.ArrayList;
@@ -18,6 +21,8 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
 
     private final Context context;
     private final ArrayList<CourseModel> courseModelArrayList;
+
+    private WebView webView;
 
     // Constructor
     public CourseAdapter(Context context, ArrayList<CourseModel> courseModelArrayList) {
@@ -30,6 +35,15 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // to inflate the layout for each item of recycler view.
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_layout, parent, false);
+
+        Intent myIntent = new Intent(this.context, WebViewActivity.class); //WebViewActivityName is the  activity name of the webview activity
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                myIntent.putExtra("url", "https://www.google.com.tw/"); //Add your url in "yourUrlHere"
+                view.getContext().startActivity(myIntent);
+            }
+        });
         return new ViewHolder(view);
     }
 

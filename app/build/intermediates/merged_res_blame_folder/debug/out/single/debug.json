@@ -152,6 +152,14 @@
         "source": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-main-21:\\drawable\\right.png"
     },
     {
+        "merged": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-merged_res-19:\\layout_activity_web_view.xml.flat",
+        "source": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-main-21:\\layout\\activity_web_view.xml"
+    },
+    {
+        "merged": "com.bilab.lunsenluandroid.app-merged_res-19:/layout_activity_web_view.xml.flat",
+        "source": "com.bilab.lunsenluandroid.app-main-21:/layout/activity_web_view.xml"
+    },
+    {
         "merged": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-merged_res-19:\\drawable_radio_button_bg.xml.flat",
         "source": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-main-21:\\drawable\\radio_button_bg.xml"
     },
@@ -302,6 +310,10 @@
     {
         "merged": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-merged_res-19:\\drawable_user.png.flat",
         "source": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-main-21:\\drawable\\user.png"
+    },
+    {
+        "merged": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-merged_res-19:\\layout_activity_web_viewer.xml.flat",
+        "source": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-main-21:\\layout\\activity_web_viewer.xml"
     },
     {
         "merged": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-merged_res-19:\\layout_card_layout.xml.flat",
