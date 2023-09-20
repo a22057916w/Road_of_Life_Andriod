@@ -12,6 +12,10 @@
         "source": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-main-21:\\layout\\activity_main2.xml"
     },
     {
+        "merged": "com.bilab.lunsenluandroid.app-merged_res-19:/layout_fragment_dashboard.xml.flat",
+        "source": "com.bilab.lunsenluandroid.app-main-21:/layout/fragment_dashboard.xml"
+    },
+    {
         "merged": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-merged_res-19:\\drawable_envelope_1.png.flat",
         "source": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-main-21:\\drawable\\envelope_1.png"
     },
@@ -38,6 +42,10 @@
     {
         "merged": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-merged_res-19:\\drawable_dashboard.png.flat",
         "source": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-main-21:\\drawable\\dashboard.png"
+    },
+    {
+        "merged": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-merged_res-19:\\drawable_baseline_heart_broken_24.xml.flat",
+        "source": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-main-21:\\drawable\\baseline_heart_broken_24.xml"
     },
     {
         "merged": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-merged_res-19:\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
@@ -108,6 +116,10 @@
         "source": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-main-21:\\layout\\test_listitem.xml"
     },
     {
+        "merged": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-merged_res-19:\\drawable_baseline_star_24.xml.flat",
+        "source": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-main-21:\\drawable\\baseline_star_24.xml"
+    },
+    {
         "merged": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-merged_res-19:\\layout_healthpassport_main.xml.flat",
         "source": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-main-21:\\layout\\healthpassport_main.xml"
     },
@@ -138,10 +150,6 @@
     {
         "merged": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-merged_res-19:\\drawable_right.png.flat",
         "source": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-main-21:\\drawable\\right.png"
-    },
-    {
-        "merged": "com.bilab.lunsenluandroid.app-merged_res-19:/layout_test_listitem.xml.flat",
-        "source": "com.bilab.lunsenluandroid.app-main-21:/layout/test_listitem.xml"
     },
     {
         "merged": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-merged_res-19:\\drawable_radio_button_bg.xml.flat",
@@ -294,6 +302,10 @@
     {
         "merged": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-merged_res-19:\\drawable_user.png.flat",
         "source": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-main-21:\\drawable\\user.png"
+    },
+    {
+        "merged": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-merged_res-19:\\layout_card_layout.xml.flat",
+        "source": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-main-21:\\layout\\card_layout.xml"
     },
     {
         "merged": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-merged_res-19:\\drawable_call.png.flat",

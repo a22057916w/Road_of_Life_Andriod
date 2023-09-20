@@ -632,6 +632,7 @@ color background_floating_material_dark
 color background_floating_material_light
 color background_material_dark
 color background_material_light
+color black
 color bright_foreground_disabled_material_dark
 color bright_foreground_disabled_material_light
 color bright_foreground_inverse_material_dark
@@ -1090,6 +1091,8 @@ drawable arrow_white_24
 drawable avd_hide_password
 drawable avd_show_password
 drawable b
+drawable baseline_heart_broken_24
+drawable baseline_star_24
 drawable bg_bottom_btn_left
 drawable bg_bottom_btn_right
 drawable bg_bottom_btn_right_enable
@@ -1350,6 +1353,10 @@ id home
 id homeAsUp
 id icon
 id icon_group
+id idIVCourseImage
+id idRVCourse
+id idTVCourseName
+id idTVCourseRating
 id ifRoom
 id image
 id image_detail
@@ -1648,6 +1655,7 @@ layout activity_main
 layout activity_main2
 layout activity_plan_selection
 layout activity_service_description
+layout card_layout
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
