@@ -61,12 +61,19 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="18">
-            <WebView
-                android:id="@+id/fragment_path_webView"
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/idRVCourse"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                />
+                android:layout_weight="1"/>
+
+<!--            <WebView-->
+<!--                android:id="@+id/fragment_path_webView"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_weight="1"-->
+<!--                />-->
         </TableRow>
     </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

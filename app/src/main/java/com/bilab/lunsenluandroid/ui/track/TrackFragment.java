@@ -18,6 +18,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.security.crypto.EncryptedSharedPreferences;
 import androidx.security.crypto.MasterKeys;
 
@@ -29,11 +31,13 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HurlStack;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.bilab.lunsenluandroid.Adapter.CourseAdapter;
 import com.bilab.lunsenluandroid.HTTPSTrustManager;
 import com.bilab.lunsenluandroid.HealthPassActivity;
 import com.bilab.lunsenluandroid.LoginActivity;
 import com.bilab.lunsenluandroid.R;
 import com.bilab.lunsenluandroid.SSLTolerentWebViewClient;
+import com.bilab.lunsenluandroid.model.CourseModel;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -48,6 +52,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.net.ssl.SSLContext;
@@ -72,60 +77,82 @@ public class TrackFragment extends Fragment {
                 ViewModelProviders.of(this).get(TrackViewModel.class);
         View root = inflater.inflate(R.layout.fragment_track, container, false);
 
-        webView = root.findViewById(R.id.fragment_path_webView);
-        tablerow_error = root.findViewById(R.id.fragment_path_error);
-        choose = root.findViewById(R.id.track_choose);
+        RecyclerView courseRV = root.findViewById(R.id.idRVCourse);
 
-        //objpostqueue = Volley.newRequestQueue(root.getContext());
-        //HTTPSTrustManager.allowAllSSL();
+        // Here, we have created new array list and added data to it
+        ArrayList<CourseModel> courseModelArrayList = new ArrayList<CourseModel>();
+        courseModelArrayList.add(new CourseModel("DSA in Java", 4, R.drawable.baseline_star_24));
+        courseModelArrayList.add(new CourseModel("Java Course", 3, R.drawable.baseline_star_24));
+        courseModelArrayList.add(new CourseModel("C++ Course", 4, R.drawable.baseline_star_24));
+        courseModelArrayList.add(new CourseModel("DSA in C++", 4, R.drawable.baseline_star_24));
+        courseModelArrayList.add(new CourseModel("Kotlin for Android", 4, R.drawable.baseline_star_24));
+        courseModelArrayList.add(new CourseModel("Java for Android", 4, R.drawable.baseline_star_24));
+        courseModelArrayList.add(new CourseModel("HTML and CSS", 4, R.drawable.baseline_star_24));
 
-        //生成SSLSocketFactory
-        SSLSocketFactory sslSocketFactory = HTTPSTrustManager.initSSLSocketFactory(getActivity());
-        //HurlStack两个参数默认都是null,如果传入SSLSocketFactory，那么会以Https的方式来请求网络
-        HurlStack stack = new HurlStack(null, sslSocketFactory);
-        //传入处理Https的HurlStack
-        objpostqueue = Volley.newRequestQueue(this.getActivity(),stack);
-        initial();
-        objpostqueue.add(postRequest);
+        // we are initializing our adapter class and passing our arraylist to it.
+        CourseAdapter courseAdapter = new CourseAdapter(this.getActivity(), courseModelArrayList);
+        // below line is for setting a layout manager for our recycler view.
+        // here we are creating vertical list so we will provide orientation as vertical
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.getActivity(), LinearLayoutManager.VERTICAL, false);
 
-        WebSettings settings = webView.getSettings();
-        settings.setJavaScriptEnabled(true);
-        settings.setDomStorageEnabled(true);
-        webView.setWebViewClient(
-                new SSLTolerentWebViewClient()
-        );
+        // in below two lines we are setting layoutmanager and adapter to our recycler view.
+        courseRV.setLayoutManager(linearLayoutManager);
+        courseRV.setAdapter(courseAdapter);
 
-        //webView.loadUrl("https://www.bbc.com");
-        //webView.loadUrl("https://140.124.183.188:2222/LSLDoctor/login/")
-        //webView.loadUrl("https://1qigvox2btm9q6ppyry9wq-on.drv.tw/MyWebsite/temp/");
-        //webView.loadUrl("https://1qigvox2btm9q6ppyry9wq-on.drv.tw/MyWebsite/kidding/mobile.html");
-        webView.loadUrl("https://www.google.com.tw/");
-        webView.flingScroll(0,500);
-        tablerow_error.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getActivity(), HealthPassActivity.class);
-                intent.putExtra("activity", "main");
-                startActivity(intent);
-            }
-        });
-        choose.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getActivity(), HealthPassActivity.class);
-                intent.putExtra("activity", "main");
-                startActivity(intent);
-            }
-        });
-        /*final TextView textView = root.findViewById(R.id.text_home);
-        pathViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });*/
+//        webView = root.findViewById(R.id.fragment_path_webView);
+//        tablerow_error = root.findViewById(R.id.fragment_path_error);
+//        choose = root.findViewById(R.id.track_choose);
+//
+//        //objpostqueue = Volley.newRequestQueue(root.getContext());
+//        //HTTPSTrustManager.allowAllSSL();
+//
+//        //生成SSLSocketFactory
+//        SSLSocketFactory sslSocketFactory = HTTPSTrustManager.initSSLSocketFactory(getActivity());
+//        //HurlStack两个参数默认都是null,如果传入SSLSocketFactory，那么会以Https的方式来请求网络
+//        HurlStack stack = new HurlStack(null, sslSocketFactory);
+//        //传入处理Https的HurlStack
+//        objpostqueue = Volley.newRequestQueue(this.getActivity(),stack);
+//        initial();
+//        objpostqueue.add(postRequest);
+//
+//        WebSettings settings = webView.getSettings();
+//        settings.setJavaScriptEnabled(true);
+//        settings.setDomStorageEnabled(true);
+//        webView.setWebViewClient(
+//                new SSLTolerentWebViewClient()
+//        );
+//
+//        //webView.loadUrl("https://www.bbc.com");
+//        //webView.loadUrl("https://140.124.183.188:2222/LSLDoctor/login/")
+//        //webView.loadUrl("https://1qigvox2btm9q6ppyry9wq-on.drv.tw/MyWebsite/temp/");
+//        //webView.loadUrl("https://1qigvox2btm9q6ppyry9wq-on.drv.tw/MyWebsite/kidding/mobile.html");
+//        webView.loadUrl("https://www.google.com.tw/");
+//        webView.flingScroll(0,500);
+//        tablerow_error.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent();
+//                intent.setClass(getActivity(), HealthPassActivity.class);
+//                intent.putExtra("activity", "main");
+//                startActivity(intent);
+//            }
+//        });
+//        choose.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent();
+//                intent.setClass(getActivity(), HealthPassActivity.class);
+//                intent.putExtra("activity", "main");
+//                startActivity(intent);
+//            }
+//        });
+//        /*final TextView textView = root.findViewById(R.id.text_home);
+//        pathViewModel.getText().observe(this, new Observer<String>() {
+//            @Override
+//            public void onChanged(@Nullable String s) {
+//                textView.setText(s);
+//            }
+//        });*/
 
 
         return root;
