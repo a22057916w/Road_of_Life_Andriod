@@ -144,6 +144,10 @@
         "source": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-main-21:\\drawable\\bladder.png"
     },
     {
+        "merged": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-merged_res-19:\\drawable_round_serachview_bg.xml.flat",
+        "source": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-main-21:\\drawable\\round_serachview_bg.xml"
+    },
+    {
         "merged": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-merged_res-19:\\drawable_logo_white.png.flat",
         "source": "C:\\Users\\Willy\\.gradle\\daemon\\7.5\\com.bilab.lunsenluandroid.app-main-21:\\drawable\\logo_white.png"
     },

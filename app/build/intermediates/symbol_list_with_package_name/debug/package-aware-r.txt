@@ -1187,6 +1187,7 @@ drawable pregnant
 drawable radio_button_bg
 drawable remove
 drawable right
+drawable round_serachview_bg
 drawable select_bg
 drawable settings
 drawable settings_2
@@ -1523,6 +1524,7 @@ id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
 id scrollable
+id searchView
 id search_badge
 id search_bar
 id search_button
@@ -1565,6 +1567,7 @@ id submenuarrow
 id submit_area
 id tabMode
 id tableLayout
+id tableLayout2
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
 id tag_accessibility_heading
