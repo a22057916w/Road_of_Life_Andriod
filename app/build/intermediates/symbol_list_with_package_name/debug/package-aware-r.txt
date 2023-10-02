@@ -1190,6 +1190,7 @@ drawable right
 drawable select_bg
 drawable settings
 drawable settings_2
+drawable textview_bottom_border
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 drawable top_tab_left_selected
@@ -1563,6 +1564,7 @@ id stretch
 id submenuarrow
 id submit_area
 id tabMode
+id tableLayout
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
 id tag_accessibility_heading
@@ -1576,6 +1578,7 @@ id text2
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
+id textView2
 id text_input_password_toggle
 id textinput_counter
 id textinput_error
