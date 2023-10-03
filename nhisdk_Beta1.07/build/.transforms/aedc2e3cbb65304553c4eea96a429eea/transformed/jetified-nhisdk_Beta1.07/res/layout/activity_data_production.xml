@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".DataProductionActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_title_bat_height">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/nhisdk_data_production_title"
+            android:textSize="@dimen/common_title_txt_size"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/nhisdk_data_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/margin_normal"
+            android:gravity="center"
+            android:paddingLeft="@dimen/margin_normal"
+            android:paddingRight="@dimen/margin_normal"
+            android:text="@string/nhisdk_data_production_logout"
+            android:textSize="@dimen/common_title_txt_size"
+            android:textColor="@color/color_bottom_blue" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/data_production_detail_title_bar_height"
+        android:background="#D2F3FF">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin_normal"
+            android:text="@string/nhisdk_data_production_detail_txt"
+            android:textSize="@dimen/common_subtitle_txt_size"
+            android:textStyle="bold"
+            android:textColor="@android:color/black" />
+
+        <RelativeLayout
+            android:id="@+id/nhisdk_data_production_all_check_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true">
+
+            <TextView
+                android:id="@+id/nhisdk_data_production_all_check_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:layout_marginLeft="@dimen/margin_normal"
+                android:layout_marginRight="@dimen/margin_normal"
+                android:layout_marginTop="@dimen/margin_small"
+                android:background="@drawable/nhisdk_medical_dynamin_grid_check_bg"
+                android:padding="5dp"
+                android:text="@string/nhisdk_data_production_all_check"
+                android:textSize="@dimen/common_subtitle_txt_size"
+                android:textColor="@android:color/white" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:id="@+id/nhisdk_data_production_bottom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorGray"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/margin_normal"
+                android:paddingTop="@dimen/margin_normal">
+
+                <RelativeLayout
+                    android:id="@+id/nhisdk_data_production_note_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_normal"
+                    android:layout_marginRight="@dimen/margin_normal"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="@dimen/bottom_bar_btn_width"
+                        android:layout_height="@dimen/bottom_bar_btn_height"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
+                        android:text="@string/nhisdk_data_note_title"
+                        android:textSize="@dimen/common_btn_txt_size"
+                        android:textColor="@color/color_bottom_blue" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/nhisdk_data_production_make_sure_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/margin_normal"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/nhisdk_data_production_make_sure_btn_txt"
+                        android:layout_width="@dimen/bottom_bar_btn_width"
+                        android:layout_height="@dimen/bottom_bar_btn_height"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/bg_bottom_btn_right"
+                        android:gravity="center"
+                        android:text="@string/nhisdk_data_production_make_sure"
+                        android:textSize="@dimen/common_btn_txt_size"
+                        android:textColor="@android:color/white" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <ExpandableListView
+            android:id="@+id/expandable_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/nhisdk_data_production_bottom_bar"
+            android:groupIndicator="@null" />
+
+    </RelativeLayout>
+
+</LinearLayout>

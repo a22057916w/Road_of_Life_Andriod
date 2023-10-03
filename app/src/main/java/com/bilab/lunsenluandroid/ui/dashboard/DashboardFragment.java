@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -27,8 +28,7 @@ public class DashboardFragment extends Fragment {
     private DashboardViewModel dashboardViewModel;
 
     private RecyclerView recycler_view;
-    private MyAdapter adapter;
-    private ArrayList<String> mData = new ArrayList<>();
+    private SearchView searchView;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -36,6 +36,9 @@ public class DashboardFragment extends Fragment {
                 ViewModelProviders.of(this).get(DashboardViewModel.class);
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
+        searchView = root.findViewById(R.id.searchView);
+        // set default text
+        searchView.setQuery("請輸入病症或器官", false);
         return root;
     }
 }
