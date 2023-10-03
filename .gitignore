@@ -18,3 +18,4 @@ local.properties
 .gradle/
 
 *.bin
+*.jar
