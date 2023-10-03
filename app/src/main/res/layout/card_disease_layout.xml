@@ -19,22 +19,23 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="50dp">
 
         <CheckBox
             android:id="@+id/checkBox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:layout_editor_absoluteX="344dp"
-            tools:layout_editor_absoluteY="12dp" />
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:checked="false"
+            app:layout_constraintStart_toEndOf="@+id/DiseaseName"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/idIVCourseImage"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:id="@+id/DiseaseImage"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
             android:contentDescription="@string/app_name"
             android:padding="5dp"
             android:src="@drawable/baseline_heart_broken_24"
@@ -43,15 +44,19 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/idTVCourseName"
-            android:layout_width="205dp"
-            android:layout_height="36dp"
+            android:id="@+id/DiseaseName"
+            android:layout_width="240dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="left|center_vertical"
             android:text="course_name"
             android:textColor="@color/black"
             android:textSize="14sp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="80dp"
-            tools:layout_editor_absoluteY="9dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/DiseaseImage"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
