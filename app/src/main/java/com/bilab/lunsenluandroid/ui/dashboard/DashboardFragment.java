@@ -5,23 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SearchView;
-import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bilab.lunsenluandroid.Adapter.CourseAdapter;
-import com.bilab.lunsenluandroid.MyAdapter;
 import com.bilab.lunsenluandroid.R;
-import com.bilab.lunsenluandroid.model.CourseModel;
-
-import java.util.ArrayList;
 
 public class DashboardFragment extends Fragment {
 
