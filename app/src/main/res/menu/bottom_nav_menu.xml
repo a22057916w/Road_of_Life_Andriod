@@ -4,13 +4,13 @@
     <item
         android:id="@+id/navigation_dashboard"
         android:icon="@drawable/dashboard"
-        android:title="@string/dashboard"
+        android:title="@string/disease_select"
         />
 
     <item
         android:id="@+id/navigation_track"
-        android:icon="@drawable/analysis"
-        android:title="@string/path"
+        android:icon="@drawable/baseline_home_24"
+        android:title="@string/home_page"
         />
 
     <item

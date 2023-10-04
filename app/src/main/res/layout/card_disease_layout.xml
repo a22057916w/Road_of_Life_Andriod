@@ -24,6 +24,7 @@
             android:id="@+id/checkBox"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_marginStart="100dp"
             android:checked="false"
             app:layout_constraintStart_toEndOf="@+id/DiseaseName"
             app:layout_constraintTop_toTopOf="parent" />

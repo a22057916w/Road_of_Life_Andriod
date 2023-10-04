@@ -13,7 +13,7 @@
         android:layout_weight="1"
         android:background="@color/main"
         android:gravity="center"
-        android:text="直腸疾患"
+        android:text="我的疾病"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"

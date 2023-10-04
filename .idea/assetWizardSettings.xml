@@ -326,7 +326,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialicons/pregnant_woman/baseline_pregnant_woman_24.xml" />
+                                      <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialicons/home/baseline_home_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -337,7 +337,7 @@
                         <option name="values">
                           <map>
                             <entry key="color" value="6a9f9b" />
-                            <entry key="outputName" value="baseline_pregnant_woman_24" />
+                            <entry key="outputName" value="baseline_home_24" />
                             <entry key="sourceFile" value="F:\Code\Road_of_Life_Andriod" />
                           </map>
                         </option>
