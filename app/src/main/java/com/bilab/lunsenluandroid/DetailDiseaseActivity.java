@@ -22,9 +22,9 @@ public class DetailDiseaseActivity extends AppCompatActivity {
         RecyclerView detailDiseaseRV = findViewById(R.id.RVDetailDisease);
 
         ArrayList<DetailDiseaseModel> detailDiseaseModelArrayList = new ArrayList<DetailDiseaseModel>();
-        detailDiseaseModelArrayList.add(new DetailDiseaseModel("胃腸出血", R.drawable.rectum));
-        detailDiseaseModelArrayList.add(new DetailDiseaseModel("痔瘡", R.drawable.rectum));
-        detailDiseaseModelArrayList.add(new DetailDiseaseModel("功能性消化不良症", R.drawable.rectum));
+//        detailDiseaseModelArrayList.add(new DetailDiseaseModel("胃腸出血", R.drawable.rectum));
+//        detailDiseaseModelArrayList.add(new DetailDiseaseModel("痔瘡", R.drawable.rectum));
+//        detailDiseaseModelArrayList.add(new DetailDiseaseModel("功能性消化不良症", R.drawable.rectum));
 //        detailDiseaseModelArrayList.add(new DetailDiseaseModel("十二指腸潰瘍", R.drawable.rectum));
 //        detailDiseaseModelArrayList.add(new DetailDiseaseModel("消化性潰瘍", R.drawable.rectum));
 //        detailDiseaseModelArrayList.add(new DetailDiseaseModel("功能性胃障礙", R.drawable.rectum));
@@ -37,11 +37,11 @@ public class DetailDiseaseActivity extends AppCompatActivity {
 //        detailDiseaseModelArrayList.add(new DetailDiseaseModel("其他消化系統良性腫瘤", R.drawable.rectum));
 //        detailDiseaseModelArrayList.add(new DetailDiseaseModel("其他良性腫瘤", R.drawable.rectum));
 
-        detailDiseaseModelArrayList.add(new DetailDiseaseModel("泌尿道感染", R.drawable.bladder));
-        detailDiseaseModelArrayList.add(new DetailDiseaseModel("腎及輸尿管結石", R.drawable.bladder));
-        detailDiseaseModelArrayList.add(new DetailDiseaseModel("膀胱炎", R.drawable.bladder));
-        detailDiseaseModelArrayList.add(new DetailDiseaseModel("攝護腺（前列腺）增生", R.drawable.bladder));
-        detailDiseaseModelArrayList.add(new DetailDiseaseModel("慢性腎衰竭", R.drawable.bladder));
+//        detailDiseaseModelArrayList.add(new DetailDiseaseModel("泌尿道感染", R.drawable.bladder));
+//        detailDiseaseModelArrayList.add(new DetailDiseaseModel("腎及輸尿管結石", R.drawable.bladder));
+//        detailDiseaseModelArrayList.add(new DetailDiseaseModel("膀胱炎", R.drawable.bladder));
+//        detailDiseaseModelArrayList.add(new DetailDiseaseModel("攝護腺（前列腺）增生", R.drawable.bladder));
+//        detailDiseaseModelArrayList.add(new DetailDiseaseModel("慢性腎衰竭", R.drawable.bladder));
 //        detailDiseaseModelArrayList.add(new DetailDiseaseModel("其他排尿系統疾患", R.drawable.bladder));
 //        detailDiseaseModelArrayList.add(new DetailDiseaseModel("停經及停經後之疾患", R.drawable.bladder));
 //        detailDiseaseModelArrayList.add(new DetailDiseaseModel("泌尿生殖器官惡性腫瘤", R.drawable.bladder));
@@ -72,17 +72,17 @@ public class DetailDiseaseActivity extends AppCompatActivity {
 
 
 
-//        detailDiseaseModelArrayList.add(new DetailDiseaseModel("其他子宮疾患", R.drawable.pregnant));
-//        detailDiseaseModelArrayList.add(new DetailDiseaseModel("月經失調及生殖道異常出血", R.drawable.pregnant));
-//        detailDiseaseModelArrayList.add(new DetailDiseaseModel("子宮肌瘤", R.drawable.pregnant));
-//        detailDiseaseModelArrayList.add(new DetailDiseaseModel("其他子宮良性腫瘤", R.drawable.pregnant));
-//        detailDiseaseModelArrayList.add(new DetailDiseaseModel("子宮內膜異位症", R.drawable.pregnant));
-//        detailDiseaseModelArrayList.add(new DetailDiseaseModel("停經及停經後之疾患", R.drawable.pregnant));
-//        detailDiseaseModelArrayList.add(new DetailDiseaseModel("貧血", R.drawable.pregnant));
-//        detailDiseaseModelArrayList.add(new DetailDiseaseModel("泌尿生殖器官惡性腫瘤", R.drawable.pregnant));
-//        detailDiseaseModelArrayList.add(new DetailDiseaseModel("女性生殖器的其他疾病", R.drawable.pregnant));
-//        detailDiseaseModelArrayList.add(new DetailDiseaseModel("其他良性腫瘤", R.drawable.pregnant));
-//        detailDiseaseModelArrayList.add(new DetailDiseaseModel("血液和造血器官疾病", R.drawable.pregnant));
+        detailDiseaseModelArrayList.add(new DetailDiseaseModel("其他子宮疾患", R.drawable.pregnant));
+        detailDiseaseModelArrayList.add(new DetailDiseaseModel("月經失調及生殖道異常出血", R.drawable.pregnant));
+        detailDiseaseModelArrayList.add(new DetailDiseaseModel("子宮肌瘤", R.drawable.pregnant));
+        detailDiseaseModelArrayList.add(new DetailDiseaseModel("其他子宮良性腫瘤", R.drawable.pregnant));
+        detailDiseaseModelArrayList.add(new DetailDiseaseModel("子宮內膜異位症", R.drawable.pregnant));
+        detailDiseaseModelArrayList.add(new DetailDiseaseModel("停經及停經後之疾患", R.drawable.pregnant));
+        detailDiseaseModelArrayList.add(new DetailDiseaseModel("貧血", R.drawable.pregnant));
+        detailDiseaseModelArrayList.add(new DetailDiseaseModel("泌尿生殖器官惡性腫瘤", R.drawable.pregnant));
+        detailDiseaseModelArrayList.add(new DetailDiseaseModel("女性生殖器的其他疾病", R.drawable.pregnant));
+        detailDiseaseModelArrayList.add(new DetailDiseaseModel("其他良性腫瘤", R.drawable.pregnant));
+        detailDiseaseModelArrayList.add(new DetailDiseaseModel("血液和造血器官疾病", R.drawable.pregnant));
 
 
 

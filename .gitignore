@@ -14,8 +14,3 @@ app/build
 .externalNativeBuild
 .cxx
 local.properties
-
-.gradle/
-
-*.bin
-*.jar

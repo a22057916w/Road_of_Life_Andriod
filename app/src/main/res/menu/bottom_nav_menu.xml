@@ -3,7 +3,7 @@
 
     <item
         android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/dashboard"
+        android:icon="@drawable/baseline_content_paste_search_gray_24"
         android:title="@string/disease_select"
         />
 
