@@ -1,22 +1,17 @@
 package com.bilab.lunsenluandroid.ui.track;
 
-import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -28,36 +23,18 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.HurlStack;
 import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.bilab.lunsenluandroid.Adapter.CourseAdapter;
-import com.bilab.lunsenluandroid.HTTPSTrustManager;
-import com.bilab.lunsenluandroid.HealthPassActivity;
-import com.bilab.lunsenluandroid.LoginActivity;
 import com.bilab.lunsenluandroid.R;
-import com.bilab.lunsenluandroid.SSLTolerentWebViewClient;
 import com.bilab.lunsenluandroid.model.CourseModel;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.security.GeneralSecurityException;
-import java.security.KeyManagementException;
-import java.security.KeyStore;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.cert.Certificate;
-import java.security.cert.CertificateException;
-import java.security.cert.CertificateFactory;
 import java.util.ArrayList;
 import java.util.HashMap;
-
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSocketFactory;
-import javax.net.ssl.TrustManagerFactory;
 
 public class TrackFragment extends Fragment {
 
@@ -77,27 +54,24 @@ public class TrackFragment extends Fragment {
                 ViewModelProviders.of(this).get(TrackViewModel.class);
         View root = inflater.inflate(R.layout.fragment_track, container, false);
 
-//        RecyclerView courseRV = root.findViewById(R.id.idRVCourse);
-//
-//        // Here, we have created new array list and added data to it
-//        ArrayList<CourseModel> courseModelArrayList = new ArrayList<CourseModel>();
-//        courseModelArrayList.add(new CourseModel("心臟病", "冠狀動脈症候群、心臟衰竭、高血壓性、心臟病、心肌梗塞、風濕性心臟病 ...","40%", R.drawable.heart));
-//        courseModelArrayList.add(new CourseModel("不孕症", "男性不孕症、女性不孕症、與無排卵有關之不孕症", "20%", R.drawable.pregnant));
-//        courseModelArrayList.add(new CourseModel("老人癡呆症", "初老年期癡呆症、老年期癡呆症併憂鬱或妄想現象、老年期精神病態", "8%", R.drawable.elder));
-//        courseModelArrayList.add(new CourseModel("膀胱癌", "膀胱癌是一種生長於膀胱的惡性腫瘤，好發於五十至七十歲之年齡層，百分之九十八膀胱癌屬上皮細胞來源", "5%", R.drawable.bladder));
-//        courseModelArrayList.add(new CourseModel("口腔癌", "口腔癌為發生在口腔部位之惡性腫瘤的總稱，90%屬於鱗狀細胞癌", "20%", R.drawable.mouth));
-//        courseModelArrayList.add(new CourseModel("口將癌", "口腔癌為發生在口腔部位之惡性腫瘤的總稱，90%屬於鱗狀細胞癌", "20%", R.drawable.mouth));
-//        courseModelArrayList.add(new CourseModel("口腔癌", "口腔癌為發生在口腔部位之惡性腫瘤的總稱，90%屬於鱗狀細胞癌", "20%", R.drawable.mouth));
-//
-//        // we are initializing our adapter class and passing our arraylist to it.
-//        CourseAdapter courseAdapter = new CourseAdapter(this.getActivity(), courseModelArrayList);
-//        // below line is for setting a layout manager for our recycler view.
-//        // here we are creating vertical list so we will provide orientation as vertical
-//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.getActivity(), LinearLayoutManager.VERTICAL, false);
-//
-//        // in below two lines we are setting layoutmanager and adapter to our recycler view.
-//        courseRV.setLayoutManager(linearLayoutManager);
-//        courseRV.setAdapter(courseAdapter);
+        RecyclerView courseRV = root.findViewById(R.id.idRVCourse);
+
+        // Here, we have created new array list and added data to it
+        ArrayList<CourseModel> courseModelArrayList = new ArrayList<CourseModel>();
+        courseModelArrayList.add(new CourseModel("子宮癌", "冠狀動脈症候群、心臟衰竭、高血壓性、心臟病、心肌梗塞、風濕性心臟病 ...","- -%", R.drawable.heart));
+        courseModelArrayList.add(new CourseModel("卵巢癌", "男性不孕症、女性不孕症、與無排卵有關之不孕症", "- -%", R.drawable.pregnant));
+        courseModelArrayList.add(new CourseModel("膀胱癌", "膀胱癌是一種生長於膀胱的惡性腫瘤，好發於五十至七十歲之年齡層，百分之九十八膀胱癌屬上皮細胞來源", "- -%", R.drawable.bladder));
+        courseModelArrayList.add(new CourseModel("大腸癌", "口腔癌為發生在口腔部位之惡性腫瘤的總稱，90%屬於鱗狀細胞癌", "- -%", R.drawable.rectum));
+
+        // we are initializing our adapter class and passing our arraylist to it.
+        CourseAdapter courseAdapter = new CourseAdapter(this.getActivity(), courseModelArrayList);
+        // below line is for setting a layout manager for our recycler view.
+        // here we are creating vertical list so we will provide orientation as vertical
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.getActivity(), LinearLayoutManager.VERTICAL, false);
+
+        // in below two lines we are setting layoutmanager and adapter to our recycler view.
+        courseRV.setLayoutManager(linearLayoutManager);
+        courseRV.setAdapter(courseAdapter);
 
 //        webView = root.findViewById(R.id.fragment_path_webView);
 //        tablerow_error = root.findViewById(R.id.fragment_path_error);
