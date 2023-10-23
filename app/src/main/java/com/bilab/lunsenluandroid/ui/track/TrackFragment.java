@@ -58,10 +58,10 @@ public class TrackFragment extends Fragment {
 
         // Here, we have created new array list and added data to it
         ArrayList<CourseModel> courseModelArrayList = new ArrayList<CourseModel>();
-        courseModelArrayList.add(new CourseModel("子宮癌", "冠狀動脈症候群、心臟衰竭、高血壓性、心臟病、心肌梗塞、風濕性心臟病 ...","- -%", R.drawable.heart));
-        courseModelArrayList.add(new CourseModel("卵巢癌", "男性不孕症、女性不孕症、與無排卵有關之不孕症", "- -%", R.drawable.pregnant));
-        courseModelArrayList.add(new CourseModel("膀胱癌", "膀胱癌是一種生長於膀胱的惡性腫瘤，好發於五十至七十歲之年齡層，百分之九十八膀胱癌屬上皮細胞來源", "- -%", R.drawable.bladder));
-        courseModelArrayList.add(new CourseModel("大腸癌", "口腔癌為發生在口腔部位之惡性腫瘤的總稱，90%屬於鱗狀細胞癌", "- -%", R.drawable.rectum));
+        courseModelArrayList.add(new CourseModel("子宮癌", "根據統計顯示，子宮頸癌發生率的排名為女性癌症第一位","- -", R.drawable.heart));
+        courseModelArrayList.add(new CourseModel("卵巢癌", "部份的卵巢癌在早期都沒有明顯的症狀，所以死亡率佔婦科癌症中相當高的比例", "- -", R.drawable.pregnant));
+        courseModelArrayList.add(new CourseModel("膀胱癌", "膀胱癌是一種生長於膀胱的惡性腫瘤，好發於五十至七十歲之年齡層，百分之九十八膀胱癌屬上皮細胞來源", "- -", R.drawable.bladder));
+        courseModelArrayList.add(new CourseModel("大腸癌", "根據衛福部的統計，在臺灣每31分14秒就有1人被診斷為大腸癌。", "- -", R.drawable.rectum));
 
         // we are initializing our adapter class and passing our arraylist to it.
         CourseAdapter courseAdapter = new CourseAdapter(this.getActivity(), courseModelArrayList);
