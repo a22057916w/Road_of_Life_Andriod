@@ -20,6 +20,8 @@ public class RegisterSecondStepActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_second_step);
+        getSupportActionBar().hide();
+
         name =  (EditText) findViewById(R.id.logout_name);
         phone =  (EditText) findViewById(R.id.logout_phone);
         email =  (EditText) findViewById(R.id.logout_email);
