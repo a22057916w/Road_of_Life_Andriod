@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".RegisterSecondStepActivity"
+            android:exported="false" />
+        <activity
             android:name=".DetailDiseaseActivity"
             android:exported="false" />
         <activity
