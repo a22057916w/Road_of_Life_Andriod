@@ -72,11 +72,14 @@ public class RegisterActivity extends AppCompatActivity {
         logout_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(password.getText().toString().equals(password_check.getText().toString()) ){
-                    objpostqueue.add(register_postRequest);
-                }
-                else
-                    register_error.setText("密碼請輸入一致");
+                Intent intent = new Intent();
+                intent.setClass(RegisterActivity.this, RegisterSecondStepActivity.class);
+                startActivity(intent);
+//                if(password.getText().toString().equals(password_check.getText().toString()) ){
+//                    objpostqueue.add(register_postRequest);
+//                }
+//                else
+//                    register_error.setText("密碼請輸入一致");
             }
         });
         previous.setOnClickListener(new View.OnClickListener() {
