@@ -69,7 +69,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="0.8" />
 
             <ImageView
                 android:layout_width="0dp"
@@ -78,24 +78,21 @@
                 android:scaleType="centerInside"
                 android:src="@drawable/baseline_height_24" />
 
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
-
-            <EditText
+            <Button
                 android:id="@+id/logout_name"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="8"
+                android:layout_weight="1.2"
                 android:background="@null"
                 android:hint="身高"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:textSize="18sp" />
 
             <TextView
+                android:id="@+id/height_textview"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="7" />
         </TableRow>
 
         <LinearLayout
@@ -132,7 +129,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="0.8" />
 
             <ImageView
                 android:layout_width="0dp"
@@ -141,24 +138,20 @@
                 android:scaleType="centerInside"
                 android:src="@drawable/baseline_monitor_weight_24" />
 
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
-
-            <EditText
+            <Button
                 android:id="@+id/logout_phone"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="8"
+                android:layout_weight="1.2"
                 android:background="@null"
                 android:hint="體重"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:textSize="18sp" />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="7" />
         </TableRow>
 
         <LinearLayout
@@ -195,7 +188,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="0.9" />
 
             <ImageView
                 android:layout_width="0dp"
@@ -204,23 +197,39 @@
                 android:scaleType="centerInside"
                 android:src="@drawable/baseline_people_24" />
 
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
-
             <EditText
                 android:id="@+id/logout_email"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="8"
+                android:layout_weight="2"
                 android:background="@null"
-                android:hint="性別"
+                android:hint=" 性別"
                 android:singleLine="true" />
 
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <RadioButton
+                android:id="@+id/radioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="男" />
+
+            <RadioButton
+                android:id="@+id/radioButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="女" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1" />
 
         </TableRow>
@@ -259,7 +268,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="0.8" />
 
             <ImageView
                 android:layout_width="0dp"
@@ -268,16 +277,11 @@
                 android:scaleType="centerInside"
                 android:src="@drawable/baseline_cake_24" />
 
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
-
             <Button
                 android:id="@+id/logout_birthday"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="1.2"
                 android:background="@null"
                 android:hint="生日"
                 android:singleLine="true"

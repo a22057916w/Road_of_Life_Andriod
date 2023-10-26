@@ -11,8 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class RegisterSecondStepActivity extends AppCompatActivity {
-    EditText name,phone,email,password_check;
-    Button logout_button , birthday_btn;
+    EditText email,password_check;
+    Button logout_button , birthday_btn, name_btn, weight_btn;
     ImageView previous;
     TextView register_error, birthday_tv;
     @Override
@@ -21,8 +21,11 @@ public class RegisterSecondStepActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register_second_step);
         getSupportActionBar().hide();
 
-        name =  (EditText) findViewById(R.id.logout_name);
-        phone =  (EditText) findViewById(R.id.logout_phone);
+        name_btn =  (Button) findViewById(R.id.logout_name);
+
+
+        weight_btn =  (Button) findViewById(R.id.logout_phone);
+
         email =  (EditText) findViewById(R.id.logout_email);
 
         birthday_btn =  (Button) findViewById(R.id.logout_birthday);
@@ -43,6 +46,17 @@ public class RegisterSecondStepActivity extends AppCompatActivity {
             }
         });
 
+        // Add listeners for the work for/break for buttons
+        name_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                HeightPickerFragment newFragment = new HeightPickerFragment();
+                newFragment.show(getSupportFragmentManager(), "HeightPicker");
+                // Bring up the picker fragment
+//                DialogFragment newFragment = TimePickerFragment.newInstance(R.string.work_title);
+//                newFragment.show(getSupportFragmentManager(), "WorkTimePicker");
+            }
+        });
     }
 
 

@@ -47,6 +47,7 @@
             android:layout_marginStart="8dp"
             android:gravity="left|center_vertical"
             android:text="請選擇個人疾病資料以進行風險預測"
+            android:textColor="#EF0B0B"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView5"
