@@ -57,6 +57,17 @@ public class RegisterSecondStepActivity extends AppCompatActivity {
 //                newFragment.show(getSupportFragmentManager(), "WorkTimePicker");
             }
         });
+
+        weight_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                WeightPickerFragment newFragment = new WeightPickerFragment();
+                newFragment.show(getSupportFragmentManager(), "WeightPicker");
+                // Bring up the picker fragment
+//                DialogFragment newFragment = TimePickerFragment.newInstance(R.string.work_title);
+//                newFragment.show(getSupportFragmentManager(), "WorkTimePicker");
+            }
+        });
     }
 
 
