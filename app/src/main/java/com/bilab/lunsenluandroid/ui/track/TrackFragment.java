@@ -58,10 +58,11 @@ public class TrackFragment extends Fragment {
 
         // Here, we have created new array list and added data to it
         ArrayList<CourseModel> courseModelArrayList = new ArrayList<CourseModel>();
-        courseModelArrayList.add(new CourseModel("子宮癌", "根據統計顯示，子宮頸癌發生率的排名為女性癌症第一位","- -", R.drawable.heart));
-        courseModelArrayList.add(new CourseModel("卵巢癌", "部份的卵巢癌在早期都沒有明顯的症狀，所以死亡率佔婦科癌症中相當高的比例", "- -", R.drawable.pregnant));
-        courseModelArrayList.add(new CourseModel("膀胱癌", "膀胱癌是一種生長於膀胱的惡性腫瘤，好發於五十至七十歲之年齡層，百分之九十八膀胱癌屬上皮細胞來源", "- -", R.drawable.bladder));
-        courseModelArrayList.add(new CourseModel("大腸癌", "根據衛福部的統計，在臺灣每31分14秒就有1人被診斷為大腸癌。", "- -", R.drawable.rectum));
+        courseModelArrayList.add(new CourseModel("肺癌", "近數十年來臺灣地區肺癌病人有顯著增加的趨勢，而目前肺癌已是國人因為癌症死亡最常見的原因之一","80%", R.drawable.lungs));
+        courseModelArrayList.add(new CourseModel("肝癌", "每年約13,000人死於慢性肝病、肝硬化及肝癌，慢性肝病及肝硬化為全國主要死因的第9位，肝癌則為全國主要癌症死因的第2位", "20%", R.drawable.liver));
+        courseModelArrayList.add(new CourseModel("前列腺癌", "前列腺癌是好發於老年男性的惡性腫瘤，而其死亡率在65歲以後也有陡然上升的趨勢", "8%", R.drawable.prostate));
+        courseModelArrayList.add(new CourseModel("直腸癌", "目前大腸直腸癌為台灣所有癌症死亡率第三名，更為癌症發生率第一位", "5%", R.drawable.rectum));
+        courseModelArrayList.add(new CourseModel("乳癌", "目前乳癌發生率為國內女性好發癌症的第一位，死亡率則為第四位", "60%", R.drawable.breast));
 
         // we are initializing our adapter class and passing our arraylist to it.
         CourseAdapter courseAdapter = new CourseAdapter(this.getActivity(), courseModelArrayList);
