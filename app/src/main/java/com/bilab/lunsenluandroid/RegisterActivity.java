@@ -8,10 +8,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -127,7 +125,7 @@ public class RegisterActivity extends AppCompatActivity {
                             myEdit.commit();*/
                             Intent intent = new Intent();
                             final Bundle bundle = new Bundle();
-                            intent.setClass(RegisterActivity.this, Main2Activity.class);
+                            intent.setClass(RegisterActivity.this, MainActivity.class);
                             startActivity(intent);
                             RegisterActivity.this.finish();
                         }

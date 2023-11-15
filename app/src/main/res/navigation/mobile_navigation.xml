@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_track"
-        android:name="com.bilab.lunsenluandroid.ui.track.TrackFragment"
+        android:name="com.bilab.lunsenluandroid.ui.home.HomeFragment"
         android:label="@string/path"
         tools:layout="@layout/fragment_track" />
 

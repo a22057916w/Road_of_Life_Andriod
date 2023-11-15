@@ -13,21 +13,21 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bilab.lunsenluandroid.R;
 import com.bilab.lunsenluandroid.WebViewActivity;
-import com.bilab.lunsenluandroid.model.CourseModel;
+import com.bilab.lunsenluandroid.model.HomeModel;
 
 import java.util.ArrayList;
 
-public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder> {
+public class RecycleViewHome extends RecyclerView.Adapter<RecycleViewHome.ViewHolder> {
 
     private final Context context;
-    private final ArrayList<CourseModel> courseModelArrayList;
+    private final ArrayList<HomeModel> homeModelArrayList;
 
     private WebView webView;
 
     // Constructor
-    public CourseAdapter(Context context, ArrayList<CourseModel> courseModelArrayList) {
+    public RecycleViewHome(Context context, ArrayList<HomeModel> homeModelArrayList) {
         this.context = context;
-        this.courseModelArrayList = courseModelArrayList;
+        this.homeModelArrayList = homeModelArrayList;
     }
 
     @NonNull
@@ -48,19 +48,19 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CourseAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RecycleViewHome.ViewHolder holder, int position) {
         // to set data to textview and imageview of each card layout
-        CourseModel model = courseModelArrayList.get(position);
-        holder.courseNameTV.setText(model.getCourse_name());
-        holder.courseRatingTV.setText("" + model.getCourse_rating());
-        holder.courseIV.setImageResource(model.getCourse_image());
-        holder.risk_precentage.setText(model.getRisk_precentage());
+        HomeModel model = homeModelArrayList.get(position);
+        holder.courseNameTV.setText(model.getDisease_name());
+        holder.courseRatingTV.setText("" + model.getDisease_description());
+        holder.courseIV.setImageResource(model.getDisease_image());
+        holder.risk_precentage.setText(model.getRisk_percentage());
     }
 
     @Override
     public int getItemCount() {
         // this method is used for showing number of card items in recycler view
-        return courseModelArrayList.size();
+        return homeModelArrayList.size();
     }
 
     // View holder class for initializing of your views such as TextView and Imageview

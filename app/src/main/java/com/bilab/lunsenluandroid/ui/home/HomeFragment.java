@@ -1,4 +1,4 @@
-package com.bilab.lunsenluandroid.ui.track;
+package com.bilab.lunsenluandroid.ui.home;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -24,9 +24,9 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.bilab.lunsenluandroid.Adapter.CourseAdapter;
+import com.bilab.lunsenluandroid.Adapter.RecycleViewHome;
 import com.bilab.lunsenluandroid.R;
-import com.bilab.lunsenluandroid.model.CourseModel;
+import com.bilab.lunsenluandroid.model.HomeModel;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -36,9 +36,9 @@ import java.security.GeneralSecurityException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class TrackFragment extends Fragment {
+public class HomeFragment extends Fragment {
 
-    private TrackViewModel pathViewModel;
+    private HomeViewModel pathViewModel;
     private WebView webView;
     TableRow tablerow_error;
     TextView choose;
@@ -51,28 +51,28 @@ public class TrackFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         pathViewModel =
-                ViewModelProviders.of(this).get(TrackViewModel.class);
+                ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_track, container, false);
 
         RecyclerView courseRV = root.findViewById(R.id.idRVCourse);
 
         // Here, we have created new array list and added data to it
-        ArrayList<CourseModel> courseModelArrayList = new ArrayList<CourseModel>();
-        courseModelArrayList.add(new CourseModel("肺癌", "近數十年來臺灣地區肺癌病人有顯著增加的趨勢，而目前肺癌已是國人因為癌症死亡最常見的原因之一","80%", R.drawable.lungs));
-        courseModelArrayList.add(new CourseModel("肝癌", "每年約13,000人死於慢性肝病、肝硬化及肝癌，慢性肝病及肝硬化為全國主要死因的第9位，肝癌則為全國主要癌症死因的第2位", "20%", R.drawable.liver));
-        courseModelArrayList.add(new CourseModel("前列腺癌", "前列腺癌是好發於老年男性的惡性腫瘤，而其死亡率在65歲以後也有陡然上升的趨勢", "8%", R.drawable.prostate));
-        courseModelArrayList.add(new CourseModel("直腸癌", "目前大腸直腸癌為台灣所有癌症死亡率第三名，更為癌症發生率第一位", "5%", R.drawable.rectum));
-        courseModelArrayList.add(new CourseModel("乳癌", "目前乳癌發生率為國內女性好發癌症的第一位，死亡率則為第四位", "60%", R.drawable.breast));
+        ArrayList<HomeModel> homeModelArrayList = new ArrayList<HomeModel>();
+        homeModelArrayList.add(new HomeModel("肺癌", "近數十年來臺灣地區肺癌病人有顯著增加的趨勢，而目前肺癌已是國人因為癌症死亡最常見的原因之一","80%", R.drawable.lungs));
+        homeModelArrayList.add(new HomeModel("肝癌", "每年約13,000人死於慢性肝病、肝硬化及肝癌，慢性肝病及肝硬化為全國主要死因的第9位，肝癌則為全國主要癌症死因的第2位", "20%", R.drawable.liver));
+        homeModelArrayList.add(new HomeModel("前列腺癌", "前列腺癌是好發於老年男性的惡性腫瘤，而其死亡率在65歲以後也有陡然上升的趨勢", "8%", R.drawable.prostate));
+        homeModelArrayList.add(new HomeModel("直腸癌", "目前大腸直腸癌為台灣所有癌症死亡率第三名，更為癌症發生率第一位", "5%", R.drawable.rectum));
+        homeModelArrayList.add(new HomeModel("乳癌", "目前乳癌發生率為國內女性好發癌症的第一位，死亡率則為第四位", "60%", R.drawable.breast));
 
         // we are initializing our adapter class and passing our arraylist to it.
-        CourseAdapter courseAdapter = new CourseAdapter(this.getActivity(), courseModelArrayList);
+        RecycleViewHome recycleViewHome = new RecycleViewHome(this.getActivity(), homeModelArrayList);
         // below line is for setting a layout manager for our recycler view.
         // here we are creating vertical list so we will provide orientation as vertical
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.getActivity(), LinearLayoutManager.VERTICAL, false);
 
         // in below two lines we are setting layoutmanager and adapter to our recycler view.
         courseRV.setLayoutManager(linearLayoutManager);
-        courseRV.setAdapter(courseAdapter);
+        courseRV.setAdapter(recycleViewHome);
 
 //        webView = root.findViewById(R.id.fragment_path_webView);
 //        tablerow_error = root.findViewById(R.id.fragment_path_error);

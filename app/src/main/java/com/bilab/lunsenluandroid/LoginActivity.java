@@ -5,14 +5,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -20,18 +16,15 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HurlStack;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.json.JSONStringer;
 
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.util.HashMap;
-import java.util.Map;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.security.crypto.EncryptedSharedPreferences;
@@ -80,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 Intent intent = new Intent();
                 final Bundle bundle = new Bundle();
-                intent.setClass(LoginActivity.this, Main2Activity.class);
+                intent.setClass(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
                 LoginActivity.this.finish();
             }
@@ -128,7 +121,7 @@ public class LoginActivity extends AppCompatActivity {
         if(email.equals("") || password.equals("")){}
         else{
             Intent intent = new Intent();
-            intent.setClass(LoginActivity.this, Main2Activity.class);
+            intent.setClass(LoginActivity.this, MainActivity.class);
             startActivity(intent);
             LoginActivity.this.finish();
         }
@@ -171,7 +164,7 @@ public class LoginActivity extends AppCompatActivity {
                             myEdit.commit();*/
                             Intent intent = new Intent();
                             final Bundle bundle = new Bundle();
-                            intent.setClass(LoginActivity.this, Main2Activity.class);
+                            intent.setClass(LoginActivity.this, MainActivity.class);
                             startActivity(intent);
                             LoginActivity.this.finish();
                         }
