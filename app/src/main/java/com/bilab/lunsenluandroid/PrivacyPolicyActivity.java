@@ -10,8 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class PrivacyPolicyActivity extends AppCompatActivity {
 
-    ImageView previous;
-    Button agree,disagree;
+    ImageView imv_previous;
+    Button btn_agree, btn_disagree;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,18 +19,28 @@ public class PrivacyPolicyActivity extends AppCompatActivity {
         setContentView(R.layout.privacy_policy);
         getSupportActionBar().hide();
 
-        previous =  (ImageView) findViewById(R.id.privacy_policy_previous);
-        disagree =  (Button) findViewById(R.id.privacy_policy_disagree);
-        agree =  (Button) findViewById(R.id.privacy_policy_agree);
+        Intent intent = getIntent();
 
-        previous.setOnClickListener(new View.OnClickListener() {
+        // Check if the Intent is not null and has a starting activity
+        if (intent != null && intent.getComponent() != null) {
+            String startingActivityClassName = intent.getComponent().getClassName();
+            if(startingActivityClassName.equals(LoadingActivity.class.getName()));
+                imv_previous.setVisibility(View.INVISIBLE);
+
+        }
+
+        imv_previous =  (ImageView) findViewById(R.id.privacy_policy_previous);
+        btn_disagree =  (Button) findViewById(R.id.privacy_policy_disagree);
+        btn_agree =  (Button) findViewById(R.id.privacy_policy_agree);
+
+        imv_previous.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
         });
 
-        agree.setOnClickListener(new View.OnClickListener() {
+        btn_agree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -42,7 +52,7 @@ public class PrivacyPolicyActivity extends AppCompatActivity {
             }
         });
 
-        disagree.setOnClickListener(new View.OnClickListener() {
+        btn_disagree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
