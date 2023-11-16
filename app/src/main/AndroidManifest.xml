@@ -32,7 +32,6 @@
         <activity android:name=".WebViewActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".Backup.MainActivity" />
         <activity android:name=".AccountMainActivity" />
         <activity android:name=".AccountPasswordActivity" />
         <activity android:name=".DoctorAuthActivity" />
