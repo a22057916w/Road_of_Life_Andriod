@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/margin_normal"
+    android:background="#EDEDED"
+    android:paddingRight="@dimen/margin_normal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/margin_normal">
+        <TextView
+            android:id="@+id/nhisdk_data_list_child_hint_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="@dimen/common_content_txt_size"
+            android:text="@string/nhisdk_data_production_hint"/>
+
+        <TextView
+            android:id="@+id/nhisdk_data_list_child_all_check_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:textSize="@dimen/common_content_txt_size"
+            android:background="@drawable/nhisdk_data_production_all_check_bg"
+            android:padding="5dp"
+            android:text="@string/nhisdk_data_production_all_check" />
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/nhisdk_data_list_child_dynamic_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/margin_middle"/>
+</LinearLayout>
