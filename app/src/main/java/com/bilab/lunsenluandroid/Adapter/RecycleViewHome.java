@@ -31,7 +31,7 @@ public class RecycleViewHome extends RecyclerView.Adapter<RecycleViewHome.ViewHo
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // to inflate the layout for each item of recycler view.
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_layout, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_main_disease, parent, false);
 
         Intent myIntent = new Intent(this.context, WebViewActivity.class); //WebViewActivityName is the  activity name of the webview activity
         view.setOnClickListener(new View.OnClickListener() {
@@ -69,10 +69,10 @@ public class RecycleViewHome extends RecyclerView.Adapter<RecycleViewHome.ViewHo
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imv_diseaseIcon = itemView.findViewById(R.id.idIVCourseImage);
+            imv_diseaseIcon = itemView.findViewById(R.id.imv_diseaseIcon);
             tv_diseaseName = itemView.findViewById(R.id.idTVCourseName);
-            tv_diseaseDescription = itemView.findViewById(R.id.idTVCourseRating);
-            tv_diseaseRisk = itemView.findViewById((R.id.idRiskIndex));
+            tv_diseaseDescription = itemView.findViewById(R.id.tv_diseaseDescription);
+            tv_diseaseRisk = itemView.findViewById((R.id.tv_diseaseRisk));
         }
     }
 }

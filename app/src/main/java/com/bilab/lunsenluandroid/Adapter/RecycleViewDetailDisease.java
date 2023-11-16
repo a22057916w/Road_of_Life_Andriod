@@ -30,7 +30,7 @@ public class RecycleViewDetailDisease extends RecyclerView.Adapter<RecycleViewDe
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // to inflate the layout for each item of recycler view.
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_disease_layout, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_select_disease, parent, false);
         return new ViewHolder(view);
     }
 
