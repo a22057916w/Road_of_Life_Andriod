@@ -9,7 +9,7 @@
         android:id="@+id/navigation_track"
         android:name="com.bilab.lunsenluandroid.ui.home.HomeFragment"
         android:label="@string/path"
-        tools:layout="@layout/fragment_track" />
+        tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_dashboard"

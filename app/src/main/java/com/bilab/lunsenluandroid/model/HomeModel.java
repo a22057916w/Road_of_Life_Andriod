@@ -4,15 +4,15 @@ public class HomeModel {
 
     private String disease_name;
     private String disease_description;
-    private String risk_percentage;
+    private String disease_risk;
     private int disease_image;
 
     // Constructor
-    public HomeModel(String disease_name, String disease_description, String risk_percentage, int disease_image) {
+    public HomeModel(String disease_name, String disease_description, String disease_risk, int disease_image) {
         this.disease_name = disease_name;
         this.disease_description = disease_description;
         this.disease_image = disease_image;
-        this.risk_percentage = risk_percentage;
+        this.disease_risk = disease_risk;
     }
 
     // Getter and Setter
@@ -36,8 +36,8 @@ public class HomeModel {
         return disease_image;
     }
 
-    public String getRisk_percentage() {
-        return risk_percentage;
+    public String getDisease_risk() {
+        return disease_risk;
     }
 
     public void setDisease_image(int disease_image) {

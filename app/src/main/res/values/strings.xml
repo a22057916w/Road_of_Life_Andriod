@@ -164,4 +164,8 @@
     <string name="disease_select">共病選擇</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="label_posturl_check_health_passport">"https://lunsenlu.cf/health_passport/check_health_passport"</string>
+    <string name="label_homepage_notification">請選擇個人疾病資料以進行風險預測</string>
+    <!--    "https://140.124.183.197:8000/health_passport/check_health_passport"-->
 </resources>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".PlanSelectActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_title_bat_height">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/nhisdk_data_production_title"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/common_title_txt_size" />
+
+        <TextView
+            android:id="@+id/nhisdk_data_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/margin_normal"
+            android:gravity="center"
+            android:paddingLeft="@dimen/margin_normal"
+            android:paddingRight="@dimen/margin_normal"
+            android:text="@string/nhisdk_data_production_logout"
+            android:textColor="@color/color_bottom_blue"
+            android:textSize="@dimen/common_title_txt_size" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+
+        <LinearLayout
+            android:id="@+id/nhisdk_data_production_bottom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorGray"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/margin_normal"
+                android:paddingTop="@dimen/margin_normal">
+
+                <RelativeLayout
+                    android:id="@+id/nhisdk_plan_pick_item_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_normal"
+                    android:layout_marginRight="@dimen/margin_normal"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="@dimen/bottom_bar_btn_width"
+                        android:layout_height="@dimen/bottom_bar_btn_height"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/bg_bottom_btn_left"
+                        android:gravity="center"
+                        android:text="@string/nhisdk_plan_selection_item_by_item"
+                        android:textColor="@color/color_bottom_blue"
+                        android:textSize="@dimen/common_btn_txt_size" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/nhisdk_plan_all_item_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/margin_normal"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="@dimen/bottom_bar_btn_width"
+                        android:layout_height="@dimen/bottom_bar_btn_height"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/bg_bottom_btn_right"
+                        android:gravity="center"
+                        android:text="@string/nhisdk_plan_selection_all"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/common_btn_txt_size" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/nhisdk_data_production_bottom_bar">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:adjustViewBounds="true"
+                android:scaleType="fitStart"
+                android:src="@drawable/home_bg_top" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:adjustViewBounds="true"
+                android:scaleType="fitStart"
+                android:src="@drawable/plan_selection_bg_bottom" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="@dimen/margin_middle"
+                android:layout_marginRight="@dimen/margin_middle"
+                android:src="@drawable/logo_waterfloat" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/margin_middle"
+                android:layout_marginRight="@dimen/margin_middle"
+                android:layout_marginTop="@dimen/margin_middle"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/nhisdk_plan_selection_txt_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="9dp"
+                    android:text="@string/nhisdk_data_note_content1"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/plan_selection_content_txt_size" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/plan_selection_content_txt_size"
+                        android:text="*"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/nhisdk_data_note_content2"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/plan_selection_content_txt_size" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>

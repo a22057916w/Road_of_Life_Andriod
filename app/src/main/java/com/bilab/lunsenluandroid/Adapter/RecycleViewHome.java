@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -21,8 +20,6 @@ public class RecycleViewHome extends RecyclerView.Adapter<RecycleViewHome.ViewHo
 
     private final Context context;
     private final ArrayList<HomeModel> homeModelArrayList;
-
-    private WebView webView;
 
     // Constructor
     public RecycleViewHome(Context context, ArrayList<HomeModel> homeModelArrayList) {
@@ -51,10 +48,10 @@ public class RecycleViewHome extends RecyclerView.Adapter<RecycleViewHome.ViewHo
     public void onBindViewHolder(@NonNull RecycleViewHome.ViewHolder holder, int position) {
         // to set data to textview and imageview of each card layout
         HomeModel model = homeModelArrayList.get(position);
-        holder.courseNameTV.setText(model.getDisease_name());
-        holder.courseRatingTV.setText("" + model.getDisease_description());
-        holder.courseIV.setImageResource(model.getDisease_image());
-        holder.risk_precentage.setText(model.getRisk_percentage());
+        holder.tv_diseaseName.setText(model.getDisease_name());
+        holder.tv_diseaseDescription.setText(model.getDisease_description());
+        holder.imv_diseaseIcon.setImageResource(model.getDisease_image());
+        holder.tv_diseaseRisk.setText(model.getDisease_risk());
     }
 
     @Override
@@ -65,17 +62,17 @@ public class RecycleViewHome extends RecyclerView.Adapter<RecycleViewHome.ViewHo
 
     // View holder class for initializing of your views such as TextView and Imageview
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private final ImageView courseIV;
-        private final TextView courseNameTV;
-        private final TextView courseRatingTV;
-        private final TextView risk_precentage;
+        private final ImageView imv_diseaseIcon;
+        private final TextView tv_diseaseName;
+        private final TextView tv_diseaseDescription;
+        private final TextView tv_diseaseRisk;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            courseIV = itemView.findViewById(R.id.idIVCourseImage);
-            courseNameTV = itemView.findViewById(R.id.idTVCourseName);
-            courseRatingTV = itemView.findViewById(R.id.idTVCourseRating);
-            risk_precentage = itemView.findViewById((R.id.idRiskIndex));
+            imv_diseaseIcon = itemView.findViewById(R.id.idIVCourseImage);
+            tv_diseaseName = itemView.findViewById(R.id.idTVCourseName);
+            tv_diseaseDescription = itemView.findViewById(R.id.idTVCourseRating);
+            tv_diseaseRisk = itemView.findViewById((R.id.idRiskIndex));
         }
     }
 }
