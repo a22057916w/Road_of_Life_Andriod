@@ -28,7 +28,7 @@ public class LoadingActivity extends AppCompatActivity {
             e.printStackTrace();
 
         }*/
-        final Intent localIntent = new Intent(this, LoginActivity.class);
+        final Intent localIntent = new Intent(this, PrivacyPolicyActivity.class);
         Timer timer = new Timer();
         TimerTask tast = new TimerTask() {
             @Override
