@@ -24,7 +24,7 @@ public class PrivacyPolicyActivity extends AppCompatActivity {
         // Check if the Intent is not null and has a starting activity
         if (intent != null && intent.getComponent() != null) {
             String startingActivityClassName = intent.getComponent().getClassName();
-            if(startingActivityClassName.equals(LoadingActivity.class.getName()));
+            if(startingActivityClassName.equals(LoadingActivity.class.getName()))
                 imv_previous.setVisibility(View.INVISIBLE);
 
         }
