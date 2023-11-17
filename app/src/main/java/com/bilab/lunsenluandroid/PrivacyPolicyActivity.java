@@ -2,16 +2,19 @@ package com.bilab.lunsenluandroid;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bilab.lunsenluandroid.util.Constant;
+
 public class PrivacyPolicyActivity extends AppCompatActivity {
 
-    ImageView previous;
-    Button agree,disagree;
+    ImageView imv_previous;
+    Button btn_agree, btn_disagree;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,18 +22,36 @@ public class PrivacyPolicyActivity extends AppCompatActivity {
         setContentView(R.layout.privacy_policy);
         getSupportActionBar().hide();
 
-        previous =  (ImageView) findViewById(R.id.privacy_policy_previous);
-        disagree =  (Button) findViewById(R.id.privacy_policy_disagree);
-        agree =  (Button) findViewById(R.id.privacy_policy_agree);
+        registerUI();
+        setListeners();
 
-        previous.setOnClickListener(new View.OnClickListener() {
+        Intent intent = getIntent();
+        // Check if the Intent is not null and has a starting activity
+        if (intent != null && intent.getComponent() != null) {
+            String starterActivityName = intent.getStringExtra(Constant.EXTRA_STARTER_ACTIVITY_NAME);
+
+            if(starterActivityName.equals(LoadingActivity.class.getName())) {
+                imv_previous.setVisibility(View.INVISIBLE);
+            }
+        }
+
+    }
+
+    private void registerUI() {
+        imv_previous =  (ImageView) findViewById(R.id.privacy_policy_previous);
+        btn_disagree =  (Button) findViewById(R.id.privacy_policy_disagree);
+        btn_agree =  (Button) findViewById(R.id.privacy_policy_agree);
+    }
+
+    private void setListeners() {
+        imv_previous.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
         });
 
-        agree.setOnClickListener(new View.OnClickListener() {
+        btn_agree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -42,7 +63,7 @@ public class PrivacyPolicyActivity extends AppCompatActivity {
             }
         });
 
-        disagree.setOnClickListener(new View.OnClickListener() {
+        btn_disagree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();

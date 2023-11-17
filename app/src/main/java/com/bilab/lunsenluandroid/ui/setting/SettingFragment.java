@@ -1,46 +1,23 @@
 package com.bilab.lunsenluandroid.ui.setting;
 
-import android.content.Context;
 import android.content.Intent;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.security.crypto.EncryptedSharedPreferences;
-import androidx.security.crypto.MasterKeys;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.bilab.lunsenluandroid.AccountPasswordActivity;
 import com.bilab.lunsenluandroid.DoctorAuthActivity;
 import com.bilab.lunsenluandroid.HealthPassActivity;
-import com.bilab.lunsenluandroid.LoginActivity;
 import com.bilab.lunsenluandroid.R;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
-import java.security.GeneralSecurityException;
-import java.util.HashMap;
 
 public class SettingFragment extends Fragment {
     LinearLayout health_passport,doctor_auth,info,account,private_policy;
@@ -121,32 +98,6 @@ public class SettingFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 //asd.setText("123456789");
-            }
-        });
-
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String masterKeyAlias = null,email="",password="";
-                try {
-                    masterKeyAlias = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC);
-                    SharedPreferences sharedPreferences = EncryptedSharedPreferences.create(
-                            "RoadOfLifeAccount", masterKeyAlias, getActivity(),
-                            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
-                            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
-                    );
-                    sharedPreferences.edit().clear().commit();
-                } catch (GeneralSecurityException | IOException e) {
-                    e.printStackTrace();
-                }
-                /*SharedPreferences sharedPreferences = getActivity().getSharedPreferences("RoadOfLifeAccount", Context.MODE_PRIVATE);
-                SharedPreferences.Editor myEdit = sharedPreferences.edit();
-                myEdit.clear();
-                myEdit.commit();*/
-                Intent intent = new Intent();
-                intent.setClass(getActivity(), LoginActivity.class);
-                startActivity(intent);
-                getActivity().finish();
             }
         });
 
