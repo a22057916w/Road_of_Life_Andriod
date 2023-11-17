@@ -2,11 +2,14 @@ package com.bilab.lunsenluandroid;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.bilab.lunsenluandroid.util.Constant;
 
 public class PrivacyPolicyActivity extends AppCompatActivity {
 
@@ -19,20 +22,28 @@ public class PrivacyPolicyActivity extends AppCompatActivity {
         setContentView(R.layout.privacy_policy);
         getSupportActionBar().hide();
 
-        Intent intent = getIntent();
+        registerUI();
+        setListeners();
 
+        Intent intent = getIntent();
         // Check if the Intent is not null and has a starting activity
         if (intent != null && intent.getComponent() != null) {
-            String startingActivityClassName = intent.getComponent().getClassName();
-            if(startingActivityClassName.equals(LoadingActivity.class.getName()))
-                imv_previous.setVisibility(View.INVISIBLE);
+            String starterActivityName = intent.getStringExtra(Constant.EXTRA_STARTER_ACTIVITY_NAME);
 
+            if(starterActivityName.equals(LoadingActivity.class.getName())) {
+                imv_previous.setVisibility(View.INVISIBLE);
+            }
         }
 
+    }
+
+    private void registerUI() {
         imv_previous =  (ImageView) findViewById(R.id.privacy_policy_previous);
         btn_disagree =  (Button) findViewById(R.id.privacy_policy_disagree);
         btn_agree =  (Button) findViewById(R.id.privacy_policy_agree);
+    }
 
+    private void setListeners() {
         imv_previous.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
