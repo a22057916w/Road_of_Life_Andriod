@@ -15,7 +15,7 @@
         android:id="@+id/navigation_dashboard"
         android:name="com.bilab.lunsenluandroid.ui.disease.DiseaseFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_disease" />
 
     <fragment
         android:id="@+id/navigation_setting"

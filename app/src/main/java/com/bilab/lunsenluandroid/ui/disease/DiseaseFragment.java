@@ -29,7 +29,7 @@ public class DiseaseFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         diseaseViewModel =
                 ViewModelProviders.of(this).get(DiseaseViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
+        View root = inflater.inflate(R.layout.fragment_disease, container, false);
 
         searchView = root.findViewById(R.id.searchView);
         // set default text
