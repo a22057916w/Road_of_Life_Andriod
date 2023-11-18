@@ -37,7 +37,7 @@
 
         <!-- Text View to display Course Name -->
         <TextView
-            android:id="@+id/idTVCourseName"
+            android:id="@+id/tv_diseaseName"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -51,10 +51,10 @@
         <!-- Text VIew to display Course Rating -->
         <!-- Image used in present in drawable folder -->
         <TextView
-            android:id="@+id/tv_diseaseDescription"
+            android:id="@+id/tv_diseaseInfo"
             android:layout_width="170dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/idTVCourseName"
+            android:layout_below="@id/tv_diseaseName"
             android:layout_marginStart="10dp"
             android:layout_marginTop="0dp"
             android:layout_toEndOf="@id/imv_diseaseIcon"
@@ -71,7 +71,7 @@
             android:layout_marginStart="34dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
-            android:layout_toEndOf="@+id/tv_diseaseDescription"
+            android:layout_toEndOf="@+id/tv_diseaseInfo"
             android:gravity="center"
             android:text="@string/disease_risk"
             android:textSize="25sp" />
