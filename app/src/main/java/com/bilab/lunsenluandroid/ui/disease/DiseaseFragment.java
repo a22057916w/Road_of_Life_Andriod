@@ -41,14 +41,7 @@ public class DiseaseFragment extends Fragment {
 //        // set default text
 //        searchView.setQuery("請輸入病症或器官", false);
 //
-//        uterus_tv = root.findViewById(R.id.TVUterus);
-//        uterus_tv.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(getActivity(), DetailDiseaseActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+
         registerUI(root);
         setupUI();
 
@@ -56,7 +49,7 @@ public class DiseaseFragment extends Fragment {
     }
 
     private void registerUI(View root) {
-        rv_disease = root.findViewById(R.id.rv_disease);
+        rv_disease = root.findViewById(R.id.rv_disease_category);
     }
 
     private void setupUI() {
