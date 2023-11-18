@@ -25,7 +25,7 @@ public class HomeFragment extends Fragment {
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
-        RecyclerView rv_disease = root.findViewById(R.id.rv_disease);
+        RecyclerView rv_disease = root.findViewById(R.id.rv_disease_home);
 
         // Creating new array list and added data to it
         ArrayList<HomeModel> homeModelArrayList = new ArrayList<HomeModel>();
