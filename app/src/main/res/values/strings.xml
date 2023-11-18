@@ -170,5 +170,6 @@
     <string name="disease_name">disease name</string>
     <string name="disease_description">disease description or amount</string>
     <string name="disease_risk">40%</string>
+    <string name="label_next_step">下一步</string>
     <!--    "https://140.124.183.197:8000/health_passport/check_health_passport"-->
 </resources>

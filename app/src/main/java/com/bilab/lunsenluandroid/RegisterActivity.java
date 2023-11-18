@@ -1,6 +1,7 @@
 package com.bilab.lunsenluandroid;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,7 +15,7 @@ import androidx.fragment.app.FragmentManager;
 public class RegisterActivity extends AppCompatActivity {
 
     EditText email,password_check;
-    Button logout_button , birthday_btn, name_btn, weight_btn;
+    Button btn_next, birthday_btn, name_btn, weight_btn;
     ImageView previous;
     TextView register_error, birthday_tv;
     @Override
@@ -34,7 +35,7 @@ public class RegisterActivity extends AppCompatActivity {
         birthday_tv = (TextView) findViewById(R.id.birthday_textview);
 
 //        password_check =  (EditText) findViewById(R.id.logout_password_check);
-        logout_button =  (Button) findViewById(R.id.logout_button);
+        btn_next =  (Button) findViewById(R.id.btn_next);
         previous =  (ImageView) findViewById(R.id.register_previous);
         register_error = (TextView) findViewById(R.id.register_error);
 
@@ -68,6 +69,15 @@ public class RegisterActivity extends AppCompatActivity {
                 // Bring up the picker fragment
 //                DialogFragment newFragment = TimePickerFragment.newInstance(R.string.work_title);
 //                newFragment.show(getSupportFragmentManager(), "WorkTimePicker");
+            }
+        });
+
+        btn_next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent openMainIntent = new Intent(RegisterActivity.this, MainActivity.class);
+                startActivity(openMainIntent);
+                finish();
             }
         });
     }
