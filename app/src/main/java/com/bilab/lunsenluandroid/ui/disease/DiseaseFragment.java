@@ -1,4 +1,4 @@
-package com.bilab.lunsenluandroid.ui.dashboard;
+package com.bilab.lunsenluandroid.ui.disease;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,9 +16,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bilab.lunsenluandroid.DetailDiseaseActivity;
 import com.bilab.lunsenluandroid.R;
 
-public class DashboardFragment extends Fragment {
+public class DiseaseFragment extends Fragment {
 
-    private DashboardViewModel dashboardViewModel;
+    private DiseaseViewModel diseaseViewModel;
 
     private RecyclerView recycler_view;
     private SearchView searchView;
@@ -27,8 +27,8 @@ public class DashboardFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        dashboardViewModel =
-                ViewModelProviders.of(this).get(DashboardViewModel.class);
+        diseaseViewModel =
+                ViewModelProviders.of(this).get(DiseaseViewModel.class);
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
         searchView = root.findViewById(R.id.searchView);
