@@ -58,10 +58,10 @@ public class DiseaseFragment extends Fragment {
 
     private void setupRV() {
         ArrayList<DiseaseCategoryModel> diseaseCategoryModelArrayList = new ArrayList<>();
-        diseaseCategoryModelArrayList.add(new DiseaseCategoryModel("子宮相關疾病", "5個疾病資料", R.drawable.lungs));
-        diseaseCategoryModelArrayList.add(new DiseaseCategoryModel("卵巢相關疾病", "5個疾病資料", R.drawable.lungs));
-        diseaseCategoryModelArrayList.add(new DiseaseCategoryModel("膀胱相關疾病", "7個疾病資料", R.drawable.lungs));
-        diseaseCategoryModelArrayList.add(new DiseaseCategoryModel("大腸相關疾病", "4個疾病資料", R.drawable.lungs));
+        diseaseCategoryModelArrayList.add(new DiseaseCategoryModel("子宮相關疾病", "5個疾病資料", R.drawable.ic_uterus));
+        diseaseCategoryModelArrayList.add(new DiseaseCategoryModel("卵巢相關疾病", "5個疾病資料", R.drawable.ic_ovary));
+        diseaseCategoryModelArrayList.add(new DiseaseCategoryModel("膀胱相關疾病", "7個疾病資料", R.drawable.ic_bladder));
+        diseaseCategoryModelArrayList.add(new DiseaseCategoryModel("大腸相關疾病", "4個疾病資料", R.drawable.ic_rectum));
 
         // Initializing adapter class and passing arraylist to it.
         RecycleViewDiseaseCategory recycleViewDiseaseCategory = new RecycleViewDiseaseCategory(this.getActivity(), diseaseCategoryModelArrayList);
