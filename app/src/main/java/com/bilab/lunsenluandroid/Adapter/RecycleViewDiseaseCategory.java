@@ -29,7 +29,7 @@ public class RecycleViewDiseaseCategory extends RecyclerView.Adapter<RecycleView
     @Override
     public RecycleViewDiseaseCategory.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // to inflate the layout for each item of recycler view.
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_main_disease, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_disease_common, parent, false);
         return new RecycleViewDiseaseCategory.ViewHolder(view);
     }
 

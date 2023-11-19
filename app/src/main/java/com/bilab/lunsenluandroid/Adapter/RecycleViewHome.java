@@ -31,7 +31,7 @@ public class RecycleViewHome extends RecyclerView.Adapter<RecycleViewHome.ViewHo
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // to inflate the layout for each item of recycler view.
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_main_disease, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_disease_common, parent, false);
 
         Intent myIntent = new Intent(this.context, WebViewActivity.class); //WebViewActivityName is the  activity name of the webview activity
         view.setOnClickListener(new View.OnClickListener() {
