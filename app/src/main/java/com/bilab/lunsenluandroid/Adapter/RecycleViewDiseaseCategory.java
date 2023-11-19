@@ -38,6 +38,7 @@ public class RecycleViewDiseaseCategory extends RecyclerView.Adapter<RecycleView
         DiseaseCategoryModel model = diseaseCategoryModelList.get(position);
         holder.tv_diseaseName.setText((model.getDiseaseName()));
         holder.tv_diseaseAmount.setText((model.getDiseaseAmount()));
+        holder.tv_diseaseRisk.setVisibility(View.INVISIBLE);
         holder.imv_diseaseIcon.setImageResource(model.getDiseaseImage());
     }
 
@@ -48,26 +49,17 @@ public class RecycleViewDiseaseCategory extends RecyclerView.Adapter<RecycleView
 
     // View holder class for initializing of your views such as TextView and Imageview
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private ImageView imv_diseaseIcon;
-        private TextView tv_diseaseName;
-        private TextView tv_diseaseAmount;
-        private TextView tv_diseaseRisk;
+        private final ImageView imv_diseaseIcon;
+        private final TextView tv_diseaseName;
+        private final TextView tv_diseaseAmount;
+        private final TextView tv_diseaseRisk;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            registerUI();
-            setupUI();
-        }
-
-        private void registerUI() {
             imv_diseaseIcon = itemView.findViewById(R.id.imv_diseaseIcon);
             tv_diseaseName = itemView.findViewById(R.id.tv_diseaseName);
             tv_diseaseAmount = itemView.findViewById(R.id.tv_diseaseInfo);
             tv_diseaseRisk = itemView.findViewById(R.id.tv_diseaseRisk);
-        }
-
-        private void setupUI() {
-            tv_diseaseRisk.setVisibility(View.INVISIBLE);
         }
     }
 }
