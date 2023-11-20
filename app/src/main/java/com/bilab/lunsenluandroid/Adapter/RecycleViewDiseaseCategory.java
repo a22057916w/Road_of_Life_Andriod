@@ -56,10 +56,10 @@ public class RecycleViewDiseaseCategory extends RecyclerView.Adapter<RecycleView
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imv_diseaseIcon = itemView.findViewById(R.id.imv_diseaseIcon);
-            tv_diseaseName = itemView.findViewById(R.id.tv_diseaseName);
-            tv_diseaseAmount = itemView.findViewById(R.id.tv_diseaseInfo);
-            tv_diseaseRisk = itemView.findViewById(R.id.tv_diseaseRisk);
+            imv_diseaseIcon = itemView.findViewById(R.id.imv_disease_icon);
+            tv_diseaseName = itemView.findViewById(R.id.tv_disease_name);
+            tv_diseaseAmount = itemView.findViewById(R.id.tv_disease_info);
+            tv_diseaseRisk = itemView.findViewById(R.id.tv_disease_risk);
         }
     }
 }
