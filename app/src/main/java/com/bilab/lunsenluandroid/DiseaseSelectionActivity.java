@@ -5,23 +5,25 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
-import com.bilab.lunsenluandroid.Adapter.RecycleViewDetailDisease;
-import com.bilab.lunsenluandroid.model.DetailDiseaseModel;
+import com.bilab.lunsenluandroid.Adapter.RecycleViewDiseaseSelection;
+import com.bilab.lunsenluandroid.model.DiseaseSelectionModel;
 
 import java.util.ArrayList;
 
-public class DetailDiseaseActivity extends AppCompatActivity {
+public class DiseaseSelectionActivity extends AppCompatActivity {
 
+    RecyclerView rv_disease_selection;
+    TextView tv_disease_related_disease;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_diease);
-        getSupportActionBar().hide();
 
-        RecyclerView detailDiseaseRV = findViewById(R.id.RVDetailDisease);
+        registerUI();
+        setupUI();
 
-        ArrayList<DetailDiseaseModel> detailDiseaseModelArrayList = new ArrayList<DetailDiseaseModel>();
+        ArrayList<DiseaseSelectionModel> diseaseSelectionModelArrayList = new ArrayList<DiseaseSelectionModel>();
 //        detailDiseaseModelArrayList.add(new DetailDiseaseModel("胃腸出血", R.drawable.rectum));
 //        detailDiseaseModelArrayList.add(new DetailDiseaseModel("痔瘡", R.drawable.rectum));
 //        detailDiseaseModelArrayList.add(new DetailDiseaseModel("功能性消化不良症", R.drawable.rectum));
@@ -72,30 +74,47 @@ public class DetailDiseaseActivity extends AppCompatActivity {
 
 
 
-        detailDiseaseModelArrayList.add(new DetailDiseaseModel("其他子宮疾患", R.drawable.pregnant));
-        detailDiseaseModelArrayList.add(new DetailDiseaseModel("月經失調及生殖道異常出血", R.drawable.pregnant));
-        detailDiseaseModelArrayList.add(new DetailDiseaseModel("子宮肌瘤", R.drawable.pregnant));
-        detailDiseaseModelArrayList.add(new DetailDiseaseModel("其他子宮良性腫瘤", R.drawable.pregnant));
-        detailDiseaseModelArrayList.add(new DetailDiseaseModel("子宮內膜異位症", R.drawable.pregnant));
-        detailDiseaseModelArrayList.add(new DetailDiseaseModel("停經及停經後之疾患", R.drawable.pregnant));
-        detailDiseaseModelArrayList.add(new DetailDiseaseModel("貧血", R.drawable.pregnant));
-        detailDiseaseModelArrayList.add(new DetailDiseaseModel("泌尿生殖器官惡性腫瘤", R.drawable.pregnant));
-        detailDiseaseModelArrayList.add(new DetailDiseaseModel("女性生殖器的其他疾病", R.drawable.pregnant));
-        detailDiseaseModelArrayList.add(new DetailDiseaseModel("其他良性腫瘤", R.drawable.pregnant));
-        detailDiseaseModelArrayList.add(new DetailDiseaseModel("血液和造血器官疾病", R.drawable.pregnant));
+        diseaseSelectionModelArrayList.add(new DiseaseSelectionModel("其他子宮疾患", R.drawable.pregnant));
+        diseaseSelectionModelArrayList.add(new DiseaseSelectionModel("月經失調及生殖道異常出血", R.drawable.pregnant));
+        diseaseSelectionModelArrayList.add(new DiseaseSelectionModel("子宮肌瘤", R.drawable.pregnant));
+        diseaseSelectionModelArrayList.add(new DiseaseSelectionModel("其他子宮良性腫瘤", R.drawable.pregnant));
+        diseaseSelectionModelArrayList.add(new DiseaseSelectionModel("子宮內膜異位症", R.drawable.pregnant));
+        diseaseSelectionModelArrayList.add(new DiseaseSelectionModel("停經及停經後之疾患", R.drawable.pregnant));
+        diseaseSelectionModelArrayList.add(new DiseaseSelectionModel("貧血", R.drawable.pregnant));
+        diseaseSelectionModelArrayList.add(new DiseaseSelectionModel("泌尿生殖器官惡性腫瘤", R.drawable.pregnant));
+        diseaseSelectionModelArrayList.add(new DiseaseSelectionModel("女性生殖器的其他疾病", R.drawable.pregnant));
+        diseaseSelectionModelArrayList.add(new DiseaseSelectionModel("其他良性腫瘤", R.drawable.pregnant));
+        diseaseSelectionModelArrayList.add(new DiseaseSelectionModel("血液和造血器官疾病", R.drawable.pregnant));
 
 
 
 
 
 
-        RecycleViewDetailDisease recycleViewDetailDisease = new RecycleViewDetailDisease(this, detailDiseaseModelArrayList);
+        RecycleViewDiseaseSelection recycleViewDiseaseSelection = new RecycleViewDiseaseSelection(this, diseaseSelectionModelArrayList);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
 
-        detailDiseaseRV.setLayoutManager(linearLayoutManager);
-        detailDiseaseRV.setAdapter((recycleViewDetailDisease));
+        rv_disease_selection.setLayoutManager(linearLayoutManager);
+        rv_disease_selection.setAdapter((recycleViewDiseaseSelection));
 
     }
 
+
+
+    private void registerUI() {
+        setContentView(R.layout.activity_disease_selection);
+
+        rv_disease_selection = findViewById(R.id.rv_disease_selection);
+        tv_disease_related_disease = findViewById(R.id.tv_cancer_related_disease);
+    }
+
+    private void setupUI() {
+        getSupportActionBar().hide();
+
+        setupRV();
+    }
+
+    private void setupRV() {
+    }
 }
