@@ -1,11 +1,11 @@
 package com.bilab.lunsenluandroid.model;
 
-public class DetailDiseaseModel {
+public class DiseaseSelectionModel {
     private String disease_name;
     private int disease_image;
 
     // Constructor
-    public DetailDiseaseModel(String disease_name, int disease_image) {
+    public DiseaseSelectionModel(String disease_name, int disease_image) {
         this.disease_name = disease_name;
         this.disease_image = disease_image;
     }

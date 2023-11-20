@@ -12,18 +12,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bilab.lunsenluandroid.R;
-import com.bilab.lunsenluandroid.model.DetailDiseaseModel;
+import com.bilab.lunsenluandroid.model.DiseaseSelectionModel;
 
 import java.util.ArrayList;
 
-public class RecycleViewDetailDisease extends RecyclerView.Adapter<RecycleViewDetailDisease.ViewHolder> {
+public class RecycleViewDiseaseSelection extends RecyclerView.Adapter<RecycleViewDiseaseSelection.ViewHolder> {
 
     private final Context context;
-    private final ArrayList<DetailDiseaseModel> detailDiseaseModelArrayList;
+    private final ArrayList<DiseaseSelectionModel> diseaseSelectionModelArrayList;
 
-    public RecycleViewDetailDisease(Context context, ArrayList<DetailDiseaseModel> detailDiseaseModelArrayList) {
+    public RecycleViewDiseaseSelection(Context context, ArrayList<DiseaseSelectionModel> diseaseSelectionModelArrayList) {
         this.context = context;
-        this.detailDiseaseModelArrayList = detailDiseaseModelArrayList;
+        this.diseaseSelectionModelArrayList = diseaseSelectionModelArrayList;
     }
 
     @NonNull
@@ -35,9 +35,9 @@ public class RecycleViewDetailDisease extends RecyclerView.Adapter<RecycleViewDe
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecycleViewDetailDisease.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RecycleViewDiseaseSelection.ViewHolder holder, int position) {
         // to set data to textview and imageview of each card layout
-        DetailDiseaseModel model = detailDiseaseModelArrayList.get(position);
+        DiseaseSelectionModel model = diseaseSelectionModelArrayList.get(position);
         holder.diseaseName.setText(model.getDisease_name());
         holder.diseaseImage.setImageResource(model.getDisease_image());
 
@@ -47,7 +47,7 @@ public class RecycleViewDetailDisease extends RecyclerView.Adapter<RecycleViewDe
     @Override
     public int getItemCount() {
         // this method is used for showing number of card items in recycler view
-        return detailDiseaseModelArrayList.size();
+        return diseaseSelectionModelArrayList.size();
     }
 
     // View holder class for initializing of views
