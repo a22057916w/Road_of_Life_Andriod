@@ -1,6 +1,7 @@
 package com.bilab.lunsenluandroid.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -10,8 +11,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bilab.lunsenluandroid.DiseaseSelectionActivity;
 import com.bilab.lunsenluandroid.R;
+import com.bilab.lunsenluandroid.WebViewActivity;
+import com.bilab.lunsenluandroid.model.DiseaseSelectionModel;
 import com.bilab.lunsenluandroid.model.DiseaseCategoryModel;
+import com.bilab.lunsenluandroid.util.Constant;
 
 import java.util.ArrayList;
 
@@ -30,6 +35,7 @@ public class RecycleViewDiseaseCategory extends RecyclerView.Adapter<RecycleView
     public RecycleViewDiseaseCategory.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // to inflate the layout for each item of recycler view.
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_disease_primary, parent, false);
+
         return new RecycleViewDiseaseCategory.ViewHolder(view);
     }
 
@@ -56,10 +62,21 @@ public class RecycleViewDiseaseCategory extends RecyclerView.Adapter<RecycleView
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+
             imv_diseaseIcon = itemView.findViewById(R.id.imv_disease_icon);
             tv_diseaseName = itemView.findViewById(R.id.tv_disease_name);
             tv_diseaseAmount = itemView.findViewById(R.id.tv_disease_info);
             tv_diseaseRisk = itemView.findViewById(R.id.tv_disease_risk);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent openDiseaseSelectionIntent = new Intent(view.getContext(), DiseaseSelectionActivity.class);
+                    openDiseaseSelectionIntent.putExtra(Constant.EXTRA_DISEASE_CATEGORY, tv_diseaseName.getText());
+                    view.getContext().startActivity(openDiseaseSelectionIntent);
+                }
+            });
+
         }
     }
 }
