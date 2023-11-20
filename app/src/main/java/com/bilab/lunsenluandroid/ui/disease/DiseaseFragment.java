@@ -1,6 +1,5 @@
 package com.bilab.lunsenluandroid.ui.disease;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,8 +14,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bilab.lunsenluandroid.Adapter.RecycleViewDiseaseCategory;
-import com.bilab.lunsenluandroid.Adapter.RecycleViewHome;
-import com.bilab.lunsenluandroid.DetailDiseaseActivity;
 import com.bilab.lunsenluandroid.R;
 import com.bilab.lunsenluandroid.model.DiseaseCategoryModel;
 

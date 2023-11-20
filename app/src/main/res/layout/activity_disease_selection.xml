@@ -7,13 +7,13 @@
     android:background="@color/gray_2">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tv_cancer_related_disease"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_weight="1"
         android:background="@color/main"
         android:gravity="center"
-        android:text="子宮疾病"
+        android:text="@string/cancer_related_disease"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -24,12 +24,12 @@
         tools:ignore="TextContrastCheck" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/RVDetailDisease"
+        android:id="@+id/rv_disease_selection"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintStart_toStartOf="@+id/tv_cancer_related_disease"
+        app:layout_constraintTop_toBottomOf="@+id/tv_cancer_related_disease" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

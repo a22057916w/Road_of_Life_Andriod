@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".DetailDiseaseActivity"
+            android:name=".DiseaseSelectionActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
