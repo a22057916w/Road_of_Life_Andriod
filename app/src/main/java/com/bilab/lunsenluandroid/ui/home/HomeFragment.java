@@ -29,11 +29,10 @@ public class HomeFragment extends Fragment {
 
         // Creating new array list and added data to it
         ArrayList<HomeModel> homeModelArrayList = new ArrayList<HomeModel>();
-        homeModelArrayList.add(new HomeModel("肺癌", "近數十年來臺灣地區肺癌病人有顯著增加的趨勢，而目前肺癌已是國人因為癌症死亡最常見的原因之一","80%", R.drawable.lungs));
-        homeModelArrayList.add(new HomeModel("肝癌", "每年約13,000人死於慢性肝病、肝硬化及肝癌，慢性肝病及肝硬化為全國主要死因的第9位，肝癌則為全國主要癌症死因的第2位", "20%", R.drawable.liver));
-        homeModelArrayList.add(new HomeModel("前列腺癌", "前列腺癌是好發於老年男性的惡性腫瘤，而其死亡率在65歲以後也有陡然上升的趨勢", "8%", R.drawable.prostate));
-        homeModelArrayList.add(new HomeModel("直腸癌", "目前大腸直腸癌為台灣所有癌症死亡率第三名，更為癌症發生率第一位", "5%", R.drawable.rectum));
-        homeModelArrayList.add(new HomeModel("乳癌", "目前乳癌發生率為國內女性好發癌症的第一位，死亡率則為第四位", "60%", R.drawable.breast));
+        homeModelArrayList.add(new HomeModel("子宮癌", "子宮頸癌發生大部分是經由性行為感染人類乳突病毒所致，有性經驗的婦女感染人類乳突病毒很常見。","80%", R.drawable.ic_uterus));
+        homeModelArrayList.add(new HomeModel("卵巢癌", "卵巢癌雖不比子宮癌來得普遍，但卻是婦科癌症死亡原因的首位。", "20%", R.drawable.ic_ovary));
+        homeModelArrayList.add(new HomeModel("膀胱癌", "膀胱癌是泌尿系統常見的惡性疾病之一，較常侵犯60歲以上男性，男與女的比例大約是2.7：1。", "8%", R.drawable.ic_bladder));
+        homeModelArrayList.add(new HomeModel("大腸癌", "自95年起大腸癌居全國癌症發生數第1位，每年約有一萬多人診斷大腸癌，並有超過五千人因大腸癌死亡，大腸癌對國人健康的影響甚鉅。", "5%", R.drawable.ic_rectum));
 
         // Initializing adapter class and passing arraylist to it.
         RecycleViewHome recycleViewHome = new RecycleViewHome(this.getActivity(), homeModelArrayList);
