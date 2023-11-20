@@ -22,22 +22,13 @@ import java.util.ArrayList;
 public class DiseaseFragment extends Fragment {
 
     private DiseaseViewModel diseaseViewModel;
-
     private RecyclerView rv_disease;
-    private SearchView searchView;
-
-    private TextView uterus_tv;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         diseaseViewModel =
                 ViewModelProviders.of(this).get(DiseaseViewModel.class);
         View root = inflater.inflate(R.layout.fragment_disease, container, false);
-//
-//        searchView = root.findViewById(R.id.searchView);
-//        // set default text
-//        searchView.setQuery("請輸入病症或器官", false);
-//
 
         registerUI(root);
         setupUI();
