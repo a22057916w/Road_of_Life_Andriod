@@ -30,7 +30,7 @@ public class RecycleViewDiseaseSelection extends RecyclerView.Adapter<RecycleVie
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // to inflate the layout for each item of recycler view.
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_select_disease, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_disease_selection, parent, false);
         return new ViewHolder(view);
     }
 
@@ -58,9 +58,9 @@ public class RecycleViewDiseaseSelection extends RecyclerView.Adapter<RecycleVie
 
         public ViewHolder(View itemView) {
             super(itemView);
-            checkBox = itemView.findViewById(R.id.checkBox);
-            diseaseName = itemView.findViewById(R.id.DiseaseName);
-            diseaseImage = itemView.findViewById(R.id.DiseaseImage);
+            checkBox = itemView.findViewById(R.id.chb_disease_selection);
+            diseaseName = itemView.findViewById(R.id.tv_disease_name_selection);
+            diseaseImage = itemView.findViewById(R.id.imv_disease_icon_selection);
         }
     }
 }

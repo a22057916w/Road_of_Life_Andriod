@@ -21,15 +21,15 @@
         android:layout_height="50dp">
 
         <CheckBox
-            android:id="@+id/checkBox"
+            android:id="@+id/chb_disease_selection"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:checked="false"
-            app:layout_constraintStart_toEndOf="@+id/DiseaseName"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/DiseaseImage"
+            android:id="@+id/imv_disease_icon_selection"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginStart="10dp"
@@ -43,18 +43,18 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/DiseaseName"
+            android:id="@+id/tv_disease_name_selection"
             android:layout_width="240dp"
             android:layout_height="40dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:gravity="left|center_vertical"
-            android:text="course_name"
+            android:text="@string/disease_name"
             android:textColor="@color/black"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/DiseaseImage"
+            app:layout_constraintStart_toEndOf="@+id/imv_disease_icon_selection"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

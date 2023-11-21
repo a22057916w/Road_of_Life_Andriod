@@ -69,10 +69,10 @@ public class RecycleViewHome extends RecyclerView.Adapter<RecycleViewHome.ViewHo
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imv_diseaseIcon = itemView.findViewById(R.id.imv_disease_icon);
-            tv_diseaseName = itemView.findViewById(R.id.tv_disease_name);
-            tv_diseaseDescription = itemView.findViewById(R.id.tv_disease_info);
-            tv_diseaseRisk = itemView.findViewById((R.id.tv_disease_risk));
+            imv_diseaseIcon = itemView.findViewById(R.id.imv_disease_icon_primary);
+            tv_diseaseName = itemView.findViewById(R.id.tv_disease_name_primary);
+            tv_diseaseDescription = itemView.findViewById(R.id.tv_disease_info_primary);
+            tv_diseaseRisk = itemView.findViewById((R.id.tv_disease_risk_primary));
         }
     }
 }
