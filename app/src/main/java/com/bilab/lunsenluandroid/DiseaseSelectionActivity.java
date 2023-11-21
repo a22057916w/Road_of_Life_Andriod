@@ -60,7 +60,7 @@ public class DiseaseSelectionActivity extends AppCompatActivity {
         btn_confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onBackPressed();
+                onBackPressed();    // normally called after the default back key pressed on the device
             }
         });
     }
