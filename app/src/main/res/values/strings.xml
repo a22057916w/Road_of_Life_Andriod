@@ -175,5 +175,6 @@
     <string name="breast_cancer_desription">目前乳癌發生率為國內女性好發癌症的第一位，死亡率則為第四位</string>
     <string name="cancer_related_disease">癌症相關疾病</string>
     <string name="none_of_above_disease">無上述症狀</string>
+    <string name="confirm">確定</string>
     <!--    "https://140.124.183.197:8000/health_passport/check_health_passport"-->
 </resources>

@@ -1,6 +1,7 @@
 package com.bilab.lunsenluandroid;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -8,10 +9,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.bilab.lunsenluandroid.Adapter.RecycleViewDiseaseSelection;
 import com.bilab.lunsenluandroid.model.DiseaseSelectionModel;
+import com.bilab.lunsenluandroid.ui.home.HomeFragment;
 import com.bilab.lunsenluandroid.util.Constant;
 
 import java.util.ArrayList;
@@ -22,6 +25,7 @@ public class DiseaseSelectionActivity extends AppCompatActivity {
 
     private RecyclerView rv_disease_selection;
     private TextView tv_disease_related_disease;
+    private Button btn_confirm;
     private Intent receiverIntent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,12 +46,23 @@ public class DiseaseSelectionActivity extends AppCompatActivity {
     private void registerUI() {
         rv_disease_selection = findViewById(R.id.rv_disease_selection);
         tv_disease_related_disease = findViewById(R.id.tv_cancer_related_disease);
+        btn_confirm = findViewById(R.id.btn_confirm);
     }
 
     private void setupUI() {
         Objects.requireNonNull(getSupportActionBar()).hide();
 
+        setupListener();
         setupRV();
+    }
+
+    private void setupListener() {
+        btn_confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
     }
 
     private void setupRV() {
