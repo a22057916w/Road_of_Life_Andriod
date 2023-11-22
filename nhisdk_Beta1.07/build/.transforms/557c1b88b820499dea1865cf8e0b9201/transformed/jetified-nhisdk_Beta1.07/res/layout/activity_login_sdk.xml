@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".LoginActivity">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:adjustViewBounds="true"
+        android:scaleType="fitStart"
+        android:src="@drawable/home_bg_top" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:adjustViewBounds="true"
+        android:scaleType="fitStart"
+        android:src="@drawable/home_bg_bottom" />
+
+    <LinearLayout
+        android:id="@+id/nhisdk_login_title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/margin_middle"
+            android:src="@drawable/login_logo" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_normal_15"
+            android:gravity="center_horizontal"
+            android:text="@string/nhisdk_login_title"
+            android:textSize="@dimen/common_content_txt_size"
+            android:textColor="@color/color_login_title_blue"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:gravity="center_horizontal"
+            android:text="@string/nhisdk_login_eng_title"
+            android:textSize="@dimen/common_content_txt_size"
+            android:textColor="@color/color_login_title_blue"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:paddingLeft="@dimen/margin_middle"
+            android:paddingRight="@dimen/margin_middle">
+            <TextView
+                android:id="@+id/maintenance_msg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textSize="@dimen/common_content_txt_size"
+                android:textColor="@android:color/holo_red_light"/>
+        </RelativeLayout>
+        <!--<TextView-->
+            <!--android:id="@+id/maintenance_msg"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:layout_marginTop="@dimen/margin_normal"-->
+            <!--android:padding="@dimen/margin_small"-->
+            <!--android:layout_marginLeft="@dimen/margin_middle"-->
+            <!--android:layout_marginRight="@dimen/margin_middle"-->
+            <!--android:textColor="@android:color/holo_red_light" />-->
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/maintenance_period_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nhisdk_login_title_layout"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_gravity="center"
+            android:src="@drawable/icon_construction" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_middle"
+            android:gravity="center"
+            android:text="@string/nhisdk_login_maintenance_msg1"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:background="@drawable/nhisdk_login_maintenance_bg"
+            android:paddingBottom="@dimen/margin_small"
+            android:paddingLeft="@dimen/margin_middle"
+            android:paddingRight="@dimen/margin_middle"
+            android:paddingTop="@dimen/margin_small"
+            android:text="@string/nhisdk_login_maintenance_msg2"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/nhisdk_login_input_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nhisdk_login_title_layout"
+        android:layout_marginTop="@dimen/margin_normal_15"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/margin_middle"
+        android:paddingRight="@dimen/margin_middle"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/login_input_icon_size"
+                android:layout_height="@dimen/login_input_icon_size"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="@dimen/margin_normal"
+                android:src="@drawable/icon_login_input01" />
+
+            <EditText
+                android:id="@+id/nhisdk_identity_card_no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="0123456789abcdefghijgklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                android:background="@null"
+                android:inputType="textCapCharacters"
+                android:textSize="@dimen/common_content_txt_size"
+                android:hint="@string/nhisdk_login_hint_id"
+                android:maxLength="10"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="@dimen/margin_normal_15"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:background="@android:color/darker_gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/login_input_icon_size"
+                android:layout_height="@dimen/login_input_icon_size"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="@dimen/margin_normal"
+                android:src="@drawable/icon_login_input02" />
+
+            <TextView
+                android:id="@+id/nhisdk_card_no_hint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/nhisdk_login_hint_card_no"
+                android:textSize="@dimen/common_content_txt_size"/>
+
+            <LinearLayout
+                android:id="@+id/nhisdk_card_no_input_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/nhisdk_card_no_edit1"
+                    android:layout_width="@dimen/login_card_no_edit_width"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/nhisdk_login_card_no_edit_bg"
+                    android:inputType="number"
+                    android:maxLength="4"
+                    android:textSize="@dimen/common_content_txt_size"
+                    android:gravity="center"
+                    android:paddingTop="@dimen/login_card_no_edit_padding"
+                    android:paddingBottom="@dimen/login_card_no_edit_padding"/>
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/margin_small"
+                    android:layout_marginRight="@dimen/margin_small"
+                    android:background="@android:color/darker_gray" />
+
+                <EditText
+                    android:id="@+id/nhisdk_card_no_edit2"
+                    android:layout_width="@dimen/login_card_no_edit_width"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/nhisdk_login_card_no_edit_bg"
+                    android:inputType="number"
+                    android:maxLength="4"
+                    android:textSize="@dimen/common_content_txt_size"
+                    android:gravity="center"
+                    android:paddingTop="@dimen/login_card_no_edit_padding"
+                    android:paddingBottom="@dimen/login_card_no_edit_padding"/>
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/margin_small"
+                    android:layout_marginRight="@dimen/margin_small"
+                    android:background="@android:color/darker_gray" />
+
+                <EditText
+                    android:id="@+id/nhisdk_card_no_edit3"
+                    android:layout_width="@dimen/login_card_no_edit_width"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/nhisdk_login_card_no_edit_bg"
+                    android:inputType="number"
+                    android:maxLength="4"
+                    android:textSize="@dimen/common_content_txt_size"
+                    android:gravity="center"
+                    android:paddingTop="@dimen/login_card_no_edit_padding"
+                    android:paddingBottom="@dimen/login_card_no_edit_padding"
+                    android:imeOptions="actionNext"
+                    android:nextFocusForward="@+id/nhisdk_card_password"/>
+
+                <RelativeLayout
+                    android:id="@+id/nhisdk_card_no_show_hide_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/nhisdk_card_no_show_hide_img"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/nhisdk_icon_see" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="@dimen/margin_normal_15"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:background="@android:color/darker_gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/login_input_icon_size"
+                android:layout_height="@dimen/login_input_icon_size"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="@dimen/margin_normal"
+                android:src="@drawable/icon_login_input03" />
+
+            <EditText
+                android:id="@+id/nhisdk_card_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="@string/nhisdk_login_hint_card_psd"
+                android:inputType="textPassword"
+                android:maxLength="12"
+                android:textSize="@dimen/common_content_txt_size"
+                android:imeOptions="actionNext"
+                android:nextFocusForward="@+id/nhisdk_validation_code_input"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="@dimen/margin_normal"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:background="@android:color/darker_gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/login_input_icon_size"
+                        android:layout_height="@dimen/login_input_icon_size"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="@dimen/margin_normal"
+                        android:src="@drawable/icon_login_input04" />
+
+                    <EditText
+                        android:id="@+id/nhisdk_validation_code_input"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="@string/nhisdk_login_hint_code"
+                        android:textSize="@dimen/common_content_txt_size"
+                        android:inputType="textVisiblePassword"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/margin_normal"
+                    android:background="@android:color/darker_gray" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/margin_normal"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.nhi.mhbsdk.d.ʿ
+                    android:id="@+id/nhisdk_validation_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:CodeTextSize="20dp" />
+
+                <TextView
+                    android:id="@+id/nhisdk_re_produce_validation_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/margin_middle"
+                    android:text="@string/nhisdk_login_re_produce_code"
+                    android:textSize="@dimen/common_content_txt_size"
+                    android:textColor="@color/color_bottom_blue" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_normal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nhisdk_login_memory_card_no"
+                    android:textSize="@dimen/common_content_txt_size"
+                    android:textColor="@color/color_bottom_blue" />
+
+                <CheckBox
+                    android:id="@+id/nhisdk_remember_card_no"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:buttonTint="@color/color_bottom_blue" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/nhisdk_bottom_btn_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="@dimen/margin_middle"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:id="@+id/nhisdk_clear_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_normal"
+                android:layout_marginRight="@dimen/margin_normal"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="@dimen/bottom_bar_btn_width"
+                    android:layout_height="@dimen/bottom_bar_btn_height"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/bg_bottom_btn_left"
+                    android:gravity="center"
+                    android:textSize="@dimen/common_btn_txt_size"
+                    android:text="@string/nhisdk_login_btn_clear"
+                    android:textColor="@color/color_bottom_blue" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/nhisdk_login_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin_normal"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="@dimen/bottom_bar_btn_width"
+                    android:layout_height="@dimen/bottom_bar_btn_height"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/bg_bottom_btn_right"
+                    android:gravity="center"
+                    android:text="@string/nhisdk_login_btn_login"
+                    android:textSize="@dimen/common_btn_txt_size"
+                    android:textColor="@android:color/white" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/nhisdk_close_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="@dimen/margin_middle">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginBottom="@dimen/margin_normal"
+            android:layout_marginEnd="@dimen/margin_normal"
+            android:layout_marginLeft="@dimen/margin_normal"
+            android:layout_marginRight="@dimen/margin_normal"
+            android:layout_marginStart="@dimen/margin_normal"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:src="@drawable/btn_x" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/nhisdk_help_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="@dimen/margin_normal"
+        android:layout_marginTop="@dimen/margin_middle"
+        android:background="@drawable/nhisdk_login_help_bg">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="@dimen/margin_normal"
+            android:layout_marginEnd="@dimen/margin_normal"
+            android:layout_marginLeft="@dimen/margin_normal"
+            android:layout_marginRight="@dimen/margin_normal"
+            android:layout_marginStart="@dimen/margin_normal"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:text="@string/nhisdk_login_btn_help"
+            android:textSize="@dimen/common_tab_txt_size"
+            android:textColor="@color/color_bottom_blue" />
+    </RelativeLayout>
+</RelativeLayout>
