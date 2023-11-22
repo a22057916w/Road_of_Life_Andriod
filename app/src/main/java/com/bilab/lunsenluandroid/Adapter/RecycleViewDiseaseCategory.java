@@ -32,7 +32,7 @@ public class RecycleViewDiseaseCategory extends RecyclerView.Adapter<RecycleView
     @Override
     public RecycleViewDiseaseCategory.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // to inflate the layout for each item of recycler view.
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_disease_primary, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_disease_regular, parent, false);
 
         return new RecycleViewDiseaseCategory.ViewHolder(view);
     }
@@ -41,8 +41,8 @@ public class RecycleViewDiseaseCategory extends RecyclerView.Adapter<RecycleView
     public void onBindViewHolder(@NonNull RecycleViewDiseaseCategory.ViewHolder holder, int position) {
         DiseaseCategoryModel model = diseaseCategoryModelList.get(position);
         holder.tv_disease_name.setText((model.getDiseaseName()));
-        holder.tv_disease_amount.setText((model.getDiseaseAmount()));
-        holder.tv_disease_risk.setVisibility(View.INVISIBLE);
+//        holder.tv_disease_amount.setText((model.getDiseaseAmount()));
+//        holder.tv_disease_risk.setVisibility(View.INVISIBLE);
         holder.imv_disease_icon.setImageResource(model.getDiseaseImage());
     }
 
@@ -55,16 +55,16 @@ public class RecycleViewDiseaseCategory extends RecyclerView.Adapter<RecycleView
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final ImageView imv_disease_icon;
         private final TextView tv_disease_name;
-        private final TextView tv_disease_amount;
-        private final TextView tv_disease_risk;
+//        private final TextView tv_disease_amount;
+//        private final TextView tv_disease_risk;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            imv_disease_icon = itemView.findViewById(R.id.imv_disease_icon_primary);
-            tv_disease_name = itemView.findViewById(R.id.tv_disease_name_primary);
-            tv_disease_amount = itemView.findViewById(R.id.tv_disease_info_primary);
-            tv_disease_risk = itemView.findViewById(R.id.tv_disease_risk_primary);
+            imv_disease_icon = itemView.findViewById(R.id.imv_disease_icon_regular);
+            tv_disease_name = itemView.findViewById(R.id.tv_disease_name_regular);
+//            tv_disease_amount = itemView.findViewById(R.id.tv_disease_info_primary);
+//            tv_disease_risk = itemView.findViewById(R.id.tv_disease_risk_primary);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
