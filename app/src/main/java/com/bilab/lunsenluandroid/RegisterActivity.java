@@ -31,8 +31,8 @@ public class RegisterActivity extends AppCompatActivity {
 
         email =  (EditText) findViewById(R.id.logout_email);
 
-        birthday_btn =  (Button) findViewById(R.id.logout_birthday);
-        birthday_tv = (TextView) findViewById(R.id.birthday_textview);
+        birthday_btn =  (Button) findViewById(R.id.btn_year);
+        birthday_tv = (TextView) findViewById(R.id.tv_year);
 
 //        password_check =  (EditText) findViewById(R.id.logout_password_check);
         btn_next =  (Button) findViewById(R.id.btn_next);
