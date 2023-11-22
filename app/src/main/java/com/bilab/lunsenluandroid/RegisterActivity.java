@@ -43,9 +43,9 @@ public class RegisterActivity extends AppCompatActivity {
         birthday_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DatePickerFragment datePickerFragment = new DatePickerFragment();
+                YearPickerFragment yearPickerFragment = new YearPickerFragment();
                 FragmentManager supportFragmentManager = getSupportFragmentManager();
-                datePickerFragment.show(supportFragmentManager, "datePicker");
+                yearPickerFragment.show(supportFragmentManager, "datePicker");
             }
         });
 
