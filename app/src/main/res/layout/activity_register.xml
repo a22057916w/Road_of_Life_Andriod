@@ -27,7 +27,7 @@
         android:layout_weight="1"
         android:background="@color/main"
         android:gravity="center"
-        android:text="註冊會員"
+        android:text="基本資料"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
