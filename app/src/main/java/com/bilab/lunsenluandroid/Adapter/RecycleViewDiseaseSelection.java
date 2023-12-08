@@ -38,8 +38,8 @@ public class RecycleViewDiseaseSelection extends RecyclerView.Adapter<RecycleVie
     public void onBindViewHolder(@NonNull RecycleViewDiseaseSelection.ViewHolder holder, int position) {
         // to set data to textview and imageview of each card layout
         DiseaseSelectionModel model = diseaseSelectionModelArrayList.get(position);
-        holder.diseaseName.setText(model.getDisease_name());
-        holder.diseaseImage.setImageResource(model.getDisease_image());
+        holder.diseaseName.setText(model.getDiseaseName());
+        holder.diseaseImage.setImageResource(model.getDiseaseImage());
 
         //holder.checkBox.setChecked();
     }

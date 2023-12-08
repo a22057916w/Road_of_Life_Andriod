@@ -12,19 +12,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bilab.lunsenluandroid.R;
 import com.bilab.lunsenluandroid.WebViewActivity;
-import com.bilab.lunsenluandroid.model.HomeModel;
+import com.bilab.lunsenluandroid.model.DiseaseHomeModel;
 
 import java.util.ArrayList;
 
 public class RecycleViewHome extends RecyclerView.Adapter<RecycleViewHome.ViewHolder> {
 
     private final Context context;
-    private final ArrayList<HomeModel> homeModelArrayList;
+    private final ArrayList<DiseaseHomeModel> diseaseHomeModelArrayList;
 
     // Constructor
-    public RecycleViewHome(Context context, ArrayList<HomeModel> homeModelArrayList) {
+    public RecycleViewHome(Context context, ArrayList<DiseaseHomeModel> diseaseHomeModelArrayList) {
         this.context = context;
-        this.homeModelArrayList = homeModelArrayList;
+        this.diseaseHomeModelArrayList = diseaseHomeModelArrayList;
     }
 
     @NonNull
@@ -47,17 +47,17 @@ public class RecycleViewHome extends RecyclerView.Adapter<RecycleViewHome.ViewHo
     @Override
     public void onBindViewHolder(@NonNull RecycleViewHome.ViewHolder holder, int position) {
         // to set data to textview and imageview of each card layout
-        HomeModel model = homeModelArrayList.get(position);
-        holder.tv_diseaseName.setText(model.getDisease_name());
-        holder.tv_diseaseDescription.setText(model.getDisease_description());
-        holder.imv_diseaseIcon.setImageResource(model.getDisease_image());
-        holder.tv_diseaseRisk.setText(model.getDisease_risk());
+        DiseaseHomeModel model = diseaseHomeModelArrayList.get(position);
+        holder.tv_diseaseName.setText(model.getDiseaseName());
+        holder.tv_diseaseDescription.setText(model.getDiseaseDescription());
+        holder.imv_diseaseIcon.setImageResource(model.getDiseaseImage());
+        holder.tv_diseaseRisk.setText(model.getDiseaseRisk());
     }
 
     @Override
     public int getItemCount() {
         // this method is used for showing number of card items in recycler view
-        return homeModelArrayList.size();
+        return diseaseHomeModelArrayList.size();
     }
 
     // View holder class for initializing of your views such as TextView and Imageview
