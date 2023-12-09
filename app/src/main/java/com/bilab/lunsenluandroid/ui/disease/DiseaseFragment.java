@@ -4,8 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.SearchView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -13,7 +11,8 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bilab.lunsenluandroid.Adapter.RecycleViewDiseaseCategory;
+import com.bilab.lunsenluandroid.Adapter.DiseaseCategoryRvAdapter;
+import com.bilab.lunsenluandroid.DiseaseViewModel;
 import com.bilab.lunsenluandroid.R;
 import com.bilab.lunsenluandroid.model.DiseaseCategoryModel;
 
@@ -52,12 +51,12 @@ public class DiseaseFragment extends Fragment {
         diseaseCategoryModelArrayList.add(new DiseaseCategoryModel("大腸相關疾病", R.drawable.ic_rectum));
 
         // Initializing adapter class and passing arraylist to it.
-        RecycleViewDiseaseCategory recycleViewDiseaseCategory = new RecycleViewDiseaseCategory(this.getActivity(), diseaseCategoryModelArrayList);
+        DiseaseCategoryRvAdapter diseaseCategoryRvAdapter = new DiseaseCategoryRvAdapter(this.getActivity(), diseaseCategoryModelArrayList);
         // Creating vertical list to provide orientation as vertical
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.getActivity(), LinearLayoutManager.VERTICAL, false);
         // Setting LayoutManager and adapter to recycler view.
         rv_disease.setLayoutManager(linearLayoutManager);
-        rv_disease.setAdapter(recycleViewDiseaseCategory);
+        rv_disease.setAdapter(diseaseCategoryRvAdapter);
     }
 
 }

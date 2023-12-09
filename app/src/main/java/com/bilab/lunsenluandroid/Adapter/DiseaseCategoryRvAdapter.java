@@ -18,27 +18,27 @@ import com.bilab.lunsenluandroid.util.Constant;
 
 import java.util.ArrayList;
 
-public class RecycleViewDiseaseCategory extends RecyclerView.Adapter<RecycleViewDiseaseCategory.ViewHolder>{
+public class DiseaseCategoryRvAdapter extends RecyclerView.Adapter<DiseaseCategoryRvAdapter.ViewHolder>{
     private final Context context;
     private final ArrayList<DiseaseCategoryModel> diseaseCategoryModelList;
 
     // Constructor
-    public RecycleViewDiseaseCategory(Context context, ArrayList<DiseaseCategoryModel> diseaseCategoryModelList) {
+    public DiseaseCategoryRvAdapter(Context context, ArrayList<DiseaseCategoryModel> diseaseCategoryModelList) {
         this.context = context;
         this.diseaseCategoryModelList = diseaseCategoryModelList;
     }
 
     @NonNull
     @Override
-    public RecycleViewDiseaseCategory.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public DiseaseCategoryRvAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // to inflate the layout for each item of recycler view.
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_disease_regular, parent, false);
 
-        return new RecycleViewDiseaseCategory.ViewHolder(view);
+        return new DiseaseCategoryRvAdapter.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecycleViewDiseaseCategory.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull DiseaseCategoryRvAdapter.ViewHolder holder, int position) {
         DiseaseCategoryModel model = diseaseCategoryModelList.get(position);
         holder.tv_disease_name.setText((model.getDiseaseName()));
 //        holder.tv_disease_amount.setText((model.getDiseaseAmount()));

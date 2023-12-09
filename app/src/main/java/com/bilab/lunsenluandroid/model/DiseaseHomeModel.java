@@ -1,7 +1,6 @@
 package com.bilab.lunsenluandroid.model;
 
-public class DiseaseHomeModel extends DiseaseModel{
-
+public class DiseaseHomeModel extends DiseaseModel {
     private String disease_description;
     private String disease_risk;
 

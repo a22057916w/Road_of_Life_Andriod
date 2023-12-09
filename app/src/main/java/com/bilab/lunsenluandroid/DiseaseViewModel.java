@@ -1,4 +1,4 @@
-package com.bilab.lunsenluandroid.ui.disease;
+package com.bilab.lunsenluandroid;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

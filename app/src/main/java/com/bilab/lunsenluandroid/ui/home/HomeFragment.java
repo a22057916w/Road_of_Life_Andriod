@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bilab.lunsenluandroid.Adapter.RecycleViewHome;
+import com.bilab.lunsenluandroid.Adapter.DiseaseHomeRvAdpater;
 import com.bilab.lunsenluandroid.R;
 import com.bilab.lunsenluandroid.model.DiseaseHomeModel;
 
@@ -35,12 +35,12 @@ public class HomeFragment extends Fragment {
         diseaseHomeModelArrayList.add(new DiseaseHomeModel("大腸癌", "自95年起大腸癌居全國癌症發生數第1位，每年約有一萬多人診斷大腸癌，並有超過五千人因大腸癌死亡，大腸癌對國人健康的影響甚鉅。", "5%", R.drawable.ic_rectum));
 
         // Initializing adapter class and passing arraylist to it.
-        RecycleViewHome recycleViewHome = new RecycleViewHome(this.getActivity(), diseaseHomeModelArrayList);
+        DiseaseHomeRvAdpater diseaseHomeRvAdpater = new DiseaseHomeRvAdpater(this.getActivity(), diseaseHomeModelArrayList);
         // Creating vertical list to provide orientation as vertical
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.getActivity(), LinearLayoutManager.VERTICAL, false);
         // Setting LayoutManager and adapter to recycler view.
         rv_disease.setLayoutManager(linearLayoutManager);
-        rv_disease.setAdapter(recycleViewHome);
+        rv_disease.setAdapter(diseaseHomeRvAdpater);
 
         return root;
     }

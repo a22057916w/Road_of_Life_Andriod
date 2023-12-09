@@ -16,13 +16,13 @@ import com.bilab.lunsenluandroid.model.DiseaseHomeModel;
 
 import java.util.ArrayList;
 
-public class RecycleViewHome extends RecyclerView.Adapter<RecycleViewHome.ViewHolder> {
+public class DiseaseHomeRvAdpater extends RecyclerView.Adapter<DiseaseHomeRvAdpater.ViewHolder> {
 
     private final Context context;
     private final ArrayList<DiseaseHomeModel> diseaseHomeModelArrayList;
 
     // Constructor
-    public RecycleViewHome(Context context, ArrayList<DiseaseHomeModel> diseaseHomeModelArrayList) {
+    public DiseaseHomeRvAdpater(Context context, ArrayList<DiseaseHomeModel> diseaseHomeModelArrayList) {
         this.context = context;
         this.diseaseHomeModelArrayList = diseaseHomeModelArrayList;
     }
@@ -45,7 +45,7 @@ public class RecycleViewHome extends RecyclerView.Adapter<RecycleViewHome.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecycleViewHome.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull DiseaseHomeRvAdpater.ViewHolder holder, int position) {
         // to set data to textview and imageview of each card layout
         DiseaseHomeModel model = diseaseHomeModelArrayList.get(position);
         holder.tv_diseaseName.setText(model.getDiseaseName());

@@ -16,12 +16,12 @@ import com.bilab.lunsenluandroid.model.DiseaseSelectionModel;
 
 import java.util.ArrayList;
 
-public class RecycleViewDiseaseSelection extends RecyclerView.Adapter<RecycleViewDiseaseSelection.ViewHolder> {
+public class DiseaseSelectionRvAdapter extends RecyclerView.Adapter<DiseaseSelectionRvAdapter.ViewHolder> {
 
     private final Context context;
     private final ArrayList<DiseaseSelectionModel> diseaseSelectionModelArrayList;
 
-    public RecycleViewDiseaseSelection(Context context, ArrayList<DiseaseSelectionModel> diseaseSelectionModelArrayList) {
+    public DiseaseSelectionRvAdapter(Context context, ArrayList<DiseaseSelectionModel> diseaseSelectionModelArrayList) {
         this.context = context;
         this.diseaseSelectionModelArrayList = diseaseSelectionModelArrayList;
     }
@@ -35,7 +35,7 @@ public class RecycleViewDiseaseSelection extends RecyclerView.Adapter<RecycleVie
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecycleViewDiseaseSelection.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull DiseaseSelectionRvAdapter.ViewHolder holder, int position) {
         // to set data to textview and imageview of each card layout
         DiseaseSelectionModel model = diseaseSelectionModelArrayList.get(position);
         holder.diseaseName.setText(model.getDiseaseName());

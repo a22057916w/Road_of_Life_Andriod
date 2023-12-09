@@ -1,7 +1,6 @@
 package com.bilab.lunsenluandroid;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -12,9 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.bilab.lunsenluandroid.Adapter.RecycleViewDiseaseSelection;
+import com.bilab.lunsenluandroid.Adapter.DiseaseSelectionRvAdapter;
 import com.bilab.lunsenluandroid.model.DiseaseSelectionModel;
-import com.bilab.lunsenluandroid.ui.home.HomeFragment;
 import com.bilab.lunsenluandroid.util.Constant;
 
 import java.util.ArrayList;
@@ -74,11 +72,11 @@ public class DiseaseSelectionActivity extends AppCompatActivity {
         for(int i = 0; i < related_disease.size(); i++)
             diseaseSelectionModelArrayList.add(new DiseaseSelectionModel(related_disease.get(i), R.drawable.ic_uterus));
 
-        RecycleViewDiseaseSelection recycleViewDiseaseSelection = new RecycleViewDiseaseSelection(this, diseaseSelectionModelArrayList);
+        DiseaseSelectionRvAdapter diseaseSelectionRvAdapter = new DiseaseSelectionRvAdapter(this, diseaseSelectionModelArrayList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
 
         rv_disease_selection.setLayoutManager(linearLayoutManager);
-        rv_disease_selection.setAdapter((recycleViewDiseaseSelection));
+        rv_disease_selection.setAdapter((diseaseSelectionRvAdapter));
     }
 
     private ArrayList<String> getRelatedDisease() {
