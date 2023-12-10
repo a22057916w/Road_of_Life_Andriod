@@ -45,7 +45,7 @@ public class DiseaseSelectionRvAdapter extends RecyclerView.Adapter<DiseaseSelec
         DiseaseSelectionModel model = diseaseSelectionModelArrayList.get(position);
         holder.tvDiseaseName.setText(model.getDiseaseName());
         holder.tvDiseaseImage.setImageResource(model.getDiseaseImage());
-        holder.chbDisease.setSelected(model.isSelected());
+        holder.chbDisease.setChecked(model.isSelected());
 
         // set the custom listener
         holder.setupCheckBoxListener(checkBoxListener, position);
