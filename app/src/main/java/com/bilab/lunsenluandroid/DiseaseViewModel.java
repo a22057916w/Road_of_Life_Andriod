@@ -1,9 +1,12 @@
 package com.bilab.lunsenluandroid;
 
+import android.util.Log;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.bilab.lunsenluandroid.util.Constant;
 import com.google.android.material.internal.ManufacturerUtils;
 
 import java.util.ArrayList;
@@ -13,6 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 public class DiseaseViewModel extends ViewModel {
+    private static DiseaseViewModel instance;
     private String [] _uterus_diseases = {"子宮相關疾病", "月經失調或女性生殖道異常出血", "子宮平滑肌瘤或其他良性腫瘤", "子宮內膜異位症", "貧血症狀"};
     private String [] _ovary_diseases = {"卵巢良性腫瘤", "卵巢或輸卵管非發炎性疾病", "子宮內膜異位症", "子宮平滑肌瘤或其他良性腫瘤", "骨盆腔發炎（子宮、卵巢、輸卵管"};
     private String [] _bladder_diseases = {"泌尿道系統相關疾病", "腎結石或輸尿管結石", "膀胱發炎或相關疾病", "攝護腺（前列腺）肥大或相關疾病", "慢性腎衰竭", "腎絲球腎炎", "腎水腫"};
@@ -32,7 +36,23 @@ public class DiseaseViewModel extends ViewModel {
         initMap();
     }
 
-    public MutableLiveData<Map<String, Boolean>> getUterusDiseaseMap() {
+    public static DiseaseViewModel getInstance() {
+        if(instance == null)
+            instance = new DiseaseViewModel();
+        return instance;
+    }
+
+    public void updateDiseaseMap(String cancer, Map<String, Boolean> map) {
+        if(cancer.equals(Constant.UTERUS))
+            _uterus_disease_map.setValue(map);
+        Map<String, Boolean> smap = _uterus_disease_map.getValue();
+        for(Map.Entry entry : smap.entrySet()) {
+            Log.d("3333", entry.getKey() + ": " + entry.getValue());
+        }
+    }
+
+    // ============================= Getter ==================================
+    public LiveData<Map<String, Boolean>> getUterusDiseaseMap() {
         return _uterus_disease_map;
     }
 
@@ -47,10 +67,6 @@ public class DiseaseViewModel extends ViewModel {
     public MutableLiveData<Map<String, Boolean>> getBladderDiseaseMap() {
         return _bladder_disease_map;
     }
-
-//    public LiveData<String> getText() {
-//        return mText;
-//    }
 
     private void initMap() {
         ArrayList<String []> cancers = new ArrayList<>(Arrays.asList(_uterus_diseases, _ovary_diseases, _bladder_diseases, _rectum_diseases));

@@ -1,6 +1,9 @@
 package com.bilab.lunsenluandroid;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,18 +16,24 @@ import android.widget.TextView;
 
 import com.bilab.lunsenluandroid.Adapter.DiseaseSelectionRvAdapter;
 import com.bilab.lunsenluandroid.model.DiseaseSelectionModel;
+import com.bilab.lunsenluandroid.ui.disease.CheckBoxListener;
 import com.bilab.lunsenluandroid.util.Constant;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
-public class DiseaseSelectionActivity extends AppCompatActivity {
+public class DiseaseSelectionActivity extends AppCompatActivity implements CheckBoxListener {
 
     private RecyclerView rv_disease_selection;
+    private DiseaseSelectionRvAdapter diseaseSelectionRvAdapter;
     private TextView tv_disease_related_disease;
     private Button btn_confirm;
     private Intent receiverIntent;
+    private DiseaseViewModel diseaseViewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +44,8 @@ public class DiseaseSelectionActivity extends AppCompatActivity {
             Log.d("DiseaseSelectionActivity", "Do not receive Intent.");
             throw new NullPointerException();
         }
+
+        diseaseViewModel = new ViewModelProvider(this).get(DiseaseViewModel.class);
 
         registerUI();
         setupUI();
@@ -50,11 +61,11 @@ public class DiseaseSelectionActivity extends AppCompatActivity {
     private void setupUI() {
         Objects.requireNonNull(getSupportActionBar()).hide();
 
-        setupListener();
-        setupRV();
+        setupButton();
+        setupRv();
     }
 
-    private void setupListener() {
+    private void setupButton() {
         btn_confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,17 +73,44 @@ public class DiseaseSelectionActivity extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public void onAdapterButtonClick(int position) {
+        ArrayList<DiseaseSelectionModel> list = diseaseSelectionRvAdapter.getDiseaseSelectionModelArrayList();
+        Map<String, Boolean> map = new HashMap<>();
 
-    private void setupRV() {
+        for(int i = 0; i < list.size(); i++) {
+            map.put(list.get(i).getDiseaseName(), false);
+        }
+        map.replace(list.get(position).getDiseaseName(), true);
+        Log.d("7777", list.get(position).getDiseaseName() + position + ": " + map.get(list.get(position).getDiseaseName()));
+        diseaseViewModel.updateDiseaseMap(Constant.UTERUS, map);
+        Log.d("5566", "Button clicked at position: " + position);
+    }
+
+    private void setupRv() {
         ArrayList<String> related_disease = getRelatedDisease();
-        related_disease.add(getString(R.string.none_of_above_disease));
+//        related_disease.add(getString(R.string.none_of_above_disease));
 
         ArrayList<DiseaseSelectionModel> diseaseSelectionModelArrayList = new ArrayList<DiseaseSelectionModel>();
+        diseaseViewModel.getUterusDiseaseMap().observe(this, new Observer<Map<String, Boolean>>() {
+            @Override
+            public void onChanged(Map<String, Boolean> stringBooleanMap) {
+                for(int i = 0; i < related_disease.size(); i++) {
+                    diseaseSelectionModelArrayList.add(new DiseaseSelectionModel(related_disease.get(i), R.drawable.ic_uterus, stringBooleanMap.get(related_disease.get(i))));
+                }
+            }
+        });
 
-        for(int i = 0; i < related_disease.size(); i++)
-            diseaseSelectionModelArrayList.add(new DiseaseSelectionModel(related_disease.get(i), R.drawable.ic_uterus));
+//        LiveData<Map<String, Boolean>> map = diseaseViewModel.getUterusDiseaseMap();
+//        ArrayList<DiseaseSelectionModel> diseaseSelectionModelArrayList = new ArrayList<DiseaseSelectionModel>();
+//        for(int i = 0; i < related_disease.size(); i++) {
+//            Log.d("1234", related_disease.get(i) + ": " + map.getValue().get(related_disease.get(i)));
+//            diseaseSelectionModelArrayList.add(new DiseaseSelectionModel(related_disease.get(i), R.drawable.ic_uterus, map.getValue().get(related_disease.get(i))));
+//        }
 
-        DiseaseSelectionRvAdapter diseaseSelectionRvAdapter = new DiseaseSelectionRvAdapter(this, diseaseSelectionModelArrayList);
+        diseaseSelectionRvAdapter = new DiseaseSelectionRvAdapter(this, diseaseSelectionModelArrayList);
+        diseaseSelectionRvAdapter.setCheckBoxListener(this);
+
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
 
         rv_disease_selection.setLayoutManager(linearLayoutManager);
