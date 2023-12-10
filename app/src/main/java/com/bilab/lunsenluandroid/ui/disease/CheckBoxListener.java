@@ -1,5 +1,5 @@
 package com.bilab.lunsenluandroid.ui.disease;
 
-public interface ButtonListener {
+public interface CheckBoxListener {
     void onAdapterButtonClick(int position);
 }
