@@ -2,6 +2,8 @@ package com.bilab.lunsenluandroid.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
+import android.util.Pair;
 import android.view.View;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -41,8 +43,6 @@ public class DiseaseCategoryRvAdapter extends RecyclerView.Adapter<DiseaseCatego
     public void onBindViewHolder(@NonNull DiseaseCategoryRvAdapter.ViewHolder holder, int position) {
         DiseaseCategoryModel model = diseaseCategoryModelList.get(position);
         holder.tv_disease_name.setText((model.getDiseaseName()));
-//        holder.tv_disease_amount.setText((model.getDiseaseAmount()));
-//        holder.tv_disease_risk.setVisibility(View.INVISIBLE);
         holder.imv_disease_icon.setImageResource(model.getDiseaseImage());
     }
 
@@ -55,40 +55,41 @@ public class DiseaseCategoryRvAdapter extends RecyclerView.Adapter<DiseaseCatego
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final ImageView imv_disease_icon;
         private final TextView tv_disease_name;
-//        private final TextView tv_disease_amount;
-//        private final TextView tv_disease_risk;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             imv_disease_icon = itemView.findViewById(R.id.imv_disease_icon_regular);
             tv_disease_name = itemView.findViewById(R.id.tv_disease_name_regular);
-//            tv_disease_amount = itemView.findViewById(R.id.tv_disease_info_primary);
-//            tv_disease_risk = itemView.findViewById(R.id.tv_disease_risk_primary);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    String category = getDiseaseCategory().first;
+                    int icon = getDiseaseCategory().second;
+
                     Intent openDiseaseSelectionIntent = new Intent(view.getContext(), DiseaseSelectionActivity.class);
-                    openDiseaseSelectionIntent.putExtra(Constant.EXTRA_DISEASE_CATEGORY, getDiseaseCategory());
+                    openDiseaseSelectionIntent.putExtra(Constant.EXTRA_STARTER_ACTIVITY_NAME, this.getClass().getName());
+                    openDiseaseSelectionIntent.putExtra(Constant.EXTRA_DISEASE_CATEGORY, category);
+                    openDiseaseSelectionIntent.putExtra(Constant.EXTRA_DISEASE_ICON, icon);
                     view.getContext().startActivity(openDiseaseSelectionIntent);
                 }
             });
         }
 
-        private String getDiseaseCategory() {
+        private Pair<String, Integer> getDiseaseCategory() {
             String disease_category = tv_disease_name.getText().toString();
 
             if(disease_category.contains("子宮"))
-                return Constant.UTERUS;
+                return new Pair<>(Constant.UTERUS, R.drawable.ic_uterus);
             if(disease_category.contains("卵巢"))
-                return Constant.OVARY;
+                return new Pair<>(Constant.OVARY, R.drawable.ic_ovary);
             if(disease_category.contains("膀胱"))
-                return Constant.BLADDER;
+                return new Pair<>(Constant.BLADDER, R.drawable.ic_bladder);
             if(disease_category.contains("大腸"))
-                return Constant.RECTUM;
+                return new Pair<>(Constant.RECTUM, R.drawable.ic_rectum);
 
-            return Constant.NONE;
+            return null;
         }
     }
 }
