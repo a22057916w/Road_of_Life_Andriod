@@ -22,12 +22,6 @@ public class Person {
         _diseases = new ArrayList<>();
     };
 
-    public void addDisease(Disease disease) {
-        if(findDisease(disease) != 0)
-            return;
-        _diseases.add(disease);
-    }
-
     public void updateDisease(Disease disease) {
         int pos = findDisease(disease);
         if(pos != 0)
