@@ -1,9 +1,6 @@
 package com.bilab.lunsenluandroid;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,9 +17,6 @@ import com.bilab.lunsenluandroid.ui.disease.CheckBoxListener;
 import com.bilab.lunsenluandroid.util.Constant;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 public class DiseaseSelectionActivity extends AppCompatActivity implements CheckBoxListener {
@@ -31,17 +25,15 @@ public class DiseaseSelectionActivity extends AppCompatActivity implements Check
     private DiseaseSelectionRvAdapter diseaseSelectionRvAdapter;
     private TextView tv_disease_related_disease;
     private Button btn_confirm;
-    private Intent receiverIntent;
-    private Map<String, Boolean> map;
     private String cancer;
-//    private Map<String, Boolean> related_disease;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_disease_selection);
 
-        receiverIntent = getIntent();
+        Intent receiverIntent = getIntent();
         if (receiverIntent == null || receiverIntent.getComponent() == null) {
             Log.d("DiseaseSelectionActivity", "Do not receive Intent.");
             throw new NullPointerException();
@@ -70,12 +62,6 @@ public class DiseaseSelectionActivity extends AppCompatActivity implements Check
         btn_confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                for(var entry : map.entrySet()) {
-//                    Log.d("7777", cancer + ":  " + entry.getKey() + ": " + entry.getValue());
-//                }
-//                Log.d("9999", diseaseSelectionRvAdapter.getDiseaseSelectionModelArrayList().size() + ": " + DiseaseDataSingleton.getInstance().getCancerDiseases(cancer).size());
-//                DiseaseDataSingleton.getInstance().update(cancer, related_disease);
-
                 onBackPressed();    // normally called after the default back key pressed on the device
             }
         });
@@ -83,25 +69,23 @@ public class DiseaseSelectionActivity extends AppCompatActivity implements Check
     @Override
     public void onAdapterButtonClick(int position) {
         ArrayList<DiseaseSelectionModel> list = diseaseSelectionRvAdapter.getDiseaseSelectionModelArrayList();
-        String disease = list.get(position).getDiseaseName();
+        String diseaseName = list.get(position).getDiseaseName();
 
-        DiseaseDataSingleton.getInstance().updateUterus(disease);
-//        boolean check = related_disease.get(disease);
-//
-//        related_disease.replace(disease, !check);
-
-        Log.d("5566", "Button clicked at position: " + position + ", Disease: " + disease);
+        Person person = Person.getInstance();
+        person.updateDisease(new Disease(cancer, diseaseName));
     }
 
     private void setupRv() {
-//        String cancer = getCancer();
-        Map<String, Boolean> related_disease = DiseaseDataSingleton.getInstance().getCancerDiseases(cancer);
+        String [] diseases = DiseaseDataSingleton.getInstance().getCancerDiseaseList(cancer);
 
-        ArrayList<DiseaseSelectionModel> diseaseSelectionModelArrayList = new ArrayList<DiseaseSelectionModel>();
-        for(var entry : related_disease.entrySet()) {
-            diseaseSelectionModelArrayList.add(new DiseaseSelectionModel(entry.getKey(), R.drawable.ic_uterus, entry.getValue()));
-            Log.d("1234", entry.getKey() + ": " + entry.getValue());
+        ArrayList<DiseaseSelectionModel> diseaseSelectionModelArrayList = new ArrayList<>();
+
+        Person person = Person.getInstance();
+        for (String disease : diseases) {
+            boolean checked = person.findDisease(new Disease(cancer, disease)) != Constant.npos;
+            diseaseSelectionModelArrayList.add(new DiseaseSelectionModel(disease, R.drawable.ic_uterus, checked));
         }
+
         diseaseSelectionRvAdapter = new DiseaseSelectionRvAdapter(this, diseaseSelectionModelArrayList);
         diseaseSelectionRvAdapter.setCheckBoxListener(this);
 
@@ -111,12 +95,4 @@ public class DiseaseSelectionActivity extends AppCompatActivity implements Check
         rv_disease_selection.setAdapter((diseaseSelectionRvAdapter));
     }
 
-//    private String getCancer() {
-//        String disease_category = receiverIntent.getStringExtra(Constant.EXTRA_DISEASE_CATEGORY);
-//        if(disease_category == null) {
-//            Log.d("DiseaseSelectionActivity", "disease_category is NULL.");
-//            throw new NullPointerException();
-//        }
-//        return disease_category;
-//    }
 }
