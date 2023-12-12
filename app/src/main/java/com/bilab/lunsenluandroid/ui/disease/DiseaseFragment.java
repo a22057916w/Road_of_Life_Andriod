@@ -45,10 +45,10 @@ public class DiseaseFragment extends Fragment {
 
     private void setupRV() {
         ArrayList<DiseaseCategoryModel> diseaseCategoryModelArrayList = new ArrayList<>();
-        diseaseCategoryModelArrayList.add(new DiseaseCategoryModel("子宮相關疾病", R.drawable.ic_uterus));
-        diseaseCategoryModelArrayList.add(new DiseaseCategoryModel("卵巢相關疾病", R.drawable.ic_ovary));
-        diseaseCategoryModelArrayList.add(new DiseaseCategoryModel("膀胱相關疾病", R.drawable.ic_bladder));
-        diseaseCategoryModelArrayList.add(new DiseaseCategoryModel("大腸相關疾病", R.drawable.ic_rectum));
+        diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.uterus_diseases), R.drawable.ic_uterus));
+        diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.ovary_diseases), R.drawable.ic_ovary));
+        diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.bladder_disease), R.drawable.ic_bladder));
+        diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.return_diseases), R.drawable.ic_rectum));
 
         // Initializing adapter class and passing arraylist to it.
         DiseaseCategoryRvAdapter diseaseCategoryRvAdapter = new DiseaseCategoryRvAdapter(this.getActivity(), diseaseCategoryModelArrayList);
