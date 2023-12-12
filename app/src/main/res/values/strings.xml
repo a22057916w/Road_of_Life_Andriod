@@ -176,5 +176,9 @@
     <string name="cancer_related_disease">癌症相關疾病</string>
     <string name="none_of_above_disease">無上述症狀</string>
     <string name="confirm">確定</string>
+    <string name="uterus_diseases">子宮相關疾病</string>
+    <string name="ovary_diseases">卵巢相關疾病</string>
+    <string name="bladder_disease">膀胱相關疾病</string>
+    <string name="return_diseases">大腸相關疾病</string>
     <!--    "https://140.124.183.197:8000/health_passport/check_health_passport"-->
 </resources>
