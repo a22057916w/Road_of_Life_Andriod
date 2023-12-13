@@ -10,7 +10,7 @@ public class Person {
     private static Person _instance;
 
     private String _name;
-    private String _height, _weight, _year;
+    private String _height, _weight, _year, _gender;
     private ArrayList<Disease> _diseases;
     public static synchronized Person getInstance() {
         if(_instance == null)
@@ -34,6 +34,10 @@ public class Person {
     public String getYear() {
         return _year;
     }
+    public String getGender() {
+        return _gender;
+    }
+
     public void setHeight(String height) {
         _height = height;
     }
@@ -43,6 +47,10 @@ public class Person {
     public void setYear(String year) {
         _year = year;
     }
+    public void setGender(String gender) {
+        _gender = gender;
+    }
+
     public void updateDisease(Disease disease) {
         int pos = findDisease(disease);
 
