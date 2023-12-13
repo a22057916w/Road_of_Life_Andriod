@@ -16,7 +16,6 @@ import android.widget.TextView;
 import com.bilab.lunsenluandroid.Adapter.DiseaseSelectionRvAdapter;
 import com.bilab.lunsenluandroid.model.DiseaseSelectionModel;
 import com.bilab.lunsenluandroid.ui.disease.CheckBoxListener;
-import com.bilab.lunsenluandroid.ui.disease.DiseaseFragment;
 import com.bilab.lunsenluandroid.util.Constant;
 
 import java.util.ArrayList;
@@ -32,7 +31,6 @@ public class DiseaseSelectionActivity extends AppCompatActivity implements Check
 
 
     // initialized by received Intent
-    private String starter_activity;
     private String cancer;
     private int cancer_icon;
 
@@ -51,7 +49,6 @@ public class DiseaseSelectionActivity extends AppCompatActivity implements Check
             throw new NullPointerException();
         }
 
-        starter_activity = receiverIntent.getStringExtra(Constant.EXTRA_STARTER_ACTIVITY_NAME);
 //        Log.d("7777", starter_activity);
         cancer = receiverIntent.getStringExtra(Constant.EXTRA_DISEASE_CATEGORY);
         cancer_icon = receiverIntent.getIntExtra(Constant.EXTRA_DISEASE_ICON, -1);
@@ -76,10 +73,9 @@ public class DiseaseSelectionActivity extends AppCompatActivity implements Check
         setText();
         setupRv();
 
-        if(starter_activity.equals(MainActivity.class.getName())) {
-            imv_back_arrow.setVisibility(View.INVISIBLE);
-            btn_skip.setVisibility(View.INVISIBLE);
-        }
+        imv_back_arrow.setVisibility(View.INVISIBLE);
+        btn_skip.setVisibility(View.INVISIBLE);
+
     }
 
     private void setText() {
@@ -98,6 +94,7 @@ public class DiseaseSelectionActivity extends AppCompatActivity implements Check
             @Override
             public void onClick(View view) {
                 onBackPressed();    // normally called after the default back key pressed on the device
+
             }
         });
     }
