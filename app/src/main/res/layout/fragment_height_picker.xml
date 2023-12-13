@@ -10,7 +10,7 @@
     <!-- TODO: Update blank fragment layout -->
 
     <NumberPicker
-        android:id="@+id/height_picker"
+        android:id="@+id/value_picker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -20,11 +20,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <NumberPicker
-        android:id="@+id/cm_picker"
+        android:id="@+id/unit_picker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        app:layout_constraintStart_toEndOf="@+id/height_picker"
-        app:layout_constraintTop_toTopOf="@+id/height_picker" />
+        app:layout_constraintStart_toEndOf="@+id/value_picker"
+        app:layout_constraintTop_toTopOf="@+id/value_picker" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
