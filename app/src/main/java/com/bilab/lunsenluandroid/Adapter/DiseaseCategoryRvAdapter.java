@@ -69,7 +69,7 @@ public class DiseaseCategoryRvAdapter extends RecyclerView.Adapter<DiseaseCatego
                     int icon = getDiseaseCategory().second;
 
                     Intent openDiseaseSelectionIntent = new Intent(view.getContext(), DiseaseSelectionActivity.class);
-                    openDiseaseSelectionIntent.putExtra(Constant.EXTRA_STARTER_ACTIVITY_NAME, this.getClass().getName());
+                    openDiseaseSelectionIntent.putExtra(Constant.EXTRA_STARTER_ACTIVITY_NAME, view.getContext().getClass().getName());
                     openDiseaseSelectionIntent.putExtra(Constant.EXTRA_DISEASE_CATEGORY, category);
                     openDiseaseSelectionIntent.putExtra(Constant.EXTRA_DISEASE_ICON, icon);
                     view.getContext().startActivity(openDiseaseSelectionIntent);
