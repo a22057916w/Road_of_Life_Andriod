@@ -121,7 +121,7 @@ public class DiseaseSelectionActivity extends AppCompatActivity implements Check
     }
 
     private void setupRv() {
-        String [] diseases = DiseaseDataSingleton.getInstance().getCancerDiseaseList(cancer);
+        String [] diseases = DiseaseData.getInstance().getCancerDiseaseList(cancer);
 
         ArrayList<DiseaseSelectionModel> diseaseSelectionModelArrayList = new ArrayList<>();
 
