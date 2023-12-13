@@ -170,12 +170,12 @@
     <string name="disease_name">disease name</string>
     <string name="disease_description">disease description or amount</string>
     <string name="disease_risk">40%</string>
-    <string name="label_next_step">下一步</string>
+    <string name="btn_next">下一步</string>
     <string name="breast_cancer">乳癌</string>
     <string name="breast_cancer_desription">目前乳癌發生率為國內女性好發癌症的第一位，死亡率則為第四位</string>
     <string name="cancer_related_disease">癌症相關疾病</string>
     <string name="none_of_above_disease">無上述症狀</string>
-    <string name="confirm">確定</string>
+    <string name="btn_confirm">確定</string>
     <string name="uterus_diseases">子宮相關疾病</string>
     <string name="ovary_diseases">卵巢相關疾病</string>
     <string name="bladder_disease">膀胱相關疾病</string>

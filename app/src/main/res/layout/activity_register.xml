@@ -374,12 +374,12 @@
 
             <Button
                 android:id="@+id/btn_next"
-                android:layout_width="0dp"
+                android:layout_width="20dp"
                 android:layout_height="match_parent"
-                android:layout_weight="10"
+                android:layout_weight="1"
                 android:background="@drawable/bg_round_button"
                 android:contentDescription="Round Button"
-                android:text="@string/label_next_step"
+                android:text="@string/btn_next"
                 android:textColor="#ffffff"
                 android:textSize="15sp"
                 android:textStyle="bold"
