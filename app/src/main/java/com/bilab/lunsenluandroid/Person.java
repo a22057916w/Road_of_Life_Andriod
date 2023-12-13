@@ -12,7 +12,6 @@ public class Person {
     private String name;
     private String weight;
     private int year;
-
     private ArrayList<Disease> _diseases;
     public static synchronized Person getInstance() {
         if(_instance == null)
@@ -51,5 +50,21 @@ public class Person {
         for(var it = _diseases.iterator(); it.hasNext();)
             if(it.next().getType().equals(cancer))
                 it.remove();
+    }
+
+    public boolean hasAnyDisease() {
+        int size = _diseases.size();
+        for(var disease : _diseases)
+            if(disease.getName().equals(Constant.NO_ABOVE_DISEASE))
+                size--;
+        return size > 0;
+    }
+
+    public boolean isHealth() {
+        int count = 0;
+        for(var disease: _diseases)
+            if(disease.getName().equals(Constant.NO_ABOVE_DISEASE))
+                count++;
+        return _diseases.size() == count;
     }
 }
