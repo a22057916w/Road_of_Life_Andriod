@@ -16,5 +16,5 @@ public class Constant {
 
     public static final int npos = -1;
 
-    
+    public static final String NO_ABOVE_DISEASE = "無上述症狀";
 }
