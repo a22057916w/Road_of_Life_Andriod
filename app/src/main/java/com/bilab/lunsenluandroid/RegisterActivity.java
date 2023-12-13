@@ -12,6 +12,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
+import com.bilab.lunsenluandroid.util.Constant;
+
 public class RegisterActivity extends AppCompatActivity {
 
     EditText email,password_check;
@@ -75,9 +77,9 @@ public class RegisterActivity extends AppCompatActivity {
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent openMainIntent = new Intent(RegisterActivity.this, MainActivity.class);
-                startActivity(openMainIntent);
-                finish();
+                Intent openRegisterDiseaseIntent = new Intent(RegisterActivity.this, RegisterDiseaseActivity.class);
+                openRegisterDiseaseIntent.putExtra(Constant.EXTRA_INDEX, 0);
+                startActivity(openRegisterDiseaseIntent);
             }
         });
     }
