@@ -16,10 +16,6 @@ public class DiseaseDataSingleton {
     private final String [] _bladder_diseases = {"泌尿道系統相關疾病", "腎結石或輸尿管結石", "膀胱發炎或相關疾病", "攝護腺（前列腺）肥大或相關疾病", "慢性腎衰竭", "腎絲球腎炎", "腎水腫", "無上述症狀"};
     private final String [] _rectum_diseases = {"腸和腹膜疾病、胃腸出血", "痔瘡", "胃或十二指腸等消化道潰瘍或功能性障礙", "消化系統良性腫瘤", "無上述症狀"};
 
-//    private Map<String, Boolean> _uterus_map;
-//    private Map<String, Boolean> _ovary_map;
-//    private Map<String, Boolean> _bladder_map;
-//    private Map<String, Boolean> _rectum_map;
 
     public static synchronized DiseaseDataSingleton getInstance() {
         if(_instance == null)
@@ -28,22 +24,6 @@ public class DiseaseDataSingleton {
     }
 
     public DiseaseDataSingleton() {
-//        ArrayList<String []> cancers = new ArrayList<>(Arrays.asList(_uterus_diseases, _ovary_diseases, _bladder_diseases, _rectum_diseases));
-//        ArrayList<Map<String, Boolean>> maps = new ArrayList<>();
-
-        // store each cancer disease to distinct map from map[0] to map[3]
-//        int i = 0;
-//        for(String [] cancer_diseases : cancers) {
-//            maps.add(new HashMap<>());
-//            for (String disease : cancer_diseases)
-//                maps.get(i).put(disease, false);
-//            i++;
-//        }
-//
-//        _uterus_map = maps.get(0);
-//        _ovary_map = maps.get(1);
-//        _bladder_map = maps.get(2);
-//        _rectum_map = maps.get(3);
     }
 
     public String [] getCancerDiseaseList(String cancer) {
