@@ -1,11 +1,13 @@
 package com.bilab.lunsenluandroid;
 
+import android.util.Log;
+
 import com.bilab.lunsenluandroid.util.Constant;
 
 import java.util.ArrayList;
 
 public class Person {
-    private static Person instance;
+    private static Person _instance;
 
     private String name;
     private String weight;
@@ -13,9 +15,9 @@ public class Person {
 
     private ArrayList<Disease> _diseases;
     public static synchronized Person getInstance() {
-        if(instance == null)
-            instance = new Person();
-        return instance;
+        if(_instance == null)
+            _instance = new Person();
+        return _instance;
     }
 
     public Person() {
@@ -24,10 +26,12 @@ public class Person {
 
     public void updateDisease(Disease disease) {
         int pos = findDisease(disease);
-        if(pos != 0)
+
+        if(pos != Constant.npos)
             _diseases.remove(pos);
         else
             _diseases.add(disease);
+        Log.d("Person", "Size: " + _diseases.size());
     }
 
     public int findDisease(Disease disease) {
@@ -38,9 +42,14 @@ public class Person {
         for(Disease dis : _diseases) {
             pos++;
             if(dis.getName().equals(disease.getName()) && dis.getType().equals(disease.getType()))
-                break;
+                return pos;
         }
+        return Constant.npos;
+    }
 
-        return pos;
+    public void clearDisease(String cancer) {
+        for(var it = _diseases.iterator(); it.hasNext();)
+            if(it.next().getType().equals(cancer))
+                it.remove();
     }
 }
