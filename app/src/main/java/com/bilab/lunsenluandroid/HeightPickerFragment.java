@@ -30,12 +30,12 @@ public class HeightPickerFragment extends DialogFragment {
         View view = (View)inflater.inflate(R.layout.fragment_height_picker, null);
 
         // Initialize the pickers
-        height_picker = (NumberPicker) view.findViewById(R.id.height_picker);
+        height_picker = (NumberPicker) view.findViewById(R.id.value_picker);
         height_picker.setMinValue(140);
         height_picker.setMaxValue(220);
         height_picker.setValue(160);
 
-        cm_picker = (NumberPicker) view.findViewById(R.id.cm_picker);
+        cm_picker = (NumberPicker) view.findViewById(R.id.unit_picker);
         String[] unit = new String[]{"cm"};
         cm_picker.setDisplayedValues(unit);
 
@@ -46,15 +46,16 @@ public class HeightPickerFragment extends DialogFragment {
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-//                                TextView height_tv = getActivity().findViewById(R.id.height_textview);
-//                                height_tv.setText();
+                                // do nothing
                             }
                         })
                 .setPositiveButton("確認",
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-//                                ((ClockActivity) getActivity()).doPositiveTimeDialogClick();
+                                TextView tv_height = getActivity().findViewById(R.id.tv_height);
+                                tv_height.setText(String.format("%scm", height_picker.getValue()));
+                                Person.getInstance().setHeight(String.valueOf(height_picker.getValue()));
                             }
                         })
                 .create();

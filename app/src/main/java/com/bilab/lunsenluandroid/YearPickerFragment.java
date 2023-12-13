@@ -37,16 +37,16 @@ public class YearPickerFragment extends DialogFragment {
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-//                                TextView height_tv = getActivity().findViewById(R.id.height_textview);
-//                                height_tv.setText();
+                               // do nothing
                             }
                         })
                 .setPositiveButton("確認",
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-//                                ((ClockActivity) getActivity()).doPositiveTimeDialogClick();
-                            }
+                                TextView tv_year = getActivity().findViewById(R.id.tv_year);
+                                tv_year.setText(String.format("%s", np_year.getValue()));
+                                Person.getInstance().setYear(String.valueOf(np_year.getValue()));                            }
                         })
                 .create();
     }

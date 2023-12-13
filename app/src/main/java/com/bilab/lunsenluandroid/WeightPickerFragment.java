@@ -6,12 +6,11 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.NumberPicker;
+import android.widget.TextView;
 
 public class WeightPickerFragment extends DialogFragment {
     private NumberPicker weight_picker, kg_picker;
@@ -29,12 +28,12 @@ public class WeightPickerFragment extends DialogFragment {
         View view = (View)inflater.inflate(R.layout.fragment_height_picker, null);
 
         // Initialize the pickers
-        weight_picker = (NumberPicker) view.findViewById(R.id.height_picker);
+        weight_picker = (NumberPicker) view.findViewById(R.id.value_picker);
         weight_picker.setMinValue(20);
         weight_picker.setMaxValue(120);
         weight_picker.setValue(60);
 
-        kg_picker = (NumberPicker) view.findViewById(R.id.cm_picker);
+        kg_picker = (NumberPicker) view.findViewById(R.id.unit_picker);
         String[] unit = new String[]{"kg"};
         kg_picker.setDisplayedValues(unit);
 
@@ -45,15 +44,16 @@ public class WeightPickerFragment extends DialogFragment {
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-//                                TextView height_tv = getActivity().findViewById(R.id.height_textview);
-//                                height_tv.setText();
+                                // do nothing
                             }
                         })
                 .setPositiveButton("確認",
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-//                                ((ClockActivity) getActivity()).doPositiveTimeDialogClick();
+                                TextView tv_weight = getActivity().findViewById(R.id.tv_weight);
+                                tv_weight.setText(String.format("%skg", weight_picker.getValue()));
+                                Person.getInstance().setWeight(String.valueOf(weight_picker.getValue()));
                             }
                         })
                 .create();
