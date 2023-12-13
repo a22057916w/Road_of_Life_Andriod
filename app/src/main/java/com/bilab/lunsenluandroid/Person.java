@@ -9,9 +9,8 @@ import java.util.ArrayList;
 public class Person {
     private static Person _instance;
 
-    private String name;
-    private String weight;
-    private int year;
+    private String _name;
+    private String _height, _weight, _year;
     private ArrayList<Disease> _diseases;
     public static synchronized Person getInstance() {
         if(_instance == null)
@@ -20,9 +19,30 @@ public class Person {
     }
 
     public Person() {
+        _height = "";
+        _weight = "";
+        _year = "";
         _diseases = new ArrayList<>();
     };
 
+    public String getHeight() {
+        return _height;
+    }
+    public String getWeight() {
+        return _weight;
+    }
+    public String getYear() {
+        return _year;
+    }
+    public void setHeight(String height) {
+        _height = height;
+    }
+    public void setWeight(String weight) {
+        _weight = weight;
+    }
+    public void setYear(String year) {
+        _year = year;
+    }
     public void updateDisease(Disease disease) {
         int pos = findDisease(disease);
 
