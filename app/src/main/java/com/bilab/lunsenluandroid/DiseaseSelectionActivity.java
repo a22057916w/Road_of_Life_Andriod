@@ -10,11 +10,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bilab.lunsenluandroid.Adapter.DiseaseSelectionRvAdapter;
 import com.bilab.lunsenluandroid.model.DiseaseSelectionModel;
 import com.bilab.lunsenluandroid.ui.disease.CheckBoxListener;
+import com.bilab.lunsenluandroid.ui.disease.DiseaseFragment;
 import com.bilab.lunsenluandroid.util.Constant;
 
 import java.util.ArrayList;
@@ -22,12 +24,20 @@ import java.util.Objects;
 
 public class DiseaseSelectionActivity extends AppCompatActivity implements CheckBoxListener {
 
+    // widgets
     private RecyclerView rv_disease;
-    private DiseaseSelectionRvAdapter rvAdapter;
     private TextView tv_title;
-    private Button btn_confirm;
+    private Button btn_confirm, btn_skip;
+    private ImageView imv_back_arrow;
+
+
+    // initialized by received Intent
+    private String starter_activity;
     private String cancer;
     private int cancer_icon;
+
+    // Adapter
+    private DiseaseSelectionRvAdapter rvAdapter;
 
 
     @Override
@@ -41,6 +51,8 @@ public class DiseaseSelectionActivity extends AppCompatActivity implements Check
             throw new NullPointerException();
         }
 
+        starter_activity = receiverIntent.getStringExtra(Constant.EXTRA_STARTER_ACTIVITY_NAME);
+//        Log.d("7777", starter_activity);
         cancer = receiverIntent.getStringExtra(Constant.EXTRA_DISEASE_CATEGORY);
         cancer_icon = receiverIntent.getIntExtra(Constant.EXTRA_DISEASE_ICON, -1);
 
@@ -53,6 +65,8 @@ public class DiseaseSelectionActivity extends AppCompatActivity implements Check
         rv_disease = findViewById(R.id.rv_disease_selection);
         tv_title = findViewById(R.id.tv_cancer_related_disease);
         btn_confirm = findViewById(R.id.btn_confirm);
+        btn_skip = findViewById(R.id.btn_skip);
+        imv_back_arrow = findViewById(R.id.imv_arrow_white);
     }
 
     private void setupUI() {
@@ -61,6 +75,11 @@ public class DiseaseSelectionActivity extends AppCompatActivity implements Check
         setupButton();
         setText();
         setupRv();
+
+        if(starter_activity.equals(MainActivity.class.getName())) {
+            imv_back_arrow.setVisibility(View.INVISIBLE);
+            btn_skip.setVisibility(View.INVISIBLE);
+        }
     }
 
     private void setText() {
