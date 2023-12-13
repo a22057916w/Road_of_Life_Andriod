@@ -5,6 +5,7 @@ public class Constant {
     public static final String EXTRA_STARTER_ACTIVITY_NAME = "EXTRA_STATER_ACTIVITY_NAME";
     public static final String EXTRA_DISEASE_CATEGORY = "EXTRA_DISEASE_CATEGORY";
     public static final String EXTRA_DISEASE_ICON = "EXTRA_DISEASE_ICON";
+    public static final String EXTRA_INDEX = "EXTRA_INDEX";
 
     // Organ Constants
     public static final String UTERUS = "UTERUS";
@@ -15,4 +16,5 @@ public class Constant {
 
     public static final int npos = -1;
 
+    
 }
