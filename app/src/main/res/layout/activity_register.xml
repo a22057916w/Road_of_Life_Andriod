@@ -79,7 +79,7 @@
                 android:src="@drawable/baseline_height_24" />
 
             <Button
-                android:id="@+id/logout_name"
+                android:id="@+id/btn_height"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1.2"
@@ -89,12 +89,12 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/height_textview"
+                android:id="@+id/tv_height"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="7"
-                android:text="173cm"
                 android:gravity="center"
+                android:text="0cm"
                 android:textSize="18sp" />
         </TableRow>
 
@@ -142,7 +142,7 @@
                 android:src="@drawable/baseline_monitor_weight_24" />
 
             <Button
-                android:id="@+id/logout_phone"
+                android:id="@+id/btn_weight"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1.2"
@@ -152,11 +152,12 @@
                 android:textSize="18sp" />
 
             <TextView
+                android:id="@+id/tv_weight"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="7"
-                android:text="60kg"
                 android:gravity="center"
+                android:text="0kg"
                 android:textSize="18sp" />
         </TableRow>
 
@@ -203,14 +204,16 @@
                 android:scaleType="centerInside"
                 android:src="@drawable/baseline_people_24" />
 
-            <EditText
-                android:id="@+id/logout_email"
+            <TextView
+                android:id="@+id/tv_gender"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
                 android:background="@null"
-                android:hint=" 性別"
-                android:singleLine="true" />
+                android:gravity="start|center_vertical"
+                android:singleLine="true"
+                android:text="@string/label_gender"
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/textView11"
@@ -219,14 +222,14 @@
                 android:layout_weight="1" />
 
             <RadioButton
-                android:id="@+id/radioButton"
+                android:id="@+id/rb_male"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="男" />
 
             <RadioButton
-                android:id="@+id/radioButton2"
+                android:id="@+id/rb_female"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -289,7 +292,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1.2"
                 android:background="@null"
-                android:hint="年份"
+                android:hint="生日年"
                 android:singleLine="true"
                 android:textAlignment="viewStart"
                 android:textSize="18sp" />
@@ -298,9 +301,9 @@
                 android:id="@+id/tv_year"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="7"
+                android:layout_weight="6"
                 android:gravity="center"
-                android:text="1999"
+                android:text="點擊選取"
                 android:textSize="18sp"
                 android:visibility="visible" />
 
