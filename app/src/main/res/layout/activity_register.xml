@@ -94,7 +94,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="7"
                 android:gravity="center"
-                android:text="0cm"
+                android:text="點擊選取"
                 android:textSize="18sp" />
         </TableRow>
 
@@ -157,7 +157,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="7"
                 android:gravity="center"
-                android:text="0kg"
+                android:text="點擊選取"
                 android:textSize="18sp" />
         </TableRow>
 
