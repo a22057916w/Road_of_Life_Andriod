@@ -28,7 +28,7 @@ public class YearPickerFragment extends DialogFragment {
         np_year = view.findViewById(R.id.np_year_picker);
         np_year.setMinValue(1900);
         np_year.setMaxValue(2023);
-        np_year.setValue(1999);
+        np_year.setValue(1980);
 
         return new AlertDialog.Builder(getActivity())
                 .setTitle("年份")

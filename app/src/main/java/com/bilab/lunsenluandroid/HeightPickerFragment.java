@@ -31,9 +31,9 @@ public class HeightPickerFragment extends DialogFragment {
 
         // Initialize the pickers
         height_picker = (NumberPicker) view.findViewById(R.id.value_picker);
-        height_picker.setMinValue(140);
+        height_picker.setMinValue(130);
         height_picker.setMaxValue(220);
-        height_picker.setValue(160);
+        height_picker.setValue(155);
 
         cm_picker = (NumberPicker) view.findViewById(R.id.unit_picker);
         String[] unit = new String[]{"cm"};

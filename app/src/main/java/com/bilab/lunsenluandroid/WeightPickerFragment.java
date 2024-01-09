@@ -31,7 +31,7 @@ public class WeightPickerFragment extends DialogFragment {
         weight_picker = (NumberPicker) view.findViewById(R.id.value_picker);
         weight_picker.setMinValue(20);
         weight_picker.setMaxValue(120);
-        weight_picker.setValue(60);
+        weight_picker.setValue(50);
 
         kg_picker = (NumberPicker) view.findViewById(R.id.unit_picker);
         String[] unit = new String[]{"kg"};
