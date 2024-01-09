@@ -20,7 +20,7 @@ public class RegisterActivity extends AppCompatActivity {
     Button btn_next, btn_year, btn_height, btn_weight;
     RadioButton rb_male, rb_female;
     ImageView previous;
-    TextView register_error, tv_gender, tv_height, tv_weight, tv_year;
+    TextView tv_gender, tv_height, tv_weight, tv_year;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +45,6 @@ public class RegisterActivity extends AppCompatActivity {
         tv_year = findViewById(R.id.tv_year);
 
         previous =   findViewById(R.id.register_previous);
-        register_error =  findViewById(R.id.register_error);
     }
     private void setupUI() {
         Person person = Person.getInstance();
