@@ -7,16 +7,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bilab.lunsenluandroid.Adapter.DiseaseSelectionRvAdapter;
 import com.bilab.lunsenluandroid.model.DiseaseSelectionModel;
 import com.bilab.lunsenluandroid.ui.disease.CheckBoxListener;
 import com.bilab.lunsenluandroid.util.Constant;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -34,8 +37,8 @@ public class RegisterDiseaseActivity extends AppCompatActivity implements CheckB
 
     private DiseaseSelectionRvAdapter rvAdapter;
 
-    private String [] category = {Constant.BLADDER, Constant.RECTUM, Constant.UTERUS, Constant.OVARY};
-    private Integer [] ctg_icon = {R.drawable.ic_bladder, R.drawable.ic_rectum, R.drawable.ic_uterus, R.drawable.ic_ovary};
+    private final String [] category = {Constant.BLADDER, Constant.RECTUM, Constant.UTERUS, Constant.OVARY};
+    private final Integer [] ctg_icon = {R.drawable.ic_bladder, R.drawable.ic_rectum, R.drawable.ic_uterus, R.drawable.ic_ovary};
     private int ctg_index;
 
     @Override
@@ -94,6 +97,15 @@ public class RegisterDiseaseActivity extends AppCompatActivity implements CheckB
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(noItemSelected()) {
+                    CharSequence text = "請勾選一項";
+                    int duration = Toast.LENGTH_SHORT;
+
+                    Toast toast = Toast.makeText(RegisterDiseaseActivity.this, text, duration);
+                    toast.show();
+
+                    return;
+                }
                 if(ctg_index == category.length - 1) {
                     Intent openMainIntent = new Intent(RegisterDiseaseActivity.this, MainActivity.class);
                     startActivity(openMainIntent);
@@ -160,6 +172,17 @@ public class RegisterDiseaseActivity extends AppCompatActivity implements CheckB
             CheckBox chb = rv_disease.findViewHolderForAdapterPosition(i).itemView.findViewById(R.id.chb_disease_selection);
             chb.setChecked(false);
         }
+    }
+
+    private boolean noItemSelected() {
+        boolean isChecked = false;
+        for(int i = 0; i < rvAdapter.getItemCount(); i++) {
+            CheckBox chb = rv_disease.findViewHolderForAdapterPosition(i).itemView.findViewById(R.id.chb_disease_selection);
+            isChecked = chb.isChecked();
+            if(isChecked)
+                break;
+        }
+        return !isChecked;
     }
 
     private void setupRv() {
