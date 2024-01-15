@@ -53,6 +53,7 @@ public class HomeFragment extends Fragment {
             diseaseHomeModelArrayList.add(new DiseaseHomeModel("膀胱癌", "膀胱癌是泌尿系統常見的惡性疾病之一，較常侵犯60歲以上男性，男與女的比例大約是2.7：1。", "8%", R.drawable.ic_bladder));
             diseaseHomeModelArrayList.add(new DiseaseHomeModel("大腸癌", "自95年起大腸癌居全國癌症發生數第1位，每年約有一萬多人診斷大腸癌，並有超過五千人因大腸癌死亡，大腸癌對國人健康的影響甚鉅。", "5%", R.drawable.ic_rectum));
         }
+
         // Initializing adapter class and passing arraylist to it.
         DiseaseHomeRvAdpater diseaseHomeRvAdpater = new DiseaseHomeRvAdpater(this.getActivity(), diseaseHomeModelArrayList);
         // Creating vertical list to provide orientation as vertical

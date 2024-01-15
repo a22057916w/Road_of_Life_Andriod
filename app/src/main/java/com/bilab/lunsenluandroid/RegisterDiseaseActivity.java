@@ -1,6 +1,8 @@
 package com.bilab.lunsenluandroid;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -9,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewParent;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
@@ -52,17 +55,13 @@ public class RegisterDiseaseActivity extends AppCompatActivity implements CheckB
             throw new NullPointerException();
         }
 
-//        starter_activity = receiverIntent.getStringExtra(Constant.EXTRA_STARTER_ACTIVITY_NAME);
-//        cancer = receiverIntent.getStringExtra(Constant.EXTRA_DISEASE_CATEGORY);
-//        cancer_icon = receiverIntent.getIntExtra(Constant.EXTRA_DISEASE_ICON, -1);
+
         ctg_index = receiverIntent.getIntExtra(Constant.EXTRA_INDEX, -1);
         cancer = category[ctg_index];
         cancer_icon = ctg_icon[ctg_index];
-        Log.d("5555", "1");
+
         registerUI();
-        Log.d("5555", "2");
         setupUI();
-        Log.d("5555", "3");
 
     }
 
@@ -98,12 +97,17 @@ public class RegisterDiseaseActivity extends AppCompatActivity implements CheckB
             @Override
             public void onClick(View view) {
                 if(noItemSelected()) {
-                    CharSequence text = "請勾選一項";
-                    int duration = Toast.LENGTH_SHORT;
-
-                    Toast toast = Toast.makeText(RegisterDiseaseActivity.this, text, duration);
-                    toast.show();
-
+//                    CharSequence text = "請勾選一項";
+//                    int duration = Toast.LENGTH_SHORT;
+//
+//                    Toast toast = Toast.makeText(RegisterDiseaseActivity.this, text, duration);
+//                    toast.show();
+                    // Create a snackbar
+                    Log.d("Snackbar", "1");
+                    Snackbar snackbar = Snackbar.make(view, "請勾選一項", Snackbar.LENGTH_SHORT);
+                    Log.d("Snackbar", "2");
+                    snackbar.show();
+                    Log.d("Snackbar", "3");
                     return;
                 }
                 if(ctg_index == category.length - 1) {

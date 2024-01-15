@@ -69,4 +69,7 @@ dependencies {
 
     // 3DWheelPicker (https://github.com/yijiebuyi/3DWheelPicker)
     implementation 'com.github.yijiebuyi:3DWheelPicker:v1.2.0'
+
+    // SnackBar
+    implementation 'com.google.android.material:material:1.11.0'
 }
