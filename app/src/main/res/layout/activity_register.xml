@@ -75,33 +75,35 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
-    <Button
-        android:id="@+id/btn_height"
+    <TextView
+        android:id="@+id/tv_height"
         android:layout_width="wrap_content"
         android:layout_height="52dp"
         android:layout_marginStart="16dp"
         android:background="@null"
-        android:hint="身高"
+        android:gravity="center_vertical"
         android:singleLine="true"
-        android:textAlignment="viewStart"
+        android:text="@string/label_height"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/imv_height"
         app:layout_constraintStart_toEndOf="@+id/imv_height"
         app:layout_constraintTop_toTopOf="@+id/imv_height"
         app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
-        android:id="@+id/tv_height"
+    <Button
+        android:id="@+id/btn_height"
         android:layout_width="wrap_content"
         android:layout_height="52dp"
-        android:layout_marginStart="72dp"
+        android:layout_marginStart="100dp"
+        android:background="@null"
         android:gravity="center"
-        android:text="點擊選取"
+        android:hint="@string/hint_click_to_pick"
+        android:singleLine="true"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_height"
-        app:layout_constraintStart_toEndOf="@+id/btn_height"
-        app:layout_constraintTop_toTopOf="@+id/btn_height"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintBottom_toBottomOf="@+id/tv_height"
+        app:layout_constraintStart_toEndOf="@+id/tv_height"
+        app:layout_constraintTop_toTopOf="@+id/tv_height"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/imv_weight"
@@ -113,30 +115,29 @@
         app:layout_constraintStart_toStartOf="@+id/imv_height"
         app:layout_constraintTop_toBottomOf="@+id/imv_height" />
 
-    <Button
-        android:id="@+id/btn_weight"
-        android:layout_width="wrap_content"
-        android:layout_height="52dp"
-        android:background="@null"
-
-        android:hint="體重"
-        android:singleLine="true"
-        android:textAlignment="viewStart"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imv_weight"
-        app:layout_constraintStart_toStartOf="@+id/btn_height"
-        app:layout_constraintTop_toTopOf="@+id/imv_weight" />
-
     <TextView
         android:id="@+id/tv_weight"
+        android:layout_width="wrap_content"
+        android:layout_height="52dp"
+        android:text="@string/label_weight"
+        android:singleLine="true"
+        android:gravity="center_vertical"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imv_weight"
+        app:layout_constraintStart_toStartOf="@+id/tv_height"
+        app:layout_constraintTop_toTopOf="@+id/imv_weight" />
+
+    <Button
+        android:id="@+id/btn_weight"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:gravity="center"
-        android:text="點擊選取"
+        android:hint="@string/hint_click_to_pick"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_weight"
-        app:layout_constraintStart_toStartOf="@+id/tv_height"
-        app:layout_constraintTop_toTopOf="@+id/btn_weight" />
+        android:background="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_weight"
+        app:layout_constraintStart_toStartOf="@+id/btn_height"
+        app:layout_constraintTop_toTopOf="@+id/tv_weight" />
 
     <ImageView
         android:id="@+id/imv_gender"
@@ -158,7 +159,7 @@
         android:text="@string/label_gender"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/imv_gender"
-        app:layout_constraintStart_toStartOf="@+id/btn_weight"
+        app:layout_constraintStart_toStartOf="@+id/tv_weight"
         app:layout_constraintTop_toTopOf="@+id/imv_gender" />
 
     <RadioButton
@@ -166,7 +167,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="92dp"
-        android:text="男"
+        android:text="@string/rb_male"
         app:layout_constraintBottom_toBottomOf="@+id/tv_gender"
         app:layout_constraintStart_toEndOf="@+id/tv_gender"
         app:layout_constraintTop_toTopOf="@+id/tv_gender" />
@@ -176,7 +177,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:text="女"
+        android:text="@string/rb_female"
         app:layout_constraintBottom_toBottomOf="@+id/rb_male"
         app:layout_constraintStart_toEndOf="@+id/rb_male"
         app:layout_constraintTop_toTopOf="@+id/rb_male"
@@ -192,30 +193,30 @@
         app:layout_constraintStart_toStartOf="@+id/imv_height"
         app:layout_constraintTop_toBottomOf="@+id/imv_gender" />
 
-    <Button
-        android:id="@+id/btn_year"
-        android:layout_width="0dp"
-        android:layout_height="52dp"
-        android:background="@null"
-        android:hint="生日年"
-        android:singleLine="true"
-        android:textAlignment="viewStart"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imv_year"
-        app:layout_constraintStart_toStartOf="@+id/btn_weight"
-        app:layout_constraintTop_toTopOf="@+id/imv_year" />
-
     <TextView
         android:id="@+id/tv_year"
         android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:background="@null"
+        android:text="@string/label_birth_year"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imv_year"
+        app:layout_constraintStart_toStartOf="@+id/tv_weight"
+        app:layout_constraintTop_toTopOf="@+id/imv_year" />
+
+    <Button
+        android:id="@+id/btn_year"
+        android:layout_width="0dp"
         android:layout_height="30dp"
         android:gravity="center"
-        android:text="點擊選取"
+        android:hint="@string/hint_click_to_pick"
         android:textSize="18sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_year"
-        app:layout_constraintStart_toStartOf="@+id/tv_weight"
-        app:layout_constraintTop_toTopOf="@+id/btn_year" />
+        android:background="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_year"
+        app:layout_constraintStart_toStartOf="@+id/btn_weight"
+        app:layout_constraintTop_toTopOf="@+id/tv_year" />
 
     <Button
         android:id="@+id/btn_next"

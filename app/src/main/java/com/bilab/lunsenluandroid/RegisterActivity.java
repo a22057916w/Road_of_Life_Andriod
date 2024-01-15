@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -44,7 +43,7 @@ public class RegisterActivity extends AppCompatActivity {
         tv_gender = findViewById(R.id.tv_gender);
         tv_year = findViewById(R.id.tv_year);
 
-        previous =   findViewById(R.id.register_previous);
+        previous = findViewById(R.id.register_previous);
     }
     private void setupUI() {
         Person person = Person.getInstance();
@@ -54,8 +53,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 YearPickerFragment yearPickerFragment = new YearPickerFragment();
-                FragmentManager supportFragmentManager = getSupportFragmentManager();
-                yearPickerFragment.show(supportFragmentManager, "datePicker");
+                yearPickerFragment.show(getSupportFragmentManager(), "datePicker");
             }
         });
 
@@ -63,22 +61,20 @@ public class RegisterActivity extends AppCompatActivity {
         btn_height.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HeightPickerFragment newFragment = new HeightPickerFragment();
-                newFragment.show(getSupportFragmentManager(), "HeightPicker");
-                // Bring up the picker fragment
-//                DialogFragment newFragment = TimePickerFragment.newInstance(R.string.work_title);
-//                newFragment.show(getSupportFragmentManager(), "WorkTimePicker");
+                HeightPickerFragment heightPickerFragment = new HeightPickerFragment();
+                heightPickerFragment.show(getSupportFragmentManager(), "HeightPicker");
+
+//                // may need interface
+//                btn_height.setHint(String.format("%scm", heightPickerFragment.getHeight()));
+//                Person.getInstance().setHeight(String.valueOf(heightPickerFragment.getHeight()));
             }
         });
 
         btn_weight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                WeightPickerFragment newFragment = new WeightPickerFragment();
-                newFragment.show(getSupportFragmentManager(), "WeightPicker");
-                // Bring up the picker fragment
-//                DialogFragment newFragment = TimePickerFragment.newInstance(R.string.work_title);
-//                newFragment.show(getSupportFragmentManager(), "WorkTimePicker");
+                WeightPickerFragment weightPickerFragment = new WeightPickerFragment();
+                weightPickerFragment.show(getSupportFragmentManager(), "WeightPicker");
             }
         });
 

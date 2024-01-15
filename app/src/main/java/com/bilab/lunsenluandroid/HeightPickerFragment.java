@@ -9,6 +9,7 @@ import androidx.fragment.app.DialogFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 
@@ -53,12 +54,16 @@ public class HeightPickerFragment extends DialogFragment {
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                TextView tv_height = getActivity().findViewById(R.id.tv_height);
-                                tv_height.setText(String.format("%scm", height_picker.getValue()));
+                                Button btn_height = getActivity().findViewById(R.id.btn_height);
+                                btn_height.setHint(String.format("%scm", height_picker.getValue()));
                                 Person.getInstance().setHeight(String.valueOf(height_picker.getValue()));
                             }
                         })
                 .create();
         return alertDialog;
+    }
+
+    public int getHeight() {
+        return height_picker.getValue();
     }
 }

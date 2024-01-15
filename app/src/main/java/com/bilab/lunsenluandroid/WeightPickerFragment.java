@@ -9,6 +9,7 @@ import androidx.fragment.app.DialogFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 
@@ -51,8 +52,8 @@ public class WeightPickerFragment extends DialogFragment {
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                TextView tv_weight = getActivity().findViewById(R.id.tv_weight);
-                                tv_weight.setText(String.format("%skg", weight_picker.getValue()));
+                                Button btn_weight = getActivity().findViewById(R.id.btn_weight);
+                                btn_weight.setHint(String.format("%skg", weight_picker.getValue()));
                                 Person.getInstance().setWeight(String.valueOf(weight_picker.getValue()));
                             }
                         })

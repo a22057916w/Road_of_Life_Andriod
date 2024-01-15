@@ -1,7 +1,6 @@
 package com.bilab.lunsenluandroid;
 
 import android.app.AlertDialog;
-import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -10,11 +9,9 @@ import androidx.fragment.app.DialogFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.DatePicker;
+import android.widget.Button;
 import android.widget.NumberPicker;
 import android.widget.TextView;
-
-import java.util.Calendar;
 
 public class YearPickerFragment extends DialogFragment {
 
@@ -44,8 +41,8 @@ public class YearPickerFragment extends DialogFragment {
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                TextView tv_year = getActivity().findViewById(R.id.tv_year);
-                                tv_year.setText(String.format("%s", np_year.getValue()));
+                                Button btn_year = getActivity().findViewById(R.id.btn_year);
+                                btn_year.setHint(String.format("%s", np_year.getValue()));
                                 Person.getInstance().setYear(String.valueOf(np_year.getValue()));                            }
                         })
                 .create();

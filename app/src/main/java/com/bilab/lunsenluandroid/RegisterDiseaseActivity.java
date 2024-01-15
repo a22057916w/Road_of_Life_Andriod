@@ -34,7 +34,6 @@ public class RegisterDiseaseActivity extends AppCompatActivity implements CheckB
     private Button btn_next, btn_skip;
     private ImageView imv_back_arrow;
 
-    private String starter_activity;
     private String cancer;
     private int cancer_icon;
 
@@ -96,18 +95,11 @@ public class RegisterDiseaseActivity extends AppCompatActivity implements CheckB
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // user must check one box to next page
                 if(noItemSelected()) {
-//                    CharSequence text = "請勾選一項";
-//                    int duration = Toast.LENGTH_SHORT;
-//
-//                    Toast toast = Toast.makeText(RegisterDiseaseActivity.this, text, duration);
-//                    toast.show();
-                    // Create a snackbar
-                    Log.d("Snackbar", "1");
                     Snackbar snackbar = Snackbar.make(view, "請勾選一項", Snackbar.LENGTH_SHORT);
-                    Log.d("Snackbar", "2");
                     snackbar.show();
-                    Log.d("Snackbar", "3");
+
                     return;
                 }
                 if(ctg_index == category.length - 1) {
@@ -116,11 +108,9 @@ public class RegisterDiseaseActivity extends AppCompatActivity implements CheckB
                     finish();
                 }
 
-                Intent restertIntent = new Intent(RegisterDiseaseActivity.this, RegisterDiseaseActivity.class);
-//                restertIntent.putExtra(Constant.EXTRA_DISEASE_CATEGORY, category[ctg_index]);
-//                restertIntent.putExtra(Constant.EXTRA_DISEASE_ICON, ctg_icon[ctg_index]);
-                restertIntent.putExtra(Constant.EXTRA_INDEX, ++ctg_index);
-                startActivity(restertIntent);
+                Intent restartIntent = new Intent(RegisterDiseaseActivity.this, RegisterDiseaseActivity.class);
+                restartIntent.putExtra(Constant.EXTRA_INDEX, ++ctg_index);
+                startActivity(restartIntent);
             }
         });
 
