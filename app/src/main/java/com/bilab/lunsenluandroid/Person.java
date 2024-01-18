@@ -95,4 +95,13 @@ public class Person {
                 count++;
         return _diseases.size() == count;
     }
+
+    public ArrayList<String> getDiseases(String type) {
+        ArrayList<String> diseases = new ArrayList<>();
+        for(int i = 0; i < _diseases.size(); i++)
+            if(_diseases.get(i).getType().equals(type))
+                diseases.add(_diseases.get(i).getName());
+
+        return diseases;
+    }
 }
