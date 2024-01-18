@@ -1,11 +1,14 @@
 package com.bilab.lunsenluandroid.ui.home;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import com.bilab.lunsenluandroid.Adapter.LegendAdapter;
 import com.bilab.lunsenluandroid.Person;
 import com.bilab.lunsenluandroid.R;
 
@@ -16,6 +19,7 @@ import android.widget.TextView;
 import com.bilab.lunsenluandroid.util.Constant;
 import com.github.mikephil.charting.charts.HorizontalBarChart;
 import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.components.LegendEntry;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
@@ -30,7 +34,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class DiseaseChartActivity extends AppCompatActivity {
-
+    private RecyclerView rv_legend;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,16 +79,22 @@ public class DiseaseChartActivity extends AppCompatActivity {
 
         // Set horizontal bar data
         List<IBarDataSet> dataSets = new ArrayList<>();
+        List<LegendEntry> legendEntries = new ArrayList<>();
 
         for (int i = 0; i < diseases.size(); i++) {
             List<BarEntry> entries = new ArrayList<>();
             entries.add(new BarEntry(i, i+1));
 
 
+
             int[] colors = ColorTemplate.MATERIAL_COLORS;
             int color = colors[i % colors.length];
 
             String label = diseases.get(i);
+            LegendEntry legendEntry = new LegendEntry();
+            legendEntry.label = label;
+            legendEntry.formColor = color;
+            legendEntries.add(legendEntry);
 
             BarDataSet dataSet = new BarDataSet(entries, label);
             dataSet.setColor(color);
@@ -99,27 +109,23 @@ public class DiseaseChartActivity extends AppCompatActivity {
         // 設定動畫
         horizontalBarChart.animateY(1000);
 
-        // 設定 Legend
-        Legend legend = horizontalBarChart.getLegend();
-//        legend.setVerticalAlignment(Legend.LegendVerticalAlignment.BOTTOM);
-//        legend.setHorizontalAlignment(Legend.LegendHorizontalAlignment.CENTER);
-//        legend.setOrientation(Legend.LegendOrientation.VERTICAL);
-//        legend.setEnabled(true);
-//        legend.setForm(Legend.LegendForm.SQUARE);  // 使用方塊作為圖例
-//        legend.setTextSize(12f);
-//        legend.setTextColor(Color.BLACK);
-        Snackbar snackbar = Snackbar.make(getContentScene().getSceneRoot(), legend.getEntries().toString(), Snackbar.LENGTH_SHORT);
-        snackbar.show();
-
-
         // 設定其他屬性
         horizontalBarChart.getDescription().setEnabled(false);
         horizontalBarChart.setDrawGridBackground(false);
         horizontalBarChart.getAxisLeft().setEnabled(false);    // Hide the left Y-axis
-        horizontalBarChart.getLegend().setWordWrapEnabled(true);
+        horizontalBarChart.getLegend().setEnabled(false);
+//        horizontalBarChart.getLegend().setWordWrapEnabled(true);
 
 
         // 設定橫條形圖數據
         horizontalBarChart.setData(barData);
+
+        LegendAdapter legendAdapter = new LegendAdapter(legendEntries);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+
+        rv_legend = findViewById(R.id.rv_legend);
+        rv_legend.setLayoutManager(linearLayoutManager);
+        rv_legend.setAdapter(legendAdapter);
     }
+
 }
