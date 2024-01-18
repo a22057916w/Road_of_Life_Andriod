@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bilab.lunsenluandroid.R;
 import com.bilab.lunsenluandroid.WebViewActivity;
 import com.bilab.lunsenluandroid.model.DiseaseHomeModel;
+import com.bilab.lunsenluandroid.ui.home.DiseaseChartActivity;
+import com.bilab.lunsenluandroid.util.Constant;
 
 import java.util.ArrayList;
 
@@ -33,12 +35,16 @@ public class DiseaseHomeRvAdpater extends RecyclerView.Adapter<DiseaseHomeRvAdpa
         // to inflate the layout for each item of recycler view.
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_disease_primary, parent, false);
 
-        Intent myIntent = new Intent(this.context, WebViewActivity.class); //WebViewActivityName is the  activity name of the webview activity
+//                Intent myIntent = new Intent(this.context, WebViewActivity.class); //WebViewActivityName is the  activity name of the webview activity
+//        Intent openDiseaseChartIntent = new Intent(this.context, DiseaseChartActivity.class);
+
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                myIntent.putExtra("url", "https://www.google.com.tw/"); //Add your url in "yourUrlHere"
-                view.getContext().startActivity(myIntent);
+//                myIntent.putExtra("url", "https://www.google.com.tw/"); //Add your url in "yourUrlHere"
+//                view.getContext().startActivity(myIntent);
+//            view.getContext().startActivity(openDiseaseChartIntent);
+
             }
         });
         return new ViewHolder(view);
@@ -52,6 +58,15 @@ public class DiseaseHomeRvAdpater extends RecyclerView.Adapter<DiseaseHomeRvAdpa
         holder.tv_diseaseDescription.setText(model.getDiseaseDescription());
         holder.imv_diseaseIcon.setImageResource(model.getDiseaseImage());
         holder.tv_diseaseRisk.setText(model.getDiseaseRisk());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent openDiseaseChartIntent = new Intent(view.getContext(), DiseaseChartActivity.class);
+                openDiseaseChartIntent.putExtra(Constant.EXTRA_DISEASE_CATEGORY, model.getType());
+                view.getContext().startActivity(openDiseaseChartIntent);
+            }
+        });
     }
 
     @Override
