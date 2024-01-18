@@ -10,6 +10,7 @@ import com.bilab.lunsenluandroid.Person;
 import com.bilab.lunsenluandroid.R;
 
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import com.bilab.lunsenluandroid.util.Constant;
@@ -22,6 +23,7 @@ import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -91,7 +93,6 @@ public class DiseaseChartActivity extends AppCompatActivity {
         }
 
         BarData barData = new BarData(dataSets);
-
         barData.getGroupWidth(0f, 0f);
 
 
@@ -100,13 +101,16 @@ public class DiseaseChartActivity extends AppCompatActivity {
 
         // 設定 Legend
         Legend legend = horizontalBarChart.getLegend();
-        legend.setVerticalAlignment(Legend.LegendVerticalAlignment.BOTTOM);
-        legend.setHorizontalAlignment(Legend.LegendHorizontalAlignment.CENTER);
-        legend.setOrientation(Legend.LegendOrientation.VERTICAL);
-        legend.setEnabled(true);
-        legend.setForm(Legend.LegendForm.SQUARE);  // 使用方塊作為圖例
-        legend.setTextSize(12f);
-        legend.setTextColor(Color.BLACK);
+//        legend.setVerticalAlignment(Legend.LegendVerticalAlignment.BOTTOM);
+//        legend.setHorizontalAlignment(Legend.LegendHorizontalAlignment.CENTER);
+//        legend.setOrientation(Legend.LegendOrientation.VERTICAL);
+//        legend.setEnabled(true);
+//        legend.setForm(Legend.LegendForm.SQUARE);  // 使用方塊作為圖例
+//        legend.setTextSize(12f);
+//        legend.setTextColor(Color.BLACK);
+        Snackbar snackbar = Snackbar.make(getContentScene().getSceneRoot(), legend.getEntries().toString(), Snackbar.LENGTH_SHORT);
+        snackbar.show();
+
 
         // 設定其他屬性
         horizontalBarChart.getDescription().setEnabled(false);
