@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:paddingBottom="5dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="5dp">
+
+    <LinearLayout
+        android:id="@+id/nhisdk_data_production_right_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/nhisdk_data_production_all_choice_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/margin_normal"
+            android:textSize="@dimen/common_content_txt_size"
+            android:text="@string/nhisdk_data_production_all_choice" />
+
+        <TextView
+            android:id="@+id/nhisdk_data_production_item_by_item_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/margin_normal"
+            android:textSize="@dimen/common_content_txt_size"
+            android:text="@string/nhisdk_data_production_item_by_item" />
+
+        <ImageView
+            android:id="@+id/nhisdk_data_production_arrow_image"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/margin_normal"
+            android:visibility="gone"
+            android:layout_marginRight="@dimen/margin_normal"
+            android:src="@drawable/number_arrow_up_icon_size" />
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/nhisdk_data_production_category_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:textSize="@dimen/common_content_txt_size"
+        android:layout_marginLeft="@dimen/margin_normal"
+        android:layout_toLeftOf="@+id/nhisdk_data_production_right_bar" />
+
+</RelativeLayout>
