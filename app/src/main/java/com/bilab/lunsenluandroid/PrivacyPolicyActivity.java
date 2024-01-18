@@ -8,7 +8,8 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.bilab.lunsenluandroid.util.Constant;
+import com.bilab.lunsenluandroid.conf.Constant;
+import com.bilab.lunsenluandroid.register.RegisterActivity;
 
 public class PrivacyPolicyActivity extends AppCompatActivity {
 

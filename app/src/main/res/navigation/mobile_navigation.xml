@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_track"
-        android:name="com.bilab.lunsenluandroid.ui.home.HomeFragment"
+        android:name="com.bilab.lunsenluandroid.main.home.DiseaseHomeFragment"
         android:label="@string/path"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.bilab.lunsenluandroid.ui.disease.DiseaseFragment"
+        android:name="com.bilab.lunsenluandroid.main.category.DiseaseCategoryFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_disease" />
 
     <fragment
         android:id="@+id/navigation_setting"
-        android:name="com.bilab.lunsenluandroid.ui.setting.SettingFragment"
+        android:name="com.bilab.lunsenluandroid.main.setting.SettingFragment"
         android:label="@string/setting"
         tools:layout="@layout/fragment_setting" />
 </navigation>

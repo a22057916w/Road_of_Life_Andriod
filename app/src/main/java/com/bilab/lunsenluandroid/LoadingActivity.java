@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.bilab.lunsenluandroid.util.Constant;
+import com.bilab.lunsenluandroid.conf.Constant;
 
 import java.util.Timer;
 import java.util.TimerTask;

@@ -14,16 +14,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.home.DiseaseChartActivity"
+            android:name=".main.home.DiseaseChartActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterDiseaseActivity"
+            android:name=".register.RegisterDiseaseActivity"
             android:exported="false" />
         <activity
-            android:name=".DiseaseSelectionActivity"
+            android:name=".main.category.DiseaseSelectionActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".main.MainActivity"
             android:label="@string/title_activity_main2" />
         <activity android:name=".LoadingActivity">
             <intent-filter>
@@ -33,12 +33,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".WebViewActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".AccountMainActivity" />
-        <activity android:name=".AccountPasswordActivity" />
-        <activity android:name=".DoctorAuthActivity" />
-        <activity android:name=".DoctorInsertActivity" />
-        <activity android:name=".HealthPassActivity" />
+        <activity android:name=".register.RegisterActivity" />
+        <activity android:name=".main.setting.AccountMainActivity" />
+        <activity android:name=".main.setting.AccountPasswordActivity" />
+        <activity android:name=".main.setting.DoctorAuthActivity" />
+        <activity android:name=".main.setting.DoctorInsertActivity" />
+        <activity android:name=".main.setting.HealthPassActivity" />
         <activity android:name=".PrivacyPolicyActivity" />
         <activity android:name=".PrivacyPolicy2Activity" />
     </application>
