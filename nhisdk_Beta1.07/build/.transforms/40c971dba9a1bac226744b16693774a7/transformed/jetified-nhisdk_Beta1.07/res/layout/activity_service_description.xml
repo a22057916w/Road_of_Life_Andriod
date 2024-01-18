@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ServiceDescriptionActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_title_bat_height">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/nhisdk_service_desc_title"
+            android:textSize="@dimen/common_title_txt_size"
+            android:textColor="@android:color/black" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/margin_normal"
+        android:layout_marginRight="@dimen/margin_normal"
+        android:layout_marginTop="@dimen/margin_normal">
+
+        <LinearLayout
+            android:id="@+id/about_bottom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/margin_middle"
+            android:layout_marginLeft="@dimen/margin_normal"
+            android:layout_marginRight="@dimen/margin_normal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/margin_normal"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/nhisdk_about_exit_btn"
+                        android:layout_width="@dimen/bottom_bar_btn_width"
+                        android:layout_height="@dimen/bottom_bar_btn_height"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/bg_bottom_btn_left"
+                        android:gravity="center"
+                        android:text="@string/nhisdk_service_desc_btn_exit"
+                        android:textSize="@dimen/common_btn_txt_size"
+                        android:textColor="@color/color_bottom_blue" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_normal"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/nhisdk_about_continue_btn"
+                        android:layout_width="@dimen/bottom_bar_btn_width"
+                        android:layout_height="@dimen/bottom_bar_btn_height"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/bg_bottom_btn_right"
+                        android:gravity="center"
+                        android:textSize="@dimen/common_btn_txt_size"
+                        android:text="@string/nhisdk_service_desc_btn_continue"
+                        android:textColor="@android:color/white" />
+                </RelativeLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/about_bottom_bar"
+            android:orientation="vertical"
+            android:layout_marginRight="@dimen/margin_middle"
+            android:layout_marginLeft="@dimen/margin_middle">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/nhisdk_service_desc_txt_content02"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/common_content_txt_size"/>
+            </ScrollView>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</LinearLayout>
