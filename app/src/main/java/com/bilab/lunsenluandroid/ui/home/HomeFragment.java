@@ -17,6 +17,7 @@ import com.bilab.lunsenluandroid.Adapter.DiseaseHomeRvAdpater;
 import com.bilab.lunsenluandroid.Person;
 import com.bilab.lunsenluandroid.R;
 import com.bilab.lunsenluandroid.model.DiseaseHomeModel;
+import com.bilab.lunsenluandroid.util.Constant;
 
 import java.util.ArrayList;
 
@@ -43,10 +44,10 @@ public class HomeFragment extends Fragment {
         ArrayList<DiseaseHomeModel> diseaseHomeModelArrayList = new ArrayList<DiseaseHomeModel>();
 
 
-        diseaseHomeModelArrayList.add(new DiseaseHomeModel("子宮癌", "子宮頸癌發生大部分是經由性行為感染人類乳突病毒所致，有性經驗的婦女感染人類乳突病毒很常見。", "80%", R.drawable.ic_uterus));
-        diseaseHomeModelArrayList.add(new DiseaseHomeModel("卵巢癌", "卵巢癌雖不比子宮癌來得普遍，但卻是婦科癌症死亡原因的首位。", "20%", R.drawable.ic_ovary));
-        diseaseHomeModelArrayList.add(new DiseaseHomeModel("膀胱癌", "膀胱癌是泌尿系統常見的惡性疾病之一，較常侵犯60歲以上男性，男與女的比例大約是2.7：1。", "8%", R.drawable.ic_bladder));
-        diseaseHomeModelArrayList.add(new DiseaseHomeModel("大腸癌", "自95年起大腸癌居全國癌症發生數第1位，每年約有一萬多人診斷大腸癌，並有超過五千人因大腸癌死亡，大腸癌對國人健康的影響甚鉅。", "5%", R.drawable.ic_rectum));
+        diseaseHomeModelArrayList.add(new DiseaseHomeModel("子宮癌", "子宮頸癌發生大部分是經由性行為感染人類乳突病毒所致，有性經驗的婦女感染人類乳突病毒很常見。", "80%", R.drawable.ic_uterus, Constant.UTERUS));
+        diseaseHomeModelArrayList.add(new DiseaseHomeModel("卵巢癌", "卵巢癌雖不比子宮癌來得普遍，但卻是婦科癌症死亡原因的首位。", "20%", R.drawable.ic_ovary, Constant.OVARY));
+        diseaseHomeModelArrayList.add(new DiseaseHomeModel("膀胱癌", "膀胱癌是泌尿系統常見的惡性疾病之一，較常侵犯60歲以上男性，男與女的比例大約是2.7：1。", "8%", R.drawable.ic_bladder, Constant.BLADDER));
+        diseaseHomeModelArrayList.add(new DiseaseHomeModel("大腸癌", "自95年起大腸癌居全國癌症發生數第1位，每年約有一萬多人診斷大腸癌，並有超過五千人因大腸癌死亡，大腸癌對國人健康的影響甚鉅。", "5%", R.drawable.ic_rectum, Constant.RECTUM));
 
 
         // Initializing adapter class and passing arraylist to it.
