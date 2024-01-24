@@ -19,6 +19,7 @@ import com.bilab.lunsenluandroid.main.DiseaseData;
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.HorizontalBarChart;
 import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.LegendEntry;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
@@ -28,6 +29,7 @@ import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 
@@ -83,6 +85,9 @@ public class DiseaseChartActivity extends AppCompatActivity {
         _cancer_diseases = DiseaseData.getInstance().getCancerDiseaseList(_cancer);
         _person_diseases = Person.getInstance().getDiseases(_cancer);
         _colors = generateColors();
+
+        Log.d("qwer", _cancer_diseases.toString());
+        Log.d("qwer", _person_diseases.toString());
     }
 
     private ArrayList<Integer> generateColors() {
@@ -113,7 +118,16 @@ public class DiseaseChartActivity extends AppCompatActivity {
     }
 
     private void setUI() {
-        tv_cancer.setText(_cancer);
+        if(_cancer.equals(Constant.UTERUS))
+            tv_cancer.setText(String.format("%s - 共病風險分析", "子宮癌"));
+        else if(_cancer.equals(Constant.OVARY))
+            tv_cancer.setText(String.format("%s - 共病風險分析", "卵巢癌"));
+        else if(_cancer.equals(Constant.BLADDER))
+            tv_cancer.setText(String.format("%s - 共病風險分析", "膀胱癌"));
+        else if(_cancer.equals(Constant.RECTUM))
+            tv_cancer.setText(String.format("%s - 共病風險分析", "大腸癌"));
+        else
+            tv_cancer.setText(Constant.NONE);
     }
 
     // include customized legends by RecyclerView
@@ -143,18 +157,27 @@ public class DiseaseChartActivity extends AppCompatActivity {
 
         for (int i = 0; i < _cancer_diseases.size(); i++) {
             List<BarEntry> entries = new ArrayList<>();     // the size is always one(bar)
-            entries.add(new BarEntry(i, i+1));
+            entries.add(new BarEntry(_cancer_diseases.size() - 1 - i, i+1));
+
+            int textColor;
+            if(_person_diseases.contains(_cancer_diseases.get(i)))
+                textColor = Color.RED;
+            else
+                textColor = Color.BLACK;
 
             BarDataSet barDataSet = new BarDataSet(entries, _cancer_diseases.get(i));   // (BarEntry, String)
             barDataSet.setColor(_colors.get(i));
+            barDataSet.setValueTextColor(textColor);
 
             dataSets.add(barDataSet);       // add a dataset in which only one bar exists
         }
+
 
         // set bar UI
         BarData barData = new BarData(dataSets);
         barData.getGroupWidth(0f, 0f);
         barData.setBarWidth(0.5f);
+
 
         // 設定動畫
         horizontalBarChart.animateY(1000);
@@ -193,110 +216,38 @@ public class DiseaseChartActivity extends AppCompatActivity {
     private void setPieChart() {
         // Create data entries for the chart
         ArrayList<PieEntry> entries = new ArrayList<>();
-        ArrayList<Integer> colors = new ArrayList<>();
 
         float percent = 100f / _cancer_diseases.size();
 
-        for(int i = 0; i < _cancer_diseases.size(); i++) {
-//            if(i < _person_diseases.size())
-//                colors.add(Color.RED);
-//            else
-//                colors.add(Color.WHITE);
+        for(int i = 0; i < _cancer_diseases.size(); i++)
             entries.add(new PieEntry(percent, ""));
-        }
 
-
-        // Create a dataset with the data entries
-        PieDataSet dataSet = new PieDataSet(entries, "");
-//        dataSet.setColors(_colors);
+        PieDataSet personalPieDataSet = new PieDataSet(entries, "");
+        PieData personalPieData = new PieData(personalPieDataSet);
 
 
 
-        // Create PieData object
-        PieData pieData = new PieData(dataSet);
-//        pieData.setValueFormatter(new PercentFormatter(_peronalPieChart)); // Format values as percentages
-//        pieData.setDrawValues(false);
-//
-//        // Customize the chart
-//        _peronalPieChart.setData(pieData);
-////        pieChart.setUsePercentValues(true);
-//        _peronalPieChart.getDescription().setEnabled(false);
-//        _peronalPieChart.setHoleRadius(90f);
-//        _peronalPieChart.setTransparentCircleRadius(45f);
-//        _peronalPieChart.getLegend().setEnabled(false);
-//
-//        // Set center text with percentage
-//        _peronalPieChart.setCenterText(String.format("%.1f%%", 20f));   // printing percent(%) by escaped sign %
-//        _peronalPieChart.setCenterTextSize(16f);
-//
-//
-//        // Set the rotation angle to 0 degrees (clockwise)
-//        _peronalPieChart.setRotationAngle(0f);
-//
-//        // Add animation
-//        _peronalPieChart.animateY(1000, Easing.EaseInOutQuad); // Animate the Y-axis with ease in-out interpolation
-//
-//        // Refresh the chart
-//        _peronalPieChart.invalidate();
+        ArrayList<PieEntry> average_entries = new ArrayList<>();
+        for(int i = 0; i < _cancer_diseases.size(); i++)
+            average_entries.add(new PieEntry(percent, ""));
 
+        PieDataSet averagePieDataSet = new PieDataSet(average_entries, "");
+        PieData averagePieData = new PieData(averagePieDataSet);
 
+        // set common attribute
+        initPieChart(_averagePieChart, averagePieData);
+        initPieChart(_peronalPieChart, personalPieData);
 
+        // set pie colors
+        setPieColor(averagePieData, 2, Color.YELLOW);
+        setPieColor(personalPieData, _person_diseases.size(), Color.RED);
 
-
-
-        // Create PieData object
-        PieData averagePieData = new PieData(dataSet);
-//        averagePieData.setValueFormatter(new PercentFormatter(_averagePieChart)); // Format values as percentages
-//        averagePieData.setDrawValues(false);
-//
-//        // Customize the chart
-//        _averagePieChart.setData(averagePieData);
-////        pieChart.setUsePercentValues(true);
-//        _averagePieChart.getDescription().setEnabled(false);
-//        _averagePieChart.setHoleRadius(90f);
-//        _averagePieChart.setTransparentCircleRadius(45f);
-//        _averagePieChart.getLegend().setEnabled(false);
-//
-//        // Set center text with percentage
-//        _averagePieChart.setCenterText(String.format("%.1f%%", 20f));   // printing percent(%) by escaped sign %
-//        _averagePieChart.setCenterTextSize(16f);
-//
-//        // Set the rotation angle to 0 degrees (clockwise)
-//        _averagePieChart.setRotationAngle(0f);
-//
-//        // Add animation
-//        _averagePieChart.animateY(1000, Easing.EaseInOutQuad); // Animate the Y-axis with ease in-out interpolation
-//
-//        // Refresh the chart
-//        _averagePieChart.invalidate();
-
-        initPieChart(_averagePieChart, averagePieData, Color.RED);
-        initPieChart(_peronalPieChart, pieData, Color.YELLOW);
-
+        // draw charts
         _averagePieChart.setData(averagePieData);
-        _peronalPieChart.setData(pieData);
+        _peronalPieChart.setData(personalPieData);
     }
 
-    private void initPieChart(PieChart pieChart, PieData pieData,  int color) {
-        // Create data entries for the chart
-        ArrayList<Integer> colors = new ArrayList<>();
-
-        float percent = 100f / _cancer_diseases.size();
-
-        for(int i = 0; i < _cancer_diseases.size(); i++) {
-            if(i < _person_diseases.size())
-                colors.add(color);
-            else
-                colors.add(Color.LTGRAY);
-//            entries.add(new PieEntry(percent, ""));
-        }
-
-
-        // Create a dataset with the data entries
-        PieDataSet dataSet = (PieDataSet) pieData.getDataSet();
-        dataSet.setColors(colors);
-
-
+    private void initPieChart(PieChart pieChart, PieData pieData) {
 
         // Create PieData object
         pieData.setValueFormatter(new PercentFormatter(pieChart)); // Format values as percentages
@@ -324,4 +275,17 @@ public class DiseaseChartActivity extends AppCompatActivity {
         pieChart.invalidate();
     }
 
+    private void setPieColor(PieData pieData, int pie_count, int color) {
+        ArrayList<Integer> colors = new ArrayList<>();
+
+        for(int i = 0; i < _cancer_diseases.size(); i++) {
+            if(i < pie_count)
+                colors.add(color);
+            else
+                colors.add(Color.LTGRAY);
+        }
+
+        PieDataSet dataSet = (PieDataSet) pieData.getDataSet();
+        dataSet.setColors(colors);
+    }
 }
