@@ -52,7 +52,7 @@ public class Person {
     }
 
     public void updateDisease(Disease disease) {
-        int pos = findDisease(disease);
+        int pos = hasDisease(disease);
 
         if(pos != Constant.npos)
             _diseases.remove(pos);
@@ -61,7 +61,7 @@ public class Person {
         Log.d("Person", "Size: " + _diseases.size());
     }
 
-    public int findDisease(Disease disease) {
+    public int hasDisease(Disease disease) {
         if(_diseases.size() < 1)
             return Constant.npos;
 

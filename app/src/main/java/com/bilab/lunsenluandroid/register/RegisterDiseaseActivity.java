@@ -146,7 +146,7 @@ public class RegisterDiseaseActivity extends AppCompatActivity implements CheckB
         // if other disease is selected
         else {
             // if 無上述症狀 is already selected
-            if(person.findDisease(new Disease(cancer, "無上述症狀")) != Constant.npos) {
+            if(person.hasDisease(new Disease(cancer, "無上述症狀")) != Constant.npos) {
                 resetNoneChb();     // reset 無上述症狀 chb
                 person.updateDisease(new Disease(cancer, "無上述症狀"));
             }
@@ -186,7 +186,7 @@ public class RegisterDiseaseActivity extends AppCompatActivity implements CheckB
 
         Person person = Person.getInstance();
         for (String disease : diseases) {
-            boolean checked = person.findDisease(new Disease(cancer, disease)) != Constant.npos;
+            boolean checked = person.hasDisease(new Disease(cancer, disease)) != Constant.npos;
             diseaseSelectionModelArrayList.add(new DiseaseSelectionModel(disease, cancer_icon, checked));
         }
 
