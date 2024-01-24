@@ -4,10 +4,61 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".main.home.DiseaseChartActivity">
 
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="0dp"
+        android:layout_height="127dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_cancer_diseases">
+
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/piechart_avg"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5" />
+
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/piechart_personal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="0dp"
+        android:layout_height="24dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+        <TextView
+            android:id="@+id/tv_piechart_average"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="平均同齡風險"
+            android:textAlignment="center"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_personal_piechart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="個人罹癌風險"
+            android:textAlignment="center"
+            android:textSize="14sp" />
+    </LinearLayout>
+
     <TextView
-        android:id="@+id/tv_chart"
+        android:id="@+id/tv_cancer_diseases"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:background="@color/main"
@@ -18,24 +69,37 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.github.mikephil.charting.charts.HorizontalBarChart
         android:id="@+id/horizontalBarChart"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/rv_legend"
+        android:layout_width="422dp"
+        android:layout_height="200dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_chart" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+
+    <TextView
+        android:id="@+id/tv_odds_ratio"
+        android:layout_width="0dp"
+        android:layout_height="24dp"
+        android:text="Odds Ratio"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/horizontalBarChart"
+        app:layout_constraintStart_toStartOf="@+id/horizontalBarChart"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalBarChart" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_legend"
         android:layout_width="0dp"
-        android:layout_height="406dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_odds_ratio" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
