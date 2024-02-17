@@ -235,11 +235,11 @@ public class DiseaseChartActivity extends AppCompatActivity {
         PieData averagePieData = new PieData(averagePieDataSet);
 
         // set common attribute
-        initPieChart(_averagePieChart, averagePieData);
-        initPieChart(_peronalPieChart, personalPieData);
+        initPieChart(_averagePieChart, averagePieData, String.format("%.1f%%", 39f));
+        initPieChart(_peronalPieChart, personalPieData, String.format("%.1f%%", 20f));
 
         // set pie colors
-        setPieColor(averagePieData, 2, Color.YELLOW);
+        setPieColor(averagePieData, 1, Color.YELLOW);
         setPieColor(personalPieData, _person_diseases.size(), Color.RED);
 
         // draw charts
@@ -247,7 +247,7 @@ public class DiseaseChartActivity extends AppCompatActivity {
         _peronalPieChart.setData(personalPieData);
     }
 
-    private void initPieChart(PieChart pieChart, PieData pieData) {
+    private void initPieChart(PieChart pieChart, PieData pieData, String text) {
 
         // Create PieData object
         pieData.setValueFormatter(new PercentFormatter(pieChart)); // Format values as percentages
@@ -262,7 +262,7 @@ public class DiseaseChartActivity extends AppCompatActivity {
         pieChart.getLegend().setEnabled(false);
 
         // Set center text with percentage
-        pieChart.setCenterText(String.format("%.1f%%", 20f));   // printing percent(%) by escaped sign %
+        pieChart.setCenterText(text);   // printing percent(%) by escaped sign %
         pieChart.setCenterTextSize(16f);
 
         // Set the rotation angle to 0 degrees (clockwise)
