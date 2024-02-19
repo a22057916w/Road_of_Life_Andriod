@@ -74,4 +74,7 @@ dependencies {
 
     // MyAndroidChart 圖表庫
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
+    // AnyChart for Box Chart (DNAmChartActivity)
+    implementation 'com.github.AnyChart:AnyChart-Android:1.1.5'
 }
