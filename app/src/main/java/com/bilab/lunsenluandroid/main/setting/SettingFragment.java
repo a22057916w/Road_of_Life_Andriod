@@ -17,7 +17,7 @@ import androidx.lifecycle.ViewModelProviders;
 import com.bilab.lunsenluandroid.R;
 
 public class SettingFragment extends Fragment {
-    LinearLayout health_passport,doctor_auth,info,account,private_policy;
+    LinearLayout health_passport,doctor_auth,info,account,private_policy, dna_methylation;
 
     TextView logout;
     ImageView test;
@@ -47,13 +47,14 @@ public class SettingFragment extends Fragment {
         email = (intent != null ) ? intent.getStringExtra("email") : "";
 
         health_passport = root.findViewById(R.id.setting_health_passport);
-        doctor_auth = root.findViewById(R.id.setting_doctor_auth);
+//        doctor_auth = root.findViewById(R.id.setting_doctor_auth);
         info = root.findViewById(R.id.setting_info);
         account = root.findViewById(R.id.setting_account);
         private_policy = root.findViewById(R.id.setting_private_policy);
         logout = root.findViewById(R.id.setting_log_out);
         test = root.findViewById(R.id.setting_health_passport_right);
 
+        dna_methylation = root.findViewById(R.id.dna_methylation);
 
 
 
@@ -66,14 +67,22 @@ public class SettingFragment extends Fragment {
                 startActivity(intent);
             }
         });
-        doctor_auth.setOnClickListener(new View.OnClickListener() {
+        dna_methylation.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.setClass(getActivity(), DoctorAuthActivity.class);
+                intent.setClass(getActivity(), DNAmChartActivity.class);
                 startActivity(intent);
             }
         });
+//        doctor_auth.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent();
+//                intent.setClass(getActivity(), DoctorAuthActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
         info.setOnClickListener(new View.OnClickListener() {
             @Override
