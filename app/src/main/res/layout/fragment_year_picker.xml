@@ -8,11 +8,22 @@
     tools:context=".register.YearPickerFragment">
 
     <NumberPicker
+        android:id="@+id/np_month_picker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/np_year_picker"
+        app:layout_constraintTop_toTopOf="@+id/np_year_picker" />
+
+    <NumberPicker
         android:id="@+id/np_year_picker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.38"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

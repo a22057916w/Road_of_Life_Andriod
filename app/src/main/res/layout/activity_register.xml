@@ -198,7 +198,7 @@
         android:layout_width="0dp"
         android:layout_height="52dp"
         android:background="@null"
-        android:text="@string/label_birth_year"
+        android:text="@string/label_birth_year_month"
         android:gravity="center_vertical"
         android:singleLine="true"
         android:textSize="18sp"

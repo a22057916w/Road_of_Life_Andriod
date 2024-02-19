@@ -17,7 +17,7 @@ import com.bilab.lunsenluandroid.R;
 
 public class YearPickerFragment extends DialogFragment {
 
-    private NumberPicker np_year;
+    private NumberPicker np_year, np_month;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -29,8 +29,13 @@ public class YearPickerFragment extends DialogFragment {
         np_year.setMaxValue(2023);
         np_year.setValue(1980);
 
+        np_month = view.findViewById(R.id.np_month_picker);
+        np_month.setMinValue(1);
+        np_month.setMaxValue(12);
+        np_month.setValue(6);
+
         return new AlertDialog.Builder(getActivity())
-                .setTitle("年份")
+                .setTitle("生日年月")
                 .setView(view)
                 .setNegativeButton("取消",
                         new DialogInterface.OnClickListener() {
@@ -44,7 +49,7 @@ public class YearPickerFragment extends DialogFragment {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 Button btn_year = getActivity().findViewById(R.id.btn_year);
-                                btn_year.setHint(String.format("%s", np_year.getValue()));
+                                btn_year.setHint(String.format("%04d/%02d", np_year.getValue(), np_month.getValue()));
                                 Person.getInstance().setYear(String.valueOf(np_year.getValue()));                            }
                         })
                 .create();

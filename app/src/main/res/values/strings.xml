@@ -187,7 +187,7 @@
     <string name="label_weight">體重</string>
     <string name="rb_male">男</string>
     <string name="rb_female">女</string>
-    <string name="label_birth_year">生日年</string>
+    <string name="label_birth_year_month">生日年月</string>
     <string name="label_legend_label">legend_label</string>
     <!--    "https://140.124.183.197:8000/health_passport/check_health_passport"-->
 </resources>
