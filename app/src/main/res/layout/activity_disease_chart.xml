@@ -45,7 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:text="平均同齡風險"
+            android:text="同年齡風險"
             android:textAlignment="center"
             android:textSize="14sp" />
 
@@ -88,7 +88,7 @@
         android:id="@+id/tv_odds_ratio"
         android:layout_width="0dp"
         android:layout_height="24dp"
-        android:text="Odds Ratio"
+        android:text="相對風險"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="@+id/horizontalBarChart"
         app:layout_constraintStart_toStartOf="@+id/horizontalBarChart"

@@ -101,13 +101,13 @@ public class DiseaseChartActivity extends AppCompatActivity {
         float targetValue = targetHsv[2];
 
         // Range for hue and saturation values
-        float hueGap = 10.0f;
+        float hueGap = 30.0f;
 
 
         Random random = new Random();
         for(int i = 0; i < _cancer_diseases.size(); i++) {
             // Generate random hue and saturation values within the specified ranges
-            float hue = targetHue  + i * hueGap;
+            float hue = (targetHue  + i * hueGap ) % 360f;
 
             float[] hsv = new float[]{hue, targetSaturation, targetValue}; // Random hue in the warm color range
             int color = Color.HSVToColor(hsv);
