@@ -39,7 +39,7 @@ public class DNAmChartActivity extends AppCompatActivity {
         boxChart.xAxis(0).staggerMode(true);
 
         List<DataEntry> data = new ArrayList<>();
-        data.add(new CustomBoxDataEntry("Registered Nurse", 20000, 26000, 27000, 32000, 38000, new Integer[]{50000, 52000}));
+        data.add(new CustomBoxDataEntry("正常", 20000, 26000, 27000, 32000, 38000, new Integer[]{50000, 52000}));
 //        data.add(new CustomBoxDataEntry("Dental Hygienist", 24000, 28000, 32000, 38000, 42000, new Integer[]{48000}));
 //        data.add(new CustomBoxDataEntry("Computer Systems Analyst", 40000, 49000, 62000, 73000, 88000, new Integer[]{32000, 29000, 106000}));
 //        data.add(new CustomBoxDataEntry("Physical Therapist", 52000, 59000, 65000, 74000, 83000, new Integer[]{91000}));
@@ -53,7 +53,7 @@ public class DNAmChartActivity extends AppCompatActivity {
         box.whiskerWidth("20%");
 
         List<DataEntry> data2 = new ArrayList<>();
-        data2.add(new CustomBoxDataEntry("Dental Hygienist", 24000, 28000, 32000, 38000, 42000, new Integer[]{48000}));
+        data2.add(new CustomBoxDataEntry("正常", 24000, 28000, 32000, 38000, 42000, new Integer[]{48000}));
 
         Box box2 = boxChart.box(data2);
         box2.fill("#00FF00");
@@ -61,13 +61,36 @@ public class DNAmChartActivity extends AppCompatActivity {
         box2.whiskerWidth("20%");
 
         List<DataEntry> data3 = new ArrayList<>();
-        data3.add(new CustomBoxDataEntry("Computer Systems Analyst", 40000, 49000, 62000, 73000, 88000, new Integer[]{32000, 29000, 106000}));
+        data3.add(new CustomBoxDataEntry("正常", 40000, 49000, 62000, 73000, 88000, new Integer[]{32000, 29000, 106000}));
 
         Box box3 = boxChart.box(data3);
         box3.fill("#FF5733");
         box3.stroke("#FF5733");
         box3.whiskerWidth("20%");
 
+        List<DataEntry> data4 = new ArrayList<>();
+        data4.add(new CustomBoxDataEntry("確診", 24000, 28000, 32000, 38000, 42000, new Integer[]{48000}));
+
+        Box box4 = boxChart.box(data4);
+        box4.fill("#0000FF");
+        box4.stroke("#0000FF");
+        box4.whiskerWidth("20%");
+
+        List<DataEntry> data5 = new ArrayList<>();
+        data5.add(new CustomBoxDataEntry("確診", 45000, 54000, 66000, 81000, 97000, new Integer[]{120000}));
+
+        Box box5 = boxChart.box(data5);
+        box5.fill("#00FF00");
+        box5.stroke("#00FF00");
+        box5.whiskerWidth("20%");
+
+        List<DataEntry> data6 = new ArrayList<>();
+        data6.add(new CustomBoxDataEntry("確診", 75000, 99000, 123000, 160000, 210000, new Integer[]{220000, 70000}));
+
+        Box box6 = boxChart.box(data6);
+        box6.fill("#FF5733");
+        box6.stroke("#FF5733");
+        box6.whiskerWidth("20%");
 
         anyChartView.setChart(boxChart);
 
