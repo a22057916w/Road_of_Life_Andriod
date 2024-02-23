@@ -95,7 +95,7 @@ public class RecycleViewHealthPass extends RecyclerView.Adapter<RecycleViewHealt
                 myEdit.putString("selected", String.valueOf(position+1));
                 myEdit.commit();
                 Log.v("position",String.valueOf(position+1));
-                HealthPassActivity.notifyAdapter_2(position+1);
+                HealthPassActivity_v0.notifyAdapter_2(position+1);
             }
         });
     }
@@ -142,7 +142,7 @@ public class RecycleViewHealthPass extends RecyclerView.Adapter<RecycleViewHealt
             public void onClick(DialogInterface arg0, int arg1) {
                 // TODO Auto-generated method stub
                 List.remove(position);
-                HealthPassActivity.notifyAdapter(position);
+                HealthPassActivity_v0.notifyAdapter(position);
             }
 
         });

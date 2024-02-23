@@ -94,7 +94,7 @@ public class AccountMainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(activity.equals("health_pass")){
                     Intent intent = new Intent();
-                    intent.setClass(AccountMainActivity.this, HealthPassActivity.class);
+                    intent.setClass(AccountMainActivity.this, HealthPassActivity_v0.class);
                     startActivity(intent);
                 }
                 else if(activity.equals("doctor_auth")){
