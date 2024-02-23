@@ -71,7 +71,7 @@ public class SettingFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.setClass(getActivity(), DNAmChartActivity.class);
+                intent.setClass(getActivity(), GeneRegisterActivity.class);
                 startActivity(intent);
             }
         });
