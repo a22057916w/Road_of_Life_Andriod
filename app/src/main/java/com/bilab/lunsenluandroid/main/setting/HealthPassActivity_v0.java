@@ -71,9 +71,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.security.crypto.EncryptedSharedPreferences;
 import androidx.security.crypto.MasterKeys;
 
-public class HealthPassActivity extends AppCompatActivity {
+public class HealthPassActivity_v0 extends AppCompatActivity {
     public String apiKey = "";//8bf841483aba48129bb6d0d851da9075
-    public Context context = HealthPassActivity.this;
+    public Context context = HealthPassActivity_v0.this;
     public String fileTicketName = null;
 
     private NotificationManager mNotifyManager;
@@ -142,7 +142,7 @@ public class HealthPassActivity extends AppCompatActivity {
         objpostqueue.add(postRequest_checkid);
 
         mNotifyManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        mBuilder = new NotificationCompat.Builder(HealthPassActivity.this);
+        mBuilder = new NotificationCompat.Builder(HealthPassActivity_v0.this);
         mBuilder.setContentTitle("下載健康存摺")
                 .setContentText("下載中...")
                 .setSmallIcon(R.drawable.book_download);
@@ -154,7 +154,7 @@ public class HealthPassActivity extends AppCompatActivity {
                 else{
                     Log.v("aaa",activity);
                     Intent intent = new Intent();
-                    intent.setClass(HealthPassActivity.this, MainActivity.class);
+                    intent.setClass(HealthPassActivity_v0.this, MainActivity.class);
                     startActivity(intent);
                 }
             }
@@ -208,7 +208,7 @@ public class HealthPassActivity extends AppCompatActivity {
                             SharedPreferences sharedPreferences = EncryptedSharedPreferences.create(
                                     "RoadOfLifeAccount",
                                     masterKeyAlias,
-                                    HealthPassActivity.this,
+                                    HealthPassActivity_v0.this,
                                     EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
                                     EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
                             );
@@ -275,7 +275,7 @@ public class HealthPassActivity extends AppCompatActivity {
             SharedPreferences sharedPreferences = EncryptedSharedPreferences.create(
                     "RoadOfLifeAccount",
                     masterKeyAlias,
-                    HealthPassActivity.this,
+                    HealthPassActivity_v0.this,
                     EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
                     EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
             );
@@ -595,7 +595,7 @@ public class HealthPassActivity extends AppCompatActivity {
             public void onClick(DialogInterface arg0, int arg1) {
                 // TODO Auto-generated method stub
                 Intent intent = new Intent();
-                intent.setClass(HealthPassActivity.this, AccountPasswordActivity.class);
+                intent.setClass(HealthPassActivity_v0.this, AccountPasswordActivity.class);
                 intent.putExtra("activity", "health_pass");
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
@@ -644,7 +644,7 @@ public class HealthPassActivity extends AppCompatActivity {
             SharedPreferences sharedPreferences = EncryptedSharedPreferences.create(
                     "RoadOfLifeAccount",
                     masterKeyAlias,
-                    HealthPassActivity.this,
+                    HealthPassActivity_v0.this,
                     EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
                     EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
             );

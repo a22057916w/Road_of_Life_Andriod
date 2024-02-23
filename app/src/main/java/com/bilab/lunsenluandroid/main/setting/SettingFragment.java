@@ -63,7 +63,7 @@ public class SettingFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.setClass(getActivity(), HealthPassActivity.class);
+                intent.setClass(getActivity(), HealthPassActivity_v0.class);
                 startActivity(intent);
             }
         });
