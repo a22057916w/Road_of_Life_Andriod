@@ -31,8 +31,8 @@ public class WebViewActivity extends AppCompatActivity {
         if (url == null)
             throw new NullPointerException();
 
-            webView.getSettings().setJavaScriptEnabled(true);   // enable JavaScript to load 健康存摺網頁
-            webView.loadUrl(url);
+        webView.getSettings().setJavaScriptEnabled(true);   // enable JavaScript to load 健康存摺網頁
+        webView.loadUrl(url);
 
         File cacheDir = getCacheDir();
         Log.d("5566", cacheDir.toString());
