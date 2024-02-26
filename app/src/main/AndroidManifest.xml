@@ -14,8 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".main.setting.GeneRegisterActivity"
             android:name=".main.setting.HealthPassActivity"
+            android:exported="false" />
+        <activity
+            android:name=".main.setting.GeneRegisterActivity"
             android:exported="false" />
         <activity
             android:name=".main.setting.DNAmChartActivity"
