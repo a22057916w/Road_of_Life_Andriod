@@ -2,42 +2,41 @@ package com.bilab.lunsenluandroid.main.setting;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.Color;
+import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import com.anychart.AnyChart;
 import com.anychart.AnyChartView;
-import com.anychart.chart.common.dataentry.BoxDataEntry;
 import com.anychart.chart.common.dataentry.DataEntry;
-import com.anychart.chart.common.dataentry.ValueDataEntry;
 import com.anychart.charts.Cartesian;
 import com.anychart.core.cartesian.series.Box;
-import com.anychart.core.cartesian.series.Marker;
-import com.anychart.core.ui.LegendItem;
-import com.anychart.core.ui.legend.LegendItemProvider;
-import com.anychart.enums.LegendItemIconType;
-import com.anychart.enums.MarkerType;
-import com.anychart.graphics.vector.Fill;
-import com.anychart.graphics.vector.Stroke;
-import com.anychart.graphics.vector.hatchfill.HatchFillType;
 import com.bilab.lunsenluandroid.R;
 
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Properties;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class DNAmChartActivity extends AppCompatActivity {
-
+    private final String _TAG = this.getClass().getSimpleName();
+    private String[] _colors = {"#70CCE1", "#00FF00", "#FFE200"};  // blue, green, yellow
+    private ArrayList<Double> _lows, _highs;
+    private ArrayList<Double> _q1, _q2, _q3;
+    private ArrayList<ArrayList<Double>> _outliers;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dnam_chart);
         Objects.requireNonNull(getSupportActionBar()).hide();
 
+        loadConfig();   // load config or default values
 
         AnyChartView anyChartView = findViewById(R.id.any_chart_view);
         anyChartView.setProgressBar(findViewById(R.id.progress_bar));
@@ -50,7 +49,7 @@ public class DNAmChartActivity extends AppCompatActivity {
 
         // OTX1_N
         List<DataEntry> data = new ArrayList<>();
-        data.add(new CustomBoxDataEntry("正常", 0.0682, 0.0773, 0.1076, 0.4034, 0.5329, new Double[]{}));
+        data.add(new CustomBoxDataEntry("正常", _highs.get(0), _q1.get(0), _q2.get(0), _q3.get(0), _lows.get(0), _outliers.get(0).toArray(new Double[0])));
 
         Box box = boxChart.box(data);
         box.whiskerWidth("20%");
@@ -194,6 +193,98 @@ public class DNAmChartActivity extends AppCompatActivity {
             setValue("q3", q3);
             setValue("high", high);
             setValue("outliers", outliers);
+        }
+    }
+
+    private void loadConfig() {
+        // Load properties from assets
+        Properties properties = new Properties();
+        AssetManager assetManager = getAssets();
+
+        try {
+            InputStream inputStream = assetManager.open("config.properties");
+            properties.load(inputStream);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // ================ Reads Values ==================
+        try {
+            // ==================== _lows ======================
+            String[] lowValues = properties.getProperty("lows", "").split(", ");
+
+            // Convert to ArrayList<Double>
+            _lows = new ArrayList<>();
+            for (String value : lowValues) {
+                if (value.isEmpty())
+                    throw new IllegalArgumentException("Empty value found in lows.");
+                _lows.add(Double.parseDouble(value));
+            }
+
+            // ==================== _highs ========================
+            String[] highValues = properties.getProperty("highs", "").split(", ");
+
+            // convert to ArrayList<Double>
+            _highs = new ArrayList<>();
+            for(String value : highValues) {
+                if (value.isEmpty())
+                    throw new IllegalArgumentException("Empty value found in highs.");
+                _highs.add(Double.parseDouble(value));
+            }
+
+            // ===================== _q1 =======================
+            String[] q1s = properties.getProperty("q1", "").split(", ");
+
+            // convert to ArrayList<Double>
+            _q1 = new ArrayList<>();
+            for(String q1 : q1s) {
+                if (q1.isEmpty())
+                    throw new IllegalArgumentException("Empty value found in q1.");
+                _q1.add(Double.parseDouble(q1));
+            }
+
+            // ===================== _q2 =======================
+            String[] q2s = properties.getProperty("q2", "").split(", ");
+
+            // convert to ArrayList<Double>
+            _q2 = new ArrayList<>();
+            for(String q2 : q2s) {
+                if (q2.isEmpty())
+                    throw new IllegalArgumentException("Empty value found in q2.");
+                _q2.add(Double.parseDouble(q2));
+            }
+
+            // ===================== _q3 =======================
+            String[] q3s = properties.getProperty("q3", "").split(", ");
+
+            // convert to ArrayList<Double>
+            _q3 = new ArrayList<>();
+            for(String q3 : q3s) {
+                if (q3.isEmpty())
+                    throw new IllegalArgumentException("Empty value found in q3.");
+                _q3.add(Double.parseDouble(q3));
+            }
+
+            // ================= _outliers ================
+            String outliers = properties.getProperty("outliers", "");
+            // add value check
+
+            Pattern pattern = Pattern.compile("\\{(.*?)\\}");
+            Matcher matcher = pattern.matcher(outliers);
+
+            // convert to ArrayList<ArrayList<Double>>
+            _outliers = new ArrayList<>();
+            while(matcher.find()) {
+                ArrayList<Double> group = new ArrayList<>();
+                String[] values = matcher.group(1).split(",\\s*");
+
+                for (String value : values)
+                        group.add(Double.parseDouble(value));
+                _outliers.add(group);
+            }
+        } catch (Exception e) {
+            Log.d(_TAG, e.toString());
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show(); // Show Toast message
         }
     }
 }
