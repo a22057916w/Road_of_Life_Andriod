@@ -18,6 +18,7 @@ import com.bilab.lunsenluandroid.R;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.Properties;
@@ -26,10 +27,16 @@ import java.util.regex.Pattern;
 
 public class DNAmChartActivity extends AppCompatActivity {
     private final String _TAG = this.getClass().getSimpleName();
-    private String[] _colors = {"#70CCE1", "#00FF00", "#FFE200"};  // blue, green, yellow
+
+    // ============== boxDataEntry ===============
     private ArrayList<Double> _lows, _highs;
     private ArrayList<Double> _q1, _q2, _q3;
     private ArrayList<ArrayList<Double>> _outliers;
+
+    // ============== box properties ================
+    private String[] _name = {"OTX1", "GLAR1", "ZIC4"};
+    private String[] _colors = {"#70CCE1", "#00FF00", "#FFE200"};  // blue, green, yellow
+    private double[] _xPos = {0.35, 0.5, 0.65};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,40 +50,40 @@ public class DNAmChartActivity extends AppCompatActivity {
 
         Cartesian boxChart = AnyChart.box();
 
-//        boxChart.title("Top 10 Jobs Salaries Grades Per Year Calisota, USA");
+        draw(boxChart);
 
         boxChart.xAxis(0).staggerMode(true);
 
         // OTX1_N
-        List<DataEntry> data = new ArrayList<>();
-        data.add(new CustomBoxDataEntry("正常", _highs.get(0), _q1.get(0), _q2.get(0), _q3.get(0), _lows.get(0), _outliers.get(0).toArray(new Double[0])));
-
-        Box box = boxChart.box(data);
-        box.whiskerWidth("20%");
-        box.name("OTX1");
-        box.xPointPosition(0.35);
-
-        // GALR1_N
-        List<DataEntry> data2 = new ArrayList<>();
-        data2.add(new CustomBoxDataEntry("正常", 0.0720, 0.1117, 0.2152, 0.5517, 0.6560, new Double[]{}));
-
-        Box box2 = boxChart.box(data2);
-        box2.fill("#00FF00");
-        box2.stroke("#00FF00");
-        box2.whiskerWidth("20%");
-        box2.name("GLAR1");
-        box2.xPointPosition(0.5);
-
-        // ZIC4_N
-        List<DataEntry> data3 = new ArrayList<>();
-        data3.add(new CustomBoxDataEntry("正常", 0.1020, 0.1253, 0.1870, 0.5095, 0.5918, new Double[]{}));
-
-        Box box3 = boxChart.box(data3);
-        box3.fill("#FFE200");
-        box3.stroke("#FFE200");
-        box3.whiskerWidth("20%");
-        box3.name("ZIC4");
-        box3.xPointPosition(0.65);
+//        List<DataEntry> data = new ArrayList<>();
+//        data.add(new CustomBoxDataEntry("正常", _lows.get(0), _q1.get(0), _q2.get(0), _q3.get(0), _highs.get(0), _outliers.get(0).toArray(new Double[0])));
+//
+//        Box box = boxChart.box(data);
+//        box.whiskerWidth("20%");
+//        box.name("OTX1");
+//        box.xPointPosition(0.35);
+//
+//        // GALR1_N
+//        List<DataEntry> data2 = new ArrayList<>();
+//        data2.add(new CustomBoxDataEntry("正常", 0.0720, 0.1117, 0.2152, 0.5517, 0.6560, new Double[]{}));
+//
+//        Box box2 = boxChart.box(data2);
+//        box2.fill("#00FF00");
+//        box2.stroke("#00FF00");
+//        box2.whiskerWidth("20%");
+//        box2.name("GLAR1");
+//        box2.xPointPosition(0.5);
+//
+//        // ZIC4_N
+//        List<DataEntry> data3 = new ArrayList<>();
+//        data3.add(new CustomBoxDataEntry("正常", 0.1020, 0.1253, 0.1870, 0.5095, 0.5918, new Double[]{}));
+//
+//        Box box3 = boxChart.box(data3);
+//        box3.fill("#FFE200");
+//        box3.stroke("#FFE200");
+//        box3.whiskerWidth("20%");
+//        box3.name("ZIC4");
+//        box3.xPointPosition(0.65);
 
 
         // OTX1_T
@@ -183,6 +190,27 @@ public class DNAmChartActivity extends AppCompatActivity {
 
     }
 
+    private void draw(Cartesian boxChart) {
+//        List<DataEntry> data = new ArrayList<>();
+//        data.add(new CustomBoxDataEntry("正常", _lows.get(1), _q1.get(1), _q2.get(1), _q3.get(1), _highs.get(1), _outliers.get(1).toArray(new Double[0])));
+
+        int size = 2;
+        for(int i = 0; i < 3; i++) {
+            // OTX1_N
+            List<DataEntry> data = new ArrayList<>();
+            data.add(new CustomBoxDataEntry("正常", _lows.get(i), _q1.get(i), _q2.get(i), _q3.get(i), _highs.get(i), _outliers.get(i).toArray(new Double[0])));
+
+            Box box = boxChart.box(data);
+//            box.fill(_colors[i]);
+//            box.stroke(_colors[i]);
+            box.stemStroke();
+            box.color(_colors[i]);
+            box.whiskerWidth("20%");
+            box.name(_name[i]);
+            box.xPointPosition(_xPos[i]);
+        }
+    }
+
 
     private class CustomBoxDataEntry extends DataEntry {
         CustomBoxDataEntry(String x, Double low, Double q1, Double median, Double q3, Double high, Double[] outliers) {
@@ -197,6 +225,7 @@ public class DNAmChartActivity extends AppCompatActivity {
     }
 
     private void loadConfig() {
+        Log.d("7788", "sdfasdfasdfasdf");
         // Load properties from assets
         Properties properties = new Properties();
         AssetManager assetManager = getAssets();
@@ -220,6 +249,7 @@ public class DNAmChartActivity extends AppCompatActivity {
                     throw new IllegalArgumentException("Empty value found in lows.");
                 _lows.add(Double.parseDouble(value));
             }
+            Log.d("5566", "lows: " + _lows.toString());
 
             // ==================== _highs ========================
             String[] highValues = properties.getProperty("highs", "").split(", ");
@@ -231,6 +261,8 @@ public class DNAmChartActivity extends AppCompatActivity {
                     throw new IllegalArgumentException("Empty value found in highs.");
                 _highs.add(Double.parseDouble(value));
             }
+            Log.d("5566", "highs: " + _highs.toString());
+
 
             // ===================== _q1 =======================
             String[] q1s = properties.getProperty("q1", "").split(", ");
@@ -242,6 +274,8 @@ public class DNAmChartActivity extends AppCompatActivity {
                     throw new IllegalArgumentException("Empty value found in q1.");
                 _q1.add(Double.parseDouble(q1));
             }
+            Log.d("5566", "q1: " + _q1.toString());
+
 
             // ===================== _q2 =======================
             String[] q2s = properties.getProperty("q2", "").split(", ");
@@ -253,6 +287,7 @@ public class DNAmChartActivity extends AppCompatActivity {
                     throw new IllegalArgumentException("Empty value found in q2.");
                 _q2.add(Double.parseDouble(q2));
             }
+            Log.d("5566", "q2: " + _q2.toString());
 
             // ===================== _q3 =======================
             String[] q3s = properties.getProperty("q3", "").split(", ");
@@ -264,11 +299,12 @@ public class DNAmChartActivity extends AppCompatActivity {
                     throw new IllegalArgumentException("Empty value found in q3.");
                 _q3.add(Double.parseDouble(q3));
             }
+            Log.d("5566", "q3: " + _q3.toString());
 
             // ================= _outliers ================
             String outliers = properties.getProperty("outliers", "");
             // add value check
-
+            Log.d("5566", "outlier: " + outliers);
             Pattern pattern = Pattern.compile("\\{(.*?)\\}");
             Matcher matcher = pattern.matcher(outliers);
 
@@ -276,12 +312,18 @@ public class DNAmChartActivity extends AppCompatActivity {
             _outliers = new ArrayList<>();
             while(matcher.find()) {
                 ArrayList<Double> group = new ArrayList<>();
-                String[] values = matcher.group(1).split(",\\s*");
-
-                for (String value : values)
+                Log.d("5566", "matcher.group(1): " + matcher.group(1));
+                String[] values = matcher.group(1).split(", ");
+                Log.d("5566", "values: " + Arrays.toString(values));
+                for (String value : values) {
+                    Log.d("5566", "value: " + value);
+                    if(!value.isEmpty())
                         group.add(Double.parseDouble(value));
+                }
                 _outliers.add(group);
             }
+            Log.d("5566", "dsfsdfsdfds");
+            Log.d("5566", "outliers: " + _outliers.toString());
         } catch (Exception e) {
             Log.d(_TAG, e.toString());
             Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show(); // Show Toast message
