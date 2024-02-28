@@ -2,6 +2,7 @@ package com.bilab.lunsenluandroid.main.setting;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,6 +17,7 @@ import com.anychart.core.cartesian.series.Box;
 import com.anychart.core.cartesian.series.Marker;
 import com.anychart.enums.MarkerType;
 import com.bilab.lunsenluandroid.R;
+import com.bilab.lunsenluandroid.conf.Constant;
 
 
 import java.io.IOException;
@@ -40,6 +42,10 @@ public class DNAmChartActivity extends AppCompatActivity {
     private ArrayList<String> _names, _colors;
     private ArrayList<Double> _xPos;
 
+    // Gene CT values
+    private Double _dOTX1, _dGLAR1, _dZIC4;
+    private ArrayList<Double> _markers;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +53,7 @@ public class DNAmChartActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).hide();
 
         loadConfig();   // load config for data members
+        loadIntent();
 
         AnyChartView anyChartView = findViewById(R.id.any_chart_view);
         anyChartView.setProgressBar(findViewById(R.id.progress_bar));
@@ -65,6 +72,7 @@ public class DNAmChartActivity extends AppCompatActivity {
         boxChart.legend().enabled(true);
 
     }
+
 
     private void draw(Cartesian boxChart) {
         String xName = "正常";
@@ -107,7 +115,7 @@ public class DNAmChartActivity extends AppCompatActivity {
                 xName = "罹癌";
 
             List<DataEntry> data = new ArrayList<>();
-            data.add(new ValueDataEntry(xName, 0.5));
+            data.add(new ValueDataEntry(xName, _markers.get(i)));
 
             Marker marker = boxChart.marker(data);
             marker.color("#E80003");
@@ -128,6 +136,16 @@ public class DNAmChartActivity extends AppCompatActivity {
             setValue("high", high);
             setValue("outliers", outliers);
         }
+    }
+
+    private void loadIntent() {
+        Intent recieverIntent = getIntent();
+        _dOTX1 = recieverIntent.getDoubleExtra(Constant.OTX1, 1E9);
+        _dGLAR1 = recieverIntent.getDoubleExtra(Constant.GLAR1, 1E9);
+        _dZIC4 = recieverIntent.getDoubleExtra(Constant.ZIC4, 1E9);
+
+        _markers = new ArrayList<>(List.of(_dOTX1, _dGLAR1, _dZIC4));
+        _markers.addAll(_markers);
     }
 
     private void loadConfig() {
