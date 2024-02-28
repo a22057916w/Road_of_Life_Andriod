@@ -19,4 +19,9 @@ public class Constant {
     public static final String NO_ABOVE_DISEASE = "無上述症狀";
     public static final String MALE = "MALE";
     public static final String FEMALE = "FEMALE";
+
+    // Gene Names
+    public static final String OTX1 = "OTX1";
+    public static final String GLAR1 = "GLAR1";
+    public static final String ZIC4 = "ZIC4";
 }
