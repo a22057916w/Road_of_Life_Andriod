@@ -44,7 +44,7 @@ public class DNAmChartActivity extends AppCompatActivity {
 
     // =============== personal Gene CT values ================
     private Boolean _hasGeneValue = true; // true if gets intent values
-    private Double _dOTX1, _dGLAR1, _dZIC4;
+    private Double _dOTX1, _dZNF154, _dZIC4;
     private ArrayList<Double> _markers;
 
 
@@ -151,10 +151,10 @@ public class DNAmChartActivity extends AppCompatActivity {
         }
 
         _dOTX1 = receiverIntent.getDoubleExtra(Constant.OTX1, 1E9);
-        _dGLAR1 = receiverIntent.getDoubleExtra(Constant.GLAR1, 1E9);
+        _dZNF154 = receiverIntent.getDoubleExtra(Constant.ZNF154, 1E9);
         _dZIC4 = receiverIntent.getDoubleExtra(Constant.ZIC4, 1E9);
 
-        _markers = new ArrayList<>(List.of(_dOTX1, _dGLAR1, _dZIC4));
+        _markers = new ArrayList<>(List.of(_dOTX1, _dZNF154, _dZIC4));
         _markers.addAll(_markers);
     }
 

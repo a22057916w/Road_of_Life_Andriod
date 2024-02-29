@@ -23,5 +23,6 @@ public class Constant {
     // Gene Names
     public static final String OTX1 = "OTX1";
     public static final String GLAR1 = "GLAR1";
+    public static final String ZNF154 = "ZNF154";
     public static final String ZIC4 = "ZIC4";
 }

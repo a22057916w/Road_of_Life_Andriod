@@ -17,14 +17,14 @@
         app:layout_constraintTop_toBottomOf="@+id/imv_OTX1" />
 
     <View
-        android:id="@+id/line_GLAR1"
+        android:id="@+id/line_ZNF154"
         android:layout_width="320dp"
         android:layout_height="2dp"
         android:layout_marginTop="8dp"
         android:background="#6A9F9B"
         app:layout_constraintEnd_toEndOf="@+id/line_OTX1"
         app:layout_constraintStart_toStartOf="@+id/line_OTX1"
-        app:layout_constraintTop_toBottomOf="@+id/imv_GLAR1" />
+        app:layout_constraintTop_toBottomOf="@+id/imv_ZNF154" />
 
     <Button
         android:id="@+id/btn_skip"
@@ -108,7 +108,7 @@
         app:layout_constraintTop_toTopOf="@+id/tv_OTX1" />
 
     <ImageView
-        android:id="@+id/imv_GLAR1"
+        android:id="@+id/imv_ZNF154"
         android:layout_width="40dp"
         android:layout_height="52dp"
         android:layout_marginTop="50dp"
@@ -118,28 +118,28 @@
         app:layout_constraintTop_toBottomOf="@+id/imv_OTX1" />
 
     <TextView
-        android:id="@+id/tv_GLAR1"
+        android:id="@+id/tv_ZNF154"
         android:layout_width="wrap_content"
         android:layout_height="52dp"
-        android:text="GLAR1"
-        android:singleLine="true"
         android:gravity="center_vertical"
+        android:singleLine="true"
+        android:text="ZNF154"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imv_GLAR1"
+        app:layout_constraintBottom_toBottomOf="@+id/imv_ZNF154"
         app:layout_constraintStart_toStartOf="@+id/tv_OTX1"
-        app:layout_constraintTop_toTopOf="@+id/imv_GLAR1" />
+        app:layout_constraintTop_toTopOf="@+id/imv_ZNF154" />
 
     <EditText
-        android:id="@+id/edt_GLAR1"
+        android:id="@+id/edt_ZNF154"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@null"
         android:gravity="center"
         android:hint="輸入檢測值"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_GLAR1"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_ZNF154"
         app:layout_constraintStart_toStartOf="@+id/edt_OTX1"
-        app:layout_constraintTop_toTopOf="@+id/tv_GLAR1" />
+        app:layout_constraintTop_toTopOf="@+id/tv_ZNF154" />
 
     <ImageView
         android:id="@+id/imv_ZIC4"
@@ -149,7 +149,7 @@
         android:scaleType="centerInside"
         android:src="@drawable/ic_gene"
         app:layout_constraintStart_toStartOf="@+id/imv_OTX1"
-        app:layout_constraintTop_toBottomOf="@+id/imv_GLAR1" />
+        app:layout_constraintTop_toBottomOf="@+id/imv_ZNF154" />
 
     <TextView
         android:id="@+id/tv_ZIC4"
@@ -161,7 +161,7 @@
         android:text="ZIC4"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/imv_ZIC4"
-        app:layout_constraintStart_toStartOf="@+id/tv_GLAR1"
+        app:layout_constraintStart_toStartOf="@+id/tv_ZNF154"
         app:layout_constraintTop_toTopOf="@+id/imv_ZIC4" />
 
     <EditText
@@ -173,7 +173,7 @@
         android:hint="輸入檢測值"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/tv_ZIC4"
-        app:layout_constraintStart_toStartOf="@+id/edt_GLAR1"
+        app:layout_constraintStart_toStartOf="@+id/edt_ZNF154"
         app:layout_constraintTop_toTopOf="@+id/tv_ZIC4" />
 
     <Button

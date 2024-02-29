@@ -15,7 +15,7 @@ import java.util.Objects;
 
 public class GeneRegisterActivity extends AppCompatActivity {
     Button btn_next, btn_skip;
-    EditText edt_OTX1, edt_GLAR1, edt_ZIC4;
+    EditText edt_OTX1, edt_ZNF154, edt_ZIC4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +31,7 @@ public class GeneRegisterActivity extends AppCompatActivity {
                 Intent intent = new Intent(GeneRegisterActivity.this, DNAmChartActivity.class);
                 // put edt values
                 intent.putExtra(Constant.OTX1, Double.parseDouble(edt_OTX1.getText().toString()));
-                intent.putExtra(Constant.GLAR1, Double.parseDouble(edt_GLAR1.getText().toString()));
+                intent.putExtra(Constant.ZNF154, Double.parseDouble(edt_ZNF154.getText().toString()));
                 intent.putExtra(Constant.ZIC4, Double.parseDouble(edt_ZIC4.getText().toString()));
 
                 startActivity(intent);
@@ -52,7 +52,7 @@ public class GeneRegisterActivity extends AppCompatActivity {
         btn_skip = findViewById(R.id.btn_skip);
 
         edt_OTX1 = findViewById(R.id.edt_OTX1);
-        edt_GLAR1 = findViewById(R.id.edt_GLAR1);
+        edt_ZNF154 = findViewById(R.id.edt_ZNF154);
         edt_ZIC4 = findViewById(R.id.edt_ZIC4);
     }
 }
