@@ -42,9 +42,12 @@ public class DNAmChartActivity extends AppCompatActivity {
     private ArrayList<String> _names, _colors;
     private ArrayList<Double> _xPos;
 
-    // Gene CT values
+    // =============== personal Gene CT values ================
+    private Boolean _hasGeneValue = true; // true if gets intent values
     private Double _dOTX1, _dGLAR1, _dZIC4;
     private ArrayList<Double> _markers;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +56,7 @@ public class DNAmChartActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).hide();
 
         loadConfig();   // load config for data members
-        loadIntent();
+        loadIntent();   // load personal gene value if exists
 
         AnyChartView anyChartView = findViewById(R.id.any_chart_view);
         anyChartView.setProgressBar(findViewById(R.id.progress_bar));
@@ -62,7 +65,9 @@ public class DNAmChartActivity extends AppCompatActivity {
         boxChart.xAxis(0).staggerMode(true);
 
         draw(boxChart);
-        markGene(boxChart);
+
+        if(_hasGeneValue)
+            markGene(boxChart);
 
 
         anyChartView.setChart(boxChart);
@@ -139,10 +144,15 @@ public class DNAmChartActivity extends AppCompatActivity {
     }
 
     private void loadIntent() {
-        Intent recieverIntent = getIntent();
-        _dOTX1 = recieverIntent.getDoubleExtra(Constant.OTX1, 1E9);
-        _dGLAR1 = recieverIntent.getDoubleExtra(Constant.GLAR1, 1E9);
-        _dZIC4 = recieverIntent.getDoubleExtra(Constant.ZIC4, 1E9);
+        Intent receiverIntent = getIntent();
+        if(receiverIntent.getExtras() == null) {
+            _hasGeneValue = false;
+            return;
+        }
+
+        _dOTX1 = receiverIntent.getDoubleExtra(Constant.OTX1, 1E9);
+        _dGLAR1 = receiverIntent.getDoubleExtra(Constant.GLAR1, 1E9);
+        _dZIC4 = receiverIntent.getDoubleExtra(Constant.ZIC4, 1E9);
 
         _markers = new ArrayList<>(List.of(_dOTX1, _dGLAR1, _dZIC4));
         _markers.addAll(_markers);
