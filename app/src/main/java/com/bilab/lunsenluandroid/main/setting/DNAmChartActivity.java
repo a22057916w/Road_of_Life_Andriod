@@ -87,7 +87,6 @@ public class DNAmChartActivity extends AppCompatActivity {
         APIlib.getInstance().setActiveAnyChartView(linearColorScale);
         LinearGauge linearGauge = AnyChart.linear();
 
-        linearGauge.data(new SingleValueDataSet(new Double[] { 5.3D }));
 
         linearGauge.layout(Layout.HORIZONTAL);
 
@@ -96,41 +95,42 @@ public class DNAmChartActivity extends AppCompatActivity {
                 .anchor(Anchor.LEFT_CENTER)
                 .offsetY("-50px")
                 .offsetX("50px")
-                .fontColor("black")
-                .fontSize(17);
-        linearGauge.label(0).text("Total Rainfall");
-
-        linearGauge.label(1)
-                .position(Position.LEFT_CENTER)
-                .anchor(Anchor.LEFT_CENTER)
-                .offsetY("40px")
-                .offsetX("50px")
                 .fontColor("#777777")
                 .fontSize(17);
-        linearGauge.label(1).text("Drought Hazard");
+        linearGauge.label(0).text("罹癌風險");
 
-        linearGauge.label(2)
-                .position(Position.RIGHT_CENTER)
-                .anchor(Anchor.RIGHT_CENTER)
-                .offsetY("40px")
-                .offsetX("50px")
-                .fontColor("#777777")
-                .fontSize(17);
-        linearGauge.label(2).text("Flood Hazard");
+//        linearGauge.label(1)
+//                .position(Position.LEFT_CENTER)
+//                .anchor(Anchor.LEFT_CENTER)
+//                .offsetY("40px")
+//                .offsetX("50px")
+//                .fontColor("#777777")
+//                .fontSize(17);
+//        linearGauge.label(1).text("Drought Hazard");
+//
+//        linearGauge.label(2)
+//                .position(Position.RIGHT_CENTER)
+//                .anchor(Anchor.RIGHT_CENTER)
+//                .offsetY("40px")
+//                .offsetX("50px")
+//                .fontColor("#777777")
+//                .fontSize(17);
+//        linearGauge.label(2).text("Flood Hazard");
 
         OrdinalColor scaleBarColorScale = OrdinalColor.instantiate();
         scaleBarColorScale.ranges(new String[]{
-                "{ from: 0, to: 2, color: ['red 0.5'] }",
-                "{ from: 2, to: 3, color: ['yellow 0.5'] }",
-                "{ from: 3, to: 7, color: ['green 0.5'] }",
-                "{ from: 7, to: 8, color: ['yellow 0.5'] }",
-                "{ from: 8, to: 10, color: ['red 0.5'] }"
+                "{ from: 0, to: 25, color: [ '#2AD62A', '#CAD70b'] }",
+                "{ from: 25, to: 50, color: ['#CAD70b', '#FFD700'] }",
+                "{ from: 50, to: 75, color: ['#FFD700', '#EB7A02'] }",
+                "{ from: 75, to: 100, color: ['#EB7A02', '#D81E05'] }"
+//                "{ from: 0, to: 10, color: ['red 0.5'] }"
         });
 
         linearGauge.scaleBar(0)
                 .width("5%")
                 .colorScale(scaleBarColorScale);
 
+        linearGauge.data(new SingleValueDataSet(new Double[] { 25.7D }));
         linearGauge.marker(0)
                 .type(MarkerType.TRIANGLE_DOWN)
                 .color("red")
@@ -139,12 +139,13 @@ public class DNAmChartActivity extends AppCompatActivity {
 
         linearGauge.scale()
                 .minimum(0)
-                .maximum(10);
+                .maximum(100);
 //        linearGauge.scale().ticks
 
         linearGauge.axis(0)
                 .minorTicks(false)
-                .width("1%");
+                .width("1%")
+                .labels().format("{%value}%");
         linearGauge.axis(0)
                 .offset("-1.5%")
                 .orientation(Orientation.TOP)
@@ -153,6 +154,9 @@ public class DNAmChartActivity extends AppCompatActivity {
         linearGauge.padding(0, 30, 0, 30);
 
         linearColorScale.setChart(linearGauge);
+
+        // remove watermark "AnyChart Trial Version"
+        linearGauge.credits().enabled(false);
 
     }
 
@@ -165,7 +169,7 @@ public class DNAmChartActivity extends AppCompatActivity {
             if(i < size/2)
                 xName = "正常";
             else
-                xName = "罹癌";
+                xName = "膀胱癌";
 
             // OTX1_N
             List<DataEntry> data = new ArrayList<>();
