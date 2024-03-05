@@ -3,6 +3,7 @@ package com.bilab.lunsenluandroid.main.setting;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DownloadManager;
+import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -10,6 +11,7 @@ import android.util.Log;
 import android.webkit.DownloadListener;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
+import android.widget.Toast;
 
 import com.bilab.lunsenluandroid.R;
 
@@ -33,33 +35,35 @@ public class WebViewActivity extends AppCompatActivity {
 
         webView.getSettings().setJavaScriptEnabled(true);   // enable JavaScript to load 健康存摺網頁
         webView.loadUrl(url);
-
+        Log.d("5566", "init url: " + url);
         File cacheDir = getCacheDir();
         Log.d("5566", cacheDir.toString());
 
 
+        webView.setDownloadListener(new DownloadListener() {
+            @Override
+            public void onDownloadStart(String url, String userAgent, String contentDisposition, String mimetype, long contentLength) {
+                url = url.split("blob:")[1];
+                Log.d("5566", "url: " + url);
+                Log.d("5566", "Uri.parse(url): " + Uri.parse(url));
+                DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
 
-//        webView.setDownloadListener(new DownloadListener() {
-//            @Override
-//            public void onDownloadStart(String url, String userAgent, String contentDisposition, String mimetype, long contentLength) {
-//                // Specify the directory where you want to save the downloaded file
-//                String downloadDirectory = Environment.getExternalStorageDirectory().toString();
-//                Log.d("5566", downloadDirectory);
-//                // Create a file to save the downloaded file
-//                File file = new File(downloadDirectory, "HealthPass.json");
-//
-//                // Start downloading the file
-//                DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
-//                request.setDescription("Downloading file");
-//                request.setTitle("File Name");
-//                request.allowScanningByMediaScanner();
-//                request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-//                request.setDestinationUri(Uri.fromFile(file));
-//
-//                DownloadManager downloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
-//                downloadManager.enqueue(request);
-//            }
-//        });
+                // Set title and description for the download notification
+                request.setTitle("File Download");
+                request.setDescription("Downloading file...");
+
+                Context mContext = getBaseContext();
+                // Set destination directory
+                request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "filename.zip");
+
+                // Enqueue the download
+                DownloadManager downloadManager = (DownloadManager) mContext.getSystemService(Context.DOWNLOAD_SERVICE);
+                downloadManager.enqueue(request);
+
+                // Inform the user that the download has started
+                Toast.makeText(mContext, "Download started", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 
