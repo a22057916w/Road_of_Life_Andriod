@@ -1,5 +1,8 @@
 package com.bilab.lunsenluandroid.main.setting;
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -20,8 +23,11 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.util.Base64;
 import android.util.Log;
+import android.view.View;
 import android.webkit.JavascriptInterface;
 import android.webkit.MimeTypeMap;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bilab.lunsenluandroid.R;
@@ -38,13 +44,26 @@ import java.util.Objects;
 import net.lingala.zip4j.ZipFile;
 import net.lingala.zip4j.exception.ZipException;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class HealthPassActivity extends AppCompatActivity {
-    private static final int REQUEST_EXTERNAL_STORAGE = 1;
-    private String[] PERMISSIONS_STORAGE = {
-            Manifest.permission.READ_EXTERNAL_STORAGE
-    };
+    private Button btn_read, btn_download;
+    private TextView tv_demo;
+    ActivityResultLauncher<String> mGetContent = registerForActivityResult(new ActivityResultContracts.GetContent(),
+            new ActivityResultCallback<Uri>() {
+                @Override
+                public void onActivityResult(Uri uri) {
+                    Log.d("5566", uri.toString());
+                    try {
+                        JSONObject jo = JsonUtils.readJsonFileFromUri(getApplicationContext(), uri);
+                        Log.d("5566", jo.toString());
+                        tv_demo.setText(jo.toString());
+                    } catch (IOException | JSONException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+    });
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,97 +71,40 @@ public class HealthPassActivity extends AppCompatActivity {
         setContentView(R.layout.activity_health_pass);
         Objects.requireNonNull(getSupportActionBar()).hide();
 
+        tv_demo = findViewById(R.id.tv_demo);
+        btn_read = findViewById(R.id.btn_read);
+        btn_download = findViewById(R.id.btn_download);
+
+        btn_read.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mGetContent.launch("application/json");
+            }
+        });
+
+        btn_download.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://myhealthbank.nhi.gov.tw/IHKE3000/IHKE3099S01"));
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
 
 //        Intent intent = new Intent(HealthPassActivity.this, WebViewActivity.class);
 //        intent.putExtra("url", "https://myhealthbank.nhi.gov.tw/IHKE3000/IHKE3099S01"); //Add your url in "yourUrlHere"
-
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://myhealthbank.nhi.gov.tw/IHKE3000/IHKE3099S01"));
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
     }
+
+
 
     @Override
     protected void onRestart() {
         super.onRestart();
-//        String sourceZipPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/MHBJSON_1130305_1.zip";
-//        String destinationFolderPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/folder";
-//        String password = "F129915906";
-//        extractZipFile(sourceZipPath, destinationFolderPath, password);
 
-        File jsonFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/MHBJSON_1130305_1-1", "健康存摺醫療類_1130305.JSON");
-        try {
-            JSONObject jsonObject = JsonUtils.readJsonFile(jsonFile);
-            // Now you can use jsonObject for further processing
-            Toast.makeText(this, "JSON file read successfully", Toast.LENGTH_SHORT).show();
-        } catch (Exception e) {
-            e.printStackTrace();
-            Toast.makeText(this, "Failed to read JSON file", Toast.LENGTH_SHORT).show();
-        }
-//        verifyStoragePermissions(this);
     }
 
-    private void extractZipFile(String sourceZipPath, String destinationFolderPath, String password) {
-        try {
-            ZipFile zipFile = new ZipFile(sourceZipPath);
-            zipFile.setPassword(password.toCharArray());
-            zipFile.extractAll(destinationFolderPath);
-            Toast.makeText(this, "File unzipped successfully", Toast.LENGTH_SHORT).show();
-        } catch (ZipException e) {
-            e.printStackTrace();
-            Toast.makeText(this, "Failed to unzip file", Toast.LENGTH_SHORT).show();
-        }
-    }
 
-    // Called when the activity needs to check permissions
-    public void verifyStoragePermissions(Activity activity) {
-        int permission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE);
-
-        if (permission != PackageManager.PERMISSION_GRANTED) {
-            // We don't have permission, so prompt the user
-            ActivityCompat.requestPermissions(
-                    activity,
-                    PERMISSIONS_STORAGE,
-                    REQUEST_EXTERNAL_STORAGE
-            );
-        } else {
-            // We already have permission
-            File zipFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "MHBJSON_1130305_1.zip");
-            File targetDirectory = new File(getFilesDir(), "unzipped");
-
-            String password = "F129915902";
-
-            try {
-                ZipUtils.unzip(zipFile, targetDirectory);
-                Toast.makeText(this, "File unzipped successfully", Toast.LENGTH_SHORT).show();
-            } catch (Exception e) {
-                e.printStackTrace();
-                Toast.makeText(this, "Failed to unzip file", Toast.LENGTH_SHORT).show();
-            }        }
-    }
-
-    // Handle permission request result
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == REQUEST_EXTERNAL_STORAGE) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // Permission granted, proceed with the unzip operation
-                File zipFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "MHBJSON_1130305_1.zip");
-                File targetDirectory = new File(getFilesDir(), "unzipped");
-                String password = "F129915902";
-
-                try {
-                    ZipUtils.unzip(zipFile, targetDirectory);
-                    Toast.makeText(this, "File unzipped successfully", Toast.LENGTH_SHORT).show();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    Toast.makeText(this, "Failed to unzip file", Toast.LENGTH_SHORT).show();
-                }
-            } else {
-                // Permission denied, inform the user
-                Toast.makeText(this, "Permission denied, unable to access external storage.", Toast.LENGTH_SHORT).show();
-            }
-        }
-    }
 }
+
+
 
