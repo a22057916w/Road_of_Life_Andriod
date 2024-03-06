@@ -1,9 +1,12 @@
 package com.bilab.lunsenluandroid.main.setting;
 
+import static java.security.AccessController.getContext;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DownloadManager;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -27,41 +30,49 @@ public class WebViewActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).hide();
 
 
-        WebView webView = findViewById(R.id.webView);
+        WebView browser = findViewById(R.id.webView);
         String url = getIntent().getStringExtra("url");
 
         if (url == null)
             throw new NullPointerException();
 
-        webView.getSettings().setJavaScriptEnabled(true);   // enable JavaScript to load 健康存摺網頁
-        webView.loadUrl(url);
-        Log.d("5566", "init url: " + url);
-        File cacheDir = getCacheDir();
-        Log.d("5566", cacheDir.toString());
+        browser.getSettings().setJavaScriptEnabled(true);   // enable JavaScript to load 健康存摺網頁
+//        browser.getSettings().setDefaultTextEncodingName("utf-8");
+//        browser.addJavascriptInterface(new JavaScriptInterface(this), "Android");
+        browser.loadUrl(url);
+//        Log.d("5566", "init url: " + url);
+//        File cacheDir = getCacheDir();
+//        Log.d("5566", cacheDir.toString());
 
 
-        webView.setDownloadListener(new DownloadListener() {
+        browser.setDownloadListener(new DownloadListener() {
             @Override
             public void onDownloadStart(String url, String userAgent, String contentDisposition, String mimetype, long contentLength) {
-                url = url.split("blob:")[1];
-                Log.d("5566", "url: " + url);
-                Log.d("5566", "Uri.parse(url): " + Uri.parse(url));
-                DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
 
-                // Set title and description for the download notification
-                request.setTitle("File Download");
-                request.setDescription("Downloading file...");
+//                browser.loadUrl(JavaScriptInterface.getBase64StringFromBlobUrl(url, mimetype));
 
-                Context mContext = getBaseContext();
-                // Set destination directory
-                request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "filename.zip");
-
-                // Enqueue the download
-                DownloadManager downloadManager = (DownloadManager) mContext.getSystemService(Context.DOWNLOAD_SERVICE);
-                downloadManager.enqueue(request);
-
-                // Inform the user that the download has started
-                Toast.makeText(mContext, "Download started", Toast.LENGTH_SHORT).show();
+//                url = url.split("blob:")[1];
+//                Log.d("5566", "url: " + url);
+//                Log.d("5566", "Uri.parse(url): " + Uri.parse(url));
+//                DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
+//
+//                // Set title and description for the download notification
+//                request.setTitle("File Download");
+//                request.setDescription("Downloading file...");
+//
+//                Context mContext = getBaseContext();
+//                // Set destination directory
+//                request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "filename.zip");
+//
+//                // Enqueue the download
+//                DownloadManager downloadManager = (DownloadManager) mContext.getSystemService(Context.DOWNLOAD_SERVICE);
+//                downloadManager.enqueue(request);
+//
+//                // Inform the user that the download has started
+//                Toast.makeText(mContext, "Download started", Toast.LENGTH_SHORT).show();
             }
         });
     }
