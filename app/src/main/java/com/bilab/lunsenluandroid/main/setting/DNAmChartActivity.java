@@ -199,7 +199,7 @@ public class DNAmChartActivity extends AppCompatActivity {
             if(i < size/2)
                 xName = "正常";
             else
-                xName = "罹癌";
+                xName = "膀胱癌";
 
             List<DataEntry> data = new ArrayList<>();
             data.add(new ValueDataEntry(xName, _markers.get(i)));
