@@ -6,7 +6,7 @@ android {
         //applicationId "com.bilab.lunsenluandroid"
         applicationId "com.bilab.LunSenLu"
         minSdkVersion 23
-        targetSdkVersion 30
+        targetSdkVersion 32
         versionCode 10004
         versionName '1.0.0'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
