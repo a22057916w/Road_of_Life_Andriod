@@ -46,11 +46,11 @@ dependencies {
     implementation project(":dexguard-runtime")
     //implementation project(":nhisdk_beta1.0.4")
     //implementation project(":nhisdk_Beta1.0.2")
-    implementation project(":nhisdk_Beta1.07")
+//    implementation project(":nhisdk_Beta1.07")
 
     // https://mvnrepository.com/artifact/net.lingala.zip4j/zip4j
     // 版本2.1.1使用起來會有問題  // 解決方法 : https://blog.csdn.net/yinxing2008/article/details/83619313
-    implementation group: 'net.lingala.zip4j', name: 'zip4j', version: '2.6.1'//2.1.1 1.3.2
+//    implementation group: 'net.lingala.zip4j', name: 'zip4j', version: '2.6.1'//2.1.1 1.3.2
 
     implementation 'com.wang.avi:library:2.1.3'
 
