@@ -5,7 +5,7 @@ android {
     defaultConfig {
         //applicationId "com.bilab.lunsenluandroid"
         applicationId "com.bilab.LunSenLu"
-        minSdkVersion 23
+        minSdkVersion 25
         targetSdkVersion 32
         versionCode 10004
         versionName '1.0.0'
