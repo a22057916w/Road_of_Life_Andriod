@@ -50,14 +50,14 @@ import org.json.JSONObject;
 public class HealthPassActivity extends AppCompatActivity {
     private Button btn_read, btn_download;
     private TextView tv_demo;
+
+    // let user to select the file in the file system
     ActivityResultLauncher<String> mGetContent = registerForActivityResult(new ActivityResultContracts.GetContent(),
             new ActivityResultCallback<Uri>() {
                 @Override
                 public void onActivityResult(Uri uri) {
-                    Log.d("5566", uri.toString());
                     try {
                         JSONObject jo = JsonUtils.readJsonFileFromUri(getApplicationContext(), uri);
-                        Log.d("5566", jo.toString());
                         tv_demo.setText(jo.toString());
                     } catch (IOException | JSONException e) {
                         throw new RuntimeException(e);
