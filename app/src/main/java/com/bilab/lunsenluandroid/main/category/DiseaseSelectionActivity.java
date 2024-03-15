@@ -142,6 +142,7 @@ public class DiseaseSelectionActivity extends AppCompatActivity implements Check
 
         ArrayList<DiseaseSelectionModel> diseaseSelectionModelArrayList = new ArrayList<>();
 
+        // check the box if the person has the disease in advance
         Person person = Person.getInstance();
         for (String disease : diseases) {
             boolean checked = person.hasDisease(new Disease(cancer, disease)) != Constant.npos;
