@@ -1,18 +1,18 @@
 package com.bilab.lunsenluandroid.main;
 
 public class Disease {
-    private final String type;
-    private final String name;
+    private final String _type;
+    private final String _name;
 
     public Disease(String type, String name) {
-        this.type = type;
-        this.name = name;
+        this._type = type;
+        this._name = name;
     }
 
     public String getName() {
-        return name;
+        return _name;
     }
     public String getType() {
-        return type;
+        return _type;
     }
 }
