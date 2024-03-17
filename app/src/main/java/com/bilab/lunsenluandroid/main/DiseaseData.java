@@ -12,7 +12,15 @@ public class DiseaseData {
     private final String [] _bladder_diseases = {"泌尿道系統相關疾病", "腎結石或輸尿管結石", "膀胱發炎或相關疾病", "攝護腺（前列腺）肥大或相關疾病", "慢性腎衰竭", "腎絲球腎炎", "腎水腫", "無上述症狀"};
     private final String [] _rectum_diseases = {"腸和腹膜疾病、胃腸出血", "痔瘡", "胃或十二指腸等消化道潰瘍或功能性障礙", "消化系統良性腫瘤", "無上述症狀"};
 
+    private final int [][] _uterus_ICD9 = {{621}, {626, 627}, {218, 219}, {617}, {285}};
+    private final int [][] _ovary_ICD9 = {{220}, {620}, {617}, {218, 219}, {614}};
+    private final int [][] _bladder_ICD9 = {{599, 788}, {592}, {595, 596}, {600, 601}, {585}, {582}, {591}};
+    private final int [][] _reutim_ICD9 = {{578, 560, 561, 562, 563, 564, 565, 566, 567, 568, 569}, {455}, {532, 533, 536, 564, 569}, {211}};
 
+    private final String [][] _uterus_ICD10 = {{"N840"}, {"N91", "N924"}, {"D250", "D260"}, {"N800"}, {"D461"}};
+    private final String [][] _ovary_ICD10 = {{"D270", "D271", "D279"}, {"N830"}, {"N800"}, {"D250", "D260"}, {"N7001", "N7002", "N7003"}};    // D270, D271, D279 -> 左、右、其他位置卵巢良性腫瘤
+    private final String [][] _bladder_ICD10 = {{"N390", "N23"}, {"N200"}, {"N3000", "N3001", "N320"}, {"N400", "N401", "N410"}, {"N184", "N185", "N186", "N189"}, {"N032"}, {"N1330"}};
+    private final String [][] _rectum_ICD10 = {{"K920", "K561", "K5710", "K5900", "K602", "K610", "K611", "K67", "K660", "K620", "K621"}, {"K640", "K641", "K642", "K643"}, {"K260", "K5660", "K3183", "K5900", "K620", "K621"}, {"D130"}};
     public static synchronized DiseaseData getInstance() {
         if(_instance == null)
             _instance = new DiseaseData();
