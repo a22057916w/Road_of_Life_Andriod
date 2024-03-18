@@ -8,14 +8,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.bilab.lunsenluandroid.R;
+import com.bilab.lunsenluandroid.conf.Constant;
+import com.bilab.lunsenluandroid.conf.Person;
+import com.bilab.lunsenluandroid.main.Disease;
+import com.bilab.lunsenluandroid.main.DiseaseData;
 import com.bilab.lunsenluandroid.util.JsonUtils;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Objects;
 
 import org.json.JSONException;
@@ -35,6 +41,7 @@ public class HealthPassActivity extends AppCompatActivity {
                     try {
                         jo_healthPass = JsonUtils.readJsonFileFromUri(getApplicationContext(), uri);
                         tv_demo.setText(jo_healthPass.toString());
+                        checkDisease();
                     } catch (IOException | JSONException e) {
                         throw new RuntimeException(e);
                     }
@@ -74,14 +81,31 @@ public class HealthPassActivity extends AppCompatActivity {
     }
 
 
-
     @Override
     protected void onRestart() {
         super.onRestart();
     }
 
     private void checkDisease() {
+        Person person = Person.getInstance();
+        DiseaseData diseasesData = DiseaseData.getInstance();
 
+
+        String[] cancers = {Constant.UTERUS, Constant.OVARY, Constant.BLADDER, Constant.RECTUM};
+        String healthPass = jo_healthPass.toString();
+
+        for (String cancer : cancers) {     // scan through each cancer
+            String[][] ICDs = DiseaseData.getInstance().getCancerICD10(cancer);     // get ICDs for the disease
+
+            for (int j = 0; j < ICDs.length; j++) {     // scan through each disease
+                for(int k = 0; k < ICDs[j].length; k++) {   // scan the ICDs of each disease
+                    if(healthPass.contains(ICDs[j][k])) {   // compare the App's ICD to 健康存摺's
+                        String name = diseasesData.getCancerDiseaseList(cancer).get(j);
+                        person.addDisease(new Disease(cancer, name));
+                    }
+                }
+            }
+        }
     }
 
 }
