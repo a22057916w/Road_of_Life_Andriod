@@ -54,8 +54,11 @@ public class RegisterDiseaseActivity extends AppCompatActivity implements CheckB
             throw new NullPointerException();
         }
 
+        Log.d("RDDDD", "category.length: " + category.length);
+
 
         ctg_index = receiverIntent.getIntExtra(Constant.EXTRA_INDEX, -1);
+        Log.d("RDDDD", "ctg_index: " + String.valueOf(ctg_index));
         cancer = category[ctg_index];
         cancer_icon = ctg_icon[ctg_index];
 
@@ -102,15 +105,16 @@ public class RegisterDiseaseActivity extends AppCompatActivity implements CheckB
 
                     return;
                 }
-                if(ctg_index == category.length - 1) {
+                if(++ctg_index < category.length) {
+                    Intent restartIntent = new Intent(RegisterDiseaseActivity.this, RegisterDiseaseActivity.class);
+                    restartIntent.putExtra(Constant.EXTRA_INDEX, ctg_index);
+                    startActivity(restartIntent);
+                }
+                else {
                     Intent openMainIntent = new Intent(RegisterDiseaseActivity.this, MainActivity.class);
                     startActivity(openMainIntent);
                     finish();
                 }
-
-                Intent restartIntent = new Intent(RegisterDiseaseActivity.this, RegisterDiseaseActivity.class);
-                restartIntent.putExtra(Constant.EXTRA_INDEX, ++ctg_index);
-                startActivity(restartIntent);
             }
         });
 
