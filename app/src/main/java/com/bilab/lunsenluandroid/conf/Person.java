@@ -62,6 +62,15 @@ public class Person {
         Log.d("Person", "Size: " + _diseases.size());
     }
 
+    public void addDisease(Disease disease) {
+        int pos = hasDisease(disease);
+
+        if(pos != Constant.npos)
+            return;
+        else
+            _diseases.add(disease);
+    }
+
     public int hasDisease(Disease disease) {
         if(_diseases.size() < 1)
             return Constant.npos;
