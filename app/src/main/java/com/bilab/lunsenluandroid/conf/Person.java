@@ -37,6 +37,7 @@ public class Person {
     public String getGender() {
         return _gender;
     }
+    public ArrayList<Disease> getAllDisease() { return _diseases; }
 
     public void setHeight(String height) {
         _height = height;
