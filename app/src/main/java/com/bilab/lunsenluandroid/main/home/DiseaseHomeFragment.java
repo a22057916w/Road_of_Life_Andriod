@@ -1,6 +1,7 @@
 package com.bilab.lunsenluandroid.main.home;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bilab.lunsenluandroid.conf.Person;
 import com.bilab.lunsenluandroid.R;
 import com.bilab.lunsenluandroid.conf.Constant;
+import com.bilab.lunsenluandroid.main.Disease;
 
 import java.util.ArrayList;
 
@@ -55,6 +57,15 @@ public class DiseaseHomeFragment extends Fragment {
         // Setting LayoutManager and adapter to recycler view.
         rv_disease.setLayoutManager(linearLayoutManager);
         rv_disease.setAdapter(diseaseHomeAdapter);
+
+        // test ICD
+        ArrayList<Disease> diseases = person.getAllDisease();
+        for(var disease : diseases) {
+            Log.d("person", "Type: " + disease.getType());
+            Log.d("person", "name: " + disease.getName());
+            Log.d("person", "ICD10: " + disease.getICD());
+        }
+
 
         return root;
     }
