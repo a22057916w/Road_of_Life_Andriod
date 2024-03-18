@@ -41,4 +41,30 @@ public class DiseaseData {
             return new ArrayList<>(List.of(_rectum_diseases));
         return null;
     }
+
+    public ArrayList<String> getCancerICD10(String cancer, String name) {
+        if(cancer.equals(Constant.UTERUS)) {
+            for(int i = 0; i < _uterus_diseases.length - 1; i++)
+                if(_uterus_diseases[i].equals(name))
+                    return new ArrayList<>(List.of(_uterus_ICD10[i]));
+        }
+        if(cancer.equals(Constant.OVARY)) {
+            for(int i = 0; i < _ovary_diseases.length - 1; i++)
+                if(_ovary_diseases[i].equals(name))
+                    return new ArrayList<>(List.of(_ovary_ICD10[i]));
+        }
+        if(cancer.equals(Constant.BLADDER)) {
+            for(int i = 0; i < _bladder_diseases.length - 1; i++)
+                if(_bladder_diseases[i].equals(name))
+                    return new ArrayList<>(List.of(_bladder_ICD10[i]));
+        }
+        if(cancer.equals(Constant.RECTUM)) {
+            for(int i = 0; i < _rectum_diseases.length - 1; i++)
+                if(_rectum_diseases[i].equals(name))
+                    return new ArrayList<>(List.of(_rectum_ICD10[i]));
+        }
+
+        // 無上述症狀返回0
+        return new ArrayList<>(List.of("0"));
+    }
 }
