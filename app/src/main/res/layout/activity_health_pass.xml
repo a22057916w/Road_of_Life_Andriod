@@ -6,18 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".main.setting.HealthPassActivity">
 
-    <TextView
-        android:id="@+id/tv_title"
-        android:layout_width="0dp"
+    <Button
+        android:id="@+id/btn_download"
+        android:layout_width="140dp"
         android:layout_height="60dp"
-        android:background="@color/main"
-        android:gravity="center"
-        android:text="健康存摺"
-        android:textColor="@color/white"
-        android:textSize="20sp"
+        android:layout_marginStart="32dp"
+        android:background="@drawable/bg_round_button"
+        android:contentDescription="Round Button"
+        android:text="下載檔案"
+        android:textColor="#ffffff"
+        android:textSize="15sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btn_read" />
 
     <Button
         android:id="@+id/btn_read"
@@ -34,31 +35,72 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 
-    <Button
-        android:id="@+id/btn_download"
-        android:layout_width="140dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="32dp"
-        android:background="@drawable/bg_round_button"
-        android:contentDescription="Round Button"
-        android:text="下載檔案"
-        android:textColor="#ffffff"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btn_read" />
-
     <TextView
-        android:id="@+id/tv_demo"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="128dp"
-        android:layout_marginBottom="128dp"
-        android:text="before upload"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/tv_title_instruction"
+        android:layout_width="wrap_content"
+        android:layout_height="52dp"
+        android:layout_marginStart="16dp"
+        android:background="@null"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:text="操作步驟"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imv_instruction"
+        app:layout_constraintStart_toEndOf="@+id/imv_instruction"
+        app:layout_constraintTop_toTopOf="@+id/imv_instruction"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imv_instruction"
+        android:layout_width="40dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="44dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_instruction"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_download" />
+
+    <View
+        android:id="@+id/line_instruction"
+        android:layout_width="360dp"
+        android:layout_height="2dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="#6A9F9B"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imv_instruction" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:background="@color/main"
+        android:gravity="center"
+        android:text="健康存摺"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="4dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/line_instruction"
+        app:layout_constraintStart_toStartOf="@+id/line_instruction"
+        app:layout_constraintTop_toBottomOf="@+id/line_instruction">
+
+        <TextView
+            android:id="@+id/tv_demo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/healthpass_instruction"
+            android:textSize="16sp" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
