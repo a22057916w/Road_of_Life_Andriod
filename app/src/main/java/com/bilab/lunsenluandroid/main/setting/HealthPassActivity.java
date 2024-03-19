@@ -90,7 +90,7 @@ public class HealthPassActivity extends AppCompatActivity {
         Person person = Person.getInstance();
         DiseaseData diseasesData = DiseaseData.getInstance();
 
-
+        // 比對健康存摺，設定使用者共病
         String[] cancers = {Constant.UTERUS, Constant.OVARY, Constant.BLADDER, Constant.RECTUM};
         String healthPass = jo_healthPass.toString();
 
