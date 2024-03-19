@@ -53,6 +53,9 @@ public class DNAmChartActivity extends AppCompatActivity {
     // =============== personal Gene CT values ================
     private Boolean _hasGeneValue = true; // true if gets intent values
     private Double _dOTX1, _dZNF154, _dZIC4;
+    private ArrayList<Double> _dGenes;   // user gene value
+    private ArrayList<Double> _wGenes;    // risk model weights
+    private Double _bias;   // risk model bias
     private ArrayList<Double> _markers;
 
 
@@ -99,24 +102,6 @@ public class DNAmChartActivity extends AppCompatActivity {
                 .fontSize(17);
         linearGauge.label(0).text("罹癌風險");
 
-//        linearGauge.label(1)
-//                .position(Position.LEFT_CENTER)
-//                .anchor(Anchor.LEFT_CENTER)
-//                .offsetY("40px")
-//                .offsetX("50px")
-//                .fontColor("#777777")
-//                .fontSize(17);
-//        linearGauge.label(1).text("Drought Hazard");
-//
-//        linearGauge.label(2)
-//                .position(Position.RIGHT_CENTER)
-//                .anchor(Anchor.RIGHT_CENTER)
-//                .offsetY("40px")
-//                .offsetX("50px")
-//                .fontColor("#777777")
-//                .fontSize(17);
-//        linearGauge.label(2).text("Flood Hazard");
-
         OrdinalColor scaleBarColorScale = OrdinalColor.instantiate();
         scaleBarColorScale.ranges(new String[]{
                 "{ from: 0, to: 25, color: [ '#2AD62A', '#CAD70b'] }",
@@ -130,13 +115,19 @@ public class DNAmChartActivity extends AppCompatActivity {
                 .width("5%")
                 .colorScale(scaleBarColorScale);
 
-        linearGauge.data(new SingleValueDataSet(new Double[] { 25.7D }));
+        SingleValueDataSet data = new SingleValueDataSet(new Double[]{0.0D});
+        if(_hasGeneValue)
+            data = computeRisk();
+
+        linearGauge.data(data);
         linearGauge.marker(0)
                 .type(MarkerType.TRIANGLE_DOWN)
                 .color("red")
-                .offset("-3.5%")
-                .zIndex(10);
+                .offset("-11.5%")   // distance from the bottom of linear gauge
+                .zIndex(10)
+                .width("12%");      // size
 
+        // range from 0% to 100%
         linearGauge.scale()
                 .minimum(0)
                 .maximum(100);
@@ -145,7 +136,7 @@ public class DNAmChartActivity extends AppCompatActivity {
         linearGauge.axis(0)
                 .minorTicks(false)
                 .width("1%")
-                .labels().format("{%value}%");
+                .labels().format("{%value}%");  // add % as postfix of figures
         linearGauge.axis(0)
                 .offset("-1.5%")
                 .orientation(Orientation.TOP)
@@ -212,6 +203,21 @@ public class DNAmChartActivity extends AppCompatActivity {
         }
     }
 
+    private SingleValueDataSet computeRisk() {
+        Double fw = 0.0D;
+        for(int i = 0; i < _wGenes.size(); i++)
+            fw += _wGenes.get(i) * _dGenes.get(i);
+        fw += _bias;
+        Log.d("5566", "fw: " + fw);
+
+        Double pRisk = sigmoid(fw) * 100;   // percentage
+        Log.d("5566", "pRisk: " + pRisk);
+        return new SingleValueDataSet(new Double[]{pRisk});
+    }
+
+    private Double sigmoid(Double x) {
+        return 1 / (1 + Math.exp(-x));
+    }
 
     private class CustomBoxDataEntry extends DataEntry {
         CustomBoxDataEntry(String x, Double low, Double q1, Double median, Double q3, Double high, Double[] outliers) {
@@ -236,12 +242,13 @@ public class DNAmChartActivity extends AppCompatActivity {
         _dZNF154 = receiverIntent.getDoubleExtra(Constant.ZNF154, 1E9);
         _dZIC4 = receiverIntent.getDoubleExtra(Constant.ZIC4, 1E9);
 
+        _dGenes = new ArrayList<>(List.of(_dOTX1, _dZNF154, _dZIC4));
+        Log.d("5566", "_dGenes: " + _dGenes);
         _markers = new ArrayList<>(List.of(_dOTX1, _dZNF154, _dZIC4));
         _markers.addAll(_markers);
     }
 
     private void loadConfig() {
-        Log.d("7788", "sdfasdfasdfasdf");
         // Load properties from assets
         Properties properties = new Properties();
         AssetManager assetManager = getAssets();
@@ -368,6 +375,28 @@ public class DNAmChartActivity extends AppCompatActivity {
             }
             _xPos.addAll(_xPos);
             Log.d("5566", "_xPos: " + _xPos);
+
+            // ====================== _wGenes =========================
+            String[] wGenes = properties.getProperty("wGenes", "").split(", ");
+
+            // convert to ArrayList<Double>
+            _wGenes = new ArrayList<>();
+            for(String wGene : wGenes) {
+                if (wGene.isEmpty())
+                    throw new IllegalArgumentException("Empty value found in wGenes.");
+                _wGenes.add(Double.parseDouble(wGene));
+            }
+            Log.d("5566", "_wGenes: " + _wGenes.toString());
+
+            // =============== bias ===================
+            String bias = properties.getProperty("bias", "");
+
+            // convert to Double
+            if (bias.isEmpty())
+                throw new IllegalArgumentException("Empty value found in bias.");
+            _bias = Double.parseDouble(bias);
+            Log.d("5566", "_bias: " + _bias);
+
         } catch (Exception e) {
             Log.d(_TAG, e.toString());
             Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show(); // Show Toast message
