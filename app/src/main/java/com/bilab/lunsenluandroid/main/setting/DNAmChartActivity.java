@@ -326,8 +326,7 @@ public class DNAmChartActivity extends AppCompatActivity {
 
             // ================= _outliers ================
             String outliers = properties.getProperty("outliers", "");
-            // add value check
-            Log.d("5566", "outlier: " + outliers);
+
             Pattern pattern = Pattern.compile("\\{(.*?)\\}");
             Matcher matcher = pattern.matcher(outliers);
 
@@ -335,11 +334,9 @@ public class DNAmChartActivity extends AppCompatActivity {
             _outliers = new ArrayList<>();
             while(matcher.find()) {
                 ArrayList<Double> group = new ArrayList<>();
-                Log.d("5566", "matcher.group(1): " + matcher.group(1));
                 String[] values = matcher.group(1).split(", ");
-                Log.d("5566", "values: " + Arrays.toString(values));
+
                 for (String value : values) {
-                    Log.d("5566", "value: " + value);
                     if(!value.isEmpty())
                         group.add(Double.parseDouble(value));
                 }
