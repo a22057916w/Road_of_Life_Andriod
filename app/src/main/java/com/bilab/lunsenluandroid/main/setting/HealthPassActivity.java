@@ -8,11 +8,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bilab.lunsenluandroid.R;
@@ -23,7 +21,6 @@ import com.bilab.lunsenluandroid.main.DiseaseData;
 import com.bilab.lunsenluandroid.util.JsonUtils;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Objects;
 
 import org.json.JSONException;
@@ -31,7 +28,7 @@ import org.json.JSONObject;
 
 public class HealthPassActivity extends AppCompatActivity {
     private Button btn_read, btn_download;
-    private ImageView imv_pervious;
+    private ImageView imv_previous;
     private JSONObject jo_healthPass;
 
     // ActivityResultContract 會定義產生結果所需的輸入類型，以及結果的輸出類型。而 API 會針對拍照、要求取得權限等基本意圖動作提供預設合約
@@ -96,7 +93,7 @@ public class HealthPassActivity extends AppCompatActivity {
         btn_read = findViewById(R.id.btn_read);
         btn_download = findViewById(R.id.btn_download);
 
-        imv_pervious = findViewById(R.id.imv_previous);
+        imv_previous = findViewById(R.id.imv_previous);
     }
 
     private void setupUI() {
@@ -118,7 +115,7 @@ public class HealthPassActivity extends AppCompatActivity {
             }
         });
 
-        imv_pervious.setOnClickListener(new View.OnClickListener() {
+        imv_previous.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
