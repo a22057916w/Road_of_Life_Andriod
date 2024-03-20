@@ -11,7 +11,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bilab.lunsenluandroid.R;
 import com.bilab.lunsenluandroid.conf.Constant;
@@ -29,7 +31,7 @@ import org.json.JSONObject;
 
 public class HealthPassActivity extends AppCompatActivity {
     private Button btn_read, btn_download;
-    private TextView tv_demo;
+    private ImageView imv_pervious;
     private JSONObject jo_healthPass;
 
     // ActivityResultContract 會定義產生結果所需的輸入類型，以及結果的輸出類型。而 API 會針對拍照、要求取得權限等基本意圖動作提供預設合約
@@ -40,10 +42,10 @@ public class HealthPassActivity extends AppCompatActivity {
                 public void onActivityResult(Uri uri) {
                     try {
                         jo_healthPass = JsonUtils.readJsonFileFromUri(getApplicationContext(), uri);
-                        tv_demo.setText(jo_healthPass.toString());
                         checkDisease();
-                    } catch (IOException | JSONException e) {
-                        throw new RuntimeException(e);
+                    } catch (IOException | JSONException | NullPointerException e) {
+                        Toast.makeText(getApplicationContext(), "尚未選擇檔案", Toast.LENGTH_SHORT).show();
+//                        throw new RuntimeException(e);
                     }
                 }
     });
@@ -54,10 +56,49 @@ public class HealthPassActivity extends AppCompatActivity {
         setContentView(R.layout.activity_health_pass);
         Objects.requireNonNull(getSupportActionBar()).hide();
 
-        tv_demo = findViewById(R.id.tv_demo);
+        registerUI();
+        setupUI();
+
+//        Intent intent = new Intent(HealthPassActivity.this, WebViewActivity.class);
+//        intent.putExtra("url", "https://myhealthbank.nhi.gov.tw/IHKE3000/IHKE3099S01"); //Add your url in "yourUrlHere"
+    }
+
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+    }
+
+
+    private void checkDisease() {       // 比對健康存摺，設定使用者共病
+        Person person = Person.getInstance();
+        DiseaseData diseasesData = DiseaseData.getInstance();
+
+        String[] cancers = {Constant.UTERUS, Constant.OVARY, Constant.BLADDER, Constant.RECTUM};
+        String healthPass = jo_healthPass.toString();
+
+        for (String cancer : cancers) {     // scan through each cancer
+            String[][] ICDs = DiseaseData.getInstance().getCancerICD10(cancer);     // get ICDs for the disease
+
+            for (int j = 0; j < ICDs.length; j++) {     // scan through each disease
+                for(int k = 0; k < ICDs[j].length; k++) {   // scan the ICDs of each disease
+                    if(healthPass.contains(ICDs[j][k])) {   // compare the App's ICD to 健康存摺's
+                        String name = diseasesData.getCancerDiseaseList(cancer).get(j);
+                        person.addDisease(new Disease(cancer, name));
+                    }
+                }
+            }
+        }
+    }
+
+    private void registerUI() {
         btn_read = findViewById(R.id.btn_read);
         btn_download = findViewById(R.id.btn_download);
 
+        imv_pervious = findViewById(R.id.imv_previous);
+    }
+
+    private void setupUI() {
         btn_read.setOnClickListener(new View.OnClickListener() {
 
             // The input is the mime type to filter by, e.g. image/\*
@@ -76,38 +117,13 @@ public class HealthPassActivity extends AppCompatActivity {
             }
         });
 
-//        Intent intent = new Intent(HealthPassActivity.this, WebViewActivity.class);
-//        intent.putExtra("url", "https://myhealthbank.nhi.gov.tw/IHKE3000/IHKE3099S01"); //Add your url in "yourUrlHere"
-    }
-
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-    }
-
-    private void checkDisease() {
-        Person person = Person.getInstance();
-        DiseaseData diseasesData = DiseaseData.getInstance();
-
-        // 比對健康存摺，設定使用者共病
-        String[] cancers = {Constant.UTERUS, Constant.OVARY, Constant.BLADDER, Constant.RECTUM};
-        String healthPass = jo_healthPass.toString();
-
-        for (String cancer : cancers) {     // scan through each cancer
-            String[][] ICDs = DiseaseData.getInstance().getCancerICD10(cancer);     // get ICDs for the disease
-
-            for (int j = 0; j < ICDs.length; j++) {     // scan through each disease
-                for(int k = 0; k < ICDs[j].length; k++) {   // scan the ICDs of each disease
-                    if(healthPass.contains(ICDs[j][k])) {   // compare the App's ICD to 健康存摺's
-                        String name = diseasesData.getCancerDiseaseList(cancer).get(j);
-                        person.addDisease(new Disease(cancer, name));
-                    }
-                }
+        imv_pervious.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
             }
-        }
+        });
     }
-
 }
 
 
