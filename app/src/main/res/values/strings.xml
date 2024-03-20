@@ -189,12 +189,17 @@
     <string name="rb_female">女</string>
     <string name="label_birth_year_month">生日年月</string>
     <string name="label_legend_label">legend_label</string>
-    <string name="healthpass_instruction">按鈕點選順序依序如下：\n
-[下載檔案]>[上傳檔案]\n\n
-1.點選左上方[下載檔案]，登入健康存摺並於首頁點選下載服務。\n\n
-2.於下載服務選擇JSON下載，此步驟會先進行檔案產製，待產製完成後進行下載。\n\n
-3.檔案完成下載後，請開啟檔案並解壓縮，並回到此頁面。 (解壓縮密碼為身分證字號)\n\n
-4.回到此頁面後，點選[上傳檔案]，選取解壓縮後的JSON檔案，確認本装置已取得資料。\n\n
+    <string name="healthpass_instruction">
+
+</string>
+    <string name="healthpass_instruction_button_order">按鈕點選順序依序如下：\n
+[下載檔案]>[上傳檔案]\n</string>
+    <string name="healthpass_instruction_1">1.點選左下方[下載檔案]，登入健康存摺並於首頁點選下載服務。\n
+</string>
+    <string name="healthpass_instruction_2">\n2.於下載服務選擇JSON下載，此步驟會先進行檔案產製，待產製完成後進行下載。\n
+</string>
+    <string name="healthpass_instruction_3">\n3.檔案完成下載後，請開啟檔案並解壓縮，回到此頁面。 (解壓縮密碼為身分證字號)\n\n
+        4.回到此頁面後，點選[上傳檔案]，選取解壓縮後的JSON檔案，確認本装置已取得資料。\n\n
 5.最後可於共病選擇頁面，確認本裝置是否成功代入疾病資料。 (若健康存摺中無相關共病，則共病頁面將不會更新)\n
 </string>
     <!--    "https://140.124.183.197:8000/health_passport/check_health_passport"-->
