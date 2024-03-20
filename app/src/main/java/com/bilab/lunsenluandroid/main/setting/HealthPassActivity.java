@@ -43,6 +43,7 @@ public class HealthPassActivity extends AppCompatActivity {
                     try {
                         jo_healthPass = JsonUtils.readJsonFileFromUri(getApplicationContext(), uri);
                         checkDisease();
+                        Toast.makeText(getApplicationContext(), "上傳成功", Toast.LENGTH_SHORT).show();
                     } catch (IOException | JSONException | NullPointerException e) {
                         Toast.makeText(getApplicationContext(), "尚未選擇檔案", Toast.LENGTH_SHORT).show();
 //                        throw new RuntimeException(e);
