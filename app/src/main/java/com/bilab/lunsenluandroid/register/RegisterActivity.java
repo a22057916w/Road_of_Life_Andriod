@@ -44,7 +44,7 @@ public class RegisterActivity extends AppCompatActivity {
         tv_gender = findViewById(R.id.tv_gender);
         tv_year = findViewById(R.id.tv_year);
 
-        previous = findViewById(R.id.register_previous);
+        previous = findViewById(R.id.imv_register_previous);
     }
     private void setupUI() {
         Person person = Person.getInstance();
