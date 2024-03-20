@@ -6,9 +6,45 @@
     android:layout_height="match_parent"
     tools:context=".main.setting.HealthPassActivity">
 
+    <ImageView
+        android:id="@+id/imv_previous"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:elevation="7dp"
+        android:scaleType="centerInside"
+        android:scaleX="0.6"
+        android:scaleY="0.6"
+        android:src="@drawable/arrow_white"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_title" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:background="@color/main"
+        android:gravity="center"
+        android:text="健康存摺"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/line_instruction"
+        android:layout_width="340dp"
+        android:layout_height="2dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="#6A9F9B"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imv_instruction" />
+
     <View
         android:id="@+id/line_instruction2"
-        android:layout_width="380dp"
+        android:layout_width="340dp"
         android:layout_height="2dp"
         android:layout_marginBottom="32dp"
         android:background="#6A9F9B"
@@ -71,29 +107,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 
-    <View
-        android:id="@+id/line_instruction"
-        android:layout_width="380dp"
-        android:layout_height="2dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:background="#6A9F9B"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imv_instruction" />
-
-    <TextView
-        android:id="@+id/tv_title"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:background="@color/main"
-        android:gravity="center"
-        android:text="健康存摺"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -110,12 +123,68 @@
             android:layout_marginTop="4dp"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tv_demo"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="@string/healthpass_instruction"
-                android:textSize="16sp" />
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tv_instruction_button_order"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/healthpass_instruction_button_order"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_instruction_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/healthpass_instruction_1"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_instruction_button_order" />
+
+                <ImageView
+                    android:id="@+id/imv_download_instruction_1"
+                    android:layout_width="350dp"
+                    android:layout_height="350dp"
+                    android:src="@drawable/download_instruction_1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_instruction_1" />
+
+                <TextView
+                    android:id="@+id/tv_instruction_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/healthpass_instruction_2"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imv_download_instruction_1" />
+
+                <ImageView
+                    android:id="@+id/imv_download_instruction_2"
+                    android:layout_width="350dp"
+                    android:layout_height="350dp"
+                    android:src="@drawable/download_instruction_2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_instruction_2" />
+
+                <TextView
+                    android:id="@+id/tv_instruction_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/healthpass_instruction_3"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imv_download_instruction_2" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
     </ScrollView>
