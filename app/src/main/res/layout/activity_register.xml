@@ -38,7 +38,7 @@
 
 
     <ImageView
-        android:id="@+id/register_previous"
+        android:id="@+id/imv_register_previous"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:elevation="7dp"
@@ -61,6 +61,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
