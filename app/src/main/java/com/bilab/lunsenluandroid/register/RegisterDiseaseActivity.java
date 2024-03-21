@@ -118,14 +118,16 @@ public class RegisterDiseaseActivity extends AppCompatActivity implements CheckB
             }
         });
 
-        btn_skip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent openMainIntent = new Intent(RegisterDiseaseActivity.this, MainActivity.class);
-                startActivity(openMainIntent);
-                finish();
-            }
-        });
+//        btn_skip.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent openMainIntent = new Intent(RegisterDiseaseActivity.this, MainActivity.class);
+//                startActivity(openMainIntent);
+//                finish();
+//            }
+//        });
+
+        btn_skip.setVisibility(View.GONE);
 
         imv_back_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
