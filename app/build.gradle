@@ -77,7 +77,4 @@ dependencies {
 
     // AnyChart for Box Chart (DNAmChartActivity)
     implementation 'com.github.AnyChart:AnyChart-Android:1.1.5'
-
-    implementation 'net.lingala.zip4j:zip4j:2.8.0'
-
 }
