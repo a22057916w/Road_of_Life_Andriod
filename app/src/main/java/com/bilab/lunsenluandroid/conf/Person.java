@@ -67,8 +67,10 @@ public class Person {
 
         if(pos != Constant.npos)
             return;
-        else
+        else {
             _diseases.add(disease);
+            removeDisease(disease.getType(), "無上述症狀");
+        }
     }
 
     public int hasDisease(Disease disease) {
@@ -82,6 +84,14 @@ public class Person {
                 return pos;
         }
         return Constant.npos;
+    }
+
+    public void removeDisease(String type, String name) {
+        for(int i = 0; i < _diseases.size(); i++)
+            if(_diseases.get(i).getType().equals(type) && _diseases.get(i).getName().equals(name)) {
+                _diseases.remove(i);
+                break;
+            }
     }
 
     public void clearDisease(String cancer) {
