@@ -102,16 +102,21 @@ public class DiseaseChartActivity extends AppCompatActivity {
         // Range for hue and saturation values
         float hueGap = 30.0f;
 
+        String[] colorss = {"#FF5733", "#FFBD33", "#DBFF33", "#75FF33", "#33FF57", "#33FFBD"};
 
+//        for(int i = 0; i < _cancer_diseases.size(); i++) {
+//            // Generate hue and saturation values within the specified ranges
+//            float hue = (targetHue  + i * hueGap ) % 360f;
+//
+//            float[] hsv = new float[]{hue, targetSaturation, targetValue}; // Random hue in the warm color range
+//            int color = Color.HSVToColor(hsv);
+//
+//            colors.add(color);
+//        }
 
         for(int i = 0; i < _cancer_diseases.size(); i++) {
             // Generate hue and saturation values within the specified ranges
-            float hue = (targetHue  + i * hueGap ) % 360f;
-
-            float[] hsv = new float[]{hue, targetSaturation, targetValue}; // Random hue in the warm color range
-            int color = Color.HSVToColor(hsv);
-
-            colors.add(color);
+            colors.add(Color.parseColor(colorss[i % colorss.length]));
         }
         return colors;
     }
@@ -154,7 +159,7 @@ public class DiseaseChartActivity extends AppCompatActivity {
         // Set bar values
         List<IBarDataSet> dataSets = new ArrayList<>();         // one bar in one data-set
 
-        for (int i = 0; i < _cancer_diseases.size(); i++) {
+        for (int i = 0; i < _cancer_diseases.size() - 1; i++) {
             List<BarEntry> entries = new ArrayList<>();     // the size is always one(bar)
             entries.add(new BarEntry(_cancer_diseases.size() - 1 - i, i+1));
 
@@ -194,7 +199,7 @@ public class DiseaseChartActivity extends AppCompatActivity {
         // set customized legends with RecyclerView
         List<LegendEntry> legendEntries = new ArrayList<>();
 
-        for (int i = 0; i < _cancer_diseases.size(); i++) {
+        for (int i = 0; i < _cancer_diseases.size() - 1; i++) {
             List<BarEntry> entries = new ArrayList<>();
             entries.add(new BarEntry(i, i+1));
 
