@@ -36,7 +36,6 @@ import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Random;
 
 public class DiseaseChartActivity extends AppCompatActivity {
     private ArrayList<Integer> _colors;
@@ -104,9 +103,9 @@ public class DiseaseChartActivity extends AppCompatActivity {
         float hueGap = 30.0f;
 
 
-        Random random = new Random();
+
         for(int i = 0; i < _cancer_diseases.size(); i++) {
-            // Generate random hue and saturation values within the specified ranges
+            // Generate hue and saturation values within the specified ranges
             float hue = (targetHue  + i * hueGap ) % 360f;
 
             float[] hsv = new float[]{hue, targetSaturation, targetValue}; // Random hue in the warm color range
