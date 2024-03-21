@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.bilab.lunsenluandroid.R;
 import com.bilab.lunsenluandroid.conf.Constant;
@@ -15,6 +16,7 @@ import java.util.Objects;
 
 public class GeneRegisterActivity extends AppCompatActivity {
     Button btn_next, btn_skip;
+    ImageView imv_previous;
     EditText edt_OTX1, edt_ZNF154, edt_ZIC4;
 
     @Override
@@ -45,6 +47,13 @@ public class GeneRegisterActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        imv_previous.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
     }
 
     private void registerUI() {
@@ -54,5 +63,7 @@ public class GeneRegisterActivity extends AppCompatActivity {
         edt_OTX1 = findViewById(R.id.edt_OTX1);
         edt_ZNF154 = findViewById(R.id.edt_ZNF154);
         edt_ZIC4 = findViewById(R.id.edt_ZIC4);
+
+        imv_previous = findViewById(R.id.imv_previous);
     }
 }
