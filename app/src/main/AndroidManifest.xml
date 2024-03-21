@@ -41,10 +41,6 @@
         </activity>
         <activity android:name=".main.setting.WebViewActivity" />
         <activity android:name=".register.RegisterActivity" />
-        <activity android:name=".main.setting.AccountMainActivity" />
-        <activity android:name=".main.setting.AccountPasswordActivity" />
-        <activity android:name=".main.setting.DoctorAuthActivity" />
-        <activity android:name=".main.setting.DoctorInsertActivity" />
         <activity android:name=".PrivacyPolicyActivity" />
         <activity android:name=".PrivacyPolicy2Activity" />
     </application>
