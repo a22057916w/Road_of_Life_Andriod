@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -13,6 +14,7 @@ import com.bilab.lunsenluandroid.R;
 
 import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bilab.lunsenluandroid.conf.Constant;
 import com.bilab.lunsenluandroid.main.DiseaseData;
@@ -33,9 +35,19 @@ import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import java.util.Properties;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class DiseaseChartActivity extends AppCompatActivity {
     private ArrayList<Integer> _colors;
@@ -46,6 +58,11 @@ public class DiseaseChartActivity extends AppCompatActivity {
     private TextView tv_cancer, tv_odds_ratio, tv_risk;
     private HorizontalBarChart horizontalBarChart;
     private PieChart _peronalPieChart, _averagePieChart;
+    private Map<String, Double> _wDiseases;
+    private Double _bias;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,8 +76,11 @@ public class DiseaseChartActivity extends AppCompatActivity {
             throw new NullPointerException();
         }
 
-        registerUI();
         setValue();
+        loadConfig();
+
+        registerUI();
+
         setUI();
         setHorizontalBarChart();
         setPieChart();
@@ -291,5 +311,57 @@ public class DiseaseChartActivity extends AppCompatActivity {
 
         PieDataSet dataSet = (PieDataSet) pieData.getDataSet();
         dataSet.setColors(colors);
+    }
+
+    private void loadConfig() {
+        // Load properties from assets
+        Properties properties = new Properties();
+        AssetManager assetManager = getAssets();
+
+        try {
+            InputStream inputStream = assetManager.open("disease_chart_activity.properties");
+            properties.load(inputStream);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // get lower case cancer name
+        String cancer = _cancer.toLowerCase();
+
+        // ================ Reads model weights and bias ==================
+        try {
+            // ===================== weights ========================
+            String weights = cancer + ".model.weights";   // e.g. bladder.model.weights
+            String[] wDiseases = properties.getProperty(weights, "").replaceAll("[()]", "").split(",\\s*");;
+
+            // Create a map to store tuples
+            _wDiseases = new HashMap<>();
+
+            // Iterate over tuple array and populate the map
+            for (int i = 0; i < wDiseases.length; i += 2) {
+                String key = wDiseases[i];
+                double value = Double.parseDouble(wDiseases[i + 1]);
+                _wDiseases.put(key, value);
+            }
+
+            // Print the map
+            for (Map.Entry<String, Double> entry : _wDiseases.entrySet()) {
+                Log.d("qwer", entry.getKey() + " -> " + entry.getValue());
+            }
+
+            // ====================== bias ==============================
+            String modelBias = cancer + ".model.bias";   // e.g. bladder.model.bias
+            String bias = properties.getProperty(modelBias, "");
+
+            // convert to Double
+            if (bias.isEmpty())
+                throw new IllegalArgumentException("Empty value found in bias.");
+            _bias = Double.parseDouble(bias);
+            Log.d("qwer", "bias: " + _bias);
+
+        } catch (Exception e) {
+//            Log.d(_TAG, e.toString());
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show(); // Show Toast message
+        }
     }
 }
