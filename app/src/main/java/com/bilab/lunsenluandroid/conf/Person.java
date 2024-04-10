@@ -100,14 +100,6 @@ public class Person {
                 it.remove();
     }
 
-    public boolean hasAnyDisease() {
-        int size = _diseases.size();
-        for(var disease : _diseases)
-            if(disease.getName().equals(Constant.NO_ABOVE_DISEASE))
-                size--;
-        return size > 0;
-    }
-
     public boolean isHealth() {
         int count = 0;
         for(var disease: _diseases)
@@ -116,12 +108,21 @@ public class Person {
         return _diseases.size() == count;
     }
 
-    public ArrayList<String> getDiseases(String type) {
+    public ArrayList<String> getDiseaseNames(String type) {
         ArrayList<String> diseases = new ArrayList<>();
         for(int i = 0; i < _diseases.size(); i++)
             if(_diseases.get(i).getType().equals(type))
                 diseases.add(_diseases.get(i).getName());
 
         return diseases;
+    }
+
+    public ArrayList<Integer> getDiseaseICD9(String type) {
+        ArrayList<Integer> icd9s = new ArrayList<>();
+        for(int i = 0; i < _diseases.size(); i++)
+            if(_diseases.get(i).getType().equals(type))
+                icd9s.add(_diseases.get(i).getICD9());
+
+        return icd9s;
     }
 }
