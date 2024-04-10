@@ -6,7 +6,7 @@ public class Disease {
     private final String _type;
     private final String _name;
 
-    private Integer _icd9;
+    private String _icd9;
     private ArrayList<String> _icd10;
 
     public Disease(String type, String name) {
@@ -21,7 +21,7 @@ public class Disease {
     public String getType() {
         return _type;
     }
-    public Integer getICD9() { return _icd9; }
+    public String getICD9() { return _icd9; }
     public ArrayList<String> getICD10() { return _icd10; }
 
     public void loadICD() {

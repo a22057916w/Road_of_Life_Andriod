@@ -12,10 +12,10 @@ public class DiseaseData {
     private final String [] _bladder_diseases = {"泌尿道系統相關疾病", "腎結石或輸尿管結石", "膀胱發炎或相關疾病", "攝護腺（前列腺）肥大或相關疾病", "慢性腎衰竭", "腎絲球腎炎", "腎水腫", "無上述症狀"};
     private final String [] _rectum_diseases = {"腸和腹膜疾病、胃腸出血", "痔瘡", "胃或十二指腸等消化道潰瘍或功能性障礙", "消化系統良性腫瘤", "無上述症狀"};
 
-    private final Integer [] _uterus_ICD9 = {621, 626, 218, 617, 285};
-    private final Integer [] _ovary_ICD9 = {220, 620, 617, 218, 614};
-    private final Integer [] _bladder_ICD9 = {599, 592, 595, 600, 585, 582, 591};
-    private final Integer [][] _rectum_ICD9 = {{578, 560, 561, 562, 563, 564, 565, 566, 567, 568, 569}, {455}, {532, 533, 536, 564, 569}, {211}};
+    private final String [] _uterus_ICD9 = {"621", "626", "218", "617", "285"};
+    private final String [] _ovary_ICD9 = {"220", "620", "617", "218", "614"};
+    private final String [] _bladder_ICD9 = {"599", "592", "595", "600", "585", "582", "591"};
+    private final String [] _rectum_ICD9 = {"578", "455", "532", "211"};
 
     private final String [][] _uterus_ICD10 = {{"N840"}, {"N91", "N924"}, {"D250", "D260"}, {"N800"}, {"D461"}};
     private final String [][] _ovary_ICD10 = {{"D270", "D271", "D279"}, {"N830"}, {"N800"}, {"D250", "D260"}, {"N7001", "N7002", "N7003"}};    // D270, D271, D279 -> 左、右、其他位置卵巢良性腫瘤
@@ -42,7 +42,7 @@ public class DiseaseData {
         return null;
     }
 
-    public Integer getCancerICD9(String cancer, String name) {
+    public String getCancerICD9(String cancer, String name) {
         if(cancer.equals(Constant.UTERUS)) {
             for(int i = 0; i < _uterus_diseases.length - 1; i++)
                 if(_uterus_diseases[i].equals(name))
@@ -65,7 +65,7 @@ public class DiseaseData {
 //        }
 
         // 無上述症狀返回-1
-        return -1;
+        return "-1";
     }
 
     public ArrayList<String> getCancerICD10(String cancer, String name) {

@@ -117,8 +117,8 @@ public class Person {
         return diseases;
     }
 
-    public ArrayList<Integer> getDiseaseICD9(String type) {
-        ArrayList<Integer> icd9s = new ArrayList<>();
+    public ArrayList<String> getDiseaseICD9(String type) {
+        ArrayList<String> icd9s = new ArrayList<>();
         for(int i = 0; i < _diseases.size(); i++)
             if(_diseases.get(i).getType().equals(type))
                 icd9s.add(_diseases.get(i).getICD9());
