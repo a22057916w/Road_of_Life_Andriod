@@ -52,6 +52,8 @@ public class DiseaseChartActivity extends AppCompatActivity {
     private TextView tv_cancer, tv_odds_ratio, tv_risk;
     private HorizontalBarChart horizontalBarChart;
     private PieChart _peronalPieChart, _averagePieChart;
+
+    // =============== model attributes =================
     private Map<String, Double> _wDiseases;
     private Double _bias;
 
@@ -78,6 +80,8 @@ public class DiseaseChartActivity extends AppCompatActivity {
         setUI();
         setHorizontalBarChart();
         setPieChart();
+
+        computeRise();
     }
 
 
@@ -243,11 +247,10 @@ public class DiseaseChartActivity extends AppCompatActivity {
         PieDataSet personalPieDataSet = new PieDataSet(entries, "");
         PieData personalPieData = new PieData(personalPieDataSet);
 
-
-
         ArrayList<PieEntry> average_entries = new ArrayList<>();
         for(int i = 0; i < _cancer_diseases.size(); i++)
             average_entries.add(new PieEntry(percent, ""));
+
 
         PieDataSet averagePieDataSet = new PieDataSet(average_entries, "");
         PieData averagePieData = new PieData(averagePieDataSet);
@@ -306,6 +309,28 @@ public class DiseaseChartActivity extends AppCompatActivity {
         PieDataSet dataSet = (PieDataSet) pieData.getDataSet();
         dataSet.setColors(colors);
     }
+
+    private Double computeRise() {
+        Person person = Person.getInstance();
+        ArrayList<String> icd9s = person.getDiseaseICD9(_cancer);
+
+        Double fw = 0.0D;
+        for(var entry : _wDiseases.entrySet()) {
+            if(icd9s.contains(entry.getKey()))
+                fw += entry.getValue() * 1.0D;
+        }
+        fw += _bias;
+
+        Double pRisk = sigmoid(fw) * 100;
+        Log.d("qwer", "pRisk: " + pRisk);
+
+        return pRisk;
+    }
+
+    private Double sigmoid(Double x) {
+        return 1 / (1 + Math.exp(-x));
+    }
+
 
     private void loadConfig() {
         // Load properties from assets
