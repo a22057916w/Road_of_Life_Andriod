@@ -21,7 +21,6 @@ import com.bilab.lunsenluandroid.main.DiseaseData;
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.HorizontalBarChart;
 import com.github.mikephil.charting.charts.PieChart;
-import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.LegendEntry;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
@@ -31,7 +30,6 @@ import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
-import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 
@@ -43,11 +41,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Properties;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class DiseaseChartActivity extends AppCompatActivity {
     private ArrayList<Integer> _colors;
@@ -102,7 +96,7 @@ public class DiseaseChartActivity extends AppCompatActivity {
     private void setValue() {
         _cancer = _receiverIntent.getStringExtra(Constant.EXTRA_DISEASE_CATEGORY);
         _cancer_diseases = DiseaseData.getInstance().getCancerDiseaseList(_cancer);
-        _person_diseases = Person.getInstance().getDiseases(_cancer);
+        _person_diseases = Person.getInstance().getDiseaseNames(_cancer);
         _colors = generateColors();
 
         Log.d("qwer", _cancer_diseases.toString());
