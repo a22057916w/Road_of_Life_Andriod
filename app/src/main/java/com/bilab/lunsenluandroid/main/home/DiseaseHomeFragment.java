@@ -63,7 +63,7 @@ public class DiseaseHomeFragment extends Fragment {
         for(var disease : diseases) {
             Log.d("person", "Type: " + disease.getType());
             Log.d("person", "name: " + disease.getName());
-            Log.d("person", "ICD10: " + disease.getICD());
+            Log.d("person", "ICD10: " + disease.getICD10());
         }
 
 
