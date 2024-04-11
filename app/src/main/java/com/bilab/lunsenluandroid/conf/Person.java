@@ -3,8 +3,11 @@ package com.bilab.lunsenluandroid.conf;
 import android.util.Log;
 
 import com.bilab.lunsenluandroid.main.Disease;
+import com.bilab.lunsenluandroid.main.DiseaseData;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Person {
     private static Person _instance;
@@ -12,6 +15,8 @@ public class Person {
     private String _name;
     private String _height, _weight, _year, _gender;
     private ArrayList<Disease> _diseases;
+
+    private Map<String, Double> _pRisk;
     public static synchronized Person getInstance() {
         if(_instance == null)
             _instance = new Person();
@@ -23,6 +28,7 @@ public class Person {
         _weight = "";
         _year = "";
         _diseases = new ArrayList<>();
+        _pRisk = new HashMap<>();
     };
 
     public String getHeight() {
@@ -124,5 +130,36 @@ public class Person {
                 icd9s.add(_diseases.get(i).getICD9());
 
         return icd9s;
+    }
+
+    public Double getRisk(String type) {
+        return _pRisk.get(type);
+    }
+
+    public void updateRisk() {
+        String [] cancers = DiseaseData.getInstance().getCancers();
+        for(int i = 0; i < cancers.length - 1; i++) {
+            ArrayList<String> icd9s = getDiseaseICD9(cancers[i]);
+            Map<String, Double> wDiseases = DiseaseData.getInstance().getWDiseases(cancers[i]);
+            Double bias = DiseaseData.getInstance().getBCancer(cancers[i]);
+
+            Double fw = 0.0D;
+            for (var entry : wDiseases.entrySet()) {
+                if (icd9s.contains(entry.getKey()))
+                    fw += entry.getValue() * 1.0D;
+            }
+            fw += bias;
+
+            Double pRisk = sigmoid(fw) * 100;
+            _pRisk.put(cancers[i], pRisk);
+        }
+
+        for (Map.Entry<String, Double> entry : _pRisk.entrySet()) {
+            Log.d("pRisk", entry.getKey() + ": " + entry.getValue());
+        }
+    }
+
+    private Double sigmoid(Double x) {
+        return 1 / (1 + Math.exp(-x));
     }
 }
