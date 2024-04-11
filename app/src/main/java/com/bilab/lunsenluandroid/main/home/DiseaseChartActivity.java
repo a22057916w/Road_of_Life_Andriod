@@ -141,7 +141,7 @@ public class DiseaseChartActivity extends AppCompatActivity {
 
     private void setUI() {
         if(_cancer.equals(Constant.UTERUS))
-            tv_cancer.setText(String.format("%s - 共病風險分析", "子宮癌"));
+            tv_cancer.setText(String.format("%s - 共病風險分析", "子宮內膜癌"));
         else if(_cancer.equals(Constant.OVARY))
             tv_cancer.setText(String.format("%s - 共病風險分析", "卵巢癌"));
         else if(_cancer.equals(Constant.BLADDER))
@@ -261,7 +261,7 @@ public class DiseaseChartActivity extends AppCompatActivity {
 
         // set pie colors
         setPieColor(averagePieData, 1, Color.YELLOW);
-        setPieColor(personalPieData, _person_diseases.size(), Color.RED);
+        setPieColor(personalPieData, (int)(_cancer_diseases.size() * Person.getInstance().getRisk(_cancer) / 100), Color.RED);
 
         // draw charts
         _averagePieChart.setData(averagePieData);
