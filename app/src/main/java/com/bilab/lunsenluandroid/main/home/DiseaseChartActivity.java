@@ -257,7 +257,7 @@ public class DiseaseChartActivity extends AppCompatActivity {
 
         // set common attribute
         initPieChart(_averagePieChart, averagePieData, String.format("%.1f%%", 39f));
-        initPieChart(_peronalPieChart, personalPieData, String.format("%.1f%%", 20f));
+        initPieChart(_peronalPieChart, personalPieData, String.format("%.1f%%", Person.getInstance().getRisk(_cancer)));
 
         // set pie colors
         setPieColor(averagePieData, 1, Color.YELLOW);
