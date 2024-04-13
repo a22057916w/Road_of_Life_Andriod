@@ -165,8 +165,11 @@ public class DiseaseChartActivity extends AppCompatActivity {
         // Set Right-Y Axis (圖形下方)
         YAxis rightYAxis = horizontalBarChart.getAxisRight();
         rightYAxis.setDrawGridLines(false);
-        rightYAxis.setAxisMaxValue(15);
-        rightYAxis.setAxisMinValue(10);
+        rightYAxis.setAxisMaxValue(16);
+        rightYAxis.setAxisMinValue(0);
+
+
+
 
         // Ensure Y-axis starts from 0
         leftYAxis.setAxisMinimum(0f);
@@ -196,6 +199,7 @@ public class DiseaseChartActivity extends AppCompatActivity {
             barDataSet.setColor(_colors.get(i));
             barDataSet.setValueTextColor(textColor);
             barDataSet.setValueTextSize(10.0f);
+            barDataSet.setAxisDependency(rightYAxis.getAxisDependency());
 
             dataSets.add(barDataSet);       // add a dataset in which only one bar exists
         }
