@@ -57,6 +57,7 @@ public class DiseaseChartActivity extends AppCompatActivity {
     // =============== model attributes =================
     private Map<String, Double> _wDiseases;
     private Double _bias;
+    private Double _pRisk;
 
 
 
@@ -103,6 +104,8 @@ public class DiseaseChartActivity extends AppCompatActivity {
         _person_diseases = Person.getInstance().getDiseaseNames(_cancer);
         _cancerICD9s = DiseaseData.getInstance().getCancerICD9(_cancer);
         _colors = generateColors();
+
+        _pRisk = Person.getInstance().getRisk(_cancer);
 
         Log.d("qwer", _cancer_diseases.toString());
         Log.d("qwer", _person_diseases.toString());
@@ -251,10 +254,25 @@ public class DiseaseChartActivity extends AppCompatActivity {
         PieData personalPieData = new PieData(personalPieDataSet);
         
         // set common attribute
-        initPieChart(_peronalPieChart, personalPieData, String.format("%.1f%%", Person.getInstance().getRisk(_cancer)));
+        String text;
+        if(_pRisk <= 25.0D)
+            text = "低風險";
+        else if(_pRisk <= 50.0D)
+            text = "中風險";
+        else
+            text = "高風險";
+        initPieChart(_peronalPieChart, personalPieData, text);
 
         // set pie colors
-        setPieColor(personalPieData, (int)(_cancer_diseases.size() * Person.getInstance().getRisk(_cancer) / 100), Color.RED);
+        int chartRatio = (int) Math.ceil((_cancer_diseases.size() - 1) * _pRisk / 100);
+        int color;
+        if(_pRisk <= 25.0D)
+            color = Color.GREEN;
+        else if(_pRisk <= 50.0D)
+            color = Color.YELLOW;
+        else
+            color = Color.RED;
+        setPieColor(personalPieData, chartRatio, color);
 
         // draw charts
         _peronalPieChart.setData(personalPieData);
