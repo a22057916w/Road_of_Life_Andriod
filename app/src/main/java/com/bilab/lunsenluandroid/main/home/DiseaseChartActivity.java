@@ -46,6 +46,7 @@ import java.util.Properties;
 public class DiseaseChartActivity extends AppCompatActivity {
     private ArrayList<Integer> _colors;
     private ArrayList<String> _cancer_diseases, _person_diseases;
+    private String [] _cancerICD9s;
     private String _cancer;
     private Intent _receiverIntent;
     private RecyclerView rv_legend; // for BarChart
@@ -101,6 +102,7 @@ public class DiseaseChartActivity extends AppCompatActivity {
         _cancer = _receiverIntent.getStringExtra(Constant.EXTRA_DISEASE_CATEGORY);
         _cancer_diseases = DiseaseData.getInstance().getCancerDiseaseList(_cancer);
         _person_diseases = Person.getInstance().getDiseaseNames(_cancer);
+        _cancerICD9s = DiseaseData.getInstance().getCancerICD9(_cancer);
         _colors = generateColors();
 
         Log.d("qwer", _cancer_diseases.toString());
@@ -120,7 +122,7 @@ public class DiseaseChartActivity extends AppCompatActivity {
         // Range for hue and saturation values
         float hueGap = 30.0f;
 
-        String[] colorss = {"#FF5733", "#FFBD33", "#DBFF33", "#75FF33", "#33FF57", "#33FFBD"};
+        String[] colorss = {"#FF5733", "#FFBD33", "#FFF033", "#DBFF33", "#75FF33", "#33FF57", "#33FFBD"};
 
 //        for(int i = 0; i < _cancer_diseases.size(); i++) {
 //            // Generate hue and saturation values within the specified ranges
@@ -161,7 +163,7 @@ public class DiseaseChartActivity extends AppCompatActivity {
         // Set Right-Y Axis (圖形下方)
         YAxis rightYAxis = horizontalBarChart.getAxisRight();
         rightYAxis.setDrawGridLines(false);
-        rightYAxis.setAxisMaxValue(10);
+        rightYAxis.setAxisMaxValue(15);
         rightYAxis.setAxisMinValue(10);
 
         // Ensure Y-axis starts from 0
@@ -177,9 +179,10 @@ public class DiseaseChartActivity extends AppCompatActivity {
         // Set bar values
         List<IBarDataSet> dataSets = new ArrayList<>();         // one bar in one data-set
 
-        for (int i = 0; i < _cancer_diseases.size() - 1; i++) {
+        DiseaseData diseaseData = DiseaseData.getInstance();
+        for (int i = 0; i < _cancer_diseases.size() - 1; i++) {     // minus the "無上述症狀"
             List<BarEntry> entries = new ArrayList<>();     // the size is always one(bar)
-            entries.add(new BarEntry(_cancer_diseases.size() - 1 - i, i+1));
+            entries.add(new BarEntry(_cancer_diseases.size() - 1 - i, diseaseData.getICD9OR(_cancer, _cancerICD9s[i]).floatValue()));
 
             int textColor;
             if(_person_diseases.contains(_cancer_diseases.get(i)))
@@ -190,6 +193,7 @@ public class DiseaseChartActivity extends AppCompatActivity {
             BarDataSet barDataSet = new BarDataSet(entries, _cancer_diseases.get(i));   // (BarEntry, String)
             barDataSet.setColor(_colors.get(i));
             barDataSet.setValueTextColor(textColor);
+            barDataSet.setValueTextSize(10.0f);
 
             dataSets.add(barDataSet);       // add a dataset in which only one bar exists
         }
