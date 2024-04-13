@@ -52,7 +52,7 @@ public class DiseaseChartActivity extends AppCompatActivity {
     private RecyclerView rv_legend; // for BarChart
     private TextView tv_cancer, tv_odds_ratio, tv_risk;
     private HorizontalBarChart horizontalBarChart;
-    private PieChart _peronalPieChart, _averagePieChart;
+    private PieChart _peronalPieChart;
 
     // =============== model attributes =================
     private Map<String, Double> _wDiseases;
@@ -93,7 +93,6 @@ public class DiseaseChartActivity extends AppCompatActivity {
         // charts
         horizontalBarChart = findViewById(R.id.horizontalBarChart);
         _peronalPieChart = findViewById(R.id.piechart_personal);
-        _averagePieChart = findViewById(R.id.piechart_avg);
 
         rv_legend = findViewById(R.id.rv_legend);
     }
@@ -250,25 +249,14 @@ public class DiseaseChartActivity extends AppCompatActivity {
 
         PieDataSet personalPieDataSet = new PieDataSet(entries, "");
         PieData personalPieData = new PieData(personalPieDataSet);
-
-        ArrayList<PieEntry> average_entries = new ArrayList<>();
-        for(int i = 0; i < _cancer_diseases.size(); i++)
-            average_entries.add(new PieEntry(percent, ""));
-
-
-        PieDataSet averagePieDataSet = new PieDataSet(average_entries, "");
-        PieData averagePieData = new PieData(averagePieDataSet);
-
+        
         // set common attribute
-        initPieChart(_averagePieChart, averagePieData, String.format("%.1f%%", 39f));
         initPieChart(_peronalPieChart, personalPieData, String.format("%.1f%%", Person.getInstance().getRisk(_cancer)));
 
         // set pie colors
-        setPieColor(averagePieData, 1, Color.YELLOW);
         setPieColor(personalPieData, (int)(_cancer_diseases.size() * Person.getInstance().getRisk(_cancer) / 100), Color.RED);
 
         // draw charts
-        _averagePieChart.setData(averagePieData);
         _peronalPieChart.setData(personalPieData);
     }
 
