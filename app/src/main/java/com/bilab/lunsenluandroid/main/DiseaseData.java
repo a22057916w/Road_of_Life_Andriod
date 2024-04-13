@@ -74,11 +74,11 @@ public class DiseaseData {
                 if(_bladder_diseases[i].equals(name))
                     return _bladder_ICD9[i];
         }
-//        if(cancer.equals(Constant.RECTUM)) {
-//            for(int i = 0; i < _rectum_diseases.length - 1; i++)
-//                if(_rectum_diseases[i].equals(name))
-//                    return _rectum_ICD9[i];
-//        }
+        if(cancer.equals(Constant.RECTUM)) {
+            for(int i = 0; i < _rectum_diseases.length - 1; i++)
+                if(_rectum_diseases[i].equals(name))
+                    return _rectum_ICD9[i];
+        }
 
         // 無上述症狀返回-1
         return "-1";

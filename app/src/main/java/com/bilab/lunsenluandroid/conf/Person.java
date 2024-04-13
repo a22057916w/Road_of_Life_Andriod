@@ -138,7 +138,7 @@ public class Person {
 
     public void updateRisk() {
         String [] cancers = DiseaseData.getInstance().getCancers();
-        for(int i = 0; i < cancers.length - 1; i++) {
+        for(int i = 0; i < cancers.length; i++) {
             ArrayList<String> icd9s = getDiseaseICD9(cancers[i]);
             Map<String, Double> wDiseases = DiseaseData.getInstance().getWDiseases(cancers[i]);
             Double bias = DiseaseData.getInstance().getBCancer(cancers[i]);
