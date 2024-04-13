@@ -115,6 +115,23 @@ public class DiseaseData {
         return "-1";
     }
 
+    public final String[] getCancerICD9(String cancer) {
+        if(cancer.equals(Constant.UTERUS)) {
+            return _uterus_ICD9;
+        }
+        if(cancer.equals(Constant.OVARY)) {
+            return _ovary_ICD9;
+        }
+        if(cancer.equals(Constant.BLADDER)) {
+            return _bladder_ICD9;
+        }
+        if(cancer.equals(Constant.RECTUM)) {
+            return _rectum_ICD9;
+        }
+        // 無上述症狀返回0
+        return new String[]{"-1"};
+    }
+
     public ArrayList<String> getCancerICD10(String cancer, String name) {
         if(cancer.equals(Constant.UTERUS)) {
             for(int i = 0; i < _uterus_diseases.length - 1; i++)
