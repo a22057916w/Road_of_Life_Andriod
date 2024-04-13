@@ -34,6 +34,37 @@ public class DiseaseData {
     private final String [][] _bladder_ICD10 = {{"N390", "N23"}, {"N200"}, {"N3000", "N3001", "N320"}, {"N400", "N401", "N410"}, {"N184", "N185", "N186", "N189"}, {"N032"}, {"N1330"}};
     private final String [][] _rectum_ICD10 = {{"K920", "K561", "K5710", "K5900", "K602", "K610", "K611", "K67", "K660", "K620", "K621"}, {"K640", "K641", "K642", "K643"}, {"K260", "K5660", "K3183", "K5900", "K620", "K621"}, {"D130"}};
 
+    private final Map<String, Double> _uterus_ICD9_OR = new HashMap<>(Map.of(
+            "621", 14.88213886,
+            "626", 4.806825945,
+            "218", 4.254041372,
+            "617", 3.84327046,
+            "285",3.144849537
+    ));
+    private final Map<String, Double> _ovary_ICD9_OR = new HashMap<>(Map.of(
+            "220", 12.89244308,
+            "620", 7.899896036,
+            "617", 4.064415584,
+            "218", 2.529506197,
+            "614", 2.170676786
+    ));
+    private final Map<String, Double> _bladder_ICD9_OR = new HashMap<>(Map.of(
+            "599", 11.10875633,
+            "592", 5.25472384,
+            "595", 3.554870883,
+            "600", 3.217163913,
+            "585", 3.177317732,
+            "582", 2.274417518,
+            "591", 4.961730141
+    ));
+    private final Map<String, Double> _rectum_ICD9_OR = new HashMap<>(Map.of(
+            "578", 3.803068867,
+            "455", 3.476618971,
+            "532", 2.733588054,
+            "211", 2.595223918
+    ));
+
+
     private Map<String, Map<String, Double>> _wCancerDiseases;
     private Map<String, Double> _bCancers;
 
@@ -124,6 +155,23 @@ public class DiseaseData {
         }
         // 無上述症狀返回0
         return new String[][]{new String[]{"0"}};
+    }
+
+    public final Double getICD9OR(String cancer, String icd9) {
+        if(cancer.equals(Constant.UTERUS)) {
+            return _uterus_ICD9_OR.get(icd9);
+        }
+        if(cancer.equals(Constant.OVARY)) {
+            return _ovary_ICD9_OR.get(icd9);
+        }
+        if(cancer.equals(Constant.BLADDER)) {
+            return _bladder_ICD9_OR.get(icd9);
+        }
+        if(cancer.equals(Constant.RECTUM)) {
+            return _rectum_ICD9_OR.get(icd9);
+        }
+        // 無上述症狀返回-1
+        return -1.0D;
     }
 
     public String[] getCancers() {
