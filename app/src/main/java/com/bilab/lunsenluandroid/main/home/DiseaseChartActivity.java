@@ -53,7 +53,6 @@ public class DiseaseChartActivity extends AppCompatActivity {
     private String [] _cancerICD9s;
     private String _cancer;
     private Intent _receiverIntent;
-    private RecyclerView rv_legend; // for BarChart
     private TextView tv_cancer, tv_odds_ratio, tv_risk;
     private HorizontalBarChart horizontalBarChart;
     private PieChart _peronalPieChart;
@@ -99,7 +98,6 @@ public class DiseaseChartActivity extends AppCompatActivity {
         horizontalBarChart = findViewById(R.id.horizontalBarChart);
         _peronalPieChart = findViewById(R.id.piechart_personal);
 
-        rv_legend = findViewById(R.id.rv_legend);
     }
 
     private void setValue() {
@@ -169,6 +167,7 @@ public class DiseaseChartActivity extends AppCompatActivity {
         // Set Right-Y Axis (圖形下方)
         YAxis rightYAxis = horizontalBarChart.getAxisRight();
         rightYAxis.setDrawGridLines(false);
+        rightYAxis.setDrawLabels(false);        // hide y-axis scales
         rightYAxis.setAxisMaxValue(16);
         rightYAxis.setAxisMinValue(0);
 
@@ -181,13 +180,13 @@ public class DiseaseChartActivity extends AppCompatActivity {
 
         // Set X Axis (圖形左方)
         XAxis xAxis = horizontalBarChart.getXAxis();
-        xAxis.setPosition(XAxis.XAxisPosition.TOP);
-        xAxis.setXOffset(-350);
+        xAxis.setPosition(XAxis.XAxisPosition.TOP);     // set x-axis to the right
+        xAxis.setXOffset(-353);         // align the labels to the left
         xAxis.setDrawGridLines(false);
-        xAxis.setDrawAxisLine(false);
-        xAxis.setTextSize(12f);
-//        xAxis.setDrawLabels(true);
-//        xAxis.setEnabled(true);
+        xAxis.setDrawAxisLine(false);   // hide x-axis line
+        xAxis.setTextSize(14f);
+        xAxis.setTextColor(Color.GRAY);
+
 
         // Set bar values
         List<IBarDataSet> dataSets = new ArrayList<>();         // one bar in one data-set
@@ -206,20 +205,19 @@ public class DiseaseChartActivity extends AppCompatActivity {
             }
             // the data bar config
             else {
-                entries.add(new BarEntry(pos, diseaseData.getICD9OR(_cancer, _cancerICD9s[i / 2]).floatValue()));
-                color = Color.RED;
+                if(_person_diseases.contains(_cancer_diseases.get(i / 2))) {
+                    entries.add(new BarEntry(pos, diseaseData.getICD9OR(_cancer, _cancerICD9s[i / 2]).floatValue()));
+                    color = Color.parseColor("#FF3333");
+                }
+                else {
+                    entries.add(new BarEntry(pos, 0.15f));
+                    color = Color.GRAY;
+                }
             }
-//            int textColor;
-//            if(_person_diseases.contains(_cancer_diseases.get(i)))
-//                textColor = Color.RED;
-//            else
-//                textColor = Color.BLACK;
 
             BarDataSet barDataSet = new BarDataSet(entries, _cancer_diseases.get(i / 2));   // (BarEntry, String)
             barDataSet.setColor(color);
             barDataSet.setDrawValues(false);    // disable showing value at the end of the bar
-//            barDataSet.setValueTextColor(textColor);
-//            barDataSet.setValueTextSize(10.0f);
             barDataSet.setAxisDependency(rightYAxis.getAxisDependency());
 
             dataSets.add(barDataSet);       // add a dataset in which only one bar exists
@@ -229,7 +227,7 @@ public class DiseaseChartActivity extends AppCompatActivity {
         // set bar UI
         BarData barData = new BarData(dataSets);
         barData.getGroupWidth(0f, 0f);
-        barData.setBarWidth(0.5f);
+        barData.setBarWidth(1.0f);
 
         xAxis.setValueFormatter(new ValueFormatter() {
             int size = _cancer_diseases.size() - 1;
@@ -242,60 +240,26 @@ public class DiseaseChartActivity extends AppCompatActivity {
             }
         });
 
-//        xAxis.setXOffset(200.f);
-//        xAxis.setYOffset(-20.f);
+
 
         // 設定動畫
-        horizontalBarChart.animateY(1000);
+//        horizontalBarChart.animateY(1000);
 
         // 設定其他屬性
-
-//        horizontalBarChart.getXAxis().setPosition(XAxis.XAxisPosition.TOP);
-//        horizontalBarChart.getXAxis().setXOffset(-350);
-
         horizontalBarChart.setDrawValueAboveBar(true);
         horizontalBarChart.getDescription().setEnabled(false);
         horizontalBarChart.setDrawGridBackground(false);
         horizontalBarChart.getAxisLeft().setEnabled(false);    // Hide the left Y-axis
         horizontalBarChart.getLegend().setEnabled(false);
         horizontalBarChart.setClickable(false);
+        horizontalBarChart.setDrawBorders(true);
+        horizontalBarChart.setBorderColor(Color.GRAY);
+        horizontalBarChart.setBorderWidth(0.2f);
 
         // 設定橫條形圖數據
         horizontalBarChart.setData(barData);
-
-        // set customized legends with RecyclerView
-        List<LegendEntry> legendEntries = new ArrayList<>();
-
-        for (int i = 0; i < _cancer_diseases.size() - 1; i++) {
-            List<BarEntry> entries = new ArrayList<>();
-            entries.add(new BarEntry(i, i+1));
-
-            LegendEntry legendEntry = new LegendEntry();
-            legendEntry.label = _cancer_diseases.get(i);    // return String
-            legendEntry.formColor = _colors.get(i);         // return int
-
-            legendEntries.add(legendEntry);
-        }
-
-        LegendAdapter legendAdapter = new LegendAdapter(legendEntries);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-        rv_legend.setLayoutManager(linearLayoutManager);
-        rv_legend.setAdapter(legendAdapter);
-
     }
 
-//    public class xAxisValueFormatter extends ValueFormatter {
-//        private BarLineChartBase<?> _chart;
-//
-//        public xAxisValueFormatter(BarLineChartBase<?> chart) {
-//            this._chart = chart;
-//        }
-//
-//        @Override
-//        public String getFormattedValue(float value) {
-//            return super.getFormattedValue(value);
-//        }
-//    }
 
     private void setPieChart() {
         // Create data entries for the chart
@@ -311,9 +275,9 @@ public class DiseaseChartActivity extends AppCompatActivity {
         
         // set common attribute
         String text;
-        if(_pRisk <= 25.0D)
+        if(_pRisk <= 50.0D)
             text = "低風險";
-        else if(_pRisk <= 50.0D)
+        else if(_pRisk <= 75.0D)
             text = "中風險";
         else
             text = "高風險";
@@ -322,9 +286,9 @@ public class DiseaseChartActivity extends AppCompatActivity {
         // set pie colors
         int chartRatio = (int) Math.ceil((_cancer_diseases.size() - 1) * _pRisk / 100);
         int color;
-        if(_pRisk <= 25.0D)
+        if(_pRisk <= 50.0D)
             color = Color.GREEN;
-        else if(_pRisk <= 50.0D)
+        else if(_pRisk <= 75.0D)
             color = Color.YELLOW;
         else
             color = Color.RED;

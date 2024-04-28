@@ -62,7 +62,7 @@
     <com.github.mikephil.charting.charts.HorizontalBarChart
         android:id="@+id/horizontalBarChart"
         android:layout_width="0dp"
-        android:layout_height="200dp"
+        android:layout_height="400dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -72,20 +72,11 @@
         android:id="@+id/tv_odds_ratio"
         android:layout_width="0dp"
         android:layout_height="24dp"
-        android:text="相對風險"
+        android:text="相關罹癌疾病風險"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="@+id/horizontalBarChart"
         app:layout_constraintStart_toStartOf="@+id/horizontalBarChart"
         app:layout_constraintTop_toBottomOf="@+id/horizontalBarChart" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_legend"
-        android:layout_width="0dp"
-        android:layout_height="250dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_odds_ratio" />
 
     <TextView
         android:id="@+id/tv_disclaimer"
