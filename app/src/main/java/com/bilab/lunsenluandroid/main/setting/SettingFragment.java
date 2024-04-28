@@ -19,7 +19,6 @@ import com.bilab.lunsenluandroid.R;
 public class SettingFragment extends Fragment {
     LinearLayout health_passport,info,account,private_policy, dna_methylation;
 
-    TextView logout;
     ImageView test;
 
 
@@ -50,7 +49,6 @@ public class SettingFragment extends Fragment {
         info = root.findViewById(R.id.setting_info);
         account = root.findViewById(R.id.setting_account);
         private_policy = root.findViewById(R.id.setting_private_policy);
-        logout = root.findViewById(R.id.setting_log_out);
         test = root.findViewById(R.id.setting_health_passport_right);
 
         dna_methylation = root.findViewById(R.id.dna_methylation);
