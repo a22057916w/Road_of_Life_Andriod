@@ -2,6 +2,7 @@ package com.bilab.lunsenluandroid.main.setting;
 
 import android.content.Intent;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +18,7 @@ import androidx.lifecycle.ViewModelProviders;
 import com.bilab.lunsenluandroid.R;
 
 public class SettingFragment extends Fragment {
-    LinearLayout health_passport,info,account,private_policy, dna_methylation;
+    LinearLayout health_passport,info,account,private_policy, dna_methylation, survey;
 
     ImageView test;
 
@@ -52,7 +53,7 @@ public class SettingFragment extends Fragment {
         test = root.findViewById(R.id.setting_health_passport_right);
 
         dna_methylation = root.findViewById(R.id.dna_methylation);
-
+        survey = root.findViewById(R.id.survey);
 
 
 
@@ -85,6 +86,15 @@ public class SettingFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 //asd.setText("123456789");
+            }
+        });
+
+        survey.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://docs.google.com/forms/d/1RXnjQdirYI9rL0-4JvErdhp-5w_sDW3I6SeUnX6NiDU/edit"));
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
             }
         });
 
