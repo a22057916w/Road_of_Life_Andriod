@@ -54,9 +54,9 @@ public class DiseaseHomeFragment extends Fragment {
         String [] text = new String[4];
         for(int i = 0 ; i < cancer.length; i++) {
             Double pRisk = person.getRisk(cancer[i]);
-            if (pRisk <= 25.0D)
+            if (pRisk <= 50.0D)
                 text[i] = "低風險";
-            else if (pRisk <= 50.0D)
+            else if (pRisk <= 75.0D)
                 text[i] = "中風險";
             else
                 text[i] = "高風險";
