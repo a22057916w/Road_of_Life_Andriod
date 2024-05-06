@@ -27,6 +27,7 @@ public class Person {
         _height = "";
         _weight = "";
         _year = "";
+        _gender = "";
         _diseases = new ArrayList<>();
         _pRisk = new HashMap<>();
     };

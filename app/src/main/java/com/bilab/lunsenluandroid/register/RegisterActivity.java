@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.bilab.lunsenluandroid.conf.Person;
 import com.bilab.lunsenluandroid.R;
 import com.bilab.lunsenluandroid.conf.Constant;
+import com.google.android.material.snackbar.Snackbar;
 
 public class RegisterActivity extends AppCompatActivity {
     Button btn_next, btn_year, btn_height, btn_weight;
@@ -28,6 +29,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         registerUI();
         setupUI();
+
     }
 
     private void registerUI() {
@@ -64,10 +66,6 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View v) {
                 HeightPickerFragment heightPickerFragment = new HeightPickerFragment();
                 heightPickerFragment.show(getSupportFragmentManager(), "HeightPicker");
-
-//                // may need interface
-//                btn_height.setHint(String.format("%scm", heightPickerFragment.getHeight()));
-//                Person.getInstance().setHeight(String.valueOf(heightPickerFragment.getHeight()));
             }
         });
 
@@ -82,9 +80,15 @@ public class RegisterActivity extends AppCompatActivity {
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent openRegisterDiseaseIntent = new Intent(RegisterActivity.this, RegisterDiseaseActivity.class);
-                openRegisterDiseaseIntent.putExtra(Constant.EXTRA_INDEX, 0);
-                startActivity(openRegisterDiseaseIntent);
+                if(isAllSet()) {
+                    Intent openRegisterDiseaseIntent = new Intent(RegisterActivity.this, RegisterDiseaseActivity.class);
+                    openRegisterDiseaseIntent.putExtra(Constant.EXTRA_INDEX, 0);
+                    startActivity(openRegisterDiseaseIntent);
+                }
+                else {
+                    Snackbar snackbar = Snackbar.make(view, "請填寫完整資料", Snackbar.LENGTH_SHORT);
+                    snackbar.show();
+                }
             }
         });
 
@@ -105,6 +109,16 @@ public class RegisterActivity extends AppCompatActivity {
                 Log.d("88888",Person.getInstance().getGender());
             }
         });
+    }
+
+    private boolean isAllSet() {
+        Person person = Person.getInstance();
+        String height = person.getHeight();
+        String weight = person.getWeight();
+        String year = person.getYear();
+        String gender = person.getGender();
+        
+        return !(height.isEmpty() | weight.isEmpty() | year.isEmpty() | gender.isEmpty());
     }
 
 }
