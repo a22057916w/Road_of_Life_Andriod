@@ -90,7 +90,6 @@ public class SettingFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent openPrivacyPolicyIntent = new Intent(getActivity(), PrivacyPolicyActivity.class);
-                String name = this.getClass().getName();
                 openPrivacyPolicyIntent.putExtra(Constant.EXTRA_STARTER_ACTIVITY_NAME, getActivity().getClass().getName()); // only works for activity
                 startActivity(openPrivacyPolicyIntent);
             }
