@@ -97,7 +97,6 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Person.getInstance().setGender(Constant.MALE);
                 rb_female.setChecked(false);
-                Log.d("88888",Person.getInstance().getGender());
             }
         });
 
@@ -106,7 +105,6 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Person.getInstance().setGender(Constant.FEMALE);
                 rb_male.setChecked(false);
-                Log.d("88888",Person.getInstance().getGender());
             }
         });
     }
