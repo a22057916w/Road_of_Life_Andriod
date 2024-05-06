@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,6 +12,7 @@ import android.widget.ImageView;
 
 import com.bilab.lunsenluandroid.R;
 import com.bilab.lunsenluandroid.conf.Constant;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Objects;
 
@@ -30,6 +32,12 @@ public class GeneRegisterActivity extends AppCompatActivity {
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(!isAllSet()) {
+                    Snackbar snackbar = Snackbar.make(view, "請填寫完整資料或選擇跳過", Snackbar.LENGTH_SHORT);
+                    snackbar.show();
+                    return;
+                }
+
                 Intent intent = new Intent(GeneRegisterActivity.this, DNAmChartActivity.class);
                 // put edt values
                 intent.putExtra(Constant.OTX1, Double.parseDouble(edt_OTX1.getText().toString()));
@@ -65,5 +73,13 @@ public class GeneRegisterActivity extends AppCompatActivity {
         edt_ZIC4 = findViewById(R.id.edt_ZIC4);
 
         imv_previous = findViewById(R.id.imv_previous);
+    }
+
+    private boolean isAllSet() {
+        String OTX1 = edt_OTX1.getText().toString();
+        String ZNF154 = edt_ZNF154.getText().toString();
+        String ZIC4 = edt_ZIC4.getText().toString();
+
+        return !(OTX1.isEmpty() || ZNF154.isEmpty() || ZIC4.isEmpty());
     }
 }
