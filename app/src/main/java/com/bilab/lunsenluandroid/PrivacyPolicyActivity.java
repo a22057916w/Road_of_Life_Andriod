@@ -2,6 +2,7 @@ package com.bilab.lunsenluandroid;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -9,6 +10,8 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bilab.lunsenluandroid.conf.Constant;
+import com.bilab.lunsenluandroid.main.MainActivity;
+import com.bilab.lunsenluandroid.main.setting.SettingFragment;
 import com.bilab.lunsenluandroid.register.RegisterActivity;
 
 public class PrivacyPolicyActivity extends AppCompatActivity {
@@ -32,6 +35,11 @@ public class PrivacyPolicyActivity extends AppCompatActivity {
 
             if(starterActivityName.equals(LoadingActivity.class.getName())) {
                 imv_previous.setVisibility(View.INVISIBLE);
+            }
+
+            if(starterActivityName.equals(MainActivity.class.getName())) {
+                btn_agree.setVisibility(View.GONE);
+                btn_disagree.setVisibility(View.GONE);
             }
         }
 

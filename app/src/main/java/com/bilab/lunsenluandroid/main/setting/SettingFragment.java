@@ -4,18 +4,22 @@ import android.content.Intent;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.bilab.lunsenluandroid.PrivacyPolicyActivity;
 import com.bilab.lunsenluandroid.R;
+import com.bilab.lunsenluandroid.conf.Constant;
 
 public class SettingFragment extends Fragment {
     LinearLayout health_passport,info,account,private_policy, dna_methylation, survey;
@@ -77,7 +81,7 @@ public class SettingFragment extends Fragment {
         info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //asd.setText("123456789");
+                Toast.makeText(getContext(), "目前暫無公告", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -85,7 +89,10 @@ public class SettingFragment extends Fragment {
         private_policy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //asd.setText("123456789");
+                Intent openPrivacyPolicyIntent = new Intent(getActivity(), PrivacyPolicyActivity.class);
+                String name = this.getClass().getName();
+                openPrivacyPolicyIntent.putExtra(Constant.EXTRA_STARTER_ACTIVITY_NAME, getActivity().getClass().getName()); // only works for activity
+                startActivity(openPrivacyPolicyIntent);
             }
         });
 
