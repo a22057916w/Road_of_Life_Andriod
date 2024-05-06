@@ -117,7 +117,7 @@ public class RegisterActivity extends AppCompatActivity {
         String weight = person.getWeight();
         String year = person.getYear();
         String gender = person.getGender();
-        
+
         return !(height.isEmpty() | weight.isEmpty() | year.isEmpty() | gender.isEmpty());
     }
 
