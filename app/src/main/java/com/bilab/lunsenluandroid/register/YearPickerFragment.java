@@ -50,7 +50,7 @@ public class YearPickerFragment extends DialogFragment {
                             public void onClick(DialogInterface dialog, int which) {
                                 Button btn_year = getActivity().findViewById(R.id.btn_year);
                                 btn_year.setHint(String.format("%04d/%02d", np_year.getValue(), np_month.getValue()));
-                                Person.getInstance().setYear(String.valueOf(np_year.getValue()));                            }
+                                Person.getInstance().setYear(String.format("%04d/%02d", np_year.getValue(), np_month.getValue()));                            }
                         })
                 .create();
     }
