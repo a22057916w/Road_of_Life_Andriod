@@ -40,13 +40,7 @@ public class SettingFragment extends Fragment {
         settingViewModel =
                 ViewModelProviders.of(this).get(SettingViewModel.class);
         View root = inflater.inflate(R.layout.fragment_setting, container, false);
-        /*final TextView textView = root.findViewById(R.id.text_notifications);
-        settingViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });*/
+
         intent = getActivity().getIntent();
         email = (intent != null ) ? intent.getStringExtra("email") : "";
 
@@ -85,6 +79,14 @@ public class SettingFragment extends Fragment {
             }
         });
 
+        account.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getActivity(), PersonDataActivity.class);
+                startActivity(intent);
+            }
+        });
 
         private_policy.setOnClickListener(new View.OnClickListener() {
             @Override
