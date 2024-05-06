@@ -220,7 +220,7 @@
         app:layout_constraintTop_toTopOf="@+id/tv_year" />
 
     <Button
-        android:id="@+id/btn_next"
+        android:id="@+id/btn_confirm"
         android:layout_width="140dp"
         android:layout_height="60dp"
         android:layout_marginBottom="48dp"
