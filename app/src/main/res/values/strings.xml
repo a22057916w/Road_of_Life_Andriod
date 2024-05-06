@@ -203,4 +203,5 @@
 5.最後可於共病選擇頁面，確認本裝置是否成功代入疾病資料。 (若健康存摺中無相關共病，則共病頁面將不會更新)\n
 </string>
     <string name="label_disclaimer">本APP的評估項目會受到其他 因素影響，評估結果並不能代表您未來一定會或一定不會罹患特定疾病。</string>
+    <string name="title_activity_person_data">PersonDataActivity</string>
 </resources>

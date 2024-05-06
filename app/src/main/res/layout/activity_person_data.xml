@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".main.setting.PersonDataActivity">
+
+    <View
+        android:id="@+id/line_year"
+        android:layout_width="320dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="8dp"
+        android:background="#6A9F9B"
+        app:layout_constraintEnd_toEndOf="@+id/line_height"
+        app:layout_constraintStart_toStartOf="@+id/line_height"
+        app:layout_constraintTop_toBottomOf="@+id/imv_year" />
+
+    <View
+        android:id="@+id/line_height"
+        android:layout_width="320dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="8dp"
+        android:background="#6A9F9B"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imv_height" />
+
+    <View
+        android:id="@+id/line_wieght"
+        android:layout_width="320dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="8dp"
+        android:background="#6A9F9B"
+        app:layout_constraintEnd_toEndOf="@+id/line_height"
+        app:layout_constraintStart_toStartOf="@+id/line_height"
+        app:layout_constraintTop_toBottomOf="@+id/imv_weight" />
+
+
+    <ImageView
+        android:id="@+id/imv_register_previous"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:elevation="7dp"
+        android:scaleType="centerInside"
+        android:scaleX="0.6"
+        android:scaleY="0.6"
+        android:src="@drawable/arrow_white"
+        app:layout_constraintBottom_toBottomOf="@+id/textView10"
+        app:layout_constraintStart_toStartOf="@+id/textView10"
+        app:layout_constraintTop_toTopOf="@+id/textView10" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:background="@color/main"
+        android:gravity="center"
+        android:text="基本資料"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imv_height"
+        android:layout_width="40dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_height"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+    <TextView
+        android:id="@+id/tv_height"
+        android:layout_width="wrap_content"
+        android:layout_height="52dp"
+        android:layout_marginStart="16dp"
+        android:background="@null"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:text="@string/label_height"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imv_height"
+        app:layout_constraintStart_toEndOf="@+id/imv_height"
+        app:layout_constraintTop_toTopOf="@+id/imv_height"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btn_height"
+        android:layout_width="wrap_content"
+        android:layout_height="52dp"
+        android:layout_marginStart="100dp"
+        android:background="@null"
+        android:gravity="center"
+        android:hint="@string/hint_click_to_pick"
+        android:singleLine="true"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_height"
+        app:layout_constraintStart_toEndOf="@+id/tv_height"
+        app:layout_constraintTop_toTopOf="@+id/tv_height"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imv_weight"
+        android:layout_width="40dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="50dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_weight"
+        app:layout_constraintStart_toStartOf="@+id/imv_height"
+        app:layout_constraintTop_toBottomOf="@+id/imv_height" />
+
+    <TextView
+        android:id="@+id/tv_weight"
+        android:layout_width="wrap_content"
+        android:layout_height="52dp"
+        android:text="@string/label_weight"
+        android:singleLine="true"
+        android:gravity="center_vertical"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imv_weight"
+        app:layout_constraintStart_toStartOf="@+id/tv_height"
+        app:layout_constraintTop_toTopOf="@+id/imv_weight" />
+
+    <Button
+        android:id="@+id/btn_weight"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:hint="@string/hint_click_to_pick"
+        android:textSize="18sp"
+        android:background="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_weight"
+        app:layout_constraintStart_toStartOf="@+id/btn_height"
+        app:layout_constraintTop_toTopOf="@+id/tv_weight" />
+
+    <ImageView
+        android:id="@+id/imv_gender"
+        android:layout_width="40dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="50dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_gender"
+        app:layout_constraintStart_toStartOf="@+id/imv_height"
+        app:layout_constraintTop_toBottomOf="@+id/imv_weight" />
+
+    <TextView
+        android:id="@+id/tv_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="52dp"
+        android:background="@null"
+        android:gravity="start|center_vertical"
+        android:singleLine="true"
+        android:text="@string/label_gender"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imv_gender"
+        app:layout_constraintStart_toStartOf="@+id/tv_weight"
+        app:layout_constraintTop_toTopOf="@+id/imv_gender" />
+
+    <RadioButton
+        android:id="@+id/rb_male"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="92dp"
+        android:text="@string/rb_male"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_gender"
+        app:layout_constraintStart_toEndOf="@+id/tv_gender"
+        app:layout_constraintTop_toTopOf="@+id/tv_gender" />
+
+    <RadioButton
+        android:id="@+id/rb_female"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="@string/rb_female"
+        app:layout_constraintBottom_toBottomOf="@+id/rb_male"
+        app:layout_constraintStart_toEndOf="@+id/rb_male"
+        app:layout_constraintTop_toTopOf="@+id/rb_male"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imv_year"
+        android:layout_width="40dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="50dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_birthday"
+        app:layout_constraintStart_toStartOf="@+id/imv_height"
+        app:layout_constraintTop_toBottomOf="@+id/imv_gender" />
+
+    <TextView
+        android:id="@+id/tv_year"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:background="@null"
+        android:text="@string/label_birth_year_month"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imv_year"
+        app:layout_constraintStart_toStartOf="@+id/tv_weight"
+        app:layout_constraintTop_toTopOf="@+id/imv_year" />
+
+    <Button
+        android:id="@+id/btn_year"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:hint="@string/hint_click_to_pick"
+        android:textSize="18sp"
+        android:background="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_year"
+        app:layout_constraintStart_toStartOf="@+id/btn_weight"
+        app:layout_constraintTop_toTopOf="@+id/tv_year" />
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="140dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="48dp"
+        android:background="@drawable/bg_round_button"
+        android:contentDescription="Round Button"
+        android:text="@string/btn_confirm"
+        android:textColor="#ffffff"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/line_gender"
+        android:layout_width="320dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="8dp"
+        android:background="#6A9F9B"
+        app:layout_constraintEnd_toEndOf="@+id/line_height"
+        app:layout_constraintStart_toStartOf="@+id/line_height"
+        app:layout_constraintTop_toBottomOf="@+id/imv_gender" />
+
+    <!--this layout makes the floating action button to
+       raise up whenever the snackbar pops up from bottom-->
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/snackbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
