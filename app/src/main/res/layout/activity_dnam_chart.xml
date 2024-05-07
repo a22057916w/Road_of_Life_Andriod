@@ -22,6 +22,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/imv_previous"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:elevation="7dp"
+        android:scaleType="centerInside"
+        android:scaleX="0.6"
+        android:scaleY="0.6"
+        android:src="@drawable/arrow_white"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_dnam_chart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_dnam_chart" />
+
     <com.anychart.AnyChartView
         android:id="@+id/any_chart_view"
         android:layout_width="0dp"

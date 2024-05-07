@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.anychart.APIlib;
@@ -41,6 +43,9 @@ import java.util.regex.Pattern;
 public class DNAmChartActivity extends AppCompatActivity {
     private final String _TAG = this.getClass().getSimpleName();
 
+    // ============== UI elements ===============
+    ImageView imv_previous;
+
     // ============== boxDataEntry ===============
     private ArrayList<Double> _lows, _highs;
     private ArrayList<Double> _q1, _q2, _q3;
@@ -65,6 +70,8 @@ public class DNAmChartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dnam_chart);
         Objects.requireNonNull(getSupportActionBar()).hide();
+
+        registerAndSetUI(); // load and set imageview
 
         loadConfig();   // load config for data members
         loadIntent();   // load personal gene value if exists
@@ -149,6 +156,16 @@ public class DNAmChartActivity extends AppCompatActivity {
         // remove watermark "AnyChart Trial Version"
         linearGauge.credits().enabled(false);
 
+    }
+
+    private void registerAndSetUI() {
+        imv_previous = findViewById(R.id.imv_previous);
+        imv_previous.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
 
