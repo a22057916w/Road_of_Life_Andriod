@@ -339,14 +339,14 @@
                         android:text="@string/version"
                         android:gravity="center|left"
                         android:textSize="16sp"/>
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
-                        android:text="1.0.1"
                         android:gravity="center"
-                        android:textSize="16sp"
-                        />
+                        android:text="1.1.0"
+                        android:textSize="16sp" />
                 </LinearLayout>
 
                 <View
