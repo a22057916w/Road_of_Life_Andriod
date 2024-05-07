@@ -51,7 +51,10 @@ public class RegisterActivity extends AppCompatActivity {
     private void setupUI() {
         Person person = Person.getInstance();
 
+        // hide unnecessary UI
         getSupportActionBar().hide();
+        previous.setVisibility(View.INVISIBLE);
+
         btn_year.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
