@@ -62,7 +62,7 @@ public class DiseaseHomeAdapter extends RecyclerView.Adapter<DiseaseHomeAdapter.
         if (pRisk <= 50.0D)
             holder.tv_diseaseRisk.setTextColor(Color.GREEN);
         else if (pRisk <= 75.0D)
-            holder.tv_diseaseRisk.setTextColor(Color.YELLOW);
+            holder.tv_diseaseRisk.setTextColor(Color.parseColor("#FFBD33"));
         else
             holder.tv_diseaseRisk.setTextColor(Color.RED);
 
