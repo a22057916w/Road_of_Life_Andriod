@@ -2,6 +2,7 @@ package com.bilab.lunsenluandroid.main.home;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bilab.lunsenluandroid.R;
 import com.bilab.lunsenluandroid.conf.Constant;
+import com.bilab.lunsenluandroid.conf.Person;
 
 import java.util.ArrayList;
 
@@ -55,6 +57,14 @@ public class DiseaseHomeAdapter extends RecyclerView.Adapter<DiseaseHomeAdapter.
         holder.tv_diseaseDescription.setText(model.getDiseaseDescription());
         holder.imv_diseaseIcon.setImageResource(model.getDiseaseImage());
         holder.tv_diseaseRisk.setText(model.getDiseaseRisk());
+
+        Double pRisk = Person.getInstance().getRisk(model.getType());
+        if (pRisk <= 50.0D)
+            holder.tv_diseaseRisk.setTextColor(Color.GREEN);
+        else if (pRisk <= 75.0D)
+            holder.tv_diseaseRisk.setTextColor(Color.YELLOW);
+        else
+            holder.tv_diseaseRisk.setTextColor(Color.RED);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
