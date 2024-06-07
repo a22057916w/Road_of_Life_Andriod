@@ -39,8 +39,8 @@ public class RegisterDiseaseActivity extends AppCompatActivity implements CheckB
 
     private DiseaseSelectionAdapter rvAdapter;
 
-    private final String [] category = {Constant.BLADDER, Constant.RECTUM, Constant.UTERUS, Constant.OVARY};
-    private final Integer [] ctg_icon = {R.drawable.ic_bladder, R.drawable.ic_rectum, R.drawable.ic_uterus, R.drawable.ic_ovary};
+    private final String [] category = {Constant.UTERUS, Constant.OVARY, Constant.BLADDER, Constant.RECTUM,};
+    private final Integer [] ctg_icon = {R.drawable.ic_uterus, R.drawable.ic_ovary, R.drawable.ic_bladder, R.drawable.ic_rectum};
     private int ctg_index;
 
     @Override

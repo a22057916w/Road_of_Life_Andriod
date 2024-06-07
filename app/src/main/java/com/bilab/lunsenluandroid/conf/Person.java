@@ -27,7 +27,7 @@ public class Person {
         _height = "";
         _weight = "";
         _year = "";
-        _gender = "";
+        _gender = Constant.MALE;    // default setting
         _diseases = new ArrayList<>();
         _pRisk = new HashMap<>();
     };

@@ -11,6 +11,8 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bilab.lunsenluandroid.conf.Constant;
+import com.bilab.lunsenluandroid.conf.Person;
 import com.bilab.lunsenluandroid.main.DiseaseViewModel;
 import com.bilab.lunsenluandroid.R;
 
@@ -43,10 +45,17 @@ public class DiseaseCategoryFragment extends Fragment {
 
     private void setupRV() {
         ArrayList<DiseaseCategoryModel> diseaseCategoryModelArrayList = new ArrayList<>();
-        diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.uterus_diseases), R.drawable.ic_uterus));
-        diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.ovary_diseases), R.drawable.ic_ovary));
-        diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.bladder_disease), R.drawable.ic_bladder));
-        diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.return_diseases), R.drawable.ic_rectum));
+
+        if(Person.getInstance().getGender().equals(Constant.MALE)) {
+            diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.bladder_disease), R.drawable.ic_bladder));
+            diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.return_diseases), R.drawable.ic_rectum));
+        }
+        else {
+            diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.uterus_diseases), R.drawable.ic_uterus));
+            diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.ovary_diseases), R.drawable.ic_ovary));
+            diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.bladder_disease), R.drawable.ic_bladder));
+            diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.return_diseases), R.drawable.ic_rectum));
+        }
 
         // Initializing adapter class and passing arraylist to it.
         DiseaseCategoryAdapter diseaseCategoryAdapter = new DiseaseCategoryAdapter(this.getActivity(), diseaseCategoryModelArrayList);

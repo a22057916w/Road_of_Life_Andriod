@@ -66,12 +66,16 @@ public class DiseaseHomeFragment extends Fragment {
         // Creating new array list and added data to it
         ArrayList<DiseaseHomeModel> diseaseHomeModelArrayList = new ArrayList<DiseaseHomeModel>();
 
-
-        diseaseHomeModelArrayList.add(new DiseaseHomeModel("子宮內膜癌", "子宮內膜癌發生大部分是經由性行為感染人類乳突病毒所致，有性經驗的婦女感染人類乳突病毒很常見。", text[0], R.drawable.ic_uterus, Constant.UTERUS));
-        diseaseHomeModelArrayList.add(new DiseaseHomeModel("卵巢癌", "卵巢癌雖不比子宮癌來得普遍，但卻是婦科癌症死亡原因的首位。", text[1], R.drawable.ic_ovary, Constant.OVARY));
-        diseaseHomeModelArrayList.add(new DiseaseHomeModel("膀胱癌", "膀胱癌是泌尿系統常見的惡性疾病之一，較常侵犯60歲以上男性，男與女的比例大約是2.7：1。", text[2], R.drawable.ic_bladder, Constant.BLADDER));
-        diseaseHomeModelArrayList.add(new DiseaseHomeModel("大腸癌", "自95年起大腸癌居全國癌症發生數第1位，每年約有一萬多人診斷大腸癌，並有超過五千人因大腸癌死亡，大腸癌對國人健康的影響甚鉅。", text[3], R.drawable.ic_rectum, Constant.RECTUM));
-
+        if(person.getGender().equals(Constant.MALE)) {
+            diseaseHomeModelArrayList.add(new DiseaseHomeModel("膀胱癌", "膀胱癌是泌尿系統常見的惡性疾病之一，較常侵犯60歲以上男性，男與女的比例大約是2.7：1。", text[2], R.drawable.ic_bladder, Constant.BLADDER));
+            diseaseHomeModelArrayList.add(new DiseaseHomeModel("大腸癌", "自95年起大腸癌居全國癌症發生數第1位，每年約有一萬多人診斷大腸癌，並有超過五千人因大腸癌死亡，大腸癌對國人健康的影響甚鉅。", text[3], R.drawable.ic_rectum, Constant.RECTUM));
+        }
+        else {
+            diseaseHomeModelArrayList.add(new DiseaseHomeModel("子宮內膜癌", "子宮內膜癌發生大部分是經由性行為感染人類乳突病毒所致，有性經驗的婦女感染人類乳突病毒很常見。", text[0], R.drawable.ic_uterus, Constant.UTERUS));
+            diseaseHomeModelArrayList.add(new DiseaseHomeModel("卵巢癌", "卵巢癌雖不比子宮癌來得普遍，但卻是婦科癌症死亡原因的首位。", text[1], R.drawable.ic_ovary, Constant.OVARY));
+            diseaseHomeModelArrayList.add(new DiseaseHomeModel("膀胱癌", "膀胱癌是泌尿系統常見的惡性疾病之一，較常侵犯60歲以上男性，男與女的比例大約是2.7：1。", text[2], R.drawable.ic_bladder, Constant.BLADDER));
+            diseaseHomeModelArrayList.add(new DiseaseHomeModel("大腸癌", "自95年起大腸癌居全國癌症發生數第1位，每年約有一萬多人診斷大腸癌，並有超過五千人因大腸癌死亡，大腸癌對國人健康的影響甚鉅。", text[3], R.drawable.ic_rectum, Constant.RECTUM));
+        }
 
         // Initializing adapter class and passing arraylist to it.
         DiseaseHomeAdapter diseaseHomeAdapter = new DiseaseHomeAdapter(this.getActivity(), diseaseHomeModelArrayList);
