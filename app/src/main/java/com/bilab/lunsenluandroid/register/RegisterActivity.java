@@ -51,6 +51,19 @@ public class RegisterActivity extends AppCompatActivity {
     private void setupUI() {
         Person person = Person.getInstance();
 
+        if(!person.getHeight().equals(""))
+            btn_height.setHint(String.format("%scm", person.getHeight()));
+        if(!person.getWeight().equals(""))
+            btn_weight.setHint(String.format("%skg", person.getWeight()));
+        if(!person.getYear().equals(""))
+            btn_year.setHint(String.format(person.getYear()));
+
+        if(person.getGender().equals(Constant.MALE))
+            rb_male.setChecked(true);
+        else if(person.getGender().equals(Constant.FEMALE))
+            rb_female.setChecked(true);
+
+
         // hide unnecessary UI
         getSupportActionBar().hide();
         previous.setVisibility(View.INVISIBLE);
