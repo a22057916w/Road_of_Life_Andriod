@@ -57,8 +57,8 @@ public class PersonDataActivity extends AppCompatActivity {
         rb_male.setClickable(false);
 
         Person person = Person.getInstance();
-        btn_height.setText(person.getHeight());
-        btn_weight.setText(person.getWeight());
+        btn_height.setText(String.format("%scm", person.getHeight()));
+        btn_weight.setText(String.format("%skg", person.getWeight()));
         btn_year.setText(person.getYear());
         btn_confirm.setOnClickListener(new View.OnClickListener() {
             @Override
