@@ -12,31 +12,40 @@
             android:name=".main.setting.PersonDataActivity"
             android:exported="false"
             android:label="@string/title_activity_person_data"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".main.setting.HealthPassActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".main.setting.GeneRegisterActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".main.setting.DNAmChartActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".main.home.DiseaseChartActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".register.RegisterDiseaseActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".main.category.DiseaseSelectionActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".main.MainActivity"
+            android:screenOrientation="portrait"
             android:exported="false"
             android:label="@string/title_activity_main2" />
         <activity
             android:name=".LoadingActivity"
+            android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -44,10 +53,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".main.setting.WebViewActivity" />
-        <activity android:name=".register.RegisterActivity" />
-        <activity android:name=".PrivacyPolicyActivity" />
-        <activity android:name=".PrivacyPolicy2Activity" />
+        <activity
+            android:name=".main.setting.WebViewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".register.RegisterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PrivacyPolicyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PrivacyPolicy2Activity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
