@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bilab.lunsenluandroid.conf.Constant;
 
+import java.io.File;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -36,5 +37,40 @@ public class LoadingActivity extends AppCompatActivity {
         timer.schedule(tast, 2000);
 
 
+    }
+
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        clearCache();
+    }
+
+    private void clearCache() {
+        try {
+            File dir = getCacheDir();
+            if (dir != null && dir.isDirectory()) {
+                deleteDir(dir);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static boolean deleteDir(File dir) {
+        if (dir != null && dir.isDirectory()) {
+            String[] children = dir.list();
+            for (int i = 0; i < children.length; i++) {
+                boolean success = deleteDir(new File(dir, children[i]));
+                if (!success) {
+                    return false;
+                }
+            }
+            return dir.delete();
+        } else if (dir != null && dir.isFile()) {
+            return dir.delete();
+        } else {
+            return false;
+        }
     }
 }
