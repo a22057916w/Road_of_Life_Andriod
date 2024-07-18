@@ -16,6 +16,7 @@ import com.bilab.lunsenluandroid.conf.Constant;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Objects;
+import java.util.zip.ZipFile;
 
 public class GeneRegisterActivity extends AppCompatActivity {
     Button btn_next, btn_skip;
@@ -64,9 +65,11 @@ public class GeneRegisterActivity extends AppCompatActivity {
             }
         });
 
-        edt_OTX1.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
-        edt_ZIC4.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
-        edt_ZNF154.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+//        edt_OTX1.setInputType(InputType.TYPE_CLASS_NUMBER| InputType.TYPE_NUMBER_FLAG_DECIMAL);
+//        edt_ZIC4.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+//        edt_ZNF154.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+
+
     }
 
     private void registerUI() {
@@ -85,6 +88,11 @@ public class GeneRegisterActivity extends AppCompatActivity {
         String ZNF154 = edt_ZNF154.getText().toString();
         String ZIC4 = edt_ZIC4.getText().toString();
 
-        return !(OTX1.isEmpty() || ZNF154.isEmpty() || ZIC4.isEmpty());
+        return (isValid(OTX1) && isValid(ZNF154) && isValid(ZIC4));
+    }
+
+    private boolean isValid(String input) {
+        String regex = "^-?\\d+(\\.\\d+)?$";
+        return input.matches(regex);
     }
 }

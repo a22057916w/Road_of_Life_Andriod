@@ -256,6 +256,10 @@ public class DiseaseChartActivity extends AppCompatActivity {
         horizontalBarChart.setBorderColor(Color.GRAY);
         horizontalBarChart.setBorderWidth(0.2f);
 
+        // disable all touch interactions for zooming or scaling
+        horizontalBarChart.setTouchEnabled(false);
+
+
         // 設定橫條形圖數據
         horizontalBarChart.setData(barData);
     }
