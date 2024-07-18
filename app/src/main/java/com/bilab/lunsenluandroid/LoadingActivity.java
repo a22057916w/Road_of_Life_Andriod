@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bilab.lunsenluandroid.conf.Constant;
+import com.bilab.lunsenluandroid.conf.Person;
 
 import java.io.File;
 import java.util.Timer;
@@ -39,6 +40,13 @@ public class LoadingActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Reset the variable when the app returns to the foreground
+        Person.getInstance().reset();
+    }
 
     @Override
     protected void onStop() {

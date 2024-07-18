@@ -160,6 +160,15 @@ public class Person {
         }
     }
 
+    public void reset() {
+        _height = "";
+        _weight = "";
+        _year = "";
+        _gender = "";
+        _diseases = new ArrayList<>();
+        _pRisk = new HashMap<>();
+    }
+
     private Double sigmoid(Double x) {
         return 1 / (1 + Math.exp(-x));
     }
