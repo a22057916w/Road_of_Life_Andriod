@@ -1,5 +1,6 @@
 package com.bilab.lunsenluandroid.register;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -39,9 +40,11 @@ public class RegisterDiseaseActivity extends AppCompatActivity implements CheckB
 
     private DiseaseSelectionAdapter rvAdapter;
 
-    private final String [] category = {Constant.UTERUS, Constant.OVARY, Constant.BLADDER, Constant.RECTUM,};
+    private final String [] category = {Constant.UTERUS, Constant.OVARY, Constant.BLADDER, Constant.RECTUM};
     private final Integer [] ctg_icon = {R.drawable.ic_uterus, R.drawable.ic_ovary, R.drawable.ic_bladder, R.drawable.ic_rectum};
     private int ctg_index;
+
+    private OnBackPressedCallback onBackPressedCallback;    // handle the backPress button event
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +56,8 @@ public class RegisterDiseaseActivity extends AppCompatActivity implements CheckB
             Log.d("RegisterDiseaseActivity", "Do not receive any Intent.");
             throw new NullPointerException();
         }
+
+        setupOnBackPressedDispatcher();
 
         Log.d("RDDDD", "category.length: " + category.length);
 
@@ -118,24 +123,54 @@ public class RegisterDiseaseActivity extends AppCompatActivity implements CheckB
             }
         });
 
-//        btn_skip.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent openMainIntent = new Intent(RegisterDiseaseActivity.this, MainActivity.class);
-//                startActivity(openMainIntent);
-//                finish();
-//            }
-//        });
-
         btn_skip.setVisibility(View.GONE);
 
         imv_back_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onBackPressed();
+                onBackPressedCallback.handleOnBackPressed();
             }
         });
     }
+
+
+    private void setupOnBackPressedDispatcher() {
+        onBackPressedCallback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                if(Person.getInstance().getGender().equals(Constant.MALE)) {
+                    if(ctg_index <= 2) {    // go back to RegisterActivity
+                        Intent openMainIntent = new Intent(RegisterDiseaseActivity.this, RegisterActivity.class);
+                        startActivity(openMainIntent);
+                        finish();
+                    }
+                    else {                  // go back to itself (RegisterDiseaseActivity)
+                        Intent restartIntent = new Intent(RegisterDiseaseActivity.this, RegisterDiseaseActivity.class);
+                        restartIntent.putExtra(Constant.EXTRA_INDEX, --ctg_index);
+                        startActivity(restartIntent);
+                    }
+                }
+                else {
+                    if(ctg_index <= 0) {    // go back to RegisterActivity
+                        Intent openMainIntent = new Intent(RegisterDiseaseActivity.this, RegisterActivity.class);
+                        startActivity(openMainIntent);
+                        finish();
+                    }
+                    else {                  // go back to itself (RegisterDiseaseActivity)
+                        Intent restartIntent = new Intent(RegisterDiseaseActivity.this, RegisterDiseaseActivity.class);
+                        restartIntent.putExtra(Constant.EXTRA_INDEX, --ctg_index);
+                        startActivity(restartIntent);
+                    }
+                }
+
+            }
+        };
+
+
+
+        getOnBackPressedDispatcher().addCallback(this, onBackPressedCallback);
+    }
+
     @Override
     public void onAdapterButtonClick(int position) {
         ArrayList<DiseaseSelectionModel> list = rvAdapter.getDiseaseSelectionModelArrayList();
