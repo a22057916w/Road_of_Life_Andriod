@@ -18,6 +18,7 @@ import com.bilab.lunsenluandroid.conf.Person;
 import com.bilab.lunsenluandroid.R;
 import com.bilab.lunsenluandroid.main.Disease;
 import com.bilab.lunsenluandroid.conf.Constant;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -94,11 +95,30 @@ public class DiseaseSelectionActivity extends AppCompatActivity implements Check
         btn_confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // user must check one box to next page
+                if(noItemSelected()) {
+                    Snackbar snackbar = Snackbar.make(view, "請勾選一項", Snackbar.LENGTH_SHORT);
+                    snackbar.show();
+                    return;
+                }
+
                 onBackPressed();    // normally called after the default back key pressed on the device
 
             }
         });
     }
+
+    private boolean noItemSelected() {
+        boolean isChecked = false;
+        for(int i = 0; i < rvAdapter.getItemCount(); i++) {
+            CheckBox chb = rv_disease.findViewHolderForAdapterPosition(i).itemView.findViewById(R.id.chb_disease_selection);
+            isChecked = chb.isChecked();
+            if(isChecked)
+                break;
+        }
+        return !isChecked;
+    }
+
     @Override
     public void onAdapterButtonClick(int position) {
         ArrayList<DiseaseSelectionModel> list = rvAdapter.getDiseaseSelectionModelArrayList();
@@ -108,6 +128,13 @@ public class DiseaseSelectionActivity extends AppCompatActivity implements Check
 
         // if 無上述症狀 is selected
         if(diseaseName.equals("無上述症狀")) {
+            // if 無上述症狀 is already selected
+            if(person.hasDisease(new Disease(cancer, "無上述症狀")) != Constant.npos) {
+                resetNoneChb();     // reset 無上述症狀 chb
+                person.updateDisease(new Disease(cancer, "無上述症狀"));
+                return;
+            }
+            
             resetAllChb();      // reset other chb
             person.clearDisease(cancer);    // clear all the disease related to the cancer
 

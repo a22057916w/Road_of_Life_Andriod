@@ -110,9 +110,18 @@ public class Person {
     public boolean isHealth() {
         int count = 0;
         for(var disease: _diseases)
-            if(disease.getName().equals(Constant.NO_ABOVE_DISEASE))
+            if(disease.getName().equals(Constant.NO_ABOVE_DISEASE))     // 無上述症狀
                 count++;
         return _diseases.size() == count;
+    }
+
+    public boolean isHealth(String type) {
+        int count = 0;
+        for(int i = 0; i < _diseases.size(); i++)
+            if(_diseases.get(i).getType().equals(type) && _diseases.get(i).getName().equals(Constant.NO_ABOVE_DISEASE))
+                count++;
+        return 1 == count;
+
     }
 
     public ArrayList<String> getDiseaseNames(String type) {

@@ -180,9 +180,16 @@ public class RegisterDiseaseActivity extends AppCompatActivity implements CheckB
 
         // if 無上述症狀 is selected
         if(diseaseName.equals("無上述症狀")) {
-            resetAllChb();      // reset other chb
-            person.clearDisease(cancer);    // clear all the disease related to the cancer
-
+            // if 無上述症狀 is already selected
+            if(person.hasDisease(new Disease(cancer, "無上述症狀")) != Constant.npos) {
+                resetNoneChb();     // reset 無上述症狀 chb
+                person.updateDisease(new Disease(cancer, "無上述症狀"));
+                return;
+            }
+            else {
+                resetAllChb();      // reset other chb
+                person.clearDisease(cancer);    // clear all the disease related to the cancer
+            }
         }
         // if other disease is selected
         else {
