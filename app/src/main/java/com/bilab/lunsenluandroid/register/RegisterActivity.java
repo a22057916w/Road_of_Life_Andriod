@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bilab.lunsenluandroid.conf.Person;
@@ -29,6 +30,8 @@ public class RegisterActivity extends AppCompatActivity {
 
         registerUI();
         setupUI();
+
+        setupOnBackPressedDispatcher();
 
     }
 
@@ -126,6 +129,18 @@ public class RegisterActivity extends AppCompatActivity {
                 rb_male.setChecked(false);
             }
         });
+    }
+
+    private void setupOnBackPressedDispatcher() {
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                finishAffinity();
+                System.exit(0);
+            }
+        };
+
+        getOnBackPressedDispatcher().addCallback(this, callback);
     }
 
     private boolean isAllSet() {
