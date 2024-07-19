@@ -166,8 +166,6 @@ public class RegisterDiseaseActivity extends AppCompatActivity implements CheckB
             }
         };
 
-
-
         getOnBackPressedDispatcher().addCallback(this, onBackPressedCallback);
     }
 
