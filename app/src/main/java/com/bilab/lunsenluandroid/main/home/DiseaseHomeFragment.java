@@ -1,5 +1,6 @@
 package com.bilab.lunsenluandroid.main.home;
 
+import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.util.ArrayMap;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
@@ -21,6 +23,8 @@ import com.bilab.lunsenluandroid.R;
 import com.bilab.lunsenluandroid.conf.Constant;
 import com.bilab.lunsenluandroid.main.Disease;
 import com.bilab.lunsenluandroid.main.DiseaseData;
+import com.bilab.lunsenluandroid.register.RegisterActivity;
+import com.bilab.lunsenluandroid.register.RegisterDiseaseActivity;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -38,6 +42,8 @@ public class DiseaseHomeFragment extends Fragment {
         pathViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
+
+        setupOnBackPressedDispatcher();
 
         tv_notify = root.findViewById(R.id.tv_notification);
         imv_notify = root.findViewById(R.id.imv_notificationIcon);
@@ -86,7 +92,7 @@ public class DiseaseHomeFragment extends Fragment {
         rv_disease.setAdapter(diseaseHomeAdapter);
 
         // test ICD
-        ArrayList<Disease> diseases = person.getAllDisease();
+        ArrayList<Disease> diseases = person.getAllDiseaseCopy();
         for(var disease : diseases) {
             Log.d("person", "Type: " + disease.getType());
             Log.d("person", "name: " + disease.getName());
@@ -104,6 +110,20 @@ public class DiseaseHomeFragment extends Fragment {
             tv_notify.setVisibility(View.GONE);
             imv_notify.setVisibility(View.GONE);
         }
+    }
+
+    private void setupOnBackPressedDispatcher() {
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                Intent openRegisterDiseaseIntent = new Intent(getContext(), RegisterDiseaseActivity.class);
+                openRegisterDiseaseIntent.putExtra(Constant.EXTRA_INDEX, 3);
+                startActivity(openRegisterDiseaseIntent);
+                getActivity().finish();
+            }
+        };
+
+        getActivity().getOnBackPressedDispatcher().addCallback(this, callback);
     }
 
     private void loadConfig() {
