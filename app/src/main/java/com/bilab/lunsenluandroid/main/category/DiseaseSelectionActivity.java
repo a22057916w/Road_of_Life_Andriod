@@ -1,5 +1,6 @@
 package com.bilab.lunsenluandroid.main.category;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -39,6 +40,9 @@ public class DiseaseSelectionActivity extends AppCompatActivity implements Check
     // Adapter
     private DiseaseSelectionAdapter rvAdapter;
 
+    // temp value to store the original disease
+    private ArrayList<Disease> original_disease;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +59,12 @@ public class DiseaseSelectionActivity extends AppCompatActivity implements Check
         cancer = receiverIntent.getStringExtra(Constant.EXTRA_DISEASE_CATEGORY);
         cancer_icon = receiverIntent.getIntExtra(Constant.EXTRA_DISEASE_ICON, -1);
 
+        original_disease = Person.getInstance().getAllDiseaseCopy();
+
         registerUI();
         setupUI();
+
+        setupOnBackPressedDispatcher();
 
     }
 
@@ -102,7 +110,7 @@ public class DiseaseSelectionActivity extends AppCompatActivity implements Check
                     return;
                 }
 
-                onBackPressed();    // normally called after the default back key pressed on the device
+               finish();    // normally called after the default back key pressed on the device
 
             }
         });
@@ -117,6 +125,18 @@ public class DiseaseSelectionActivity extends AppCompatActivity implements Check
                 break;
         }
         return !isChecked;
+    }
+
+    private void setupOnBackPressedDispatcher() {
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                Person.getInstance().setAllDisease(original_disease);
+                finish();
+            }
+        };
+
+        getOnBackPressedDispatcher().addCallback(this, callback);
     }
 
     @Override
