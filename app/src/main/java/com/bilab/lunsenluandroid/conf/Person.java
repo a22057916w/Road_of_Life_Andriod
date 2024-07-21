@@ -44,7 +44,7 @@ public class Person {
     public String getGender() {
         return _gender;
     }
-    public ArrayList<Disease> getAllDisease() { return _diseases; }
+    public ArrayList<Disease> getAllDiseaseCopy() { return new ArrayList<>(_diseases); }
 
     public void setHeight(String height) {
         _height = height;
@@ -58,6 +58,7 @@ public class Person {
     public void setGender(String gender) {
         _gender = gender;
     }
+    public void setAllDisease(ArrayList<Disease> diseases) { _diseases = diseases; }
 
     public void updateDisease(Disease disease) {
         int pos = hasDisease(disease);
