@@ -18,21 +18,25 @@ import java.util.Properties;
 
 public class DiseaseData {
     private static DiseaseData _instance;
-    private final String [] _cancers = {Constant.UTERUS, Constant.OVARY, Constant.BLADDER, Constant.RECTUM};
+    private final String [] _cancers = {Constant.UTERUS, Constant.OVARY, Constant.BLADDER, Constant.RECTUM, Constant.CKD};
     private final String [] _uterus_diseases = {"子宮相關疾病", "月經失調或女性生殖道異常出血", "子宮平滑肌瘤或其他良性腫瘤", "子宮內膜異位症", "貧血症狀", "無上述症狀"};
     private final String [] _ovary_diseases = {"卵巢良性腫瘤", "卵巢或輸卵管非發炎性疾病", "子宮內膜異位症", "子宮平滑肌瘤或其他良性腫瘤", "骨盆腔發炎（子宮、卵巢、輸卵管)", "無上述症狀"};
     private final String [] _bladder_diseases = {"泌尿道系統相關疾病", "腎結石或輸尿管結石", "膀胱發炎或相關疾病", "攝護腺（前列腺）肥大或相關疾病", "慢性腎衰竭", "腎絲球腎炎", "腎水腫", "無上述症狀"};
     private final String [] _rectum_diseases = {"腸和腹膜疾病、胃腸出血", "痔瘡", "胃或十二指腸等消化道潰瘍或功能性障礙", "消化系統良性腫瘤", "無上述症狀"};
+    private final String [] _CKD_diseases = {"囊性腎病變", "未特指腎病症候群", "移植器官和組織的併發症", "高血壓慢性腎病", "對支援機器和設備的依賴", "分類於其他地方的慢性疾病所引起的貧血", "個人惡性腫瘤史", "其他液體疾病", "礦物質代謝紊亂"};
 
     private final String [] _uterus_ICD9 = {"621", "626", "218", "617", "285"};
     private final String [] _ovary_ICD9 = {"220", "620", "617", "218", "614"};
     private final String [] _bladder_ICD9 = {"599", "592", "595", "600", "585", "582", "591"};
     private final String [] _rectum_ICD9 = {"578", "455", "532", "211"};
+    private final String[] _CKD_ICD9 = {"753", "583", "996", "403", "V45", "285", "V10", "276", "275"};
+
 
     private final String [][] _uterus_ICD10 = {{"N840"}, {"N91", "N924"}, {"D250", "D260"}, {"N800"}, {"D461"}};
     private final String [][] _ovary_ICD10 = {{"D270", "D271", "D279"}, {"N830"}, {"N800"}, {"D250", "D260"}, {"N7001", "N7002", "N7003"}};    // D270, D271, D279 -> 左、右、其他位置卵巢良性腫瘤
     private final String [][] _bladder_ICD10 = {{"N390", "N23"}, {"N200"}, {"N3000", "N3001", "N320"}, {"N400", "N401", "N410"}, {"N184", "N185", "N186", "N189"}, {"N032"}, {"N1330"}};
     private final String [][] _rectum_ICD10 = {{"K920", "K561", "K5710", "K5900", "K602", "K610", "K611", "K67", "K660", "K620", "K621"}, {"K640", "K641", "K642", "K643"}, {"K260", "K5660", "K3183", "K5900", "K620", "K621"}, {"D130"}};
+    private final String[][] _CKD_ICD10 = {{"Q61"}, {"N05"}, {"T86"}, {"I12"}, {"Z99"}, {"D63"}, {"Z85"}, {"E87"}, {"E83"}};
 
     private final Map<String, Double> _uterus_ICD9_OR = new HashMap<>(Map.of(
             "621", 14.88213886,
@@ -63,6 +67,17 @@ public class DiseaseData {
             "532", 2.733588054,
             "211", 2.595223918
     ));
+    private final Map<String, Double> _CKD_ICD9_OR = new HashMap<>(Map.of(
+            "753", 38.78787879,
+            "583", 20.75675676,
+            "996", 16.84210526,
+            "403", 16.25806452,
+            "V56", 14.51428571,
+            "285", 14.51428571,
+            "V10", 5.426470588,
+            "276", 5.370879121,
+            "275", 5.067567568
+    ));
 
 
     private Map<String, Map<String, Double>> _wCancerDiseases;
@@ -86,6 +101,8 @@ public class DiseaseData {
             return new ArrayList<>(List.of(_bladder_diseases));
         if(cancer.equals(Constant.RECTUM))
             return new ArrayList<>(List.of(_rectum_diseases));
+        if(cancer.equals((Constant.CKD)))
+            return new ArrayList<>(List.of(_CKD_diseases));
         return null;
     }
 
@@ -110,7 +127,11 @@ public class DiseaseData {
                 if(_rectum_diseases[i].equals(name))
                     return _rectum_ICD9[i];
         }
-
+        if(cancer.equals(Constant.CKD)) {
+            for(int i = 0; i < _CKD_ICD9.length; i++)
+                if(_CKD_ICD9[i].equals(name))
+                    return _CKD_ICD9[i];
+        }
         // 無上述症狀返回-1
         return "-1";
     }
@@ -127,6 +148,9 @@ public class DiseaseData {
         }
         if(cancer.equals(Constant.RECTUM)) {
             return _rectum_ICD9;
+        }
+        if(cancer.equals(Constant.CKD)) {
+            return _CKD_ICD9;
         }
         // 無上述症狀返回0
         return new String[]{"-1"};
@@ -153,6 +177,11 @@ public class DiseaseData {
                 if(_rectum_diseases[i].equals(name))
                     return new ArrayList<>(List.of(_rectum_ICD10[i]));
         }
+        if(cancer.equals(Constant.CKD)) {
+            for(int i = 0; i < _CKD_ICD10.length; i++)
+                if(_CKD_ICD10[i][0].equals(name))
+                    return new ArrayList<>(List.of(_CKD_ICD10[i]));
+        }
         // 無上述症狀返回-1
         return new ArrayList<>(List.of("-1"));
     }
@@ -170,6 +199,9 @@ public class DiseaseData {
         if(cancer.equals(Constant.RECTUM)) {
             return _rectum_ICD10;
         }
+        if(cancer.equals(Constant.CKD)) {
+            return _CKD_ICD10;
+        }
         // 無上述症狀返回0
         return new String[][]{new String[]{"0"}};
     }
@@ -186,6 +218,9 @@ public class DiseaseData {
         }
         if(cancer.equals(Constant.RECTUM)) {
             return _rectum_ICD9_OR.get(icd9);
+        }
+        if(cancer.equals((Constant.CKD))) {
+            return _CKD_ICD9_OR.get(icd9);
         }
         // 無上述症狀返回-1
         return -1.0D;
