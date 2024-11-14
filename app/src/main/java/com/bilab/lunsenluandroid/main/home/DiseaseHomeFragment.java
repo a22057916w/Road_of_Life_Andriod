@@ -56,8 +56,8 @@ public class DiseaseHomeFragment extends Fragment {
         Person person = Person.getInstance();
         person.updateRisk();
 
-        String [] cancer = {Constant.UTERUS, Constant.OVARY, Constant.BLADDER, Constant.RECTUM};
-        String [] text = new String[4];
+        String [] cancer = {Constant.UTERUS, Constant.OVARY, Constant.BLADDER, Constant.RECTUM, Constant.CKD};
+        String [] text = new String[5];
         for(int i = 0 ; i < cancer.length; i++) {
             Double pRisk = person.getRisk(cancer[i]);
             if (pRisk <= 50.0D)
@@ -75,12 +75,14 @@ public class DiseaseHomeFragment extends Fragment {
         if(person.getGender().equals(Constant.MALE)) {
             diseaseHomeModelArrayList.add(new DiseaseHomeModel("膀胱癌", "膀胱癌是泌尿系統常見的惡性疾病之一，較常侵犯60歲以上男性，男與女的比例大約是2.7：1。", text[2], R.drawable.ic_bladder, Constant.BLADDER));
             diseaseHomeModelArrayList.add(new DiseaseHomeModel("大腸癌", "自95年起大腸癌居全國癌症發生數第1位，每年約有一萬多人診斷大腸癌，並有超過五千人因大腸癌死亡，大腸癌對國人健康的影響甚鉅。", text[3], R.drawable.ic_rectum, Constant.RECTUM));
+            diseaseHomeModelArrayList.add(new DiseaseHomeModel("慢性腎衰竭", "慢性腎臟病是腎功能逐漸喪失的疾病，常因高血壓或糖尿病引起，嚴重時可能需透析或移植。", text[4], R.drawable.ic_kidney, Constant.CKD));
         }
         else {
             diseaseHomeModelArrayList.add(new DiseaseHomeModel("子宮內膜癌", "子宮內膜癌發生大部分是經由性行為感染人類乳突病毒所致，有性經驗的婦女感染人類乳突病毒很常見。", text[0], R.drawable.ic_uterus, Constant.UTERUS));
             diseaseHomeModelArrayList.add(new DiseaseHomeModel("卵巢癌", "卵巢癌雖不比子宮癌來得普遍，但卻是婦科癌症死亡原因的首位。", text[1], R.drawable.ic_ovary, Constant.OVARY));
             diseaseHomeModelArrayList.add(new DiseaseHomeModel("膀胱癌", "膀胱癌是泌尿系統常見的惡性疾病之一，較常侵犯60歲以上男性，男與女的比例大約是2.7：1。", text[2], R.drawable.ic_bladder, Constant.BLADDER));
             diseaseHomeModelArrayList.add(new DiseaseHomeModel("大腸癌", "自95年起大腸癌居全國癌症發生數第1位，每年約有一萬多人診斷大腸癌，並有超過五千人因大腸癌死亡，大腸癌對國人健康的影響甚鉅。", text[3], R.drawable.ic_rectum, Constant.RECTUM));
+            diseaseHomeModelArrayList.add(new DiseaseHomeModel("慢性腎衰竭", "慢性腎臟病是腎功能逐漸喪失的疾病，常因高血壓或糖尿病引起，嚴重時可能需透析或移植。", text[4], R.drawable.ic_kidney, Constant.CKD));
         }
 
         // Initializing adapter class and passing arraylist to it.
