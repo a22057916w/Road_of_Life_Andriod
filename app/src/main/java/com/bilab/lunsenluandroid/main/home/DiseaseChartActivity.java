@@ -32,6 +32,7 @@ import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
@@ -48,7 +49,6 @@ import java.util.Objects;
 import java.util.Properties;
 
 public class DiseaseChartActivity extends AppCompatActivity {
-    private ArrayList<Integer> _colors;
     private ArrayList<String> _cancer_diseases, _person_diseases;
     private String [] _cancerICD9s;
     private String _cancer;
@@ -105,7 +105,6 @@ public class DiseaseChartActivity extends AppCompatActivity {
         _cancer_diseases = DiseaseData.getInstance().getCancerDiseaseList(_cancer);
         _person_diseases = Person.getInstance().getDiseaseNames(_cancer);
         _cancerICD9s = DiseaseData.getInstance().getCancerICD9(_cancer);
-        _colors = generateColors();
 
         _pRisk = Person.getInstance().getRisk(_cancer);
 
@@ -113,37 +112,7 @@ public class DiseaseChartActivity extends AppCompatActivity {
         Log.d("qwer", _person_diseases.toString());
     }
 
-    private ArrayList<Integer> generateColors() {
-        ArrayList<Integer> colors = new ArrayList<>();
 
-        // Get the hue value of the target color
-        float[] targetHsv = new float[3];
-        Color.colorToHSV(Color.parseColor("#6A9F9B"), targetHsv);
-        float targetHue = targetHsv[0];
-        float targetSaturation = targetHsv[1];
-        float targetValue = targetHsv[2];
-
-        // Range for hue and saturation values
-        float hueGap = 30.0f;
-
-        String[] colorss = {"#FF5733", "#FFBD33", "#FFF033", "#DBFF33", "#75FF33", "#33FF57", "#33FFBD"};
-
-//        for(int i = 0; i < _cancer_diseases.size(); i++) {
-//            // Generate hue and saturation values within the specified ranges
-//            float hue = (targetHue  + i * hueGap ) % 360f;
-//
-//            float[] hsv = new float[]{hue, targetSaturation, targetValue}; // Random hue in the warm color range
-//            int color = Color.HSVToColor(hsv);
-//
-//            colors.add(color);
-//        }
-
-        for(int i = 0; i < _cancer_diseases.size(); i++) {
-            // Generate hue and saturation values within the specified ranges
-            colors.add(Color.parseColor(colorss[i % colorss.length]));
-        }
-        return colors;
-    }
 
     private void setUI() {
         if(_cancer.equals(Constant.UTERUS))
@@ -154,6 +123,8 @@ public class DiseaseChartActivity extends AppCompatActivity {
             tv_cancer.setText(String.format("%s - 共病風險分析", "膀胱癌"));
         else if(_cancer.equals(Constant.RECTUM))
             tv_cancer.setText(String.format("%s - 共病風險分析", "大腸癌"));
+        else if(_cancer.equals(Constant.CKD))
+            tv_cancer.setText(String.format("%s - 共病風險分析", "慢性腎衰竭"));
         else
             tv_cancer.setText(Constant.NONE);
     }
@@ -188,13 +159,14 @@ public class DiseaseChartActivity extends AppCompatActivity {
         xAxis.setTextColor(Color.GRAY);
 
 
+
         // Set bar values
         List<IBarDataSet> dataSets = new ArrayList<>();         // one bar in one data-set
 
         DiseaseData diseaseData = DiseaseData.getInstance();
-        int barCount = (_cancer_diseases.size() - 1) * 2;
+        int barCount = (_cancer_diseases.size() - 1) * 2;   // minus the "無上述症狀"
 
-        for (int i = 0; i < barCount; i++) {     // minus the "無上述症狀"
+        for (int i = 0; i < barCount; i++) {
             List<BarEntry> entries = new ArrayList<>();     // the size is always one(bar)
             int pos = barCount - i;
             int color;
@@ -207,7 +179,7 @@ public class DiseaseChartActivity extends AppCompatActivity {
             else {
                 if(_person_diseases.contains(_cancer_diseases.get(i / 2))) {
                     entries.add(new BarEntry(pos, diseaseData.getICD9OR(_cancer, _cancerICD9s[i / 2]).floatValue()));
-                    color = Color.parseColor("#FF3333");
+                    color = Color.parseColor("#FF3333");    // RED
                 }
                 else {
                     entries.add(new BarEntry(pos, 0.15f));
@@ -229,6 +201,7 @@ public class DiseaseChartActivity extends AppCompatActivity {
         barData.getGroupWidth(0f, 0f);
         barData.setBarWidth(1.0f);
 
+        // 只顯示 title bar 的 value(label)
         xAxis.setValueFormatter(new ValueFormatter() {
             int size = _cancer_diseases.size() - 1;
             @Override
@@ -239,7 +212,7 @@ public class DiseaseChartActivity extends AppCompatActivity {
                     return "";
             }
         });
-
+        xAxis.setLabelCount(dataSets.size());   // 設定 X 軸標籤的顯示數量
 
 
         // 設定動畫
@@ -258,7 +231,6 @@ public class DiseaseChartActivity extends AppCompatActivity {
 
         // disable all touch interactions for zooming or scaling
         horizontalBarChart.setTouchEnabled(false);
-
 
         // 設定橫條形圖數據
         horizontalBarChart.setData(barData);
