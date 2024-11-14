@@ -85,6 +85,8 @@ public class DiseaseCategoryAdapter extends RecyclerView.Adapter<DiseaseCategory
                 return new Pair<>(Constant.BLADDER, R.drawable.ic_bladder);
             if(disease_category.contains("大腸"))
                 return new Pair<>(Constant.RECTUM, R.drawable.ic_rectum);
+            if(disease_category.contains("腎臟"))
+                return new Pair<>(Constant.CKD, R.drawable.ic_kidney);
 
             return null;
         }
