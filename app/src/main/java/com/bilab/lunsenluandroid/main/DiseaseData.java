@@ -128,8 +128,8 @@ public class DiseaseData {
                     return _rectum_ICD9[i];
         }
         if(cancer.equals(Constant.CKD)) {
-            for(int i = 0; i < _CKD_ICD9.length; i++)
-                if(_CKD_ICD9[i].equals(name))
+            for(int i = 0; i < _CKD_diseases.length - 1; i++)
+                if(_CKD_diseases[i].equals(name))
                     return _CKD_ICD9[i];
         }
         // 無上述症狀返回-1
@@ -178,8 +178,8 @@ public class DiseaseData {
                     return new ArrayList<>(List.of(_rectum_ICD10[i]));
         }
         if(cancer.equals(Constant.CKD)) {
-            for(int i = 0; i < _CKD_ICD10.length; i++)
-                if(_CKD_ICD10[i][0].equals(name))
+            for(int i = 0; i < _CKD_diseases.length - 1; i++)
+                if(_CKD_diseases[i].equals(name))
                     return new ArrayList<>(List.of(_CKD_ICD10[i]));
         }
         // 無上述症狀返回-1
