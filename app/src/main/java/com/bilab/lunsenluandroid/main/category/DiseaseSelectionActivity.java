@@ -118,17 +118,6 @@ public class DiseaseSelectionActivity extends AppCompatActivity implements Check
         });
     }
 
-    private boolean noItemSelected() {
-        boolean isChecked = false;
-        for(int i = 0; i < rvAdapter.getItemCount(); i++) {
-            CheckBox chb = rv_disease.findViewHolderForAdapterPosition(i).itemView.findViewById(R.id.chb_disease_selection);
-            isChecked = chb.isChecked();
-            if(isChecked)
-                break;
-        }
-        return !isChecked;
-    }
-
     private void setupOnBackPressedDispatcher() {
         OnBackPressedCallback callback = new OnBackPressedCallback(true) {
             @Override
@@ -175,15 +164,41 @@ public class DiseaseSelectionActivity extends AppCompatActivity implements Check
     }
 
     private void resetNoneChb() {
+        RecyclerView.ViewHolder viewHolder = rv_disease.findViewHolderForAdapterPosition(rvAdapter.getItemCount() - 1);
+        if (viewHolder == null) {
+            // 如果 ViewHolder 尚未附加，跳過操作
+            return;
+        }
         CheckBox chb = rv_disease.findViewHolderForAdapterPosition(rvAdapter.getItemCount() - 1). itemView.findViewById(R.id.chb_disease_selection);
         chb.setChecked(false);
     }
 
     private void resetAllChb() {
         for(int i = 0; i < rvAdapter.getItemCount() - 1; i++) {
+            RecyclerView.ViewHolder viewHolder = rv_disease.findViewHolderForAdapterPosition(i);
+            if (viewHolder == null) {
+                // 如果 ViewHolder 尚未附加，跳過這次迭代
+                continue;
+            }
             CheckBox chb = rv_disease.findViewHolderForAdapterPosition(i).itemView.findViewById(R.id.chb_disease_selection);
             chb.setChecked(false);
         }
+    }
+
+    private boolean noItemSelected() {
+        boolean isChecked = false;
+        for(int i = 0; i < rvAdapter.getItemCount(); i++) {
+            RecyclerView.ViewHolder viewHolder = rv_disease.findViewHolderForAdapterPosition(i);
+            if (viewHolder == null) {
+                // 如果 ViewHolder 尚未附加，跳過這次迭代
+                continue;
+            }
+            CheckBox chb = rv_disease.findViewHolderForAdapterPosition(i).itemView.findViewById(R.id.chb_disease_selection);
+            isChecked = chb.isChecked();
+            if(isChecked)
+                break;
+        }
+        return !isChecked;
     }
 
     private void setupRv() {
