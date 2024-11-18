@@ -23,20 +23,40 @@ public class DiseaseData {
     private final String [] _ovary_diseases = {"卵巢良性腫瘤", "卵巢或輸卵管非發炎性疾病", "子宮內膜異位症", "子宮平滑肌瘤或其他良性腫瘤", "骨盆腔發炎（子宮、卵巢、輸卵管)", "無上述症狀"};
     private final String [] _bladder_diseases = {"泌尿道系統相關疾病", "腎結石或輸尿管結石", "膀胱發炎或相關疾病", "攝護腺（前列腺）肥大或相關疾病", "慢性腎衰竭", "腎絲球腎炎", "腎水腫", "無上述症狀"};
     private final String [] _rectum_diseases = {"腸和腹膜疾病、胃腸出血", "痔瘡", "胃或十二指腸等消化道潰瘍或功能性障礙", "消化系統良性腫瘤", "無上述症狀"};
-    private final String [] _CKD_diseases = {"囊性腎病變", "未特指腎病症候群", "移植器官和組織的併發症", "高血壓慢性腎病", "對支援機器和設備的依賴", "分類於其他地方的慢性疾病所引起的貧血", "個人惡性腫瘤史", "其他液體疾病", "礦物質代謝紊亂", "無上述症狀"};
+    private final String[] _CKD_diseases = {
+            "慢性腎絲球腎炎",
+            "其他貧血",
+            "痛風",
+            "心臟衰竭",
+            "侵及皮膚及其他外皮組織之徵候",
+            "高血壓性心臟病",
+            "糖尿病",
+            "本態性高血壓",
+            "視網膜及其他疾病",
+            "慢性肝病及肝硬化",
+            "其他形態之慢性缺血性心臟病",
+            "腎及輸尿管結石",
+            "類脂質代謝疾患",
+            "無上述症狀"
+    };
+
+
 
     private final String [] _uterus_ICD9 = {"621", "626", "218", "617", "285"};
     private final String [] _ovary_ICD9 = {"220", "620", "617", "218", "614"};
     private final String [] _bladder_ICD9 = {"599", "592", "595", "600", "585", "582", "591"};
     private final String [] _rectum_ICD9 = {"578", "455", "532", "211"};
-    private final String[] _CKD_ICD9 = {"753", "583", "996", "403", "V45", "285", "V10", "276", "275"};
+    private final String[] _CKD_ICD9 = {"582", "285", "274", "428", "782", "402", "250", "401", "362", "571", "414", "592", "272"};
+
+
 
 
     private final String [][] _uterus_ICD10 = {{"N840"}, {"N91", "N924"}, {"D250", "D260"}, {"N800"}, {"D461"}};
     private final String [][] _ovary_ICD10 = {{"D270", "D271", "D279"}, {"N830"}, {"N800"}, {"D250", "D260"}, {"N7001", "N7002", "N7003"}};    // D270, D271, D279 -> 左、右、其他位置卵巢良性腫瘤
     private final String [][] _bladder_ICD10 = {{"N390", "N23"}, {"N200"}, {"N3000", "N3001", "N320"}, {"N400", "N401", "N410"}, {"N184", "N185", "N186", "N189"}, {"N032"}, {"N1330"}};
     private final String [][] _rectum_ICD10 = {{"K920", "K561", "K5710", "K5900", "K602", "K610", "K611", "K67", "K660", "K620", "K621"}, {"K640", "K641", "K642", "K643"}, {"K260", "K5660", "K3183", "K5900", "K620", "K621"}, {"D130"}};
-    private final String[][] _CKD_ICD10 = {{"Q61"}, {"N05"}, {"T86"}, {"I12"}, {"Z99"}, {"D63"}, {"Z85"}, {"E87"}, {"E83"}};
+    private final String[][] _CKD_ICD10 = {{"N032"}, {"D461"}, {"M1A3521"}, {"I5040"}, {"R209"}, {"I119"}, {"E119"}, {"I10"}, {"E11349"}, {"K700"}, {"I25811"}, {"N200"}, {"E780"}};
+
 
     private final Map<String, Double> _uterus_ICD9_OR = new HashMap<>(Map.of(
             "621", 14.88213886,
@@ -67,17 +87,26 @@ public class DiseaseData {
             "532", 2.733588054,
             "211", 2.595223918
     ));
-    private final Map<String, Double> _CKD_ICD9_OR = new HashMap<>(Map.of(
-            "753", 38.78787879,
-            "583", 20.75675676,
-            "996", 16.84210526,
-            "403", 16.25806452,
-            "V45", 14.51428571,
-            "285", 14.51428571,
-            "V10", 5.426470588,
-            "276", 5.370879121,
-            "275", 5.067567568
-    ));
+    private final Map<String, Double> _CKD_ICD9_OR = new HashMap<>(16);
+    {
+        _CKD_ICD9_OR.put("582", 17.74438573);
+        _CKD_ICD9_OR.put("285", 3.65523032);
+        _CKD_ICD9_OR.put("274", 3.50680400);
+        _CKD_ICD9_OR.put("428", 3.36878217);
+        _CKD_ICD9_OR.put("782", 3.01965170);
+        _CKD_ICD9_OR.put("402", 2.79641930);
+        _CKD_ICD9_OR.put("250", 2.77372295);
+        _CKD_ICD9_OR.put("401", 2.46393427);
+        _CKD_ICD9_OR.put("362", 2.33140176);
+        _CKD_ICD9_OR.put("571", 2.30755251);
+        _CKD_ICD9_OR.put("414", 2.23592634);
+        _CKD_ICD9_OR.put("592", 2.18257934);
+        _CKD_ICD9_OR.put("272", 2.02898338);
+    }
+
+
+
+
 
 
     private Map<String, Map<String, Double>> _wCancerDiseases;
@@ -157,6 +186,7 @@ public class DiseaseData {
     }
 
     public ArrayList<String> getCancerICD10(String cancer, String name) {
+        Log.d("7894", "_CKD_diseases.length: " + _CKD_diseases.length);
         if(cancer.equals(Constant.UTERUS)) {
             for(int i = 0; i < _uterus_diseases.length - 1; i++)
                 if(_uterus_diseases[i].equals(name))
