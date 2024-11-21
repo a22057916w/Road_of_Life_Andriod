@@ -72,7 +72,7 @@ public class HealthPassActivity extends AppCompatActivity {
         Person person = Person.getInstance();
         DiseaseData diseasesData = DiseaseData.getInstance();
 
-        String[] cancers = {Constant.UTERUS, Constant.OVARY, Constant.BLADDER, Constant.RECTUM};
+        String[] cancers = {Constant.UTERUS, Constant.OVARY, Constant.BLADDER, Constant.RECTUM, Constant.CKD};
         String healthPass = jo_healthPass.toString();
 
         for (String cancer : cancers) {     // scan through each cancer
