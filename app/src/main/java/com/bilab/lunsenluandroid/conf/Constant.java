@@ -13,6 +13,7 @@ public class Constant {
     public static final String BLADDER = "BLADDER";
     public static final String RECTUM = "RECTUM";
     public static final String CKD = "CKD";
+    public static final String PREEMIE = "PREEMIE";
     public static final String NONE = "NONE";
 
     public static final int npos = -1;
