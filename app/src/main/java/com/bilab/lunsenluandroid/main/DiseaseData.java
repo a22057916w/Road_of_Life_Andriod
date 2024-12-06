@@ -203,7 +203,6 @@ public class DiseaseData {
     }
 
     public ArrayList<String> getCancerICD10(String cancer, String name) {
-        Log.d("7894", "_CKD_diseases.length: " + _CKD_diseases.length);
         if(cancer.equals(Constant.UTERUS)) {
             for(int i = 0; i < _uterus_diseases.length - 1; i++)
                 if(_uterus_diseases[i].equals(name))
