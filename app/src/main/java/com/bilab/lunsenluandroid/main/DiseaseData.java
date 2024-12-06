@@ -39,7 +39,7 @@ public class DiseaseData {
             "類脂質代謝疾患",
             "無上述症狀"
     };
-    private final String[] _preemie_diseases = {"多胎胎妊娠", "骨盆及器官及軟組織異常", "阻礙性分娩", "其他產程創傷"};
+    private final String[] _preemie_diseases = {"多胎胎妊娠", "骨盆及器官及軟組織異常", "阻礙性分娩", "其他產程創傷", "無上述症狀"};
 
 
 
