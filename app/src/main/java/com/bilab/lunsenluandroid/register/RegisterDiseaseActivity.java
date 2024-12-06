@@ -100,7 +100,7 @@ public class RegisterDiseaseActivity extends AppCompatActivity implements CheckB
         if(cancer.equals(Constant.CKD))
             tv_title.setText(R.string.kidney_diseases);
         if(cancer.equals(Constant.PREEMIE))
-            tv_title.setText(R.string.preemie_disease);
+            tv_title.setText(R.string.preemie_diseases);
     }
 
     private void setupButton() {

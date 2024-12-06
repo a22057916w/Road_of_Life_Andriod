@@ -205,5 +205,5 @@
     <string name="label_disclaimer">本APP的評估項目會受到其他 因素影響，評估結果並不能代表您未來一定會或一定不會罹患特定疾病。</string>
     <string name="title_activity_person_data">PersonDataActivity</string>
     <string name="kidney_diseases">腎臟相關疾病</string>
-    <string name="preemie_disease">早產相關疾病</string>
+    <string name="preemie_diseases">早產相關疾病</string>
 </resources>
