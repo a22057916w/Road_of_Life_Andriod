@@ -57,6 +57,7 @@ public class DiseaseCategoryFragment extends Fragment {
             diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.bladder_disease), R.drawable.ic_bladder));
             diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.return_diseases), R.drawable.ic_rectum));
             diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.kidney_diseases), R.drawable.ic_kidney));
+            diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.preemie_diseases), R.drawable.ic_preemie));
         }
 
         // Initializing adapter class and passing arraylist to it.

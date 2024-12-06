@@ -99,6 +99,8 @@ public class DiseaseSelectionActivity extends AppCompatActivity implements Check
             tv_title.setText(R.string.return_diseases);
         if(cancer.equals((Constant.CKD)))
             tv_title.setText(R.string.kidney_diseases);
+        if(cancer.equals(Constant.PREEMIE))
+            tv_title.setText(getString(R.string.preemie_diseases));
     }
 
     private void setupButton() {
