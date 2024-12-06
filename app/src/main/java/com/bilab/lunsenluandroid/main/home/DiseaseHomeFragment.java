@@ -44,8 +44,6 @@ public class DiseaseHomeFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
         setupOnBackPressedDispatcher();
-
-        setupUI();
         loadConfig();
 
         RecyclerView rv_disease = root.findViewById(R.id.rv_disease_home);
@@ -101,15 +99,6 @@ public class DiseaseHomeFragment extends Fragment {
 
 
         return root;
-    }
-
-    private void setupUI() {
-        Person person = Person.getInstance();
-
-        if(!person.isHealth()) {
-            tv_notify.setVisibility(View.GONE);
-            imv_notify.setVisibility(View.GONE);
-        }
     }
 
     private void setupOnBackPressedDispatcher() {
