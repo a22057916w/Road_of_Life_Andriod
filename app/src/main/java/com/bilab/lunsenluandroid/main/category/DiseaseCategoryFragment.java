@@ -49,14 +49,14 @@ public class DiseaseCategoryFragment extends Fragment {
         if(Person.getInstance().getGender().equals(Constant.MALE)) {
             diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.bladder_disease), R.drawable.ic_bladder));
             diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.return_diseases), R.drawable.ic_rectum));
-            diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.kidney_diseases), R.drawable.ic_kidney));
+            diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.kidney_diseases), R.drawable.ic_kidney_or_dkd));
         }
         else {
             diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.uterus_diseases), R.drawable.ic_uterus));
             diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.ovary_diseases), R.drawable.ic_ovary));
             diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.bladder_disease), R.drawable.ic_bladder));
             diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.return_diseases), R.drawable.ic_rectum));
-            diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.kidney_diseases), R.drawable.ic_kidney));
+            diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.kidney_diseases), R.drawable.ic_kidney_or_dkd));
             diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.preemie_diseases), R.drawable.ic_preemie));
         }
 
