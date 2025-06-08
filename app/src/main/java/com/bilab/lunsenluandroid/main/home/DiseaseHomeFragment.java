@@ -105,7 +105,7 @@ public class DiseaseHomeFragment extends Fragment {
             @Override
             public void handleOnBackPressed() {
                 Intent openRegisterDiseaseIntent = new Intent(getContext(), RegisterDiseaseActivity.class);
-                openRegisterDiseaseIntent.putExtra(Constant.EXTRA_INDEX, 3);
+                openRegisterDiseaseIntent.putExtra(Constant.EXTRA_INDEX, 5);
                 startActivity(openRegisterDiseaseIntent);
                 getActivity().finish();
             }
