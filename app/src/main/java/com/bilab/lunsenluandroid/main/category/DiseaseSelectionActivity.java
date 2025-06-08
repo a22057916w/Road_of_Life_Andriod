@@ -98,7 +98,7 @@ public class DiseaseSelectionActivity extends AppCompatActivity implements Check
         if(cancer.equals(Constant.RECTUM))
             tv_title.setText(R.string.return_diseases);
         if(cancer.equals((Constant.CKD)))
-            tv_title.setText(R.string.kidney_diseases);
+            tv_title.setText("糖尿病腎病變相關疾病");
         if(cancer.equals(Constant.PREEMIE))
             tv_title.setText(getString(R.string.preemie_diseases));
     }

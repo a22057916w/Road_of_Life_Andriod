@@ -87,7 +87,7 @@ public class DiseaseHomeFragment extends Fragment {
         // Setting LayoutManager and adapter to recycler view.
         rv_disease.setLayoutManager(linearLayoutManager);
         rv_disease.setAdapter(diseaseHomeAdapter);
-       
+
 
         // test ICD
         ArrayList<Disease> diseases = person.getAllDiseaseCopy();
