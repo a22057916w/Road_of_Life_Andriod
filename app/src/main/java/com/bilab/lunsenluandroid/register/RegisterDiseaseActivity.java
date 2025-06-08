@@ -40,8 +40,8 @@ public class RegisterDiseaseActivity extends AppCompatActivity implements CheckB
 
     private DiseaseSelectionAdapter rvAdapter;
 
-    private final String [] category = {Constant.UTERUS, Constant.OVARY, Constant.BLADDER, Constant.RECTUM, Constant.DKD, Constant.PREEMIE};
-    private final Integer [] ctg_icon = {R.drawable.ic_uterus, R.drawable.ic_ovary, R.drawable.ic_bladder, R.drawable.ic_rectum, R.drawable.ic_kidney_or_dkd, R.drawable.ic_preemie};
+    private final String [] category = {Constant.UTERUS, Constant.OVARY, Constant.PREEMIE, Constant.BLADDER, Constant.RECTUM, Constant.DKD};
+    private final Integer [] ctg_icon = {R.drawable.ic_uterus, R.drawable.ic_ovary, R.drawable.ic_preemie, R.drawable.ic_bladder, R.drawable.ic_rectum, R.drawable.ic_kidney_or_dkd};
     private int ctg_index;
 
     private OnBackPressedCallback onBackPressedCallback;    // handle the backPress button event
@@ -93,14 +93,14 @@ public class RegisterDiseaseActivity extends AppCompatActivity implements CheckB
             tv_title.setText(R.string.uterus_diseases);
         if(cancer.equals(Constant.OVARY))
             tv_title.setText(R.string.ovary_diseases);
+        if(cancer.equals(Constant.PREEMIE))
+            tv_title.setText(R.string.preemie_diseases);
         if(cancer.equals(Constant.BLADDER))
             tv_title.setText(R.string.bladder_disease);
         if(cancer.equals(Constant.RECTUM))
             tv_title.setText(R.string.return_diseases);
         if(cancer.equals(Constant.DKD))
             tv_title.setText("糖尿病腎病變相關疾病");
-        if(cancer.equals(Constant.PREEMIE))
-            tv_title.setText(R.string.preemie_diseases);
     }
 
     private void setupButton() {
@@ -143,7 +143,7 @@ public class RegisterDiseaseActivity extends AppCompatActivity implements CheckB
             @Override
             public void handleOnBackPressed() {
                 if(Person.getInstance().getGender().equals(Constant.MALE)) {
-                    if(ctg_index <= 2) {    // go back to RegisterActivity
+                    if(ctg_index <= 3) {    // go back to RegisterActivity
                         Intent openMainIntent = new Intent(RegisterDiseaseActivity.this, RegisterActivity.class);
                         startActivity(openMainIntent);
                         finish();
