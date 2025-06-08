@@ -18,7 +18,7 @@ import java.util.Properties;
 
 public class DiseaseData {
     private static DiseaseData _instance;
-    private final String [] _cancers = {Constant.UTERUS, Constant.OVARY, Constant.BLADDER, Constant.RECTUM, Constant.CKD, Constant.PREEMIE};
+    private final String [] _cancers = {Constant.UTERUS, Constant.OVARY, Constant.BLADDER, Constant.RECTUM, Constant.CKD, Constant.PREEMIE, Constant.DKD};
     private final String [] _uterus_diseases = {"子宮相關疾病", "月經失調或女性生殖道異常出血", "子宮平滑肌瘤或其他良性腫瘤", "子宮內膜異位症", "貧血症狀", "無上述症狀"};
     private final String [] _ovary_diseases = {"卵巢良性腫瘤", "卵巢或輸卵管非發炎性疾病", "子宮內膜異位症", "子宮平滑肌瘤或其他良性腫瘤", "骨盆腔發炎（子宮、卵巢、輸卵管)", "無上述症狀"};
     private final String [] _bladder_diseases = {"泌尿道系統相關疾病", "腎結石或輸尿管結石", "膀胱發炎或相關疾病", "攝護腺（前列腺）肥大或相關疾病", "慢性腎衰竭", "腎絲球腎炎", "腎水腫", "無上述症狀"};
@@ -40,7 +40,7 @@ public class DiseaseData {
             "無上述症狀"
     };
     private final String[] _preemie_diseases = {"多胎胎妊娠", "骨盆及器官及軟組織異常", "阻礙性分娩", "其他產程創傷", "無上述症狀"};
-
+    private final String[] _DKD_diseases = {"視網膜之其他疾患", "類脂質代謝疾患", "高血壓性心臟病", "本態性高血壓", "其他形態之慢性缺血性心臟病"};
 
 
     private final String [] _uterus_ICD9 = {"621", "626", "218", "617", "285"};
@@ -49,7 +49,7 @@ public class DiseaseData {
     private final String [] _rectum_ICD9 = {"578", "455", "532", "211"};
     private final String[] _CKD_ICD9 = {"582", "285", "274", "428", "782", "402", "250", "401", "362", "571", "414", "592", "272"};
     private final String[] _preemie_ICD9 = {"651", "654", "660", "665"};
-
+    private final String[] _DKD_ICD9 = {"362", "272", "402", "401", "414", "571", "782", "274", "366", "628"};
 
 
     private final String [][] _uterus_ICD10 = {{"N840"}, {"N91", "N924"}, {"D250", "D260"}, {"N800"}, {"D461"}};
@@ -58,6 +58,19 @@ public class DiseaseData {
     private final String [][] _rectum_ICD10 = {{"K920", "K561", "K5710", "K5900", "K602", "K610", "K611", "K67", "K660", "K620", "K621"}, {"K640", "K641", "K642", "K643"}, {"K260", "K5660", "K3183", "K5900", "K620", "K621"}, {"D130"}};
     private final String[][] _CKD_ICD10 = {{"N032"}, {"D461"}, {"M1A3521"}, {"I5040"}, {"R209"}, {"I119"}, {"E119", "E1122"}, {"I10"}, {"E11349"}, {"K700"}, {"I25811"}, {"N200"}, {"E780"}};
     private final String[][] _preemie_ICD10 = {{"O30009", "O30019", "O30099"}, {"O3400"}, {"O649XX0"}, {"O7100"}};
+    private final String[][] _DKD_ICD10 = {
+            {"E11311", "E11319", "E11321", "E11329", "E11331", "E11339", "E11341", "E11349", "E11351", "E11359"},   // 362
+            {"E780"},
+            {"I119"},
+            {"I10"},
+            {"I2510", "I25750", "I25751", "I25758", "I25759", "I25760", "I25761", "I25768", "I25769", "I25811", "I25812"},  // 414
+            {"K700"},
+            {"R200", "R201", "R202", "R203", "R208", "R209"},   // 782
+            {"M1000"},  // icd9-274 has total 232 icd10 code (need database)
+            {"H26001", "H26002", "H26003", "H26009"},   // 366
+            {"K122", "L0201", "L03211", "L03212"}
+
+    };
 
     private final Map<String, Double> _uterus_ICD9_OR = new HashMap<>(Map.of(
             "621", 14.88213886,
@@ -110,7 +123,18 @@ public class DiseaseData {
             "660", 13.78691,
             "665", 10.54598
     ));
-
+    private final Map<String, Double> _DKD_ICD9_OR = new HashMap<>(Map.of(
+            "362", 7.146205206,
+            "272", 4.360902339,
+            "402", 4.067713144,
+            "401", 3.469819913,
+            "414", 3.022614885,
+            "571", 2.661819534,
+            "782", 2.566195556,
+            "274", 2.470995713,
+            "366", 2.158486901,
+            "682", 2.081902885
+            ));
 
 
 
@@ -141,6 +165,8 @@ public class DiseaseData {
             return new ArrayList<>(List.of(_CKD_diseases));
         if(cancer.equals(Constant.PREEMIE))
             return new ArrayList<>(List.of(_preemie_diseases));
+        if(cancer.equals(Constant.DKD))
+            return new ArrayList<>(List.of(_DKD_diseases));
         return null;
     }
 
@@ -175,6 +201,11 @@ public class DiseaseData {
                 if(_preemie_diseases[i].equals(name))
                     return _preemie_ICD9[i];
         }
+        if(cancer.equals(Constant.DKD)) {
+            for (int i = 0; i < _DKD_diseases.length - 1; i++)
+                if (_DKD_diseases[i].equals(name))
+                    return _DKD_ICD9[i];
+        }
         // 無上述症狀返回-1
         return "-1";
     }
@@ -197,6 +228,9 @@ public class DiseaseData {
         }
         if(cancer.equals(Constant.PREEMIE)) {
             return _preemie_ICD9;
+        }
+        if(cancer.equals(Constant.DKD)) {
+            return _DKD_ICD9;
         }
         // 無上述症狀返回0
         return new String[]{"-1"};
@@ -233,6 +267,11 @@ public class DiseaseData {
                 if(_preemie_diseases[i].equals(name))
                     return new ArrayList<>(List.of(_preemie_ICD10[i]));
         }
+        if(cancer.equals(Constant.DKD)) {
+            for(int i = 0; i < _DKD_diseases.length - 1; i++)
+                if(_DKD_diseases[i].equals(name))
+                    return new ArrayList<>(List.of(_DKD_ICD10[i]));
+        }
         // 無上述症狀返回-1
         return new ArrayList<>(List.of("-1"));
     }
@@ -256,6 +295,9 @@ public class DiseaseData {
         if(cancer.equals(Constant.PREEMIE)) {
             return _preemie_ICD10;
         }
+        if(cancer.equals(Constant.DKD)) {
+            return _DKD_ICD10;
+        }
         // 無上述症狀返回0
         return new String[][]{new String[]{"0"}};
     }
@@ -278,6 +320,9 @@ public class DiseaseData {
         }
         if(cancer.equals(Constant.PREEMIE)) {
             return _preemie_ICD9_OR.get(icd9);
+        }
+        if(cancer.equals(Constant.DKD)) {
+            return _DKD_ICD9_OR.get(icd9);
         }
         // 無上述症狀返回-1
         return -1.0D;
