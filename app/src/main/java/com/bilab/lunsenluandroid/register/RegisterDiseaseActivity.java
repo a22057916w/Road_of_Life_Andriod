@@ -40,8 +40,8 @@ public class RegisterDiseaseActivity extends AppCompatActivity implements CheckB
 
     private DiseaseSelectionAdapter rvAdapter;
 
-    private final String [] category = {Constant.UTERUS, Constant.OVARY, Constant.BLADDER, Constant.RECTUM, Constant.CKD, Constant.PREEMIE};
-    private final Integer [] ctg_icon = {R.drawable.ic_uterus, R.drawable.ic_ovary, R.drawable.ic_bladder, R.drawable.ic_rectum, R.drawable.ic_kidney, R.drawable.ic_preemie};
+    private final String [] category = {Constant.UTERUS, Constant.OVARY, Constant.BLADDER, Constant.RECTUM, Constant.DKD, Constant.PREEMIE};
+    private final Integer [] ctg_icon = {R.drawable.ic_uterus, R.drawable.ic_ovary, R.drawable.ic_bladder, R.drawable.ic_rectum, R.drawable.ic_kidney_or_dkd, R.drawable.ic_preemie};
     private int ctg_index;
 
     private OnBackPressedCallback onBackPressedCallback;    // handle the backPress button event
@@ -97,8 +97,8 @@ public class RegisterDiseaseActivity extends AppCompatActivity implements CheckB
             tv_title.setText(R.string.bladder_disease);
         if(cancer.equals(Constant.RECTUM))
             tv_title.setText(R.string.return_diseases);
-        if(cancer.equals(Constant.CKD))
-            tv_title.setText(R.string.kidney_diseases);
+        if(cancer.equals(Constant.DKD))
+            tv_title.setText("糖尿病腎病變相關疾病");
         if(cancer.equals(Constant.PREEMIE))
             tv_title.setText(R.string.preemie_diseases);
     }
