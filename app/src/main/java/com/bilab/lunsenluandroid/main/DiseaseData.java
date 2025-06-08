@@ -23,41 +23,26 @@ public class DiseaseData {
     private final String [] _ovary_diseases = {"卵巢良性腫瘤", "卵巢或輸卵管非發炎性疾病", "子宮內膜異位症", "子宮平滑肌瘤或其他良性腫瘤", "骨盆腔發炎（子宮、卵巢、輸卵管)", "無上述症狀"};
     private final String [] _bladder_diseases = {"泌尿道系統相關疾病", "腎結石或輸尿管結石", "膀胱發炎或相關疾病", "攝護腺（前列腺）肥大或相關疾病", "慢性腎衰竭", "腎絲球腎炎", "腎水腫", "無上述症狀"};
     private final String [] _rectum_diseases = {"腸和腹膜疾病、胃腸出血", "痔瘡", "胃或十二指腸等消化道潰瘍或功能性障礙", "消化系統良性腫瘤", "無上述症狀"};
-    private final String[] _CKD_diseases = {
-            "慢性腎絲球腎炎",
-            "其他貧血",
-            "痛風",
-            "心臟衰竭",
-            "侵及皮膚及其他外皮組織之徵候",
-            "高血壓性心臟病",
-            "糖尿病",
-            "本態性高血壓",
-            "視網膜及其他疾病",
-            "慢性肝病及肝硬化",
-            "其他形態之慢性缺血性心臟病",
-            "腎及輸尿管結石",
-            "類脂質代謝疾患",
-            "無上述症狀"
-    };
+    private final String[] _DKD_diseases = {"視網膜之其他疾患", "類脂質代謝疾患", "高血壓性心臟病", "本態性高血壓", "其他形態之慢性缺血性心臟病", "慢性肝病及肝硬化", "侵及皮膚及其他外皮組織之徵候", "痛風", "白內障", "其他蜂窩組織炎及膿瘍", "無上述症狀"};
     private final String[] _preemie_diseases = {"多胎胎妊娠", "骨盆及器官及軟組織異常", "阻礙性分娩", "其他產程創傷", "無上述症狀"};
-    private final String[] _DKD_diseases = {"視網膜之其他疾患", "類脂質代謝疾患", "高血壓性心臟病", "本態性高血壓", "其他形態之慢性缺血性心臟病"};
+
+
 
 
     private final String [] _uterus_ICD9 = {"621", "626", "218", "617", "285"};
     private final String [] _ovary_ICD9 = {"220", "620", "617", "218", "614"};
     private final String [] _bladder_ICD9 = {"599", "592", "595", "600", "585", "582", "591"};
     private final String [] _rectum_ICD9 = {"578", "455", "532", "211"};
-    private final String[] _CKD_ICD9 = {"582", "285", "274", "428", "782", "402", "250", "401", "362", "571", "414", "592", "272"};
-    private final String[] _preemie_ICD9 = {"651", "654", "660", "665"};
     private final String[] _DKD_ICD9 = {"362", "272", "402", "401", "414", "571", "782", "274", "366", "628"};
+    private final String[] _preemie_ICD9 = {"651", "654", "660", "665"};
+
+
 
 
     private final String [][] _uterus_ICD10 = {{"N840"}, {"N91", "N924"}, {"D250", "D260"}, {"N800"}, {"D461"}};
     private final String [][] _ovary_ICD10 = {{"D270", "D271", "D279"}, {"N830"}, {"N800"}, {"D250", "D260"}, {"N7001", "N7002", "N7003"}};    // D270, D271, D279 -> 左、右、其他位置卵巢良性腫瘤
     private final String [][] _bladder_ICD10 = {{"N390", "N23"}, {"N200"}, {"N3000", "N3001", "N320"}, {"N400", "N401", "N410"}, {"N184", "N185", "N186", "N189"}, {"N032"}, {"N1330"}};
     private final String [][] _rectum_ICD10 = {{"K920", "K561", "K5710", "K5900", "K602", "K610", "K611", "K67", "K660", "K620", "K621"}, {"K640", "K641", "K642", "K643"}, {"K260", "K5660", "K3183", "K5900", "K620", "K621"}, {"D130"}};
-    private final String[][] _CKD_ICD10 = {{"N032"}, {"D461"}, {"M1A3521"}, {"I5040"}, {"R209"}, {"I119"}, {"E119", "E1122"}, {"I10"}, {"E11349"}, {"K700"}, {"I25811"}, {"N200"}, {"E780"}};
-    private final String[][] _preemie_ICD10 = {{"O30009", "O30019", "O30099"}, {"O3400"}, {"O649XX0"}, {"O7100"}};
     private final String[][] _DKD_ICD10 = {
             {"E11311", "E11319", "E11321", "E11329", "E11331", "E11339", "E11341", "E11349", "E11351", "E11359"},   // 362
             {"E780"},
@@ -70,7 +55,10 @@ public class DiseaseData {
             {"H26001", "H26002", "H26003", "H26009"},   // 366
             {"K122", "L0201", "L03211", "L03212"}
 
-    };
+    };    private final String[][] _preemie_ICD10 = {{"O30009", "O30019", "O30099"}, {"O3400"}, {"O649XX0"}, {"O7100"}};
+
+
+
 
     private final Map<String, Double> _uterus_ICD9_OR = new HashMap<>(Map.of(
             "621", 14.88213886,
@@ -101,28 +89,6 @@ public class DiseaseData {
             "532", 2.733588054,
             "211", 2.595223918
     ));
-    private final Map<String, Double> _CKD_ICD9_OR = new HashMap<>(16);
-    {
-        _CKD_ICD9_OR.put("582", 17.74438573);
-        _CKD_ICD9_OR.put("285", 3.65523032);
-        _CKD_ICD9_OR.put("274", 3.50680400);
-        _CKD_ICD9_OR.put("428", 3.36878217);
-        _CKD_ICD9_OR.put("782", 3.01965170);
-        _CKD_ICD9_OR.put("402", 2.79641930);
-        _CKD_ICD9_OR.put("250", 2.77372295);
-        _CKD_ICD9_OR.put("401", 2.46393427);
-        _CKD_ICD9_OR.put("362", 2.33140176);
-        _CKD_ICD9_OR.put("571", 2.30755251);
-        _CKD_ICD9_OR.put("414", 2.23592634);
-        _CKD_ICD9_OR.put("592", 2.18257934);
-        _CKD_ICD9_OR.put("272", 2.02898338);
-    }
-    private final Map<String, Double> _preemie_ICD9_OR = new HashMap<>(Map.of(
-            "651", 47.08643,
-            "654", 20.07121,
-            "660", 13.78691,
-            "665", 10.54598
-    ));
     private final Map<String, Double> _DKD_ICD9_OR = new HashMap<>(Map.of(
             "362", 7.146205206,
             "272", 4.360902339,
@@ -134,7 +100,13 @@ public class DiseaseData {
             "274", 2.470995713,
             "366", 2.158486901,
             "682", 2.081902885
-            ));
+    ));
+    private final Map<String, Double> _preemie_ICD9_OR = new HashMap<>(Map.of(
+            "651", 47.08643,
+            "654", 20.07121,
+            "660", 13.78691,
+            "665", 10.54598
+    ));
 
 
 
@@ -161,12 +133,11 @@ public class DiseaseData {
             return new ArrayList<>(List.of(_bladder_diseases));
         if(cancer.equals(Constant.RECTUM))
             return new ArrayList<>(List.of(_rectum_diseases));
-        if(cancer.equals(Constant.CKD))
-            return new ArrayList<>(List.of(_CKD_diseases));
-        if(cancer.equals(Constant.PREEMIE))
-            return new ArrayList<>(List.of(_preemie_diseases));
         if(cancer.equals(Constant.DKD))
             return new ArrayList<>(List.of(_DKD_diseases));
+        if(cancer.equals(Constant.PREEMIE))
+            return new ArrayList<>(List.of(_preemie_diseases));
+
         return null;
     }
 
@@ -191,20 +162,15 @@ public class DiseaseData {
                 if(_rectum_diseases[i].equals(name))
                     return _rectum_ICD9[i];
         }
-        if(cancer.equals(Constant.CKD)) {
-            for(int i = 0; i < _CKD_diseases.length - 1; i++)
-                if(_CKD_diseases[i].equals(name))
-                    return _CKD_ICD9[i];
+        if(cancer.equals(Constant.DKD)) {
+            for (int i = 0; i < _DKD_diseases.length - 1; i++)
+                if (_DKD_diseases[i].equals(name))
+                    return _DKD_ICD9[i];
         }
         if(cancer.equals(Constant.PREEMIE)) {
             for(int i = 0; i < _preemie_diseases.length - 1; i++)
                 if(_preemie_diseases[i].equals(name))
                     return _preemie_ICD9[i];
-        }
-        if(cancer.equals(Constant.DKD)) {
-            for (int i = 0; i < _DKD_diseases.length - 1; i++)
-                if (_DKD_diseases[i].equals(name))
-                    return _DKD_ICD9[i];
         }
         // 無上述症狀返回-1
         return "-1";
@@ -223,14 +189,11 @@ public class DiseaseData {
         if(cancer.equals(Constant.RECTUM)) {
             return _rectum_ICD9;
         }
-        if(cancer.equals(Constant.CKD)) {
-            return _CKD_ICD9;
+        if(cancer.equals(Constant.DKD)) {
+            return _DKD_ICD9;
         }
         if(cancer.equals(Constant.PREEMIE)) {
             return _preemie_ICD9;
-        }
-        if(cancer.equals(Constant.DKD)) {
-            return _DKD_ICD9;
         }
         // 無上述症狀返回0
         return new String[]{"-1"};
@@ -257,20 +220,15 @@ public class DiseaseData {
                 if(_rectum_diseases[i].equals(name))
                     return new ArrayList<>(List.of(_rectum_ICD10[i]));
         }
-        if(cancer.equals(Constant.CKD)) {
-            for(int i = 0; i < _CKD_diseases.length - 1; i++)
-                if(_CKD_diseases[i].equals(name))
-                    return new ArrayList<>(List.of(_CKD_ICD10[i]));
+        if(cancer.equals(Constant.DKD)) {
+            for(int i = 0; i < _DKD_diseases.length - 1; i++)
+                if(_DKD_diseases[i].equals(name))
+                    return new ArrayList<>(List.of(_DKD_ICD10[i]));
         }
         if(cancer.equals(Constant.PREEMIE)) {
             for(int i = 0; i < _preemie_diseases.length - 1; i++)
                 if(_preemie_diseases[i].equals(name))
                     return new ArrayList<>(List.of(_preemie_ICD10[i]));
-        }
-        if(cancer.equals(Constant.DKD)) {
-            for(int i = 0; i < _DKD_diseases.length - 1; i++)
-                if(_DKD_diseases[i].equals(name))
-                    return new ArrayList<>(List.of(_DKD_ICD10[i]));
         }
         // 無上述症狀返回-1
         return new ArrayList<>(List.of("-1"));
@@ -289,14 +247,11 @@ public class DiseaseData {
         if(cancer.equals(Constant.RECTUM)) {
             return _rectum_ICD10;
         }
-        if(cancer.equals(Constant.CKD)) {
-            return _CKD_ICD10;
+        if(cancer.equals(Constant.DKD)) {
+            return _DKD_ICD10;
         }
         if(cancer.equals(Constant.PREEMIE)) {
             return _preemie_ICD10;
-        }
-        if(cancer.equals(Constant.DKD)) {
-            return _DKD_ICD10;
         }
         // 無上述症狀返回0
         return new String[][]{new String[]{"0"}};
@@ -315,14 +270,11 @@ public class DiseaseData {
         if(cancer.equals(Constant.RECTUM)) {
             return _rectum_ICD9_OR.get(icd9);
         }
-        if(cancer.equals(Constant.CKD)) {
-            return _CKD_ICD9_OR.get(icd9);
+        if(cancer.equals(Constant.DKD)) {
+            return _DKD_ICD9_OR.get(icd9);
         }
         if(cancer.equals(Constant.PREEMIE)) {
             return _preemie_ICD9_OR.get(icd9);
-        }
-        if(cancer.equals(Constant.DKD)) {
-            return _DKD_ICD9_OR.get(icd9);
         }
         // 無上述症狀返回-1
         return -1.0D;
