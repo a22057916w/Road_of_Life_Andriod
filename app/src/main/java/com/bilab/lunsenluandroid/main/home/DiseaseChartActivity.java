@@ -123,8 +123,8 @@ public class DiseaseChartActivity extends AppCompatActivity {
             tv_cancer.setText(String.format("%s - 共病風險分析", "膀胱癌"));
         else if(_cancer.equals(Constant.RECTUM))
             tv_cancer.setText(String.format("%s - 共病風險分析", "大腸癌"));
-        else if(_cancer.equals(Constant.CKD))
-            tv_cancer.setText(String.format("%s - 共病風險分析", "慢性腎衰竭"));
+        else if(_cancer.equals(Constant.DKD))
+            tv_cancer.setText(String.format("%s - 共病風險分析", "糖尿病腎病變"));
         else
             tv_cancer.setText(Constant.NONE);
     }
