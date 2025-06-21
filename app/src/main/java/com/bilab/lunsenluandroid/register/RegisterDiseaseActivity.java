@@ -57,7 +57,7 @@ public class RegisterDiseaseActivity extends AppCompatActivity implements CheckB
             throw new NullPointerException();
         }
 
-        setupOnBackPressedDispatcher();
+//        setupOnBackPressedDispatcher();
 
         Log.d("RDDDD", "category.length: " + category.length);
 
@@ -138,40 +138,40 @@ public class RegisterDiseaseActivity extends AppCompatActivity implements CheckB
     }
 
 
-    private void setupOnBackPressedDispatcher() {
-        onBackPressedCallback = new OnBackPressedCallback(true) {
-            @Override
-            public void handleOnBackPressed() {
-                if(Person.getInstance().getGender().equals(Constant.MALE)) {
-                    if(ctg_index <= 3) {    // go back to RegisterActivity
-                        Intent openMainIntent = new Intent(RegisterDiseaseActivity.this, RegisterActivity.class);
-                        startActivity(openMainIntent);
-                        finish();
-                    }
-                    else {                  // go back to itself (RegisterDiseaseActivity)
-                        Intent restartIntent = new Intent(RegisterDiseaseActivity.this, RegisterDiseaseActivity.class);
-                        restartIntent.putExtra(Constant.EXTRA_INDEX, --ctg_index);
-                        startActivity(restartIntent);
-                    }
-                }
-                else {
-                    if(ctg_index <= 0) {    // go back to RegisterActivity
-                        Intent openMainIntent = new Intent(RegisterDiseaseActivity.this, RegisterActivity.class);
-                        startActivity(openMainIntent);
-                        finish();
-                    }
-                    else {                  // go back to itself (RegisterDiseaseActivity)
-                        Intent restartIntent = new Intent(RegisterDiseaseActivity.this, RegisterDiseaseActivity.class);
-                        restartIntent.putExtra(Constant.EXTRA_INDEX, --ctg_index);
-                        startActivity(restartIntent);
-                    }
-                }
-
-            }
-        };
-
-        getOnBackPressedDispatcher().addCallback(this, onBackPressedCallback);
-    }
+//    private void setupOnBackPressedDispatcher() {
+//        onBackPressedCallback = new OnBackPressedCallback(true) {
+//            @Override
+//            public void handleOnBackPressed() {
+//                if(Person.getInstance().getGender().equals(Constant.MALE)) {
+//                    if(ctg_index <= 3) {    // go back to RegisterActivity
+//                        Intent openMainIntent = new Intent(RegisterDiseaseActivity.this, RegisterActivity.class);
+//                        startActivity(openMainIntent);
+//                        finish();
+//                    }
+//                    else {                  // go back to itself (RegisterDiseaseActivity)
+//                        Intent restartIntent = new Intent(RegisterDiseaseActivity.this, RegisterDiseaseActivity.class);
+//                        restartIntent.putExtra(Constant.EXTRA_INDEX, --ctg_index);
+//                        startActivity(restartIntent);
+//                    }
+//                }
+//                else {
+//                    if(ctg_index <= 0) {    // go back to RegisterActivity
+//                        Intent openMainIntent = new Intent(RegisterDiseaseActivity.this, RegisterActivity.class);
+//                        startActivity(openMainIntent);
+//                        finish();
+//                    }
+//                    else {                  // go back to itself (RegisterDiseaseActivity)
+//                        Intent restartIntent = new Intent(RegisterDiseaseActivity.this, RegisterDiseaseActivity.class);
+//                        restartIntent.putExtra(Constant.EXTRA_INDEX, --ctg_index);
+//                        startActivity(restartIntent);
+//                    }
+//                }
+//
+//            }
+//        };
+//
+//        getOnBackPressedDispatcher().addCallback(this, onBackPressedCallback);
+//    }
 
     @Override
     public void onAdapterButtonClick(int position) {

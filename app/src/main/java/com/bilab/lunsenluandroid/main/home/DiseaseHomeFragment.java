@@ -52,7 +52,7 @@ public class DiseaseHomeFragment extends Fragment {
 
         String [] cancer = {Constant.UTERUS, Constant.OVARY, Constant.BLADDER, Constant.RECTUM, Constant.DKD, Constant.PREEMIE};
         String [] text = new String[6];
-        for(int i = 0 ; i < cancer.length; i++) {
+        for(int i = 4 ; i < cancer.length-1; i++) {     // 改成只顯示DKD
             Double pRisk = person.getRisk(cancer[i]);
             if (pRisk <= 50.0D)
                 text[i] = "低風險";
@@ -67,17 +67,17 @@ public class DiseaseHomeFragment extends Fragment {
         ArrayList<DiseaseHomeModel> diseaseHomeModelArrayList = new ArrayList<DiseaseHomeModel>();
 
         if(person.getGender().equals(Constant.MALE)) {
-            diseaseHomeModelArrayList.add(new DiseaseHomeModel("膀胱癌", "膀胱癌是泌尿系統常見的惡性疾病之一，較常侵犯60歲以上男性，男與女的比例大約是2.7：1。", text[2], R.drawable.ic_bladder, Constant.BLADDER));
-            diseaseHomeModelArrayList.add(new DiseaseHomeModel("大腸癌", "自95年起大腸癌居全國癌症發生數第1位，每年約有一萬多人診斷大腸癌，並有超過五千人因大腸癌死亡，大腸癌對國人健康的影響甚鉅。", text[3], R.drawable.ic_rectum, Constant.RECTUM));
+//            diseaseHomeModelArrayList.add(new DiseaseHomeModel("膀胱癌", "膀胱癌是泌尿系統常見的惡性疾病之一，較常侵犯60歲以上男性，男與女的比例大約是2.7：1。", text[2], R.drawable.ic_bladder, Constant.BLADDER));
+//            diseaseHomeModelArrayList.add(new DiseaseHomeModel("大腸癌", "自95年起大腸癌居全國癌症發生數第1位，每年約有一萬多人診斷大腸癌，並有超過五千人因大腸癌死亡，大腸癌對國人健康的影響甚鉅。", text[3], R.drawable.ic_rectum, Constant.RECTUM));
             diseaseHomeModelArrayList.add(new DiseaseHomeModel("糖尿病腎病變", "糖尿病腎病變，又稱糖尿病性腎病，是指因糖尿病導致的腎臟功能受損。 它是一種常見的糖尿病併發症，也是慢性腎臟病的主要原因之一。", text[4], R.drawable.ic_kidney_or_dkd, Constant.DKD));
         }
         else {
-            diseaseHomeModelArrayList.add(new DiseaseHomeModel("子宮內膜癌", "子宮內膜癌發生大部分是經由性行為感染人類乳突病毒所致，有性經驗的婦女感染人類乳突病毒很常見。", text[0], R.drawable.ic_uterus, Constant.UTERUS));
-            diseaseHomeModelArrayList.add(new DiseaseHomeModel("卵巢癌", "卵巢癌雖不比子宮癌來得普遍，但卻是婦科癌症死亡原因的首位。", text[1], R.drawable.ic_ovary, Constant.OVARY));
-            diseaseHomeModelArrayList.add(new DiseaseHomeModel("膀胱癌", "膀胱癌是泌尿系統常見的惡性疾病之一，較常侵犯60歲以上男性，男與女的比例大約是2.7：1。", text[2], R.drawable.ic_bladder, Constant.BLADDER));
-            diseaseHomeModelArrayList.add(new DiseaseHomeModel("大腸癌", "自95年起大腸癌居全國癌症發生數第1位，每年約有一萬多人診斷大腸癌，並有超過五千人因大腸癌死亡，大腸癌對國人健康的影響甚鉅。", text[3], R.drawable.ic_rectum, Constant.RECTUM));
+//            diseaseHomeModelArrayList.add(new DiseaseHomeModel("子宮內膜癌", "子宮內膜癌發生大部分是經由性行為感染人類乳突病毒所致，有性經驗的婦女感染人類乳突病毒很常見。", text[0], R.drawable.ic_uterus, Constant.UTERUS));
+//            diseaseHomeModelArrayList.add(new DiseaseHomeModel("卵巢癌", "卵巢癌雖不比子宮癌來得普遍，但卻是婦科癌症死亡原因的首位。", text[1], R.drawable.ic_ovary, Constant.OVARY));
+//            diseaseHomeModelArrayList.add(new DiseaseHomeModel("膀胱癌", "膀胱癌是泌尿系統常見的惡性疾病之一，較常侵犯60歲以上男性，男與女的比例大約是2.7：1。", text[2], R.drawable.ic_bladder, Constant.BLADDER));
+//            diseaseHomeModelArrayList.add(new DiseaseHomeModel("大腸癌", "自95年起大腸癌居全國癌症發生數第1位，每年約有一萬多人診斷大腸癌，並有超過五千人因大腸癌死亡，大腸癌對國人健康的影響甚鉅。", text[3], R.drawable.ic_rectum, Constant.RECTUM));
             diseaseHomeModelArrayList.add(new DiseaseHomeModel("糖尿病腎病變", "糖尿病腎病變，又稱糖尿病性腎病，是指因糖尿病導致的腎臟功能受損。 它是一種常見的糖尿病併發症，也是慢性腎臟病的主要原因之一。", text[4], R.drawable.ic_kidney_or_dkd, Constant.DKD));
-            diseaseHomeModelArrayList.add(new DiseaseHomeModel("早產", "早產是指胎兒在妊娠滿28週至不足37週之間出生，可能需要特別醫療照護。", text[5], R.drawable.ic_preemie, Constant.PREEMIE));
+//            diseaseHomeModelArrayList.add(new DiseaseHomeModel("早產", "早產是指胎兒在妊娠滿28週至不足37週之間出生，可能需要特別醫療照護。", text[5], R.drawable.ic_preemie, Constant.PREEMIE));
         }
 
         // Initializing adapter class and passing arraylist to it.

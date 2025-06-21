@@ -102,9 +102,9 @@ public class RegisterActivity extends AppCompatActivity {
                 if(isAllSet()) {
                     Intent openRegisterDiseaseIntent = new Intent(RegisterActivity.this, RegisterDiseaseActivity.class);
                     if(Person.getInstance().getGender().equals(Constant.MALE))
-                        openRegisterDiseaseIntent.putExtra(Constant.EXTRA_INDEX, 3);
+                        openRegisterDiseaseIntent.putExtra(Constant.EXTRA_INDEX, 5);
                     else
-                        openRegisterDiseaseIntent.putExtra(Constant.EXTRA_INDEX, 0);
+                        openRegisterDiseaseIntent.putExtra(Constant.EXTRA_INDEX, 5);
                     startActivity(openRegisterDiseaseIntent);
                 }
                 else {
