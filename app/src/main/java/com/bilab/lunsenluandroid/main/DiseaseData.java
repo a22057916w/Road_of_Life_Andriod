@@ -33,7 +33,7 @@ public class DiseaseData {
     private final String [] _ovary_ICD9 = {"220", "620", "617", "218", "614"};
     private final String [] _bladder_ICD9 = {"599", "592", "595", "600", "585", "582", "591"};
     private final String [] _rectum_ICD9 = {"578", "455", "532", "211"};
-    private final String[] _DKD_ICD9 = {"362", "272", "402", "401", "414", "571", "782", "274", "366", "628"};
+    private final String[] _DKD_ICD9 = {"362", "272", "402", "401", "414", "571", "782", "274", "366", "682"};
     private final String[] _preemie_ICD9 = {"651", "654", "660", "665"};
 
 
