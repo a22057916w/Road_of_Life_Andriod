@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -26,7 +26,7 @@ public class DiseaseCategoryFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         diseaseViewModel =
-                ViewModelProviders.of(this).get(DiseaseViewModel.class);
+                new ViewModelProvider(this).get(DiseaseViewModel.class);
         View root = inflater.inflate(R.layout.fragment_disease, container, false);
 
         registerUI(root);

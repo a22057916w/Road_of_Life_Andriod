@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.bilab.lunsenluandroid.PrivacyPolicyActivity;
 import com.bilab.lunsenluandroid.R;
@@ -38,7 +38,7 @@ public class SettingFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         settingViewModel =
-                ViewModelProviders.of(this).get(SettingViewModel.class);
+                new ViewModelProvider(this).get(SettingViewModel.class);
         View root = inflater.inflate(R.layout.fragment_setting, container, false);
 
         intent = getActivity().getIntent();
