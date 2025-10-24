@@ -43,6 +43,10 @@ android {
     }
 }
 
+kotlin {
+    jvmToolchain(17)
+}
+
 composeCompiler {
     reportsDestination = layout.buildDirectory.dir("compose_compiler")
     stabilityConfigurationFile = rootProject.layout.projectDirectory.file("stability_config.conf")
