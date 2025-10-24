@@ -69,7 +69,7 @@ public class DiseaseHomeAdapter extends RecyclerView.Adapter<DiseaseHomeAdapter.
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent openDiseaseChartIntent = new Intent(view.getContext(), DiseaseChartActivity.class);
+                Intent openDiseaseChartIntent = new Intent(view.getContext(), DiseaseChartActivityKt.class);
                 openDiseaseChartIntent.putExtra(Constant.EXTRA_DISEASE_CATEGORY, model.getType());
                 view.getContext().startActivity(openDiseaseChartIntent);
             }

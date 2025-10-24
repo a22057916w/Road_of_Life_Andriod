@@ -30,7 +30,7 @@ import java.util.Properties
 import kotlin.math.ceil
 import kotlin.math.exp
 
-class DiseaseChartActivityCopy : AppCompatActivity() {
+class DiseaseChartActivityKt : AppCompatActivity() {
     private lateinit var cancerDiseases: ArrayList<String>
     private lateinit var personDiseases: ArrayList<String>
     private lateinit var cancerICD9s: Array<String>
@@ -280,7 +280,7 @@ class DiseaseChartActivityCopy : AppCompatActivity() {
         try {
             // ===================== weights ========================
             val weightsKey = "$cancerLower.model.weights"   // e.g. bladder.model.weights
-            val wDiseasesStr = properties.getProperty(weightsKey, "").replace(Regex("[()]"), "").split(",\s*".toRegex())
+            val wDiseasesStr = properties.getProperty(weightsKey, "").replace(Regex("[()]"), "").split(",\\s*".toRegex())
 
             // Iterate over tuple array and populate the map
             wDiseases = if (wDiseasesStr.isNotEmpty() && wDiseasesStr[0].isNotEmpty()) {
