@@ -248,7 +248,7 @@ public class DiseaseChartActivity extends AppCompatActivity {
 
         PieDataSet personalPieDataSet = new PieDataSet(entries, "");
         PieData personalPieData = new PieData(personalPieDataSet);
-        
+
         // set common attribute
         String text;
         if(_pRisk <= 50.0D)
@@ -357,7 +357,7 @@ public class DiseaseChartActivity extends AppCompatActivity {
         try {
             // ===================== weights ========================
             String weights = cancer + ".model.weights";   // e.g. bladder.model.weights
-            String[] wDiseases = properties.getProperty(weights, "").replaceAll("[()]", "").split(",\\s*");;
+            String[] wDiseases = properties.getProperty(weights, "").replaceAll("[()]", "").split(",\\s*");
 
             // Create a map to store tuples
             _wDiseases = new HashMap<>();
