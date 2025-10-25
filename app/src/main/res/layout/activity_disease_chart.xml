@@ -20,18 +20,29 @@
             android:id="@+id/piechart_personal"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_margin="8dp"
+            android:layout_margin="0dp"
             android:layout_weight="0.5" />
+
     </LinearLayout>
+
+    <view
+        android:id="@+id/any_chart_linear_color_scale_bar"
+        class="com.anychart.AnyChartView"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="0dp"
         android:layout_height="24dp"
+        android:layout_marginTop="-4dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
         app:layout_constraintStart_toStartOf="@+id/linearLayout2"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+        app:layout_constraintTop_toBottomOf="@id/any_chart_linear_color_scale_bar">
 
         <TextView
             android:id="@+id/tv_personal_piechart"

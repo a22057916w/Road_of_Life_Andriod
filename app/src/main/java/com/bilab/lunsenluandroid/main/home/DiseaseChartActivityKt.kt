@@ -7,6 +7,15 @@ import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.anychart.APIlib
+import com.anychart.AnyChart
+import com.anychart.AnyChartView
+import com.anychart.chart.common.dataentry.SingleValueDataSet
+import com.anychart.enums.Anchor
+import com.anychart.enums.Layout
+import com.anychart.enums.MarkerType
+import com.anychart.enums.Position
+import com.anychart.scales.OrdinalColor
 import com.bilab.lunsenluandroid.R
 import com.bilab.lunsenluandroid.conf.Constant
 import com.bilab.lunsenluandroid.conf.Person
@@ -30,6 +39,7 @@ import java.util.Properties
 import kotlin.math.ceil
 import kotlin.math.exp
 
+
 class DiseaseChartActivityKt : AppCompatActivity() {
     private lateinit var cancerDiseases: ArrayList<String>
     private lateinit var personDiseases: ArrayList<String>
@@ -39,6 +49,7 @@ class DiseaseChartActivityKt : AppCompatActivity() {
     private lateinit var tvOddsRatio: TextView
     private lateinit var horizontalBarChart: HorizontalBarChart
     private lateinit var personalPieChart: PieChart
+    private lateinit var linearColorScaleBar : AnyChartView
 
     // =============== model attributes =================
     private lateinit var wDiseases: Map<String, Double>
@@ -63,6 +74,7 @@ class DiseaseChartActivityKt : AppCompatActivity() {
         setUI()
         setHorizontalBarChart()
         setPieChart()
+        setLinerColorScaleBar()
 
         computeRisk()
     }
@@ -74,6 +86,8 @@ class DiseaseChartActivityKt : AppCompatActivity() {
         // charts
         horizontalBarChart = findViewById(R.id.horizontalBarChart)
         personalPieChart = findViewById(R.id.piechart_personal)
+
+        linearColorScaleBar = findViewById(R.id.any_chart_linear_color_scale_bar)
     }
 
     private fun setValue() {
@@ -246,6 +260,92 @@ class DiseaseChartActivityKt : AppCompatActivity() {
             }
         }
         (pieData.dataSet as PieDataSet).colors = colors
+    }
+
+    private fun setLinerColorScaleBar() {
+        APIlib.getInstance().setActiveAnyChartView(linearColorScaleBar)
+        val linearGauge = AnyChart.linear()
+
+        linearGauge.layout(Layout.HORIZONTAL)
+//        linearGauge.label(0)
+//            .position(Position.LEFT_CENTER)
+//            .anchor(Anchor.LEFT_CENTER)
+//            .offsetY("-50px")
+//            .offsetX("50px")
+//            .fontColor("#777777")
+//            .fontSize(17)
+
+        val scaleBarColorScale = OrdinalColor.instantiate()
+        scaleBarColorScale.ranges(
+            arrayOf<String>(
+                "{ from: 0, to: 25, color: [ '#2AD62A', '#CAD70b'] }",
+                "{ from: 25, to: 50, color: ['#CAD70b', '#FFD700'] }",
+                "{ from: 50, to: 75, color: ['#FFD700', '#EB7A02'] }",
+                "{ from: 75, to: 100, color: ['#EB7A02', '#D81E05'] }"
+            )
+        )
+
+        linearGauge.scaleBar(0)
+            .width("5%")
+            .colorScale(scaleBarColorScale)
+
+        // range from 0% to 100%
+        linearGauge.scale()
+            .minimum(0)
+            .maximum(100)
+
+        linearGauge.data(SingleValueDataSet(arrayOf<Double>(10.0, 40.0, 70.0)))
+        linearGauge.marker(0)
+            .type(MarkerType.CIRCLE)
+            .color("greenYellow")
+            .offset("15%") // distance from the bottom of linear gauge
+            .zIndex(10)
+            .width("12.5%")
+        linearGauge.label(0)
+            .position(Position.LEFT_CENTER)
+            .anchor(Anchor.LEFT_CENTER)
+            .offsetY("8dp")
+            .offsetX("20%")
+            .fontSize(14)
+            .text("低風險")
+
+        linearGauge.marker(1)
+            .type(MarkerType.CIRCLE)
+            .color("gold")
+            .offset("15%") // distance from the bottom of linear gauge
+            .zIndex(10)
+            .width("12.5%")
+        linearGauge.label(1)
+            .position(Position.LEFT_CENTER)
+            .anchor(Anchor.LEFT_CENTER)
+            .offsetY("8dp")
+            .offsetX("45%")
+            .fontSize(14)
+            .text("中風險")
+
+        linearGauge.marker(2)
+            .type(MarkerType.CIRCLE)
+            .color("red")
+            .offset("15%") // distance from the bottom of linear gauge
+            .zIndex(10)
+            .width("12.5%")
+        linearGauge.label(2)
+            .position(Position.LEFT_CENTER)
+            .anchor(Anchor.LEFT_CENTER)
+            .offsetY("8dp")
+            .offsetX("70%")
+            .fontSize(14)
+            .text("高風險")
+
+
+
+        linearGauge.padding(0, 30, 0, 30)
+
+        linearColorScaleBar.setChart(linearGauge)
+
+
+        // remove watermark "AnyChart Trial Version"
+        linearGauge.credits().enabled(false)
     }
 
     private fun computeRisk(): Double {
