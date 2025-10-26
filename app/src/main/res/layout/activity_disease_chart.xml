@@ -7,53 +7,6 @@
     android:background="@color/white"
     tools:context=".main.home.DiseaseChartActivity">
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="0dp"
-        android:layout_height="150dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_cancer_diseases">
-
-        <com.github.mikephil.charting.charts.PieChart
-            android:id="@+id/piechart_personal"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_margin="0dp"
-            android:layout_weight="0.5" />
-
-    </LinearLayout>
-
-    <view
-        android:id="@+id/any_chart_linear_color_scale_bar"
-        class="com.anychart.AnyChartView"
-        android:layout_width="0dp"
-        android:layout_height="100dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="0dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="-4dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout2"
-        app:layout_constraintTop_toBottomOf="@id/any_chart_linear_color_scale_bar">
-
-        <TextView
-            android:id="@+id/tv_personal_piechart"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:text="個人罹癌風險"
-            android:textAlignment="center"
-            android:textSize="14sp" />
-    </LinearLayout>
-
     <TextView
         android:id="@+id/tv_cancer_diseases"
         android:layout_width="0dp"
@@ -66,41 +19,83 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.github.mikephil.charting.charts.HorizontalBarChart
-        android:id="@+id/horizontalBarChart"
-        android:layout_width="0dp"
-        android:layout_height="450dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
-
-    <TextView
-        android:id="@+id/tv_odds_ratio"
-        android:layout_width="0dp"
-        android:layout_height="24dp"
-        android:text="相關罹癌疾病風險"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="@+id/horizontalBarChart"
-        app:layout_constraintStart_toStartOf="@+id/horizontalBarChart"
-        app:layout_constraintTop_toBottomOf="@+id/horizontalBarChart" />
-
-    <TextView
-        android:id="@+id/tv_disclaimer"
-        android:layout_width="0dp"
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="24dp"
-        android:text="@string/label_disclaimer"
-        android:textColor="#000000"
-        android:textSize="12sp"
+        android:layout_marginTop="80dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_cancer_diseases">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:orientation="horizontal">
+
+                <com.github.mikephil.charting.charts.PieChart
+                    android:id="@+id/piechart_personal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="0dp" />
+
+            </LinearLayout>
+
+            <view
+                android:id="@+id/any_chart_linear_color_scale_bar"
+                class="com.anychart.AnyChartView"
+                android:layout_width="match_parent"
+                android:layout_height="100dp" />
+
+            <TextView
+                android:id="@+id/tv_personal_piechart"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:text="個人罹癌風險"
+                android:textAlignment="center"
+                android:textSize="14sp" />
+
+            <com.github.mikephil.charting.charts.HorizontalBarChart
+                android:id="@+id/horizontalBarChart"
+                android:layout_width="match_parent"
+                android:layout_height="450dp">
+
+            </com.github.mikephil.charting.charts.HorizontalBarChart>
+
+            <TextView
+                android:id="@+id/tv_odds_ratio"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:text="相關罹癌疾病風險"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tv_disclaimer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="24dp"
+                android:layout_marginTop="24dp"
+                android:text="@string/label_disclaimer"
+                android:textColor="#000000"
+                android:textSize="12sp" />
+
+            <View
+                android:id="@+id/emptyView"
+                android:layout_width="match_parent"
+                android:layout_height="80dp" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
