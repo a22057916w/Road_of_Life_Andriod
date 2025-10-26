@@ -4,6 +4,7 @@ import android.content.res.AssetManager
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -267,13 +268,7 @@ class DiseaseChartActivityKt : AppCompatActivity() {
         val linearGauge = AnyChart.linear()
 
         linearGauge.layout(Layout.HORIZONTAL)
-//        linearGauge.label(0)
-//            .position(Position.LEFT_CENTER)
-//            .anchor(Anchor.LEFT_CENTER)
-//            .offsetY("-50px")
-//            .offsetX("50px")
-//            .fontColor("#777777")
-//            .fontSize(17)
+
 
         val scaleBarColorScale = OrdinalColor.instantiate()
         scaleBarColorScale.ranges(
@@ -294,55 +289,33 @@ class DiseaseChartActivityKt : AppCompatActivity() {
             .minimum(0)
             .maximum(100)
 
-        linearGauge.data(SingleValueDataSet(arrayOf<Double>(10.0, 40.0, 70.0)))
-        linearGauge.marker(0)
-            .type(MarkerType.CIRCLE)
-            .color("greenYellow")
-            .offset("15%") // distance from the bottom of linear gauge
-            .zIndex(10)
-            .width("12.5%")
-        linearGauge.label(0)
-            .position(Position.LEFT_CENTER)
-            .anchor(Anchor.LEFT_CENTER)
-            .offsetY("8dp")
-            .offsetX("20%")
-            .fontSize(14)
-            .text("低風險")
 
-        linearGauge.marker(1)
-            .type(MarkerType.CIRCLE)
-            .color("gold")
-            .offset("15%") // distance from the bottom of linear gauge
-            .zIndex(10)
-            .width("12.5%")
-        linearGauge.label(1)
-            .position(Position.LEFT_CENTER)
-            .anchor(Anchor.LEFT_CENTER)
-            .offsetY("8dp")
-            .offsetX("45%")
-            .fontSize(14)
-            .text("中風險")
-
-        linearGauge.marker(2)
-            .type(MarkerType.CIRCLE)
-            .color("red")
-            .offset("15%") // distance from the bottom of linear gauge
-            .zIndex(10)
-            .width("12.5%")
-        linearGauge.label(2)
-            .position(Position.LEFT_CENTER)
-            .anchor(Anchor.LEFT_CENTER)
-            .offsetY("8dp")
-            .offsetX("70%")
-            .fontSize(14)
-            .text("高風險")
-
-
+        // draw legends (combine marker and label)
+        data class MarkerInfo(val x: String, val text: String, val color: String, val value: Double)
+        val markers = listOf(
+            MarkerInfo("20%", "低風險", "greenYellow", 10.0),
+            MarkerInfo("47.5%", "中風險", "gold", 42.5),
+            MarkerInfo("75%", "高風險", "red", 75.0)
+        )
+        linearGauge.data(SingleValueDataSet(markers.map { it.value }.toTypedArray()))
+        markers.forEachIndexed { i, marker ->
+            linearGauge.marker(i)
+                .type(MarkerType.CIRCLE)
+                .color(marker.color)
+                .offset("-20%") // distance from the bottom of linear gauge
+                .zIndex(10)
+                .width("12.5%")
+            linearGauge.label(i)
+                .position(Position.LEFT_CENTER)
+                .anchor(Anchor.LEFT_CENTER)
+                .offsetY("-6dp")
+                .offsetX(marker.x)
+                .fontSize(14)
+                .text(marker.text)
+        }
 
         linearGauge.padding(0, 30, 0, 30)
-
         linearColorScaleBar.setChart(linearGauge)
-
 
         // remove watermark "AnyChart Trial Version"
         linearGauge.credits().enabled(false)
