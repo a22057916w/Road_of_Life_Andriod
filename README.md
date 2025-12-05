@@ -1,7 +1,8 @@
 A health management app that analyzes users’ medical histories to predict their risk of developing specific diseases, such as ovarian cancer or cervical cancer.
 
 ## Basic and Comorbidities
-[.](https://github.com/user-attachments/assets/b0e6e81d-df64-49c4-aaa6-ac57026d25df)
+[.](https://github.com/user-attachments/assets/9ed5bd8b-a492-4c9b-986c-1581644cde01)
 ## Import Health-Pass
+[.](https://github.com/user-attachments/assets/556d5acb-93b5-40ae-aa76-fae69bb37edd)
 ## DNA Methylation
-[https://github.com/a22057916w/Road_of_Life_Andriod/issues/12#issue-3699221723](https://github.com/user-attachments/assets/27cc9c97-3e62-4be7-8483-98a91fb8123a)
+[.](https://github.com/user-attachments/assets/d05ece4d-8a8d-4f15-93e6-858682313dd1)
