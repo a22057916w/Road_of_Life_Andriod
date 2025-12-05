@@ -47,17 +47,17 @@ public class DiseaseCategoryFragment extends Fragment {
         ArrayList<DiseaseCategoryModel> diseaseCategoryModelArrayList = new ArrayList<>();
 
         if(Person.getInstance().getGender().equals(Constant.MALE)) {
-//            diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.bladder_disease), R.drawable.ic_bladder));
-//            diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.return_diseases), R.drawable.ic_rectum));
             diseaseCategoryModelArrayList.add(new DiseaseCategoryModel("糖尿病腎病變相關疾病", R.drawable.ic_kidney_or_dkd));
+            diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.bladder_disease), R.drawable.ic_bladder));
+            diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.return_diseases), R.drawable.ic_rectum));
         }
         else {
-//            diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.uterus_diseases), R.drawable.ic_uterus));
-//            diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.ovary_diseases), R.drawable.ic_ovary));
-//            diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.bladder_disease), R.drawable.ic_bladder));
-//            diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.return_diseases), R.drawable.ic_rectum));
+            diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.uterus_diseases), R.drawable.ic_uterus));
+            diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.ovary_diseases), R.drawable.ic_ovary));
+            diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.preemie_diseases), R.drawable.ic_preemie));
             diseaseCategoryModelArrayList.add(new DiseaseCategoryModel("糖尿病腎病變相關疾病", R.drawable.ic_kidney_or_dkd));
-//            diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.preemie_diseases), R.drawable.ic_preemie));
+            diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.bladder_disease), R.drawable.ic_bladder));
+            diseaseCategoryModelArrayList.add(new DiseaseCategoryModel(getString(R.string.return_diseases), R.drawable.ic_rectum));
         }
 
         // Initializing adapter class and passing arraylist to it.

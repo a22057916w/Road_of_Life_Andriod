@@ -40,8 +40,8 @@ public class RegisterDiseaseActivity extends AppCompatActivity implements CheckB
 
     private DiseaseSelectionAdapter rvAdapter;
 
-    private final String [] category = {Constant.UTERUS, Constant.OVARY, Constant.PREEMIE, Constant.BLADDER, Constant.RECTUM, Constant.DKD};
-    private final Integer [] ctg_icon = {R.drawable.ic_uterus, R.drawable.ic_ovary, R.drawable.ic_preemie, R.drawable.ic_bladder, R.drawable.ic_rectum, R.drawable.ic_kidney_or_dkd};
+    private final String [] category = {Constant.UTERUS, Constant.OVARY, Constant.PREEMIE, Constant.DKD, Constant.BLADDER, Constant.RECTUM};
+    private final Integer [] ctg_icon = {R.drawable.ic_uterus, R.drawable.ic_ovary,R.drawable.ic_preemie,  R.drawable.ic_kidney_or_dkd, R.drawable.ic_bladder, R.drawable.ic_rectum};
     private int ctg_index;
 
     private OnBackPressedCallback onBackPressedCallback;    // handle the backPress button event
