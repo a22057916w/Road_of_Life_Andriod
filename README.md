@@ -3,7 +3,6 @@ A health management app that analyzes users’ medical histories to predict thei
 ## Comorbidities
 Upon launching the app for the first time, users are guided to input basic metrics, including height, weight, gender, and age. **Note:** We prioritize user privacy; no sensitive personally identifiable information (such as ID numbers) is collected. <br>
 Subsequently, users can select their pre-existing conditions from a comprehensive medical history list. Once the profile is set up, the main dashboard displays a ***personalized risk assessment*** for various diseases (e.g., Cervical Cancer, Colorectal Cancer). These insights are visualized through dynamic statistical charts and detailed data analysis. <br>
-Key Features
 
 * 🔒 **Privacy Focused**: The app does not collect sensitive personal data (e.g., National ID numbers).
 * 📝 **Medical History** Tracking: Users can easily check off pre-existing conditions from a built-in disease list.
