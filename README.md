@@ -9,9 +9,12 @@ Subsequently, users can select their pre-existing conditions from a comprehensiv
 * 📊 **Personalized Risk** Assessment: The system calculates and displays risk levels for specific diseases (such as Cervical Cancer and Colorectal Cancer) based on user inputs.
 * 📈 **Data Visualization**: The home dashboard presents risk data through intuitive statistical charts and graphs.
 
-
 [.](https://github.com/user-attachments/assets/9ed5bd8b-a492-4c9b-986c-1581644cde01)
-## Import Health-Pass
+
+## Import Health Record
+In addition to manually selecting pre-existing conditions, users can import their **National Health Record (NHR/health bank)** data. This allows the system to automatically extract medical history for a seamless, one-click setup, instantly generating personalized risk assessments. A detailed tutorial is provided on the import page to guide users through the upload process. <br>
+**Privacy Note:** The app strictly processes disease history records only. We do not store or process any other personal information, ensuring complete data privacy and security. <br>
+
 [.](https://github.com/user-attachments/assets/556d5acb-93b5-40ae-aa76-fae69bb37edd)
 ## DNA Methylation
 [.](https://github.com/user-attachments/assets/d05ece4d-8a8d-4f15-93e6-858682313dd1)
